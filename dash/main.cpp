@@ -22,42 +22,39 @@ int main(int argc, char* argv[])
     r->initGraphics();
     r->initShaders();
     
-//    FT_Library ft;
-//
-//    if (FT_Init_FreeType(&ft)) {
-//        std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
-//        return 1;
-//    }
-//
+    FT_Library ft;
+
+    if (FT_Init_FreeType(&ft)) {
+        std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
+        return 1;
+    }
+
 //    std::string fontFullPath(realpath(".", NULL));
 //    fontFullPath.append("/hnpro-medium-condensed.ttf");
-//
-//    FT_Face face;
-//    if (FT_New_Face(ft, fontFullPath.c_str(), 0, &face)) {
-//        std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
-//        return 1;
-//    }
+
+    FT_Face face;
+    if (FT_New_Face(ft, "hnpro-medium-condensed.ttf", 0, &face)) {
+        std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
+        return 1;
+    }
     
-//    Font font(face, 18);
+    Font font(face, 100);
     
-    glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 //    glEnable(GL_DEPTH_TEST);
 //    glDepthFunc(GL_LEQUAL);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
     
-    // Create and compile our GLSL program from the shaders
-    GLuint programID = r->modelProgram->getId();
+    GLuint modelProgramID = r->modelProgram->getId();
+    GLuint textProgramID = r->textProgram->getId();
     
-    // Get a handle for our "MVP" uniform
-    GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+    GLuint MatrixID = glGetUniformLocation(modelProgramID, "MVP");
+    GLuint vertexPosition_modelspaceID = glGetAttribLocation(modelProgramID, "vertexPosition_modelspace");
+    GLuint vertexUVID = glGetAttribLocation(modelProgramID, "vertexUV");
+    GLuint TextureID = glGetUniformLocation(modelProgramID, "myTextureSampler");
     
-    // Get a handle for our buffers
-    GLuint vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
-    GLuint vertexUVID = glGetAttribLocation(programID, "vertexUV");
-    
-
 //    glm::mat4 Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.001f, 100.0f);
     glm::mat4 Projection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, 0.0f, 100.0f); // In world coordinates
     
@@ -77,9 +74,6 @@ int main(int argc, char* argv[])
     glm::vec3 scale = glm::vec3(1, 1, 1);
     
     GLuint Texture = Texture::loadBMP("uvtemplate.bmp");
-
-    // Get a handle for our "myTextureSampler" uniform
-    GLuint TextureID = glGetUniformLocation(programID, "myTextureSampler");
 
     std::vector<glm::vec3> vertices;
     std::vector<glm::vec2> uvs;
@@ -109,7 +103,7 @@ int main(int argc, char* argv[])
     glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
     glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
 
-    glUseProgram(programID);
+    
 
     int running = 1;
     while (running)
@@ -126,23 +120,24 @@ int main(int argc, char* argv[])
         
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-//        r->renderText(font, "Test", 0, 0, 1, glm::vec3(255, 255, 255));
+        // render 3d plane
+        glUseProgram(r->modelProgram->getId());
 
         glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), position);
         glm::mat4 rotationMatrix = glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
         glm::mat4 scalingMatrix = glm::scale(glm::mat4(1.0f), scale);
-    
-        
+
+
         Model = translationMatrix * rotationMatrix * scalingMatrix;
 
         glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
-        
+
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-        
+
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, Texture);
         glUniform1i(TextureID, 0);
-        
+
         glEnableVertexAttribArray(vertexPosition_modelspaceID);
         glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
         glVertexAttribPointer(
@@ -153,7 +148,7 @@ int main(int argc, char* argv[])
                               0, // stride
                               (void*)0 // array buffer offset
                               );
-        
+
         glEnableVertexAttribArray(vertexUVID);
         glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
         glVertexAttribPointer(
@@ -166,9 +161,16 @@ int main(int argc, char* argv[])
                               );
 
         glDrawArrays(GL_TRIANGLES, 0, (int) vertices.size() );
-        
+
         glDisableVertexAttribArray(vertexPosition_modelspaceID);
         glDisableVertexAttribArray(vertexUVID);
+
+        
+        // text
+        glUseProgram(r->textProgram->getId());
+        
+        r->renderText(font, "Test", 10.0f, 10.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+        r->renderText(font, "Test", 10.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
         
         SDL_Delay(1000.0f / 60.0f);
         

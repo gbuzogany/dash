@@ -62,15 +62,15 @@ void Renderer::initGraphics()
     printf("GL_RENDERER = %s\n", glGetString(GL_RENDERER));
     printf("Started with GLSL %s\n",  glGetString(GL_SHADING_LANGUAGE_VERSION));
 
-//    glGenVertexArraysOES(1, &VAO);
-//    glGenBuffers(1, &VBO);
-//    glBindVertexArrayOES(VAO);
-//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
-//    glEnableVertexAttribArray(0);
-//    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-//    glBindBuffer(GL_ARRAY_BUFFER, 0);
-//    glBindVertexArrayOES(0);
+    glGenVertexArraysOES(1, &VAO);
+    glGenBuffers(1, &VBO);
+    glBindVertexArrayOES(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArrayOES(0);
 }
 
 void Renderer::updateScreen() {
@@ -79,8 +79,18 @@ void Renderer::updateScreen() {
 
 void Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
-    // Activate corresponding render state
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
     GLuint programId = textProgram->getId();
+    
+    GLuint uTexID = glGetUniformLocation(programId, "tex");
+    GLuint uProjectionID = glGetUniformLocation(programId, "projection");
+    
+    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 640.0f);
+    glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
+    
+    glUniform1i(uTexID, 0);
     glUniform3f(glGetUniformLocation(programId, "textColor"), color.x, color.y, color.z);
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArrayOES(VAO);
