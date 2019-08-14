@@ -20,6 +20,7 @@ struct Character {
 };
 
 class Font {
+    void addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode);
 public:
     std::map<GLchar, Character> characters;
     Font(FT_Face &face, int size);

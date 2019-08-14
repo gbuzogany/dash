@@ -44,7 +44,7 @@ public:
     void initGraphics();
     void initShaders();
     void updateScreen();
-    void renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
+    float renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
 };
 
 #endif /* Renderer_hpp */

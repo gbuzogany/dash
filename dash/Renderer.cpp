@@ -48,7 +48,7 @@ void Renderer::initGraphics()
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
     
-    window = SDL_CreateWindow("ANGLE", 100, 100, 640, 480, SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("ANGLE", 100, 100, 800, 480, SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
     assert(window);
     
     context = SDL_GL_CreateContext(window);
@@ -77,7 +77,7 @@ void Renderer::updateScreen() {
     SDL_GL_SwapWindow(window);
 }
 
-void Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
+float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -87,7 +87,7 @@ void Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GL
     GLuint uTexID = glGetUniformLocation(programId, "tex");
     GLuint uProjectionID = glGetUniformLocation(programId, "projection");
     
-    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 640.0f);
+    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
     glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
     
     glUniform1i(uTexID, 0);
@@ -97,12 +97,28 @@ void Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GL
     
     // Iterate through all characters
     std::string::const_iterator c;
+    FT_ULong previous = NULL;
+    
     for (c = text.begin(); c != text.end(); c++)
     {
+        long kerning = 0;
         Character ch = font.characters[*c];
+
+        // hardcoded kerning instead of using GPOS table
+        if ((*c == 'e' || *c == 'o') && previous == 'T'){
+//            FT_Vector delta;
+//            FT_UInt glyph_index = FT_Get_Char_Index( face, *c );
+//            FT_UInt prev_index = FT_Get_Char_Index( face, previous );
+//            FT_Get_Kerning( face, prev_index, glyph_index,
+//                           FT_KERNING_DEFAULT, &delta );
+            kerning = 2.0f;
+        }
+        previous = *c;
+
+        x -= kerning;
         
         GLfloat xpos = x + ch.bearing.x * scale;
-        GLfloat ypos = y - (ch.size.y - ch.bearing.y) * scale;
+        GLfloat ypos = 480.0f - y - (ch.size.y - ch.bearing.y) * scale;
         
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
@@ -129,6 +145,8 @@ void Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GL
     }
     glBindVertexArrayOES(0);
     glBindTexture(GL_TEXTURE_2D, 0);
+    
+    return x;
 }
 
 Renderer::~Renderer() {
