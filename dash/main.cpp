@@ -6,29 +6,48 @@ using namespace glm;
 #include <exception>
 #include <functional>
 #include <vector>
+#include <iostream>
 
 #include <SDL2/SDL.h>
 #define GL_GLEXT_PROTOTYPES 1
 //#include <SDL2/SDL_opengles2.h>
+#include <GLES2/gl2.h>
+
 #include "Renderer.hpp"
 #include "Texture.hpp"
-
-#include <GLES2/gl2.h>
 
 int main(int argc, char* argv[])
 {
     Renderer* r = new Renderer();
     r->initGraphics();
     
+//    FT_Library ft;
+//
+//    if (FT_Init_FreeType(&ft)) {
+//        std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
+//        return 1;
+//    }
+//
+//    std::string fontFullPath(realpath(".", NULL));
+//    fontFullPath.append("/hnpro-medium-condensed.ttf");
+//
+//    FT_Face face;
+//    if (FT_New_Face(ft, fontFullPath.c_str(), 0, &face)) {
+//        std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
+//        return 1;
+//    }
+    
+//    Font font(face, 18);
+    
     glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
 
-//    glEnable(GL_DEPTH_TEST);
-//    glDepthFunc(GL_LEQUAL);
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
     
     // Create and compile our GLSL program from the shaders
-    GLuint programID = r->loadShaders( "TransformVertexShader.glsl", "TextureFragmentShader.glsl" );
+    GLuint programID = r->modelProgram->getId();
     
     // Get a handle for our "MVP" uniform
     GLuint MatrixID = glGetUniformLocation(programID, "MVP");
@@ -60,8 +79,7 @@ int main(int argc, char* argv[])
 
     // Get a handle for our "myTextureSampler" uniform
     GLuint TextureID = glGetUniformLocation(programID, "myTextureSampler");
-    
-    // Read our .obj file
+
     std::vector<glm::vec3> vertices;
     std::vector<glm::vec2> uvs;
     
@@ -106,10 +124,13 @@ int main(int argc, char* argv[])
         }
         
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+//        r->renderText(font, "Test", 0, 0, 1, glm::vec3(255, 255, 255));
 
         glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), position);
         glm::mat4 rotationMatrix = glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
         glm::mat4 scalingMatrix = glm::scale(glm::mat4(1.0f), scale);
+    
         
         Model = translationMatrix * rotationMatrix * scalingMatrix;
 
@@ -153,6 +174,8 @@ int main(int argc, char* argv[])
         r->updateScreen();
     }
     
+//    SDL_DestroyTexture(texture);
+//    SDL_FreeSurface(surface);
 //    SDL_GL_DeleteContext(context);
     SDL_Quit();
     

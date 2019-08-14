@@ -8,6 +8,10 @@
 
 #include "Shader.hpp"
 #include <assert.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <iostream>
+#include <stdlib.h>
 
 bool Shader::loadFragmentShader(const char *filename)
 {

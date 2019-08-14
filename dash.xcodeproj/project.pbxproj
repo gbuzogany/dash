@@ -18,6 +18,11 @@
 		66369DB82302EE9D00975025 /* TransformVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66369DB42302EE8600975025 /* TransformVertexShader.glsl */; };
 		66369DBA2302F2F700975025 /* uvtemplate.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66369DB92302F2F100975025 /* uvtemplate.bmp */; };
 		66369DBD2302F31000975025 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DBB2302F31000975025 /* Texture.cpp */; };
+		66369DBF23031C0100975025 /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66369DBE23031C0000975025 /* libSDL2_ttf-2.0.0.dylib */; };
+		6659847C23044960002D326C /* libfreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6659847B23044960002D326C /* libfreetype.dylib */; };
+		6659848123044A47002D326C /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659847F23044A47002D326C /* Font.cpp */; };
+		6659848223044ED5002D326C /* TextVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847923044886002D326C /* TextVertex.glsl */; };
+		6659848323044ED5002D326C /* TextFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847A23044894002D326C /* TextFragment.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +35,8 @@
 				66369DB72302EE9D00975025 /* TextureFragmentShader.glsl in CopyFiles */,
 				66369DB82302EE9D00975025 /* TransformVertexShader.glsl in CopyFiles */,
 				66369DBA2302F2F700975025 /* uvtemplate.bmp in CopyFiles */,
+				6659848223044ED5002D326C /* TextVertex.glsl in CopyFiles */,
+				6659848323044ED5002D326C /* TextFragment.glsl in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +59,13 @@
 		66369DB92302F2F100975025 /* uvtemplate.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = uvtemplate.bmp; sourceTree = "<group>"; };
 		66369DBB2302F31000975025 /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		66369DBC2302F31000975025 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
+		66369DBE23031C0000975025 /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "../../../../../usr/local/Cellar/sdl2_ttf/2.0.15/lib/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
+		6659847923044886002D326C /* TextVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextVertex.glsl; sourceTree = "<group>"; };
+		6659847A23044894002D326C /* TextFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextFragment.glsl; sourceTree = "<group>"; };
+		6659847B23044960002D326C /* libfreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.dylib; path = ../../../../../usr/local/lib/libfreetype.dylib; sourceTree = "<group>"; };
+		6659847D2304497E002D326C /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../../../../../usr/local/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
+		6659847F23044A47002D326C /* Font.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
+		6659848023044A47002D326C /* Font.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +73,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66369DBF23031C0100975025 /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
 				66369DA82302E87800975025 /* libEGL.dylib in Frameworks */,
 				66369DAA2302E87800975025 /* libSDL2-2.0.0.dylib in Frameworks */,
 				66369DAC2302E87800975025 /* libGLESv2.dylib in Frameworks */,
+				6659847C23044960002D326C /* libfreetype.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +115,8 @@
 				66369DB92302F2F100975025 /* uvtemplate.bmp */,
 				66369DBB2302F31000975025 /* Texture.cpp */,
 				66369DBC2302F31000975025 /* Texture.hpp */,
+				6659847F23044A47002D326C /* Font.cpp */,
+				6659848023044A47002D326C /* Font.hpp */,
 			);
 			path = dash;
 			sourceTree = "<group>";
@@ -106,6 +124,9 @@
 		66369DA62302E87800975025 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6659847D2304497E002D326C /* libfreetype.6.dylib */,
+				6659847B23044960002D326C /* libfreetype.dylib */,
+				66369DBE23031C0000975025 /* libSDL2_ttf-2.0.0.dylib */,
 				66369DA72302E87800975025 /* libEGL.dylib */,
 				66369DA92302E87800975025 /* libSDL2-2.0.0.dylib */,
 				66369DAB2302E87800975025 /* libGLESv2.dylib */,
@@ -118,6 +139,8 @@
 			children = (
 				66369DB32302EE8600975025 /* TextureFragmentShader.glsl */,
 				66369DB42302EE8600975025 /* TransformVertexShader.glsl */,
+				6659847923044886002D326C /* TextVertex.glsl */,
+				6659847A23044894002D326C /* TextFragment.glsl */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -178,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6659848123044A47002D326C /* Font.cpp in Sources */,
 				66369DBD2302F31000975025 /* Texture.cpp in Sources */,
 				66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
@@ -309,12 +333,16 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"$(SRCROOT)/../../angle/include\"",
+					/usr/local/include/freetype2,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/sdl2/2.0.9_1/lib,
 					"\"$(SRCROOT)/../../angle/out/Debug\"",
+					/usr/local/Cellar/sdl2_ttf/2.0.15/lib,
+					/usr/local/lib,
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -328,12 +356,16 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"\"$(SRCROOT)/../../angle/include\"",
+					/usr/local/include/freetype2,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/sdl2/2.0.9_1/lib,
 					"\"$(SRCROOT)/../../angle/out/Debug\"",
+					/usr/local/Cellar/sdl2_ttf/2.0.15/lib,
+					/usr/local/lib,
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
