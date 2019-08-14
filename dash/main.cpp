@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
 {
     Renderer* r = new Renderer();
     r->initGraphics();
+    r->initShaders();
     
 //    FT_Library ft;
 //
@@ -41,8 +42,8 @@ int main(int argc, char* argv[])
     
     glClearColor(0.0f, 0.0f, 0.4f, 1.0f);
 
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LEQUAL);
+//    glEnable(GL_DEPTH_TEST);
+//    glDepthFunc(GL_LEQUAL);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
     
@@ -173,10 +174,7 @@ int main(int argc, char* argv[])
         
         r->updateScreen();
     }
-    
-//    SDL_DestroyTexture(texture);
-//    SDL_FreeSurface(surface);
-//    SDL_GL_DeleteContext(context);
+
     SDL_Quit();
     
     return 0;

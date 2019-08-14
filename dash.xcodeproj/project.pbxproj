@@ -139,8 +139,8 @@
 			children = (
 				66369DB32302EE8600975025 /* TextureFragmentShader.glsl */,
 				66369DB42302EE8600975025 /* TransformVertexShader.glsl */,
-				6659847923044886002D326C /* TextVertex.glsl */,
 				6659847A23044894002D326C /* TextFragment.glsl */,
+				6659847923044886002D326C /* TextVertex.glsl */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";

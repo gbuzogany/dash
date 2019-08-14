@@ -12,8 +12,12 @@
 
 Renderer::Renderer()
 {
+
+}
+
+void Renderer::initShaders() {
     modelProgram = loadShaders( "TransformVertexShader.glsl", "TextureFragmentShader.glsl" );
-//    textProgram = loadShaders( "TextVertex.glsl", "TextFragment.glsl" );
+    textProgram = loadShaders( "TextVertex.glsl", "TextFragment.glsl" );
 }
 
 ShaderProgram* Renderer::loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath)
@@ -25,8 +29,9 @@ ShaderProgram* Renderer::loadShaders(const char *vertexShaderPath, const char *f
     vertex->loadVertexShader(vertexShaderPath);
     fragment->loadFragmentShader(fragmentShaderPath);
     program->create(vertex, fragment);
+    assert(glGetError() == 0);
     glUseProgram(program->getId());
-    
+    assert(glGetError() == 0);
     return program;
 }
 
@@ -57,15 +62,15 @@ void Renderer::initGraphics()
     printf("GL_RENDERER = %s\n", glGetString(GL_RENDERER));
     printf("Started with GLSL %s\n",  glGetString(GL_SHADING_LANGUAGE_VERSION));
 
-    glGenVertexArraysOES(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glBindVertexArrayOES(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArrayOES(0);
+//    glGenVertexArraysOES(1, &VAO);
+//    glGenBuffers(1, &VBO);
+//    glBindVertexArrayOES(VAO);
+//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+//    glEnableVertexAttribArray(0);
+//    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
+//    glBindBuffer(GL_ARRAY_BUFFER, 0);
+//    glBindVertexArrayOES(0);
 }
 
 void Renderer::updateScreen() {
@@ -114,4 +119,8 @@ void Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GL
     }
     glBindVertexArrayOES(0);
     glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+Renderer::~Renderer() {
+    SDL_GL_DeleteContext(context);
 }

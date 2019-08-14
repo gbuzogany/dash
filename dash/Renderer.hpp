@@ -33,13 +33,16 @@ private:
     
     GLuint VAO, VBO;
 public:
+    Renderer();
+    ~Renderer();
+    
     ShaderProgram *modelProgram;
     ShaderProgram *textProgram;
     
     SDL_Window *window;
-    Renderer();
     ShaderProgram* loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath);
     void initGraphics();
+    void initShaders();
     void updateScreen();
     void renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
 };
