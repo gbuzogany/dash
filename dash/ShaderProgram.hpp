@@ -10,6 +10,7 @@
 #define ShaderProgram_hpp
 
 #include <stdio.h>
+#include <assert.h>
 #include "GLES2/gl2.h"
 #include "EGL/egl.h"
 #include "EGL/eglext.h"

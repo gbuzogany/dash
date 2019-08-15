@@ -23,6 +23,9 @@
 		6659848123044A47002D326C /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659847F23044A47002D326C /* Font.cpp */; };
 		6659848223044ED5002D326C /* TextVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847923044886002D326C /* TextVertex.glsl */; };
 		6659848323044ED5002D326C /* TextFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847A23044894002D326C /* TextFragment.glsl */; };
+		6659848623056DFF002D326C /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848423056DFF002D326C /* Vehicle.cpp */; };
+		6659848923057103002D326C /* Dashboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848723057103002D326C /* Dashboard.cpp */; };
+		6659848C2305742F002D326C /* CB650F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848A2305742F002D326C /* CB650F.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +68,12 @@
 		6659847B23044960002D326C /* libfreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.dylib; path = ../../../../../usr/local/lib/libfreetype.dylib; sourceTree = "<group>"; };
 		6659847F23044A47002D326C /* Font.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
 		6659848023044A47002D326C /* Font.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
+		6659848423056DFF002D326C /* Vehicle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vehicle.cpp; sourceTree = "<group>"; };
+		6659848523056DFF002D326C /* Vehicle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vehicle.hpp; sourceTree = "<group>"; };
+		6659848723057103002D326C /* Dashboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Dashboard.cpp; sourceTree = "<group>"; };
+		6659848823057103002D326C /* Dashboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dashboard.hpp; sourceTree = "<group>"; };
+		6659848A2305742F002D326C /* CB650F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CB650F.cpp; sourceTree = "<group>"; };
+		6659848B2305742F002D326C /* CB650F.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CB650F.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +112,7 @@
 		66369D9B2302E7A000975025 /* dash */ = {
 			isa = PBXGroup;
 			children = (
+				6659848E2305765A002D326C /* Vehicle */,
 				66369DB62302EE8D00975025 /* Shaders */,
 				66369D9C2302E7A000975025 /* main.cpp */,
 				66369DA32302E7E200975025 /* Renderer.cpp */,
@@ -116,6 +126,8 @@
 				66369DBC2302F31000975025 /* Texture.hpp */,
 				6659847F23044A47002D326C /* Font.cpp */,
 				6659848023044A47002D326C /* Font.hpp */,
+				6659848723057103002D326C /* Dashboard.cpp */,
+				6659848823057103002D326C /* Dashboard.hpp */,
 			);
 			path = dash;
 			sourceTree = "<group>";
@@ -141,6 +153,17 @@
 				6659847923044886002D326C /* TextVertex.glsl */,
 			);
 			name = Shaders;
+			sourceTree = "<group>";
+		};
+		6659848E2305765A002D326C /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				6659848423056DFF002D326C /* Vehicle.cpp */,
+				6659848523056DFF002D326C /* Vehicle.hpp */,
+				6659848A2305742F002D326C /* CB650F.cpp */,
+				6659848B2305742F002D326C /* CB650F.hpp */,
+			);
+			name = Vehicle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,9 +224,12 @@
 			files = (
 				6659848123044A47002D326C /* Font.cpp in Sources */,
 				66369DBD2302F31000975025 /* Texture.cpp in Sources */,
+				6659848623056DFF002D326C /* Vehicle.cpp in Sources */,
 				66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
+				6659848C2305742F002D326C /* CB650F.cpp in Sources */,
 				66369DB22302EAFC00975025 /* Shader.cpp in Sources */,
+				6659848923057103002D326C /* Dashboard.cpp in Sources */,
 				66369D9D2302E7A000975025 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

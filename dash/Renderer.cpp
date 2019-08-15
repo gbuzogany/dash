@@ -12,7 +12,9 @@
 
 Renderer::Renderer()
 {
-
+    if (FT_Init_FreeType(&ft)) {
+        std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
+    }
 }
 
 void Renderer::initShaders() {
@@ -56,6 +58,7 @@ void Renderer::initGraphics()
     
     assert(SDL_GL_MakeCurrent(window, context) == 0);
     SDL_GL_SetSwapInterval(1);
+    SDL_ShowCursor(SDL_DISABLE);
     
     printf("GL_VERSION = %s\n", glGetString(GL_VERSION));
     printf("GL_VENDOR = %s\n", glGetString(GL_VENDOR));
@@ -63,10 +66,42 @@ void Renderer::initGraphics()
     printf("Started with GLSL %s\n",  glGetString(GL_SHADING_LANGUAGE_VERSION));
 
     glGenBuffers(1, &vertexbuffer);
+    
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+
 }
 
 void Renderer::updateScreen() {
     SDL_GL_SwapWindow(window);
+}
+
+void Renderer::startFrame() {
+    if (!startTime) {
+        // get the time in ms passed from the moment the program started
+        startTime = SDL_GetTicks();
+    } else {
+        delta = endTime - startTime; // how many ms for a frame
+    }
+    
+    if (delta < timePerFrame) {
+        SDL_Delay(timePerFrame - delta);
+    }
+    
+    if (delta > timePerFrame) {
+        fps = 1000 / delta;
+    }
+}
+
+void Renderer::endFrame() {
+    startTime = endTime;
+    endTime = SDL_GetTicks();
+}
+
+short Renderer::getFrameRate() {
+    return fps;
 }
 
 float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)

@@ -16,7 +16,7 @@ bool ShaderProgram::create(Shader *vertex_shader, Shader *fragment_shader)
     glAttachShader(Id, VertexShader->getId());
     glAttachShader(Id, FragmentShader->getId());
     glLinkProgram(Id);
-    //        check();
+    assert(glGetError() == 0);
     
     return true;
 }

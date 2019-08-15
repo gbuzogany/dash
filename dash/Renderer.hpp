@@ -32,18 +32,31 @@ private:
     SDL_GLContext context;
     GLuint vertexbuffer;
     GLuint VAO, VBO;
+    
+    Uint32 startTime = 0;
+    Uint32 endTime = 0;
+    Uint32 delta = 0;
+    short fps = 60;
+    short timePerFrame = 16; // miliseconds
 public:
+    FT_Library ft;
+
+    ShaderProgram *modelProgram;
+    ShaderProgram *textProgram;
+    SDL_Window *window;
+    
     Renderer();
     ~Renderer();
     
-    ShaderProgram *modelProgram;
-    ShaderProgram *textProgram;
-    
-    SDL_Window *window;
-    ShaderProgram* loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath);
     void initGraphics();
     void initShaders();
+    ShaderProgram* loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath);
     void updateScreen();
+    
+    void startFrame();
+    void endFrame();
+    short getFrameRate();
+    
     float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
 };
 
