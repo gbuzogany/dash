@@ -22,7 +22,7 @@ using namespace glm;
 
 #include "Font.hpp"
 
-void Font::addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode) {
+void FontWrapper::addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode) {
     // Load character glyph
     if (FT_Load_Char(face, charCode, FT_LOAD_RENDER | FT_LOAD_NO_HINTING))
     {
@@ -60,7 +60,7 @@ void Font::addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode) {
     characters.insert(std::pair<GLchar, Character>(charCode, character));
 }
 
-Font::Font(FT_Face &face, int size) {
+FontWrapper::FontWrapper(FT_Face &face, int size) {
     FT_Set_Pixel_Sizes(face, 0, size);
     
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // Disable byte-alignment restriction

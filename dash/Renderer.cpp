@@ -8,6 +8,7 @@
 
 #include "Renderer.hpp"
 #include <assert.h>
+#include "dlfcn.h"
 #include <iostream>
 
 Renderer::Renderer()
@@ -62,23 +63,25 @@ void Renderer::initGraphics()
     printf("GL_RENDERER = %s\n", glGetString(GL_RENDERER));
     printf("Started with GLSL %s\n",  glGetString(GL_SHADING_LANGUAGE_VERSION));
 
-    glGenVertexArraysOES(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glBindVertexArrayOES(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArrayOES(0);
+//    glGenVertexArraysOES(1, &VAO);
+//    glGenBuffers(1, &VBO);
+//    glBindVertexArrayOES(VAO);
+//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+//    glEnableVertexAttribArray(0);
+//    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
+//    glBindBuffer(GL_ARRAY_BUFFER, 0);
+//    glBindVertexArrayOES(0);
+    glGenBuffers(1, &vertexbuffer);
 }
 
 void Renderer::updateScreen() {
     SDL_GL_SwapWindow(window);
 }
 
-float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
+float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
+
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
@@ -93,7 +96,6 @@ float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, G
     glUniform1i(uTexID, 0);
     glUniform3f(glGetUniformLocation(programId, "textColor"), color.x, color.y, color.z);
     glActiveTexture(GL_TEXTURE0);
-    glBindVertexArrayOES(VAO);
     
     // Iterate through all characters
     std::string::const_iterator c;
@@ -135,15 +137,25 @@ float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, G
         // Render glyph texture over quad
         glBindTexture(GL_TEXTURE_2D, ch.textureID);
         // Update content of VBO memory
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, &vertices[0], GL_DYNAMIC_DRAW);
+        glEnableVertexAttribArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+        glVertexAttribPointer(
+                              0, // The attribute we want to configure
+                              4, // size
+                              GL_FLOAT, // type
+                              GL_FALSE, // normalized?
+                              4 * sizeof(GLfloat), // stride
+                              0 // array buffer offset
+                              );
+        
         // Render quad
         glDrawArrays(GL_TRIANGLES, 0, 6);
         // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
         x += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
     }
-    glBindVertexArrayOES(0);
+    glDisableVertexAttribArray(0);
     glBindTexture(GL_TEXTURE_2D, 0);
     
     return x;

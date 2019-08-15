@@ -63,7 +63,6 @@
 		6659847923044886002D326C /* TextVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextVertex.glsl; sourceTree = "<group>"; };
 		6659847A23044894002D326C /* TextFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextFragment.glsl; sourceTree = "<group>"; };
 		6659847B23044960002D326C /* libfreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.dylib; path = ../../../../../usr/local/lib/libfreetype.dylib; sourceTree = "<group>"; };
-		6659847D2304497E002D326C /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../../../../../usr/local/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
 		6659847F23044A47002D326C /* Font.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
 		6659848023044A47002D326C /* Font.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +123,6 @@
 		66369DA62302E87800975025 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6659847D2304497E002D326C /* libfreetype.6.dylib */,
 				6659847B23044960002D326C /* libfreetype.dylib */,
 				66369DBE23031C0000975025 /* libSDL2_ttf-2.0.0.dylib */,
 				66369DA72302E87800975025 /* libEGL.dylib */,

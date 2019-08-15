@@ -10,8 +10,7 @@ using namespace glm;
 
 #include <SDL2/SDL.h>
 #define GL_GLEXT_PROTOTYPES 1
-//#include <SDL2/SDL_opengles2.h>
-#include <GLES2/gl2.h>
+#include <SDL2/SDL_opengles2.h>
 #include <sstream>
 #include <iomanip>
 
@@ -35,24 +34,24 @@ int main(int argc, char* argv[])
 //    fontFullPath.append("/hnpro-medium-condensed.ttf");
 
     FT_Face face, faceItalic, faceBold;
-    if (FT_New_Face(ft, "hnpro-medium-condensed.otf", 0, &face)) {
+    if (FT_New_Face(ft, "hnpro-medium-condensed.ttf", 0, &face)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
         return 1;
     }
-    if (FT_New_Face(ft, "hnpro-medium-condensed-oblique.otf", 0, &faceItalic)) {
+    if (FT_New_Face(ft, "hnpro-medium-condensed-oblique.ttf", 0, &faceItalic)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
         return 1;
     }
-    if (FT_New_Face(ft, "hnpro-extra-black-condensed.otf", 0, &faceBold)) {
+    if (FT_New_Face(ft, "hnpro-extra-black-condensed.ttf", 0, &faceBold)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
         return 1;
     }
     
-    Font hnproMedium27(face, 26);
-    Font hnproHuge(face, 240);
-    Font hnproMediumOblique(faceItalic, 36);
-    Font hnproHugeOblique(faceItalic, 250);
-    Font hnproExtraHeavy36(faceBold, 36);
+    FontWrapper hnproMedium27(face, 26);
+    FontWrapper hnproHuge(face, 240);
+    FontWrapper hnproMediumOblique(faceItalic, 36);
+    FontWrapper hnproHugeOblique(faceItalic, 250);
+    FontWrapper hnproExtraHeavy36(faceBold, 36);
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 

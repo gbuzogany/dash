@@ -19,11 +19,11 @@ struct Character {
     GLuint     advance;    // Offset to advance to next glyph
 };
 
-class Font {
+class FontWrapper {
     void addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode);
 public:
     std::map<GLchar, Character> characters;
-    Font(FT_Face &face, int size);
+    FontWrapper(FT_Face &face, int size);
 };
 
 #endif /* Font_hpp */
