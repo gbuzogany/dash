@@ -23,6 +23,8 @@ int main(int argc, char* argv[])
     r->initGraphics();
     r->initShaders();
     
+    SDL_ShowCursor(SDL_DISABLE);
+    
     FT_Library ft;
 
     if (FT_Init_FreeType(&ft)) {
@@ -120,8 +122,31 @@ int main(int argc, char* argv[])
     float temp = 20;
 
     int running = 1;
+    
+    Uint32 startTime = 0;
+    Uint32 endTime = 0;
+    Uint32 delta = 0;
+    short fps = 60;
+    short timePerFrame = 16; // miliseconds
+    
+    
     while (running)
     {
+        if (!startTime) {
+            // get the time in ms passed from the moment the program started
+            startTime = SDL_GetTicks();
+        } else {
+            delta = endTime - startTime; // how many ms for a frame
+        }
+        
+        if (delta < timePerFrame) {
+            SDL_Delay(timePerFrame - delta);
+        }
+        
+        if (delta > timePerFrame) {
+            fps = 1000 / delta;
+        }
+
         speed += 0.2;
         temp += 0.1;
         
@@ -198,10 +223,6 @@ int main(int argc, char* argv[])
         std::string tempStr(1, '\xb0');
         tempStr.append("C");
         
-//        std::stringstream ss;
-//        ss << std::fixed << std::setprecision(0) << speed;
-//        std::string speedStr = ss.str();
-        
         std::stringstream tempSs;
         tempSs << std::fixed << std::setprecision(1) << temp;
         std::string coolantTempStr = tempSs.str();
@@ -239,9 +260,14 @@ int main(int argc, char* argv[])
         r->renderText(hnproHuge, speedStr, 69.0f, 323.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
         r->renderText(hnproMediumOblique, "km/h", 330.0f, 363.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
         
-        SDL_Delay(1000.0f / 60.0f);
-        
+        std::stringstream sfps;
+        sfps << std::fixed << std::setprecision(0) << fps;
+        r->renderText(hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+
         r->updateScreen();
+        
+        startTime = endTime;
+        endTime = SDL_GetTicks();
     }
 
     SDL_Quit();

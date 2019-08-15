@@ -8,7 +8,6 @@
 
 #include "Renderer.hpp"
 #include <assert.h>
-#include "dlfcn.h"
 #include <iostream>
 
 Renderer::Renderer()
@@ -63,15 +62,6 @@ void Renderer::initGraphics()
     printf("GL_RENDERER = %s\n", glGetString(GL_RENDERER));
     printf("Started with GLSL %s\n",  glGetString(GL_SHADING_LANGUAGE_VERSION));
 
-//    glGenVertexArraysOES(1, &VAO);
-//    glGenBuffers(1, &VBO);
-//    glBindVertexArrayOES(VAO);
-//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
-//    glEnableVertexAttribArray(0);
-//    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-//    glBindBuffer(GL_ARRAY_BUFFER, 0);
-//    glBindVertexArrayOES(0);
     glGenBuffers(1, &vertexbuffer);
 }
 
@@ -108,11 +98,6 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
 
         // hardcoded kerning instead of using GPOS table
         if ((*c == 'e' || *c == 'o') && previous == 'T'){
-//            FT_Vector delta;
-//            FT_UInt glyph_index = FT_Get_Char_Index( face, *c );
-//            FT_UInt prev_index = FT_Get_Char_Index( face, previous );
-//            FT_Get_Kerning( face, prev_index, glyph_index,
-//                           FT_KERNING_DEFAULT, &delta );
             kerning = 2.0f;
         }
         previous = *c;
