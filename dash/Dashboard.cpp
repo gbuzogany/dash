@@ -14,13 +14,13 @@ Dashboard::Dashboard(Renderer &renderer) {
     vehicle = new CB650F();
     
     FT_Face face, faceItalic, faceBold;
-    if (FT_New_Face(r->ft, "hnpro-medium-condensed.ttf", 0, &face)) {
+    if (FT_New_Face(r->ft, "hnpro-medium-condensed.otf", 0, &face)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
-    if (FT_New_Face(r->ft, "hnpro-medium-condensed-oblique.ttf", 0, &faceItalic)) {
+    if (FT_New_Face(r->ft, "hnpro-medium-condensed-oblique.otf", 0, &faceItalic)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
-    if (FT_New_Face(r->ft, "hnpro-extra-black-condensed.ttf", 0, &faceBold)) {
+    if (FT_New_Face(r->ft, "hnpro-extra-black-condensed.otf", 0, &faceBold)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
     

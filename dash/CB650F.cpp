@@ -56,3 +56,33 @@ std::string CB650F::getMaxTorqueString() {
     ss << std::fixed << std::setprecision(1) << torque;
     return ss.str();
 }
+
+using namespace dash;
+
+void* CB650F::serialize() {
+    flatbuffers::FlatBufferBuilder builder(32); // current size
+    
+    auto message = CreateECUMessage(builder, battVoltage, coolantTemp, airIntakeTemp, manifoldPressure, speed, tps, rpm, neutral, engineRunning);
+    builder.Finish(message);
+    
+    uint8_t *buf = builder.GetBufferPointer();
+    int size = builder.GetSize();
+    
+    void *buffer = malloc(size);
+    buffer = memcpy(buffer, buf, size);
+    
+    return buffer;
+}
+
+void CB650F::read(uint8_t *buffer_pointer) {
+    auto message  = GetECUMessage(buffer_pointer);
+    
+    speed = message->speed();
+    battVoltage = message->battVoltage();
+    coolantTemp = message->coolantTemp();
+    airIntakeTemp = message->airIntakeTemp();
+    manifoldPressure = message->manifoldPressure();
+    neutral = message->neutral();
+    engineRunning = message->engineRunning();
+    tps = message->tps();
+}

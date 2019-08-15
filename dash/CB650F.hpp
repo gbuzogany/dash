@@ -14,6 +14,7 @@
 #include <array>
 #include "Vehicle.hpp"
 #include <math.h>
+#include "honda_generated.h"
 
 class CB650F : public Vehicle
 {
@@ -28,6 +29,8 @@ public:
     CB650F();
     std::string getMaxPowerString();
     std::string getMaxTorqueString();
+    void* serialize();
+    void read(uint8_t *buffer_pointer);
 };
 
 
