@@ -42,6 +42,7 @@ public:
     virtual std::string getMaxPowerString();
     virtual std::string getMaxTorqueString();
     virtual void* serialize() { return NULL; };
+    virtual void read(uint8_t *buffer_pointer) {};
 };
 
 #endif /* Vehicle_hpp */

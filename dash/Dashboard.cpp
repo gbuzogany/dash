@@ -29,9 +29,18 @@ Dashboard::Dashboard(Renderer &renderer) {
     hnproMediumOblique = new FontWrapper(faceItalic, 36);
     hnproHugeOblique = new FontWrapper(faceItalic, 250);
     hnproExtraHeavy36 = new FontWrapper(faceBold, 36);
+    
+    connector = new ECUConnector("127.0.0.1", 1337, 1024, 1);
+
+    connector->connect();
 }
 
 void Dashboard::render() {
+    
+    sock_msg_t stats = connector->requestStats();
+    vehicle->read((uint8_t*)stats.msg);
+    delete[] stats.msg;
+    
     std::string tempStr(1, '\xb0');
     tempStr.append("C");
     

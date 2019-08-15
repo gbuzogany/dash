@@ -18,13 +18,9 @@ using namespace glm;
 #include "Texture.hpp"
 #include "Vehicle.hpp"
 #include "Dashboard.hpp"
-#include "honda_generated.h"
 
 int main(int argc, char* argv[])
 {
-    
-    flatbuffers::FlatBufferBuilder builder(1024);
-    
     Renderer r;
     r.initGraphics();
     r.initShaders();

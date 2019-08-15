@@ -16,10 +16,15 @@
 #include "Renderer.hpp"
 #include "Vehicle.hpp"
 #include "CB650F.hpp"
+#include "honda_generated.h"
+#include "ECUConnector.hpp"
+
 
 class Dashboard {
     Renderer *r;
     Vehicle *vehicle;
+    
+    ECUConnector *connector;
     
     FontWrapper *hnproMedium27;
     FontWrapper *hnproHuge;
