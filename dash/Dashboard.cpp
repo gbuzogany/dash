@@ -41,6 +41,8 @@ void Dashboard::render() {
         vehicle->read((uint8_t*)stats.msg);
         delete[] stats.msg;
     }
+    
+    vehicle->guessGear();
 
     std::string tempStr(1, '\xb0');
     tempStr.append("C");

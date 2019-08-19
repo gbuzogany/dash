@@ -20,7 +20,7 @@ class Vehicle {
 protected:
     int rpm = 0;
     int gear = GEAR_NONE;
-    int neutral = 0;
+    int neutral = 1;
     bool engineRunning = false;
     
     float speed = 0;
@@ -42,6 +42,7 @@ public:
     virtual std::string getMaxPowerString();
     virtual std::string getMaxTorqueString();
     virtual void* serialize() { return NULL; };
+    virtual int guessGear() { return GEAR_NONE; };
     virtual void read(uint8_t *buffer_pointer) {};
 };
 
