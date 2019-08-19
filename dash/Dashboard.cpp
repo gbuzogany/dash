@@ -31,16 +31,17 @@ Dashboard::Dashboard(Renderer &renderer) {
     hnproExtraHeavy36 = new FontWrapper(faceBold, 36);
     
     connector = new ECUConnector("127.0.0.1", 1337, 1024, 1);
-
-    connector->connect();
 }
 
 void Dashboard::render() {
+    sock_msg_t stats;
     
-    sock_msg_t stats = connector->requestStats();
-    vehicle->read((uint8_t*)stats.msg);
-    delete[] stats.msg;
-    
+    stats = connector->requestStats();
+    if (stats.bytes > 0) {
+        vehicle->read((uint8_t*)stats.msg);
+        delete[] stats.msg;
+    }
+
     std::string tempStr(1, '\xb0');
     tempStr.append("C");
     
