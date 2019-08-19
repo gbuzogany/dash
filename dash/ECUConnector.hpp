@@ -30,7 +30,6 @@ public:
                     unsigned int buffer_size,
                     int wait_timeout);
     sock_msg_t poll();
-    void send(sock_msg_t msg);
     void connect();
     void disconnect();
     sock_msg_t requestStats();

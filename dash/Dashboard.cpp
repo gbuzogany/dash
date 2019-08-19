@@ -36,7 +36,13 @@ Dashboard::Dashboard(Renderer &renderer) {
 void Dashboard::render() {
     sock_msg_t stats;
     
-    stats = connector->requestStats();
+    try {
+        stats = connector->requestStats();
+    }
+    catch(SocketException e) {
+        //
+    }
+    
     if (stats.bytes > 0) {
         vehicle->read((uint8_t*)stats.msg);
         delete[] stats.msg;

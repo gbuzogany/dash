@@ -65,11 +65,6 @@ void ECUConnector::disconnect() {
     }
 }
 
-void ECUConnector::send(sock_msg_t msg) {
-    _cs->send_server(msg);
-    delete[] msg.msg;
-}
-
 sock_msg_t ECUConnector::requestStats() {
     sock_msg_t msg;
     sock_msg_t resp;
