@@ -20,7 +20,7 @@ class Vehicle {
 protected:
     int rpm = 0;
     int gear = GEAR_NONE;
-    int neutral = 1;
+    int neutral = 3;
     bool engineRunning = false;
     
     float speed = 0;
@@ -31,6 +31,7 @@ protected:
     float tps = 0.5;
 public:
     Vehicle();
+    virtual int getNeutral();
     virtual std::string getRPMString();
     virtual std::string getGearString();
     virtual std::string getSpeedString();

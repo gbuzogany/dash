@@ -18,7 +18,7 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
-    modelProgram = loadShaders( "TransformVertexShader.glsl", "TextureFragmentShader.glsl" );
+    textureProgram = loadShaders( "TransformVertexShader.glsl", "TextureFragmentShader.glsl" );
     textProgram = loadShaders( "TextVertex.glsl", "TextFragment.glsl" );
 }
 
@@ -102,6 +102,42 @@ void Renderer::endFrame() {
 
 short Renderer::getFrameRate() {
     return fps;
+}
+
+void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
+
+    GLuint textureProgramId = textureProgram->getId();
+    GLuint u_squareTextureId = glGetUniformLocation(textureProgramId, "textureSampler");
+    
+    GLuint u_projectionID = glGetUniformLocation(textureProgramId, "projection");
+    
+    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
+    glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
+    
+    glUniform1i(u_squareTextureId, 0);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    
+    GLfloat xpos = x;
+    GLfloat ypos = 480.0 - y - height;
+    GLfloat vertices[6][4] = {
+        { xpos,         ypos + height,   0.0, 0.0 },
+        { xpos,         ypos,       0.0, 1.0 },
+        { xpos + width, ypos,       1.0, 1.0 },
+        
+        { xpos,         ypos + height,   0.0, 0.0 },
+        { xpos + width, ypos,       1.0, 1.0 },
+        { xpos + width, ypos + height,   1.0, 0.0 }
+    };
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, &vertices[0], GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
+
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    
 }
 
 float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)

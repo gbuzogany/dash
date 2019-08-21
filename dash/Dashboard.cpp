@@ -11,6 +11,8 @@
 Dashboard::Dashboard(Renderer &renderer) {
     this->r = &renderer;
     
+    squareTextureId = Texture::loadBMP("square.bmp");
+
     vehicle = new CB650F();
     
     FT_Face face, faceItalic, faceBold;
@@ -53,7 +55,18 @@ void Dashboard::render() {
     std::string tempStr(1, '\xb0');
     tempStr.append("C");
     
-    glUseProgram(r->textProgram->getId());
+    if (vehicle->getNeutral() == KICKSTAND) {
+        glUseProgram(r->textureProgram->getId());
+        r->renderTexture(squareTextureId, 22, 363, 94, 94);
+        
+        glUseProgram(r->textProgram->getId());
+        
+        r->renderText(*hnproMedium27, "SIDE", 46.0f, 400.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+        r->renderText(*hnproMedium27, "STAND", 36.0f, 436.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+    }
+    else {
+        glUseProgram(r->textProgram->getId());
+    }
     
     float endX = 0;
     endX = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -83,7 +96,7 @@ void Dashboard::render() {
     r->renderText(*hnproHuge, vehicle->getSpeedString(), 69.0f, 323.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     r->renderText(*hnproMediumOblique, "km/h", 330.0f, 363.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
-    std::stringstream sfps;
-    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
-    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    std::stringstream sfps;
+//    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
+//    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 }

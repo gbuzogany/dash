@@ -29,6 +29,7 @@
 		66B8057C230AC014001FC4A7 /* libGLESv2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057D230AC016001FC4A7 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66369DA92302E87800975025 /* libSDL2-2.0.0.dylib */; };
 		66B8057E230AC04A001FC4A7 /* libfreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6659847B23044960002D326C /* libfreetype.dylib */; };
+		66F48924230D8E8D0092BA35 /* square.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66F48922230D8E700092BA35 /* square.bmp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				66F48924230D8E8D0092BA35 /* square.bmp in CopyFiles */,
 				66369DB72302EE9D00975025 /* TextureFragmentShader.glsl in CopyFiles */,
 				66369DB82302EE9D00975025 /* TransformVertexShader.glsl in CopyFiles */,
 				66369DBA2302F2F700975025 /* uvtemplate.bmp in CopyFiles */,
@@ -85,6 +87,7 @@
 		665984A22305C5A9002D326C /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
+		66F48922230D8E700092BA35 /* square.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = square.bmp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,7 @@
 		66369D9B2302E7A000975025 /* dash */ = {
 			isa = PBXGroup;
 			children = (
+				66F48923230D8E7C0092BA35 /* Resources */,
 				6659848E2305765A002D326C /* Vehicle */,
 				66369DB62302EE8D00975025 /* Shaders */,
 				6659849523058DE2002D326C /* flatbuffers */,
@@ -133,7 +137,6 @@
 				66369DAE2302EACF00975025 /* ShaderProgram.hpp */,
 				66369DB02302EAFC00975025 /* Shader.cpp */,
 				66369DB12302EAFC00975025 /* Shader.hpp */,
-				66369DB92302F2F100975025 /* uvtemplate.bmp */,
 				66369DBB2302F31000975025 /* Texture.cpp */,
 				66369DBC2302F31000975025 /* Texture.hpp */,
 				6659847F23044A47002D326C /* Font.cpp */,
@@ -196,6 +199,15 @@
 				665984A22305C5A9002D326C /* Definitions.h */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		66F48923230D8E7C0092BA35 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				66369DB92302F2F100975025 /* uvtemplate.bmp */,
+				66F48922230D8E700092BA35 /* square.bmp */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

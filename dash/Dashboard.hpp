@@ -24,6 +24,8 @@ class Dashboard {
     Renderer *r;
     Vehicle *vehicle;
     
+    GLuint squareTextureId;
+    
     ECUConnector *connector;
     
     FontWrapper *hnproMedium27;
@@ -31,6 +33,7 @@ class Dashboard {
     FontWrapper *hnproMediumOblique;
     FontWrapper *hnproHugeOblique;
     FontWrapper *hnproExtraHeavy36;
+
 public:
     Dashboard(Renderer &r);
     void render();

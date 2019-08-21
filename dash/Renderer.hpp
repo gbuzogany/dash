@@ -26,6 +26,7 @@ using namespace glm;
 
 #include "ShaderProgram.hpp"
 #include "Font.hpp"
+#include "Texture.hpp"
 
 class Renderer {
 private:
@@ -41,7 +42,7 @@ private:
 public:
     FT_Library ft;
 
-    ShaderProgram *modelProgram;
+    ShaderProgram *textureProgram;
     ShaderProgram *textProgram;
     SDL_Window *window;
     
@@ -58,6 +59,7 @@ public:
     short getFrameRate();
     
     float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
+    void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
 };
 
 #endif /* Renderer_hpp */

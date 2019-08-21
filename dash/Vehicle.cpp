@@ -103,3 +103,7 @@ std::string Vehicle::getMaxTorqueString() {
     return ss.str();
 }
 
+int Vehicle::getNeutral() {
+    return neutral;
+}
+

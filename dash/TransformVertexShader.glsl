@@ -1,14 +1,13 @@
 // input
-attribute vec3 vertexPosition_modelspace;
-attribute vec2 vertexUV;
+attribute vec4 vertex;
 
 // output
 varying highp vec2 UV;
 
 // uniforms
-uniform highp mat4 MVP;
+uniform highp mat4 projection;
 
 void main(){
-    gl_Position = MVP * vec4(vertexPosition_modelspace, 1);
-    UV = vertexUV;
+    gl_Position = projection * vec4(vertex.xy, 0.0, 1.0);
+    UV = vertex.zw;
 }
