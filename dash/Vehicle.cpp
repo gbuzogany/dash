@@ -87,7 +87,25 @@ std::string Vehicle::getManifoldPressureString() {
 
 std::string Vehicle::getTPSString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(0) << tps;
+    ss << std::fixed << std::setprecision(1) << tps;
+    return ss.str();
+}
+
+std::string Vehicle::getInjectorString() {
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(1) << injectorDuration;
+    return ss.str();
+}
+
+std::string Vehicle::getIgnitionAdvanceString() {
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(0) << ignitionAdvance;
+    return ss.str();
+}
+
+std::string Vehicle::getO2VoltageString() {
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(1) << o2Voltage;
     return ss.str();
 }
 

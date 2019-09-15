@@ -21,14 +21,17 @@ protected:
     int rpm = 0;
     int gear = GEAR_NONE;
     int neutral = 3;
-    bool engineRunning = false;
+    int engineRunning = 0;
     
     float speed = 0;
-    float battVoltage = 12.5;
-    float coolantTemp = 20.0;
-    float airIntakeTemp = 20.0;
+    float battVoltage = 0;
+    float coolantTemp = 0;
+    float airIntakeTemp = 0;
     float manifoldPressure = 0;
-    float tps = 0.5;
+    float tps = 0;
+    float injectorDuration = 0;
+    float ignitionAdvance = 0;
+    float o2Voltage = 0;
 public:
     Vehicle();
     virtual int getNeutral();
@@ -40,6 +43,9 @@ public:
     virtual std::string getAirIntakeTempString();
     virtual std::string getManifoldPressureString();
     virtual std::string getTPSString();
+    virtual std::string getInjectorString();
+    virtual std::string getIgnitionAdvanceString();
+    virtual std::string getO2VoltageString();
     virtual std::string getMaxPowerString();
     virtual std::string getMaxTorqueString();
     virtual void* serialize() { return NULL; };

@@ -18,7 +18,12 @@
 #include <cmath>
 #include "honda_generated.h"
 
-enum {IN_GEAR = 0, NEUTRAL_CLUTCH = 1, KICKSTAND = 3};
+enum {IN_GEAR = 0, NEUTRAL_CLUTCH = 1, KICKSTAND_NEUTRAL = 3};
+
+// 0 = no kickstand, no clutch, gear engaged
+// 1 = clutch / neutral
+// 2 = kickstand + gear engaged
+// 3 = kickstand, no clutch, neutral
 
 class CB650F : public Vehicle
 {

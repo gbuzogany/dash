@@ -52,10 +52,11 @@ void Dashboard::render() {
     
     vehicle->guessGear();
 
+    std::string degStr(1, '\xb0');
     std::string tempStr(1, '\xb0');
     tempStr.append("C");
     
-    if (vehicle->getNeutral() == KICKSTAND) {
+    if (vehicle->getNeutral() == KICKSTAND_NEUTRAL) {
         glUseProgram(r->textureProgram->getId());
         r->renderTexture(squareTextureId, 22, 363, 94, 94);
         
@@ -71,16 +72,22 @@ void Dashboard::render() {
     float endX = 0;
     endX = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getCoolantTempString(), endX + 5.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "Air Intake Temp", 27.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getAirIntakeTempString(), endX + 5.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "Manifold Pressure", 27.0f, 123.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getManifoldPressureString(), endX + 5.0f, 123.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "kPA", endX + 3.0f, 123.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "TPS", 564.0f, 47.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getTPSString(), endX + 3.0f, 47.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "%", endX + 3.0f, 47.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproMedium27, "Inj Dur", 300.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproExtraHeavy36, vehicle->getInjectorString(), endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproMedium27, "ms", endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproMedium27, "Ign Adv", 300.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproExtraHeavy36, vehicle->getIgnitionAdvanceString(), endX + 3.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproMedium27, degStr, endX + 3.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 451.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), endX + 5.0f, 451.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 451.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
