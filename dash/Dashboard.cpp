@@ -29,7 +29,7 @@ Dashboard::Dashboard(Renderer &renderer) {
     std::vector<FT_ULong> usedChars = {
         'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
         'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-        '0','1','2','3','4','5','6','7','8','9','@',(FT_ULong)176,' '
+        '0','1','2','3','4','5','6','7','8','9','@',(FT_ULong)176,' ','.','%'
     };
     
     std::vector<FT_ULong> largeChars = {
@@ -121,8 +121,8 @@ void Dashboard::render() {
     endX = r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getManifoldPressureString(), attrX["manifoldPressure"] + 5.0f, 123.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "kPA", endX + 3.0f, 123.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    endX = r->renderText(*hnproExtraHeavy36, vehicle->getTPSString(), attrX["tps"] + 3.0f, 47.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    endX = r->renderText(*hnproMedium27, "%", endX + 3.0f, 47.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproExtraHeavy36, vehicle->getTPSString(), attrX["tps"] + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproMedium27, "%", endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getInjectorString(), attrX["injectorDuration"] + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "ms", endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getIgnitionAdvanceString(), attrX["ignitionAdvance"] + 3.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -140,9 +140,9 @@ void Dashboard::render() {
     
     
     
-    std::stringstream sfps;
-    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
-    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    std::stringstream sfps;
+//    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
+//    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
 
 void Dashboard::renderFixed() {
@@ -154,9 +154,9 @@ void Dashboard::renderFixed() {
     attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     attrX["airIntakeTemp"] = r->renderText(*hnproMedium27, "Air Intake Temp", 27.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     attrX["manifoldPressure"] = r->renderText(*hnproMedium27, "Manifold Pressure", 27.0f, 123.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    attrX["tps"] = r->renderText(*hnproMedium27, "TPS", 564.0f, 47.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    attrX["injectorDuration"] = r->renderText(*hnproMedium27, "Inj Dur", 300.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    attrX["ignitionAdvance"] = r->renderText(*hnproMedium27, "Ign Adv", 300.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    attrX["tps"] = r->renderText(*hnproMedium27, "TPS", 600.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    attrX["injectorDuration"] = r->renderText(*hnproMedium27, "Injector Duration", 300.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    attrX["ignitionAdvance"] = r->renderText(*hnproMedium27, "Ignition Advance", 300.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 451.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     attrX["maxPower"] = r->renderText(*hnproMedium27, "Max Power @", 512.0f, 410.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     attrX["maxTorque"] = r->renderText(*hnproMedium27, "Max Torque @", 509.0f, 448.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
