@@ -23,6 +23,56 @@ using namespace glm;
 
 #include "Font.hpp"
 
+FontWrapper::FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList) {
+    FT_Set_Pixel_Sizes(face, 0, size);
+    
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // Disable byte-alignment restriction
+    
+    for (int i = 0; i < charList.size(); i++) {
+        loadCharProperties(face, size, charList[i]);
+    }
+    
+    int numChars = ceil(sqrt(charList.size()));
+    
+    int texWidth = closestPowerOf2(numChars * maxWidth);
+    int texHeight = closestPowerOf2(numChars * maxHeight);
+    
+    if (texWidth > texHeight) {
+        texSize = texWidth;
+    }
+    else {
+        texSize = texHeight;
+    }
+    
+    printf("%d, %d -> %f, %f\n", maxWidth, maxHeight, texSize, texSize);
+    
+    glActiveTexture(GL_TEXTURE0);
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, texSize, texSize, 0, GL_ALPHA, GL_UNSIGNED_BYTE, 0);
+    
+    int x = 0;
+    int y = 0;
+    
+    for (int i = 0; i < charList.size(); i++) {
+        characters[charList[i]].texCoords = glm::ivec2(x, y);
+        addCharFromCharCode(face, size, charList[i], x, y);
+        x += maxWidth;
+        if (x + maxWidth >= texWidth) {
+            x = 1;
+            y += maxHeight;
+        }
+        if (y > texHeight) {
+            printf("Error: Font doesn't fit in texture.");
+        }
+    }
+}
+
 void FontWrapper::addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode, int x, int y) {
     FT_GlyphSlot glyph = face->glyph;
     
@@ -45,60 +95,6 @@ int FontWrapper::closestPowerOf2(int n) {
     n |= n >> 16;
     n++;
     return n;
-}
-
-FontWrapper::FontWrapper(FT_Face &face, int size) {
-    FT_Set_Pixel_Sizes(face, 0, size);
-    
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // Disable byte-alignment restriction
-    
-    for (GLubyte c = 0; c < 177; c++)
-    {
-        loadCharProperties(face, size, c);
-    }
-    
-    
-    
-    int numChars = ceil(sqrt(177));
-    
-    int texWidth = closestPowerOf2(numChars * maxWidth);
-    int texHeight = closestPowerOf2(numChars * maxHeight);
-    
-    if (texWidth > texHeight) {
-        texSize = texWidth;
-    }
-    else {
-        texSize = texHeight;
-    }
-    
-    printf("%d, %d -> %f, %f\n", maxWidth, maxHeight, texSize, texSize);
-
-    glActiveTexture(GL_TEXTURE0);
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, texSize, texSize, 0, GL_ALPHA, GL_UNSIGNED_BYTE, 0);
-    
-    int x = 0;
-    int y = 0;
-    
-    for (GLubyte c = 0; c < 177; c++)
-    {
-        characters[c].texCoords = glm::ivec2(x, y);
-        addCharFromCharCode(face, size, c, x, y);
-        x += maxWidth;
-        if (x + maxWidth >= texWidth) {
-            x = 1;
-            y += maxHeight;
-        }
-        if (y > texHeight) {
-            printf("Error: Font doesn't fit in texture.");
-        }
-    }
 }
 
 void FontWrapper::loadCharProperties(FT_Face &face, int size, FT_ULong charCode) {

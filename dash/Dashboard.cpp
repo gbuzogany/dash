@@ -26,11 +26,21 @@ Dashboard::Dashboard(Renderer &renderer) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
     
-    hnproMedium27 = new FontWrapper(face, 26);
-    hnproHuge = new FontWrapper(face, 240);
-    hnproMediumOblique = new FontWrapper(faceItalic, 36);
-    hnproHugeOblique = new FontWrapper(faceItalic, 250);
-    hnproExtraHeavy36 = new FontWrapper(faceBold, 36);
+    std::vector<FT_ULong> usedChars = {
+        'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+        '0','1','2','3','4','5','6','7','8','9','@',(FT_ULong)176,' '
+    };
+    
+    std::vector<FT_ULong> largeChars = {
+        'N','0','1','2','3','4','5','6','7','8','9','-'
+    };
+    
+    hnproMedium27 = new FontWrapper(face, 26, usedChars);
+    hnproHuge = new FontWrapper(face, 240, largeChars);
+    hnproMediumOblique = new FontWrapper(faceItalic, 36, usedChars);
+    hnproHugeOblique = new FontWrapper(faceItalic, 250, largeChars);
+    hnproExtraHeavy36 = new FontWrapper(faceBold, 36, usedChars);
     
     connector = new ECUConnector("127.0.0.1", 1337, 1024, 1);
     

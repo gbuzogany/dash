@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Shader.hpp"
+#include <vector>
 
 struct Character {
     glm::ivec2 size;       // Size of glyph
@@ -32,7 +33,7 @@ public:
     GLuint texture;
     
     std::map<GLchar, Character> characters;
-    FontWrapper(FT_Face &face, int size);
+    FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList);
 };
 
 #endif /* Font_hpp */
