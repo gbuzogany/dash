@@ -142,7 +142,13 @@ void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat wid
 
 float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
-
+    struct point {
+        GLfloat x;
+        GLfloat y;
+        GLfloat s;
+        GLfloat t;
+    } coords[6 * text.length()];
+    
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
@@ -162,6 +168,11 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     std::string::const_iterator c;
     FT_ULong previous = NULL;
     
+    // Render glyph texture over quad
+    glBindTexture(GL_TEXTURE_2D, font.texture);
+    
+    int n = 0;
+    
     for (c = text.begin(); c != text.end(); c++)
     {
         long kerning = 0;
@@ -180,37 +191,35 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
-        // Update VBO for each character
-        GLfloat vertices[6][4] = {
-            { xpos,     ypos + h,   0.0, 0.0 },
-            { xpos,     ypos,       0.0, 1.0 },
-            { xpos + w, ypos,       1.0, 1.0 },
-            
-            { xpos,     ypos + h,   0.0, 0.0 },
-            { xpos + w, ypos,       1.0, 1.0 },
-            { xpos + w, ypos + h,   1.0, 0.0 }
-        };
-        // Render glyph texture over quad
-        glBindTexture(GL_TEXTURE_2D, ch.textureID);
-        // Update content of VBO memory
-        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, &vertices[0], GL_DYNAMIC_DRAW);
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-        glVertexAttribPointer(
-                              0, // The attribute we want to configure
-                              4, // size
-                              GL_FLOAT, // type
-                              GL_FALSE, // normalized?
-                              4 * sizeof(GLfloat), // stride
-                              0 // array buffer offset
-                              );
+
+        coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / 512.0f, ch.texCoords.y / 512.0f};
+        coords[n++] = (point){xpos,     ypos,       ch.texCoords.x / 512.0f, (ch.texCoords.y + font.maxHeight) / 512.0f};
+        coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + font.maxWidth) / 512.0f, (ch.texCoords.y + font.maxHeight) / 512.0f};
         
-        // Render quad
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / 512.0f, ch.texCoords.y / 512.0f};
+        coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + font.maxWidth) / 512.0f, (ch.texCoords.y + font.maxHeight) / 512.0f};
+        coords[n++] = (point){xpos + w, ypos + h,   (ch.texCoords.x + font.maxWidth) / 512.0f, ch.texCoords.y / 512.0f};
+
         // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
         x += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
     }
+    // Update content of VBO memory
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(coords), coords, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(
+                          0, // The attribute we want to configure
+                          4, // size
+                          GL_FLOAT, // type
+                          GL_FALSE, // normalized?
+                          4 * sizeof(GLfloat), // stride
+                          0 // array buffer offset
+                          );
+    
+    // Render quad
+    glDrawArrays(GL_TRIANGLES, 0, n);
+    
     glDisableVertexAttribArray(0);
     glBindTexture(GL_TEXTURE_2D, 0);
     

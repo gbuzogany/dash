@@ -13,15 +13,21 @@
 #include "Shader.hpp"
 
 struct Character {
-    GLuint     textureID;  // ID handle of the glyph texture
     glm::ivec2 size;       // Size of glyph
     glm::ivec2 bearing;    // Offset from baseline to left/top of glyph
     GLuint     advance;    // Offset to advance to next glyph
+    glm::ivec2 texCoords;
 };
 
 class FontWrapper {
-    void addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode);
+    void addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode, int x, int y);
+    void loadCharProperties(FT_Face &face, int size, FT_ULong charCode);
 public:
+    int maxWidth = 0;
+    int maxHeight = 0;
+    
+    GLuint texture;
+    
     std::map<GLchar, Character> characters;
     FontWrapper(FT_Face &face, int size);
 };
