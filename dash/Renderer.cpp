@@ -121,13 +121,13 @@ void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat wid
     GLfloat xpos = x;
     GLfloat ypos = 480.0 - y - height;
     GLfloat vertices[6][4] = {
-        { xpos,         ypos + height,   0.0, 0.0 },
-        { xpos,         ypos,       0.0, 1.0 },
-        { xpos + width, ypos,       1.0, 1.0 },
+        { xpos,         ypos + height,   0.0, 1.0 }, // 0
+        { xpos,         ypos,       0.0, 0.0 },      // 1
+        { xpos + width, ypos,       1.0, 0.0 },      // 2
         
-        { xpos,         ypos + height,   0.0, 0.0 },
-        { xpos + width, ypos,       1.0, 1.0 },
-        { xpos + width, ypos + height,   1.0, 0.0 }
+        { xpos,         ypos + height,   0.0, 1.0 }, // 3
+        { xpos + width, ypos,       1.0, 0.0 },      // 4
+        { xpos + width, ypos + height,   1.0, 1.0 }  // 5
     };
     
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);

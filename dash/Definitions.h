@@ -15,4 +15,7 @@ typedef struct
     long bytes;
 } sock_msg_t;
 
+#define WIDTH 800
+#define HEIGHT 480
+
 #endif /* Definitions_h */

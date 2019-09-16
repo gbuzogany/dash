@@ -130,6 +130,7 @@
 				66369DB62302EE8D00975025 /* Shaders */,
 				6659849523058DE2002D326C /* flatbuffers */,
 				6659849A2305C0CC002D326C /* Network */,
+				665984A22305C5A9002D326C /* Definitions.h */,
 				66369D9C2302E7A000975025 /* main.cpp */,
 				66369DA32302E7E200975025 /* Renderer.cpp */,
 				66369DA42302E7E200975025 /* Renderer.hpp */,
@@ -196,7 +197,6 @@
 				6659849B2305C0D6002D326C /* ClientSocket.cpp */,
 				6659849F2305C2A9002D326C /* ECUConnector.cpp */,
 				665984A02305C2A9002D326C /* ECUConnector.hpp */,
-				665984A22305C5A9002D326C /* Definitions.h */,
 			);
 			name = Network;
 			sourceTree = "<group>";

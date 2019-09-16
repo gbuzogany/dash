@@ -12,19 +12,24 @@
 #include <stdio.h>
 #include <iostream>
 #include <ft2build.h>
+#include <map>
 #include FT_FREETYPE_H
 #include "Renderer.hpp"
 #include "Vehicle.hpp"
 #include "CB650F.hpp"
 #include "honda_generated.h"
 #include "ECUConnector.hpp"
-
+#include "Definitions.h"
 
 class Dashboard {
     Renderer *r;
     Vehicle *vehicle;
     
     GLuint squareTextureId;
+    GLuint screenTexture;
+    GLuint frameBuffer;
+    
+    std::map<std::string, float> attrX;
     
     ECUConnector *connector;
     
@@ -33,10 +38,12 @@ class Dashboard {
     FontWrapper *hnproMediumOblique;
     FontWrapper *hnproHugeOblique;
     FontWrapper *hnproExtraHeavy36;
-
+    
+    void createFramebuffer();
 public:
     Dashboard(Renderer &r);
     void render();
+    void renderFixed();
 };
 
 #endif /* Dashboard_hpp */
