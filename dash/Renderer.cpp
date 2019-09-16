@@ -152,8 +152,8 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     struct point {
         GLfloat x;
         GLfloat y;
-        GLfloat s;
-        GLfloat t;
+        GLfloat u;
+        GLfloat v;
     } coords[6 * text.length()];
     
     glEnable(GL_BLEND);
@@ -170,25 +170,22 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     glUniform1i(uTexID, 0);
     glUniform3f(glGetUniformLocation(programId, "textColor"), color.x, color.y, color.z);
     glActiveTexture(GL_TEXTURE0);
-    
-    // Iterate through all characters
-    std::string::const_iterator c;
     FT_ULong previous = NULL;
     
     bindTexture(font.texture);
     
     int n = 0;
     
-    for (c = text.begin(); c != text.end(); c++)
-    {
+    for (auto it = text.begin(); it != text.end(); it++) {
         long kerning = 0;
-        Character ch = font.characters[*c];
+        FT_ULong character = *it;
+        Character ch = font.characters[character];
 
         // hardcoded kerning instead of using GPOS table
-        if ((*c == 'e' || *c == 'o') && previous == 'T'){
+        if ((character == 'e' || character == 'o') && previous == 'T'){
             kerning = 2.0f;
         }
-        previous = *c;
+        previous = character;
 
         x -= kerning;
         
@@ -197,14 +194,26 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
-
-        coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
-        coords[n++] = (point){xpos,     ypos,       ch.texCoords.x / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-        coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-
-        coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
-        coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-        coords[n++] = (point){xpos + w, ypos + h,   (ch.texCoords.x + ch.size.x) / font.texSize, ch.texCoords.y / font.texSize};
+        
+        // pointer arithmetic is dangerous. always checking boundaries TODO: remove pointer arithmetic
+        if (n < sizeof(coords)) {
+            coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
+        }
+        if (n < sizeof(coords)) {
+            coords[n++] = (point){xpos,     ypos,       ch.texCoords.x / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+        }
+        if (n < sizeof(coords)) {
+            coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+        }
+        if (n < sizeof(coords)) {
+            coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
+        }
+        if (n < sizeof(coords)) {
+            coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+        }
+        if (n < sizeof(coords)) {
+            coords[n++] = (point){xpos + w, ypos + h,   (ch.texCoords.x + ch.size.x) / font.texSize, ch.texCoords.y / font.texSize};
+        }
 
         // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
         x += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)

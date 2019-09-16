@@ -28,8 +28,9 @@ FontWrapper::FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList
     
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // Disable byte-alignment restriction
     
-    for (int i = 0; i < charList.size(); i++) {
-        loadCharProperties(face, size, charList[i]);
+    for (auto it = charList.begin(); it != charList.end(); it++) {
+        FT_ULong character = *it;
+        loadCharProperties(face, size, character);
     }
     
     int numChars = ceil(sqrt(charList.size()));
@@ -44,7 +45,7 @@ FontWrapper::FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList
         texSize = texHeight;
     }
     
-    printf("%d, %d -> %f, %f\n", maxWidth, maxHeight, texSize, texSize);
+    printf("%d, %d -> %f x %f\n", maxWidth, maxHeight, texSize, texSize);
     
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &texture);
@@ -59,9 +60,10 @@ FontWrapper::FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList
     int x = 0;
     int y = 0;
     
-    for (int i = 0; i < charList.size(); i++) {
-        characters[charList[i]].texCoords = glm::ivec2(x, y);
-        addCharFromCharCode(face, size, charList[i], x, y);
+    for (auto it = charList.begin(); it != charList.end(); it++) {
+        FT_ULong character = *it;
+        characters[character].texCoords = glm::ivec2(x, y);
+        addCharFromCharCode(face, size, character, x, y);
         x += maxWidth;
         if (x + maxWidth >= texWidth) {
             x = 1;
