@@ -44,7 +44,7 @@ void Dashboard::createFramebuffer() {
     glGenTextures(1, &screenTexture);
     
     // "Bind" the newly created texture : all future texture functions will modify this texture
-    glBindTexture(GL_TEXTURE_2D, screenTexture);
+    r->bindTexture(screenTexture);
     
     // Give an empty image to OpenGL ( the last "0" )
     glTexImage2D(GL_TEXTURE_2D, 0,GL_RGB, WIDTH, HEIGHT, 0,GL_RGB, GL_UNSIGNED_BYTE, 0);
@@ -130,9 +130,9 @@ void Dashboard::render() {
     
     
     
-//    std::stringstream sfps;
-//    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
-//    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    std::stringstream sfps;
+    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
+    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
 
 void Dashboard::renderFixed() {
@@ -150,6 +150,7 @@ void Dashboard::renderFixed() {
     attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 451.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     attrX["maxPower"] = r->renderText(*hnproMedium27, "Max Power @", 512.0f, 410.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     attrX["maxTorque"] = r->renderText(*hnproMedium27, "Max Torque @", 509.0f, 448.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    
     r->renderText(*hnproMediumOblique, "km/h", 330.0f, 363.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     glBindFramebuffer(GL_FRAMEBUFFER, 0);

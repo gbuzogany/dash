@@ -34,6 +34,8 @@ private:
     GLuint vertexbuffer;
     GLuint VAO, VBO;
     
+    GLuint lastTexture = -1;
+    
     Uint32 startTime = 0;
     Uint32 endTime = 0;
     Uint32 delta = 0;
@@ -60,6 +62,8 @@ public:
     
     float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
     void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
+    
+    void bindTexture(GLuint texId);
 };
 
 #endif /* Renderer_hpp */

@@ -22,9 +22,12 @@ struct Character {
 class FontWrapper {
     void addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode, int x, int y);
     void loadCharProperties(FT_Face &face, int size, FT_ULong charCode);
+    int closestPowerOf2(int n);
 public:
     int maxWidth = 0;
     int maxHeight = 0;
+    
+    float texSize;
     
     GLuint texture;
     

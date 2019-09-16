@@ -11,6 +11,7 @@
 #define GL_GLEXT_PROTOTYPES 1
 #include <SDL2/SDL_opengles2.h>
 #include <map>
+#include <math.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -35,6 +36,17 @@ void FontWrapper::addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode
     glTexSubImage2D(GL_TEXTURE_2D, 0, x, y, glyph->bitmap.width, glyph->bitmap.rows, GL_ALPHA, GL_UNSIGNED_BYTE, glyph->bitmap.buffer);
 }
 
+int FontWrapper::closestPowerOf2(int n) {
+    n--;
+    n |= n >> 1;
+    n |= n >> 2;
+    n |= n >> 4;
+    n |= n >> 8;
+    n |= n >> 16;
+    n++;
+    return n;
+}
+
 FontWrapper::FontWrapper(FT_Face &face, int size) {
     FT_Set_Pixel_Sizes(face, 0, size);
     
@@ -45,29 +57,48 @@ FontWrapper::FontWrapper(FT_Face &face, int size) {
         loadCharProperties(face, size, c);
     }
     
+    
+    
+    int numChars = ceil(sqrt(177));
+    
+    int texWidth = closestPowerOf2(numChars * maxWidth);
+    int texHeight = closestPowerOf2(numChars * maxHeight);
+    
+    if (texWidth > texHeight) {
+        texSize = texWidth;
+    }
+    else {
+        texSize = texHeight;
+    }
+    
+    printf("%d, %d -> %f, %f\n", maxWidth, maxHeight, texSize, texSize);
+
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//    
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, 512, 512, 0, GL_ALPHA, GL_UNSIGNED_BYTE, 0);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     
-    int x = 1;
-    int y = 1;
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, texSize, texSize, 0, GL_ALPHA, GL_UNSIGNED_BYTE, 0);
+    
+    int x = 0;
+    int y = 0;
     
     for (GLubyte c = 0; c < 177; c++)
     {
         characters[c].texCoords = glm::ivec2(x, y);
         addCharFromCharCode(face, size, c, x, y);
         x += maxWidth;
-        if (x + maxWidth > 512) {
-            y += maxHeight + 1;
+        if (x + maxWidth >= texWidth) {
+            x = 1;
+            y += maxHeight;
+        }
+        if (y > texHeight) {
+            printf("Error: Font doesn't fit in texture.");
         }
     }
-
 }
 
 void FontWrapper::loadCharProperties(FT_Face &face, int size, FT_ULong charCode) {

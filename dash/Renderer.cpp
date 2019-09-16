@@ -116,7 +116,7 @@ void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat wid
     
     glUniform1i(u_squareTextureId, 0);
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureId);
+    bindTexture(textureId);
     
     GLfloat xpos = x;
     GLfloat ypos = 480.0 - y - height;
@@ -138,6 +138,13 @@ void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat wid
 
     glDrawArrays(GL_TRIANGLES, 0, 6);
     
+}
+
+void Renderer::bindTexture(GLuint texId) {
+    if (lastTexture != texId) {
+        glBindTexture(GL_TEXTURE_2D, texId);
+        lastTexture = texId;
+    }
 }
 
 float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
@@ -168,8 +175,7 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     std::string::const_iterator c;
     FT_ULong previous = NULL;
     
-    // Render glyph texture over quad
-    glBindTexture(GL_TEXTURE_2D, font.texture);
+    bindTexture(font.texture);
     
     int n = 0;
     
@@ -192,13 +198,13 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
 
-        coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / 512.0f, ch.texCoords.y / 512.0f};
-        coords[n++] = (point){xpos,     ypos,       ch.texCoords.x / 512.0f, (ch.texCoords.y + font.maxHeight) / 512.0f};
-        coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + font.maxWidth) / 512.0f, (ch.texCoords.y + font.maxHeight) / 512.0f};
-        
-        coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / 512.0f, ch.texCoords.y / 512.0f};
-        coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + font.maxWidth) / 512.0f, (ch.texCoords.y + font.maxHeight) / 512.0f};
-        coords[n++] = (point){xpos + w, ypos + h,   (ch.texCoords.x + font.maxWidth) / 512.0f, ch.texCoords.y / 512.0f};
+        coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
+        coords[n++] = (point){xpos,     ypos,       ch.texCoords.x / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+        coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+
+        coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
+        coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+        coords[n++] = (point){xpos + w, ypos + h,   (ch.texCoords.x + ch.size.x) / font.texSize, ch.texCoords.y / font.texSize};
 
         // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
         x += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
@@ -221,7 +227,7 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     glDrawArrays(GL_TRIANGLES, 0, n);
     
     glDisableVertexAttribArray(0);
-    glBindTexture(GL_TEXTURE_2D, 0);
+    bindTexture(0);
     
     return x;
 }
