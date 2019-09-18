@@ -30,6 +30,7 @@ protected:
     float manifoldPressure = 0;
     float tps = 0;
     float injectorDuration = 0;
+    int injectorDurationRaw = 0;
     float ignitionAdvance = 0;
     float o2Voltage = 0;
 public:
@@ -44,6 +45,7 @@ public:
     virtual std::string getManifoldPressureString();
     virtual std::string getTPSString();
     virtual std::string getInjectorString();
+    virtual std::string getInjectorRawString();
     virtual std::string getIgnitionAdvanceString();
     virtual std::string getO2VoltageString();
     virtual std::string getMaxPowerString();

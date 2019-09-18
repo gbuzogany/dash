@@ -33,8 +33,7 @@ int main(int argc, char* argv[])
     
     dash.renderFixed();
     
-    while (running)
-    {
+    while (running) {
         r.startFrame();
         
         SDL_Event ev;
