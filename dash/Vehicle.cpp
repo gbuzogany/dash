@@ -81,7 +81,7 @@ std::string Vehicle::getAirIntakeTempString() {
 
 std::string Vehicle::getManifoldPressureString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(1) << manifoldPressure;
+    ss << std::fixed << std::setprecision(0) << manifoldPressure;
     return ss.str();
 }
 
@@ -93,7 +93,13 @@ std::string Vehicle::getTPSString() {
 
 std::string Vehicle::getInjectorString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(1) << injectorDuration;
+    ss << std::fixed << std::setprecision(0) << injectorDuration;
+    return ss.str();
+}
+
+std::string Vehicle::getInjectorRawString() {
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(0) << injectorDurationRaw;
     return ss.str();
 }
 

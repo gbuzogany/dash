@@ -145,6 +145,7 @@ void CB650F::read(uint8_t *buffer_pointer) {
     engineRunning = message->engineRunning();
     tps = message->tps();
     injectorDuration = message->injDur();
+    injectorDurationRaw = message->injDurRaw();
     ignitionAdvance = message->ignAdv();
     o2Voltage = message->ignAdv();
     gear = guessGear();

@@ -22,8 +22,9 @@ struct ECUMessage FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_NEUTRAL = 18,
     VT_ENGINERUNNING = 20,
     VT_INJDUR = 22,
-    VT_IGNADV = 24,
-    VT_O2VOLT = 26
+    VT_INJDURRAW = 24,
+    VT_IGNADV = 26,
+    VT_O2VOLT = 28
   };
   float battVoltage() const {
     return GetField<float>(VT_BATTVOLTAGE, 0.0f);
@@ -55,6 +56,9 @@ struct ECUMessage FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   float injDur() const {
     return GetField<float>(VT_INJDUR, 0.0f);
   }
+  int32_t injDurRaw() const {
+    return GetField<int32_t>(VT_INJDURRAW, 0);
+  }
   float ignAdv() const {
     return GetField<float>(VT_IGNADV, 0.0f);
   }
@@ -73,6 +77,7 @@ struct ECUMessage FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<int32_t>(verifier, VT_NEUTRAL) &&
            VerifyField<int32_t>(verifier, VT_ENGINERUNNING) &&
            VerifyField<float>(verifier, VT_INJDUR) &&
+           VerifyField<int32_t>(verifier, VT_INJDURRAW) &&
            VerifyField<float>(verifier, VT_IGNADV) &&
            VerifyField<float>(verifier, VT_O2VOLT) &&
            verifier.EndTable();
@@ -112,6 +117,9 @@ struct ECUMessageBuilder {
   void add_injDur(float injDur) {
     fbb_.AddElement<float>(ECUMessage::VT_INJDUR, injDur, 0.0f);
   }
+  void add_injDurRaw(int32_t injDurRaw) {
+    fbb_.AddElement<int32_t>(ECUMessage::VT_INJDURRAW, injDurRaw, 0);
+  }
   void add_ignAdv(float ignAdv) {
     fbb_.AddElement<float>(ECUMessage::VT_IGNADV, ignAdv, 0.0f);
   }
@@ -142,11 +150,13 @@ inline flatbuffers::Offset<ECUMessage> CreateECUMessage(
     int32_t neutral = 0,
     int32_t engineRunning = 0,
     float injDur = 0.0f,
+    int32_t injDurRaw = 0,
     float ignAdv = 0.0f,
     float o2Volt = 0.0f) {
   ECUMessageBuilder builder_(_fbb);
   builder_.add_o2Volt(o2Volt);
   builder_.add_ignAdv(ignAdv);
+  builder_.add_injDurRaw(injDurRaw);
   builder_.add_injDur(injDur);
   builder_.add_engineRunning(engineRunning);
   builder_.add_neutral(neutral);
