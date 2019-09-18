@@ -105,7 +105,7 @@ std::string Vehicle::getInjectorRawString() {
 
 std::string Vehicle::getIgnitionAdvanceString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(0) << ignitionAdvance;
+    ss << std::fixed << std::setprecision(1) << ignitionAdvance;
     return ss.str();
 }
 
