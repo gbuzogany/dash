@@ -79,11 +79,11 @@ void* CB650F::serialize() {
 int CB650F::guessGear() {
     // neutral
     // 0 = gear 1 = neutral/clutch 3 = kickstand_neutral
-    if (neutral != IN_GEAR) {
-        return GEAR_NONE;
-    }
     if (neutral == KICKSTAND_NEUTRAL) {
         return GEAR_N;
+    }
+    if (neutral != IN_GEAR) {
+        return GEAR_NONE;
     }
     
     float base_wheel_speed = rpm / primary_reduction;
