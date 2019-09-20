@@ -123,7 +123,7 @@ void Dashboard::render() {
     endX = r->renderText(*hnproMedium27, "kPA", endX + 3.0f, 123.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getTPSString(), attrX["tps"] + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "%", endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    endX = r->renderText(*hnproExtraHeavy36, vehicle->getInjectorRawString(), attrX["injectorDuration"] + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    endX = r->renderText(*hnproExtraHeavy36, vehicle->getInjectorString(), attrX["injectorDuration"] + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "ms", endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getIgnitionAdvanceString(), attrX["ignitionAdvance"] + 3.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, degStr, endX + 3.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));

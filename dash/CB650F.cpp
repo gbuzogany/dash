@@ -64,7 +64,7 @@ using namespace dash;
 void* CB650F::serialize() {
     flatbuffers::FlatBufferBuilder builder(32); // current size
     
-    auto message = CreateECUMessage(builder, battVoltage, coolantTemp, airIntakeTemp, manifoldPressure, speed, tps, rpm, neutral, engineRunning);
+    auto message = CreatestatsMessage(builder, battVoltage, coolantTemp, airIntakeTemp, manifoldPressure, speed, tps, rpm, neutral, engineRunning);
     builder.Finish(message);
     
     uint8_t *buf = builder.GetBufferPointer();
@@ -133,7 +133,7 @@ int CB650F::guessGear() {
 }
 
 void CB650F::read(uint8_t *buffer_pointer) {
-    auto message  = GetECUMessage(buffer_pointer);
+    auto message  = GetstatsMessage(buffer_pointer);
     
     rpm = message->rpm();
     speed = message->speed();
@@ -145,8 +145,6 @@ void CB650F::read(uint8_t *buffer_pointer) {
     engineRunning = message->engineRunning();
     tps = message->tps();
     injectorDuration = message->injDur();
-    injectorDurationRaw = message->injDurRaw();
     ignitionAdvance = message->ignAdv();
-    o2Voltage = message->ignAdv();
     gear = guessGear();
 }

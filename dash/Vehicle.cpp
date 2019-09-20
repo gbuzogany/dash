@@ -93,25 +93,13 @@ std::string Vehicle::getTPSString() {
 
 std::string Vehicle::getInjectorString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(0) << injectorDuration;
-    return ss.str();
-}
-
-std::string Vehicle::getInjectorRawString() {
-    std::stringstream ss;
-    ss << std::fixed << std::setprecision(0) << injectorDurationRaw;
+    ss << std::fixed << std::setprecision(2) << injectorDuration / 100.0f;
     return ss.str();
 }
 
 std::string Vehicle::getIgnitionAdvanceString() {
     std::stringstream ss;
     ss << std::fixed << std::setprecision(1) << ignitionAdvance;
-    return ss.str();
-}
-
-std::string Vehicle::getO2VoltageString() {
-    std::stringstream ss;
-    ss << std::fixed << std::setprecision(1) << o2Voltage;
     return ss.str();
 }
 
