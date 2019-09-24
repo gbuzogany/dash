@@ -35,9 +35,6 @@ bool Shader::loadFragmentShader(const char *filename)
 
 bool Shader::loadVertexShader(const char *filename)
 {
-    char *working_dir_path = realpath(".", NULL);
-    printf("%s\n", working_dir_path);
-
     assert(!Src);
     FILE* f = fopen(filename, "rb");
     assert(f);

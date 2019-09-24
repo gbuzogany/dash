@@ -45,7 +45,7 @@ FontWrapper::FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList
         texSize = texHeight;
     }
     
-    printf("%d, %d -> %f x %f\n", maxWidth, maxHeight, texSize, texSize);
+    printf("Font texture atlas size: %d, %d -> %f x %f\n", maxWidth, maxHeight, texSize, texSize);
     
     glActiveTexture(GL_TEXTURE0);
     glGenTextures(1, &texture);
