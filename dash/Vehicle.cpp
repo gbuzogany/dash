@@ -93,7 +93,7 @@ std::string Vehicle::getTPSString() {
 
 std::string Vehicle::getInjectorString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(2) << injectorDuration / 100.0f;
+    ss << std::fixed << std::setprecision(2) << injectorDuration;
     return ss.str();
 }
 
