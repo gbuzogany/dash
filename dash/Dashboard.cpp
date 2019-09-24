@@ -88,7 +88,7 @@ void Dashboard::render() {
         //
     }
     
-    if (stats.bytes == 32) {
+    if (stats.bytes >= 32) {
         vehicle->read((uint8_t*)stats.msg);
         delete[] stats.msg;
     }
