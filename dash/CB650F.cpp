@@ -62,9 +62,9 @@ std::string CB650F::getMaxTorqueString() {
 using namespace dash;
 
 void* CB650F::serialize() {
-    flatbuffers::FlatBufferBuilder builder(32); // current size
+    flatbuffers::FlatBufferBuilder builder(128);
     
-    auto message = CreatestatsMessage(builder, battVoltage, coolantTemp, airIntakeTemp, manifoldPressure, speed, tps, rpm, neutral, engineRunning);
+    auto message = CreatestatsMessage(builder, battVoltage, coolantTemp, airIntakeTemp, manifoldPressure, speed, tps, rpm, neutral, engineRunning, injectorDuration, ignitionAdvance);
     builder.Finish(message);
     
     uint8_t *buf = builder.GetBufferPointer();
