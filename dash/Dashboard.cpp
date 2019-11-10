@@ -7,13 +7,12 @@
 //
 
 #include "Dashboard.hpp"
-#include "MediaServer.hpp"
+#include "MediaService.hpp"
+#include <thread>
+#include <functional>
 
 Dashboard::Dashboard(Renderer &renderer) {
     this->r = &renderer;
-    
-    MediaServiceImpl server;
-    server.Run();
     
     squareTextureId = Texture::loadBMP("square.bmp");
 
@@ -49,6 +48,29 @@ Dashboard::Dashboard(Renderer &renderer) {
     connector = new ECUConnector("127.0.0.1", 1337, 1024, 1);
     
     createFramebuffer();
+    
+    mediaServiceThread = std::thread(&Dashboard::startMediaService, this);
+}
+
+void Dashboard::startMediaService() {
+    std::string server_address("0.0.0.0:50051");
+    MediaServiceImpl service(this);
+    
+    ServerBuilder builder;
+    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+    builder.RegisterService(&service);
+    std::unique_ptr<Server> server(builder.BuildAndStart());
+    std::cout << "Server listening on " << server_address << std::endl;
+    
+    server->Wait();
+}
+
+void Dashboard::setPlayStatus(std::string playStatus) {
+    playStatus_ = playStatus;
+}
+
+void Dashboard::setNowPlaying(DashMediaItem mediaItem) {
+    nowPlaying_ = mediaItem;
 }
 
 void Dashboard::createFramebuffer() {
@@ -119,6 +141,9 @@ void Dashboard::render() {
     }
     
     float endX = 0;
+    r->renderText(*hnproMedium27, playStatus_, 30.0, 20.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    r->renderText(*hnproMedium27, nowPlaying_.title, 30.0, 40.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getCoolantTempString(), attrX["coolantTemp"] + 5.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 39.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getAirIntakeTempString(), attrX["airIntakeTemp"] + 5.0f, 83.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));

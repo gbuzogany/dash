@@ -23,7 +23,7 @@
 		6659848C2305742F002D326C /* CB650F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848A2305742F002D326C /* CB650F.cpp */; };
 		6659849D2305C0D7002D326C /* ClientSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659849B2305C0D6002D326C /* ClientSocket.cpp */; };
 		665984A12305C2A9002D326C /* ECUConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659849F2305C2A9002D326C /* ECUConnector.cpp */; };
-		6671FCAB237869CB005BA4E4 /* MediaServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6671FCAA237869CB005BA4E4 /* MediaServer.cpp */; };
+		6671FCAB237869CB005BA4E4 /* MediaService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6671FCAA237869CB005BA4E4 /* MediaService.cpp */; };
 		6671FCAE23786A4F005BA4E4 /* media.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6671FCAC23786A4F005BA4E4 /* media.grpc.pb.cc */; };
 		6671FCB123786AA4005BA4E4 /* media.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6671FCAF23786AA4005BA4E4 /* media.pb.cc */; };
 		6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB223786B13005BA4E4 /* libgrpc.dylib */; };
@@ -91,7 +91,7 @@
 		6659849F2305C2A9002D326C /* ECUConnector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ECUConnector.cpp; sourceTree = "<group>"; };
 		665984A02305C2A9002D326C /* ECUConnector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ECUConnector.hpp; sourceTree = "<group>"; };
 		665984A22305C5A9002D326C /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
-		6671FCAA237869CB005BA4E4 /* MediaServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaServer.cpp; sourceTree = "<group>"; };
+		6671FCAA237869CB005BA4E4 /* MediaService.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaService.cpp; sourceTree = "<group>"; };
 		6671FCAC23786A4F005BA4E4 /* media.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = media.grpc.pb.cc; sourceTree = "<group>"; };
 		6671FCAD23786A4F005BA4E4 /* media.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = media.grpc.pb.h; sourceTree = "<group>"; };
 		6671FCAF23786AA4005BA4E4 /* media.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = media.pb.cc; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
-		6671FCB9237871A2005BA4E4 /* MediaServer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaServer.hpp; sourceTree = "<group>"; };
+		6671FCB9237871A2005BA4E4 /* MediaService.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaService.hpp; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
 		66F48922230D8E700092BA35 /* square.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = square.bmp; sourceTree = "<group>"; };
@@ -226,8 +226,8 @@
 		6671FCA9237869AF005BA4E4 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				6671FCAA237869CB005BA4E4 /* MediaServer.cpp */,
-				6671FCB9237871A2005BA4E4 /* MediaServer.hpp */,
+				6671FCAA237869CB005BA4E4 /* MediaService.cpp */,
+				6671FCB9237871A2005BA4E4 /* MediaService.hpp */,
 				6671FCAC23786A4F005BA4E4 /* media.grpc.pb.cc */,
 				6671FCAD23786A4F005BA4E4 /* media.grpc.pb.h */,
 				6671FCAF23786AA4005BA4E4 /* media.pb.cc */,
@@ -305,7 +305,7 @@
 				6671FCAE23786A4F005BA4E4 /* media.grpc.pb.cc in Sources */,
 				66369DBD2302F31000975025 /* Texture.cpp in Sources */,
 				6659848623056DFF002D326C /* Vehicle.cpp in Sources */,
-				6671FCAB237869CB005BA4E4 /* MediaServer.cpp in Sources */,
+				6671FCAB237869CB005BA4E4 /* MediaService.cpp in Sources */,
 				66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
 				6671FCB123786AA4005BA4E4 /* media.pb.cc in Sources */,
