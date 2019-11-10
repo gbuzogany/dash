@@ -7,9 +7,13 @@
 //
 
 #include "Dashboard.hpp"
+#include "MediaServer.hpp"
 
 Dashboard::Dashboard(Renderer &renderer) {
     this->r = &renderer;
+    
+    MediaServiceImpl server;
+    server.Run();
     
     squareTextureId = Texture::loadBMP("square.bmp");
 
