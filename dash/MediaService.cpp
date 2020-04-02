@@ -15,17 +15,6 @@
 #include "media.grpc.pb.h"
 #include "Dashboard.hpp"
 
-using grpc::Server;
-using grpc::ServerAsyncResponseWriter;
-using grpc::ServerBuilder;
-using grpc::ServerContext;
-using grpc::ServerCompletionQueue;
-using grpc::Status;
-using mediaplayer::StatusResponse;
-using mediaplayer::PlayStatus;
-using mediaplayer::MediaItem;
-using mediaplayer::MediaPlayer;
-
 MediaServiceImpl::MediaServiceImpl(Dashboard* dash) {
     dash_ = dash;
 }

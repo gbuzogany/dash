@@ -8,8 +8,10 @@
 
 #include "Dashboard.hpp"
 #include "MediaService.hpp"
+#include "DashControl.hpp"
 #include <thread>
 #include <functional>
+#include <memory>
 
 Dashboard::Dashboard(Renderer &renderer) {
     this->r = &renderer;
@@ -45,11 +47,10 @@ Dashboard::Dashboard(Renderer &renderer) {
     hnproHugeOblique = new FontWrapper(faceItalic, 250, largeChars);
     hnproExtraHeavy36 = new FontWrapper(faceBold, 36, usedChars);
     
-    connector = new ECUConnector("127.0.0.1", 1337, 1024, 1);
-    
     createFramebuffer();
     
     mediaServiceThread = std::thread(&Dashboard::startMediaService, this);
+    dashServiceThread = std::thread(&Dashboard::startDashService, this);
 }
 
 void Dashboard::startMediaService() {
@@ -60,8 +61,21 @@ void Dashboard::startMediaService() {
     builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
     builder.RegisterService(&service);
     std::unique_ptr<Server> server(builder.BuildAndStart());
-    std::cout << "Server listening on " << server_address << std::endl;
+    std::cout << "Media Server listening on " << server_address << std::endl;
     
+    server->Wait();
+}
+
+void Dashboard::startDashService() {
+    std::string server_address("0.0.0.0:50052");
+    DashControlImpl service(this);
+
+    ServerBuilder builder;
+    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+    builder.RegisterService(&service);
+    std::unique_ptr<Server> server(builder.BuildAndStart());
+    std::cout << "Dash Server listening on " << server_address << std::endl;
+
     server->Wait();
 }
 
@@ -105,20 +119,6 @@ void Dashboard::createFramebuffer() {
 }
 
 void Dashboard::render() {
-    sock_msg_t stats;
-    
-    try {
-        stats = connector->requestStats();
-    }
-    catch(SocketException e) {
-        //
-    }
-    
-    if (stats.bytes >= 32) {
-        vehicle->read((uint8_t*)stats.msg);
-        delete[] stats.msg;
-    }
-    
     glUseProgram(r->textureProgram->getId());
     r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
     
@@ -169,9 +169,9 @@ void Dashboard::render() {
     
     
     
-//    std::stringstream sfps;
-//    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
-//    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    std::stringstream sfps;
+    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
+    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 480.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
 
 void Dashboard::renderFixed() {
@@ -193,4 +193,8 @@ void Dashboard::renderFixed() {
     r->renderText(*hnproMediumOblique, "km/h", 330.0f, 363.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+Vehicle* Dashboard::getVehicle() {
+    return vehicle;
 }

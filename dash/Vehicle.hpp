@@ -20,19 +20,37 @@ class Vehicle {
 protected:
     int rpm = 0;
     int gear = GEAR_NONE;
-    int neutral = 3;
+    bool neutral = false;
+    bool clutch = false;
+    bool kickstand = false;
     int engineRunning = 0;
     
     float speed = 0;
-    float battVoltage = 0;
-    float coolantTemp = 0;
-    float airIntakeTemp = 0;
+    float batteryVoltage = 0;
+    float coolantTemperature = 0;
+    float airIntakeTemperature = 0;
     float manifoldPressure = 0;
-    float tps = 0;
+    float throttlePositionSensor = 0;
     float injectorDuration = 0;
     float ignitionAdvance = 0;
 public:
     Vehicle();
+    
+    void setSpeed(float speed);
+    void setRPM(int rpm);
+    void setGear(int gear);
+    void setNeutral(bool neutral);
+    void setClutch(bool clutch);
+    void setKickstand(bool kickstand);
+    void setEngineRunning(bool engineRunning);
+    void setBatteryVoltage(float batteryVoltage);
+    void setCoolantTemperature(float coolantTemperature);
+    void setAirIntakeTemperature(float airIntakeTemperature);
+    void setManifoldPressure(float manifoldPressure);
+    void setThrottlePositionSensor(float throttlePositionSensor);
+    void setInjectorDuration(float injectorDuration);
+    void setIgnitionAdvance(float ignitionAdvance);
+    
     virtual int getNeutral();
     virtual std::string getRPMString();
     virtual std::string getGearString();

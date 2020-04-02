@@ -8,22 +8,6 @@
 
 #include "Vehicle.hpp"
 
-//int rpm = 0;
-//int gear = GEAR_NONE;
-//
-//float speed = 0;
-//float battVoltage = 0;
-//float coolantTemp = 0;
-//float airIntakeTemp = 0;
-//float manifoldPressure = 0;
-//float tps = 0;
-//float maxPower = 0;
-//float maxTorque = 0;
-
-//std::stringstream tempSs;
-//tempSs << std::fixed << std::setprecision(1) << temp;
-//std::string coolantTempStr = tempSs.str();
-
 Vehicle::Vehicle() {
     
 }
@@ -63,19 +47,19 @@ std::string Vehicle::getSpeedString() {
 
 std::string Vehicle::getBattVoltageString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(1) << battVoltage;
+    ss << std::fixed << std::setprecision(1) << batteryVoltage;
     return ss.str();
 }
 
 std::string Vehicle::getCoolantTempString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(1) << coolantTemp;
+    ss << std::fixed << std::setprecision(1) << coolantTemperature;
     return ss.str();
 }
 
 std::string Vehicle::getAirIntakeTempString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(1) << airIntakeTemp;
+    ss << std::fixed << std::setprecision(1) << airIntakeTemperature;
     return ss.str();
 }
 
@@ -87,7 +71,7 @@ std::string Vehicle::getManifoldPressureString() {
 
 std::string Vehicle::getTPSString() {
     std::stringstream ss;
-    ss << std::fixed << std::setprecision(1) << tps;
+    ss << std::fixed << std::setprecision(1) << throttlePositionSensor;
     return ss.str();
 }
 
@@ -117,5 +101,61 @@ std::string Vehicle::getMaxTorqueString() {
 
 int Vehicle::getNeutral() {
     return neutral;
+}
+
+void Vehicle::setSpeed(float speed) {
+    this->speed = speed;
+}
+
+void Vehicle::setRPM(int rpm) {
+    this->rpm = rpm;
+}
+
+void Vehicle::setGear(int gear) {
+    this->gear = gear;
+}
+
+void Vehicle::setNeutral(bool neutral) {
+    this->neutral = neutral;
+}
+
+void Vehicle::setClutch(bool clutch) {
+    this->clutch = clutch;
+}
+
+void Vehicle::setKickstand(bool kickstand) {
+    this->kickstand = kickstand;
+}
+
+void Vehicle::setEngineRunning(bool engineRunning) {
+    this->engineRunning = engineRunning;
+}
+
+void Vehicle::setBatteryVoltage(float batteryVoltage) {
+    this->batteryVoltage = batteryVoltage;
+}
+
+void Vehicle::setCoolantTemperature(float coolantTemperature) {
+    this->coolantTemperature = coolantTemperature;
+}
+
+void Vehicle::setAirIntakeTemperature(float airIntakeTemperature) {
+    this->airIntakeTemperature = airIntakeTemperature;
+}
+
+void Vehicle::setManifoldPressure(float manifoldPressure) {
+    this->manifoldPressure = manifoldPressure;
+}
+
+void Vehicle::setThrottlePositionSensor(float throttlePositionSensor) {
+    this->throttlePositionSensor = throttlePositionSensor;
+}
+
+void Vehicle::setInjectorDuration(float injectorDuration) {
+    this->injectorDuration = injectorDuration;
+}
+
+void Vehicle::setIgnitionAdvance(float ignitionAdvance) {
+    this->ignitionAdvance = ignitionAdvance;
 }
 

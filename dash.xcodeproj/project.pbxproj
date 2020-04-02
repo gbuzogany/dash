@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		660070312433C85E001080A1 /* dash.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6600702F2433C85E001080A1 /* dash.grpc.pb.cc */; };
+		660070322433C85E001080A1 /* dash.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 660070302433C85E001080A1 /* dash.pb.cc */; };
+		660070362433C8AE001080A1 /* DashControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660070342433C8AE001080A1 /* DashControl.cpp */; };
 		66369D9D2302E7A000975025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369D9C2302E7A000975025 /* main.cpp */; };
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
 		66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* ShaderProgram.cpp */; };
@@ -21,8 +24,6 @@
 		6659848623056DFF002D326C /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848423056DFF002D326C /* Vehicle.cpp */; };
 		6659848923057103002D326C /* Dashboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848723057103002D326C /* Dashboard.cpp */; };
 		6659848C2305742F002D326C /* CB650F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848A2305742F002D326C /* CB650F.cpp */; };
-		6659849D2305C0D7002D326C /* ClientSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659849B2305C0D6002D326C /* ClientSocket.cpp */; };
-		665984A12305C2A9002D326C /* ECUConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659849F2305C2A9002D326C /* ECUConnector.cpp */; };
 		6671FCAB237869CB005BA4E4 /* MediaService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6671FCAA237869CB005BA4E4 /* MediaService.cpp */; };
 		6671FCAE23786A4F005BA4E4 /* media.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6671FCAC23786A4F005BA4E4 /* media.grpc.pb.cc */; };
 		6671FCB123786AA4005BA4E4 /* media.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6671FCAF23786AA4005BA4E4 /* media.pb.cc */; };
@@ -59,6 +60,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6600702D2433C85E001080A1 /* dash.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dash.grpc.pb.h; sourceTree = "<group>"; };
+		6600702E2433C85E001080A1 /* dash.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dash.pb.h; sourceTree = "<group>"; };
+		6600702F2433C85E001080A1 /* dash.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dash.grpc.pb.cc; sourceTree = "<group>"; };
+		660070302433C85E001080A1 /* dash.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dash.pb.cc; sourceTree = "<group>"; };
+		660070342433C8AE001080A1 /* DashControl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DashControl.cpp; sourceTree = "<group>"; };
+		660070352433C8AE001080A1 /* DashControl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashControl.hpp; sourceTree = "<group>"; };
 		66369D992302E7A000975025 /* dash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dash; sourceTree = BUILT_PRODUCTS_DIR; };
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
@@ -84,12 +91,6 @@
 		6659848823057103002D326C /* Dashboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dashboard.hpp; sourceTree = "<group>"; };
 		6659848A2305742F002D326C /* CB650F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CB650F.cpp; sourceTree = "<group>"; };
 		6659848B2305742F002D326C /* CB650F.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CB650F.hpp; sourceTree = "<group>"; };
-		6659849623058DFA002D326C /* honda_generated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = honda_generated.h; sourceTree = "<group>"; };
-		6659849B2305C0D6002D326C /* ClientSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientSocket.cpp; sourceTree = "<group>"; };
-		6659849C2305C0D7002D326C /* ClientSocket.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ClientSocket.hpp; sourceTree = "<group>"; };
-		6659849E2305C0EC002D326C /* SocketException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketException.h; sourceTree = "<group>"; };
-		6659849F2305C2A9002D326C /* ECUConnector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ECUConnector.cpp; sourceTree = "<group>"; };
-		665984A02305C2A9002D326C /* ECUConnector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ECUConnector.hpp; sourceTree = "<group>"; };
 		665984A22305C5A9002D326C /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		6671FCAA237869CB005BA4E4 /* MediaService.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaService.cpp; sourceTree = "<group>"; };
 		6671FCAC23786A4F005BA4E4 /* media.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = media.grpc.pb.cc; sourceTree = "<group>"; };
@@ -123,6 +124,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		660070332433C863001080A1 /* rpc */ = {
+			isa = PBXGroup;
+			children = (
+				660070342433C8AE001080A1 /* DashControl.cpp */,
+				660070352433C8AE001080A1 /* DashControl.hpp */,
+				6600702F2433C85E001080A1 /* dash.grpc.pb.cc */,
+				6600702D2433C85E001080A1 /* dash.grpc.pb.h */,
+				660070302433C85E001080A1 /* dash.pb.cc */,
+				6600702E2433C85E001080A1 /* dash.pb.h */,
+			);
+			name = rpc;
+			sourceTree = "<group>";
+		};
 		66369D902302E7A000975025 = {
 			isa = PBXGroup;
 			children = (
@@ -146,9 +160,8 @@
 				66F48923230D8E7C0092BA35 /* Resources */,
 				6659848E2305765A002D326C /* Vehicle */,
 				66369DB62302EE8D00975025 /* Shaders */,
-				6659849523058DE2002D326C /* flatbuffers */,
-				6659849A2305C0CC002D326C /* Network */,
 				6671FCA9237869AF005BA4E4 /* Media */,
+				660070332433C863001080A1 /* rpc */,
 				665984A22305C5A9002D326C /* Definitions.h */,
 				66369D9C2302E7A000975025 /* main.cpp */,
 				66369DA32302E7E200975025 /* Renderer.cpp */,
@@ -201,26 +214,6 @@
 				6659848B2305742F002D326C /* CB650F.hpp */,
 			);
 			name = Vehicle;
-			sourceTree = "<group>";
-		};
-		6659849523058DE2002D326C /* flatbuffers */ = {
-			isa = PBXGroup;
-			children = (
-				6659849623058DFA002D326C /* honda_generated.h */,
-			);
-			name = flatbuffers;
-			sourceTree = "<group>";
-		};
-		6659849A2305C0CC002D326C /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				6659849E2305C0EC002D326C /* SocketException.h */,
-				6659849C2305C0D7002D326C /* ClientSocket.hpp */,
-				6659849B2305C0D6002D326C /* ClientSocket.cpp */,
-				6659849F2305C2A9002D326C /* ECUConnector.cpp */,
-				665984A02305C2A9002D326C /* ECUConnector.hpp */,
-			);
-			name = Network;
 			sourceTree = "<group>";
 		};
 		6671FCA9237869AF005BA4E4 /* Media */ = {
@@ -313,8 +306,9 @@
 				66369DB22302EAFC00975025 /* Shader.cpp in Sources */,
 				6659848923057103002D326C /* Dashboard.cpp in Sources */,
 				66369D9D2302E7A000975025 /* main.cpp in Sources */,
-				665984A12305C2A9002D326C /* ECUConnector.cpp in Sources */,
-				6659849D2305C0D7002D326C /* ClientSocket.cpp in Sources */,
+				660070322433C85E001080A1 /* dash.pb.cc in Sources */,
+				660070362433C8AE001080A1 /* DashControl.cpp in Sources */,
+				660070312433C85E001080A1 /* dash.grpc.pb.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +429,8 @@
 		66369DA12302E7A000975025 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D4K47L4SBH;
@@ -459,7 +454,8 @@
 		66369DA22302E7A000975025 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D4K47L4SBH;

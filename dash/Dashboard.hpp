@@ -18,8 +18,6 @@
 #include "Renderer.hpp"
 #include "Vehicle.hpp"
 #include "CB650F.hpp"
-#include "honda_generated.h"
-#include "ECUConnector.hpp"
 #include "Definitions.h"
 
 typedef struct {
@@ -40,10 +38,9 @@ class Dashboard {
     DashMediaItem nowPlaying_;
     
     std::thread mediaServiceThread;
+    std::thread dashServiceThread;
     
     std::map<std::string, float> attrX;
-    
-    ECUConnector *connector;
     
     FontWrapper *hnproMedium27;
     FontWrapper *hnproHuge;
@@ -53,11 +50,12 @@ class Dashboard {
     
     void createFramebuffer();
     void startMediaService();
+    void startDashService();
 public:
     Dashboard(Renderer &r);
+    Vehicle* getVehicle();
     void render();
     void renderFixed();
-    
     void setPlayStatus(std::string playStatus);
     void setNowPlaying(DashMediaItem mediaItem);
 };

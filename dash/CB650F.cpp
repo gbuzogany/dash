@@ -59,33 +59,16 @@ std::string CB650F::getMaxTorqueString() {
     return ss.str();
 }
 
-using namespace dash;
-
-void* CB650F::serialize() {
-    flatbuffers::FlatBufferBuilder builder(128);
-    
-    auto message = CreatestatsMessage(builder, battVoltage, coolantTemp, airIntakeTemp, manifoldPressure, speed, tps, rpm, neutral, engineRunning, injectorDuration, ignitionAdvance);
-    builder.Finish(message);
-    
-    uint8_t *buf = builder.GetBufferPointer();
-    int size = builder.GetSize();
-    
-    void *buffer = malloc(size);
-    buffer = memcpy(buffer, buf, size);
-    
-    return buffer;
-}
-
 int CB650F::guessGear() {
     // neutral
     // 0 = gear 1 = neutral/clutch 3 = kickstand_neutral
-    if (neutral == KICKSTAND_NEUTRAL) {
+    if (neutral == true) {
         return GEAR_N;
     }
-    if (neutral != IN_GEAR) {
-        return GEAR_NONE;
-    }
-    
+//    if (neutral != IN_GEAR) {
+//        return GEAR_NONE;
+//    }
+//
     float base_wheel_speed = rpm / primary_reduction;
 
     for (int i = 0; i < gearRatios.size(); i++) {
@@ -130,21 +113,4 @@ int CB650F::guessGear() {
     }
     gear = currentGear;
     return currentGear;
-}
-
-void CB650F::read(uint8_t *buffer_pointer) {
-    auto message  = GetstatsMessage(buffer_pointer);
-    
-    rpm = message->rpm();
-    speed = message->speed();
-    battVoltage = message->battVoltage();
-    coolantTemp = message->coolantTemp();
-    airIntakeTemp = message->airIntakeTemp();
-    manifoldPressure = message->manifoldPressure();
-    neutral = message->neutral();
-    engineRunning = message->engineRunning();
-    tps = message->tps();
-    injectorDuration = message->injDur();
-    ignitionAdvance = message->ignAdv();
-    gear = guessGear();
 }

@@ -16,7 +16,6 @@
 #include "Vehicle.hpp"
 #include <math.h>
 #include <cmath>
-#include "honda_generated.h"
 
 enum {IN_GEAR = 0, NEUTRAL_CLUTCH = 1, KICKSTAND_NEUTRAL = 3};
 
@@ -47,8 +46,6 @@ public:
     int guessGear();
     std::string getMaxPowerString();
     std::string getMaxTorqueString();
-    void* serialize();
-    void read(uint8_t *buffer_pointer);
 };
 
 
