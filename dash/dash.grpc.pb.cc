@@ -34,70 +34,157 @@ DashControl::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channe
   , rpcmethod_UpdateDashExtendedData_(DashControl_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status DashControl::Stub::UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::dash::DashStatusResponse* response) {
+::grpc::Status DashControl::Stub::UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::dash::StatusResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateDashData_, context, request, response);
 }
 
-void DashControl::Stub::experimental_async::UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)> f) {
+void DashControl::Stub::experimental_async::UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateDashData_, context, request, response, std::move(f));
 }
 
-void DashControl::Stub::experimental_async::UpdateDashData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)> f) {
+void DashControl::Stub::experimental_async::UpdateDashData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateDashData_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>* DashControl::Stub::AsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::DashStatusResponse>::Create(channel_.get(), cq, rpcmethod_UpdateDashData_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* DashControl::Stub::AsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::StatusResponse>::Create(channel_.get(), cq, rpcmethod_UpdateDashData_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>* DashControl::Stub::PrepareAsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::DashStatusResponse>::Create(channel_.get(), cq, rpcmethod_UpdateDashData_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* DashControl::Stub::PrepareAsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::StatusResponse>::Create(channel_.get(), cq, rpcmethod_UpdateDashData_, context, request, false);
 }
 
-::grpc::Status DashControl::Stub::UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::dash::DashStatusResponse* response) {
+::grpc::Status DashControl::Stub::UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::dash::StatusResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateDashExtendedData_, context, request, response);
 }
 
-void DashControl::Stub::experimental_async::UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)> f) {
+void DashControl::Stub::experimental_async::UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateDashExtendedData_, context, request, response, std::move(f));
 }
 
-void DashControl::Stub::experimental_async::UpdateDashExtendedData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)> f) {
+void DashControl::Stub::experimental_async::UpdateDashExtendedData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateDashExtendedData_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>* DashControl::Stub::AsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::DashStatusResponse>::Create(channel_.get(), cq, rpcmethod_UpdateDashExtendedData_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* DashControl::Stub::AsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::StatusResponse>::Create(channel_.get(), cq, rpcmethod_UpdateDashExtendedData_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>* DashControl::Stub::PrepareAsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::DashStatusResponse>::Create(channel_.get(), cq, rpcmethod_UpdateDashExtendedData_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* DashControl::Stub::PrepareAsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::StatusResponse>::Create(channel_.get(), cq, rpcmethod_UpdateDashExtendedData_, context, request, false);
 }
 
 DashControl::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DashControl_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< DashControl::Service, ::dash::DashData, ::dash::DashStatusResponse>(
+      new ::grpc::internal::RpcMethodHandler< DashControl::Service, ::dash::DashData, ::dash::StatusResponse>(
           std::mem_fn(&DashControl::Service::UpdateDashData), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DashControl_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< DashControl::Service, ::dash::DashExtendedData, ::dash::DashStatusResponse>(
+      new ::grpc::internal::RpcMethodHandler< DashControl::Service, ::dash::DashExtendedData, ::dash::StatusResponse>(
           std::mem_fn(&DashControl::Service::UpdateDashExtendedData), this)));
 }
 
 DashControl::Service::~Service() {
 }
 
-::grpc::Status DashControl::Service::UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response) {
+::grpc::Status DashControl::Service::UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DashControl::Service::UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response) {
+::grpc::Status DashControl::Service::UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
+static const char* MediaPlayer_method_names[] = {
+  "/dash.MediaPlayer/PlayStatusChanged",
+  "/dash.MediaPlayer/MediaChanged",
+};
+
+std::unique_ptr< MediaPlayer::Stub> MediaPlayer::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  (void)options;
+  std::unique_ptr< MediaPlayer::Stub> stub(new MediaPlayer::Stub(channel));
+  return stub;
+}
+
+MediaPlayer::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_PlayStatusChanged_(MediaPlayer_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_MediaChanged_(MediaPlayer_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status MediaPlayer::Stub::PlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::dash::StatusResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_PlayStatusChanged_, context, request, response);
+}
+
+void MediaPlayer::Stub::experimental_async::PlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_PlayStatusChanged_, context, request, response, std::move(f));
+}
+
+void MediaPlayer::Stub::experimental_async::PlayStatusChanged(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_PlayStatusChanged_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* MediaPlayer::Stub::AsyncPlayStatusChangedRaw(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::StatusResponse>::Create(channel_.get(), cq, rpcmethod_PlayStatusChanged_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* MediaPlayer::Stub::PrepareAsyncPlayStatusChangedRaw(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::StatusResponse>::Create(channel_.get(), cq, rpcmethod_PlayStatusChanged_, context, request, false);
+}
+
+::grpc::Status MediaPlayer::Stub::MediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::dash::StatusResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_MediaChanged_, context, request, response);
+}
+
+void MediaPlayer::Stub::experimental_async::MediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_MediaChanged_, context, request, response, std::move(f));
+}
+
+void MediaPlayer::Stub::experimental_async::MediaChanged(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_MediaChanged_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* MediaPlayer::Stub::AsyncMediaChangedRaw(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::StatusResponse>::Create(channel_.get(), cq, rpcmethod_MediaChanged_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* MediaPlayer::Stub::PrepareAsyncMediaChangedRaw(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::dash::StatusResponse>::Create(channel_.get(), cq, rpcmethod_MediaChanged_, context, request, false);
+}
+
+MediaPlayer::Service::Service() {
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      MediaPlayer_method_names[0],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< MediaPlayer::Service, ::dash::PlayStatus, ::dash::StatusResponse>(
+          std::mem_fn(&MediaPlayer::Service::PlayStatusChanged), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      MediaPlayer_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< MediaPlayer::Service, ::dash::MediaItem, ::dash::StatusResponse>(
+          std::mem_fn(&MediaPlayer::Service::MediaChanged), this)));
+}
+
+MediaPlayer::Service::~Service() {
+}
+
+::grpc::Status MediaPlayer::Service::PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status MediaPlayer::Service::MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -47,7 +47,7 @@ struct TableStruct_dash_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -61,14 +61,22 @@ extern DashDataDefaultTypeInternal _DashData_default_instance_;
 class DashExtendedData;
 class DashExtendedDataDefaultTypeInternal;
 extern DashExtendedDataDefaultTypeInternal _DashExtendedData_default_instance_;
-class DashStatusResponse;
-class DashStatusResponseDefaultTypeInternal;
-extern DashStatusResponseDefaultTypeInternal _DashStatusResponse_default_instance_;
+class MediaItem;
+class MediaItemDefaultTypeInternal;
+extern MediaItemDefaultTypeInternal _MediaItem_default_instance_;
+class PlayStatus;
+class PlayStatusDefaultTypeInternal;
+extern PlayStatusDefaultTypeInternal _PlayStatus_default_instance_;
+class StatusResponse;
+class StatusResponseDefaultTypeInternal;
+extern StatusResponseDefaultTypeInternal _StatusResponse_default_instance_;
 }  // namespace dash
 PROTOBUF_NAMESPACE_OPEN
 template<> ::dash::DashData* Arena::CreateMaybeMessage<::dash::DashData>(Arena*);
 template<> ::dash::DashExtendedData* Arena::CreateMaybeMessage<::dash::DashExtendedData>(Arena*);
-template<> ::dash::DashStatusResponse* Arena::CreateMaybeMessage<::dash::DashStatusResponse>(Arena*);
+template<> ::dash::MediaItem* Arena::CreateMaybeMessage<::dash::MediaItem>(Arena*);
+template<> ::dash::PlayStatus* Arena::CreateMaybeMessage<::dash::PlayStatus>(Arena*);
+template<> ::dash::StatusResponse* Arena::CreateMaybeMessage<::dash::StatusResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace dash {
 
@@ -462,23 +470,23 @@ class DashExtendedData :
 };
 // -------------------------------------------------------------------
 
-class DashStatusResponse :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dash.DashStatusResponse) */ {
+class PlayStatus :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dash.PlayStatus) */ {
  public:
-  DashStatusResponse();
-  virtual ~DashStatusResponse();
+  PlayStatus();
+  virtual ~PlayStatus();
 
-  DashStatusResponse(const DashStatusResponse& from);
-  DashStatusResponse(DashStatusResponse&& from) noexcept
-    : DashStatusResponse() {
+  PlayStatus(const PlayStatus& from);
+  PlayStatus(PlayStatus&& from) noexcept
+    : PlayStatus() {
     *this = ::std::move(from);
   }
 
-  inline DashStatusResponse& operator=(const DashStatusResponse& from) {
+  inline PlayStatus& operator=(const PlayStatus& from) {
     CopyFrom(from);
     return *this;
   }
-  inline DashStatusResponse& operator=(DashStatusResponse&& from) noexcept {
+  inline PlayStatus& operator=(PlayStatus&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -496,37 +504,37 @@ class DashStatusResponse :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const DashStatusResponse& default_instance();
+  static const PlayStatus& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DashStatusResponse* internal_default_instance() {
-    return reinterpret_cast<const DashStatusResponse*>(
-               &_DashStatusResponse_default_instance_);
+  static inline const PlayStatus* internal_default_instance() {
+    return reinterpret_cast<const PlayStatus*>(
+               &_PlayStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(DashStatusResponse& a, DashStatusResponse& b) {
+  friend void swap(PlayStatus& a, PlayStatus& b) {
     a.Swap(&b);
   }
-  inline void Swap(DashStatusResponse* other) {
+  inline void Swap(PlayStatus* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline DashStatusResponse* New() const final {
-    return CreateMaybeMessage<DashStatusResponse>(nullptr);
+  inline PlayStatus* New() const final {
+    return CreateMaybeMessage<PlayStatus>(nullptr);
   }
 
-  DashStatusResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<DashStatusResponse>(arena);
+  PlayStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PlayStatus>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const DashStatusResponse& from);
-  void MergeFrom(const DashStatusResponse& from);
+  void CopyFrom(const PlayStatus& from);
+  void MergeFrom(const PlayStatus& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -540,10 +548,316 @@ class DashStatusResponse :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(DashStatusResponse* other);
+  void InternalSwap(PlayStatus* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "dash.DashStatusResponse";
+    return "dash.PlayStatus";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dash_2eproto);
+    return ::descriptor_table_dash_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlayStatusFieldNumber = 1,
+  };
+  // string playStatus = 1;
+  void clear_playstatus();
+  const std::string& playstatus() const;
+  void set_playstatus(const std::string& value);
+  void set_playstatus(std::string&& value);
+  void set_playstatus(const char* value);
+  void set_playstatus(const char* value, size_t size);
+  std::string* mutable_playstatus();
+  std::string* release_playstatus();
+  void set_allocated_playstatus(std::string* playstatus);
+  private:
+  const std::string& _internal_playstatus() const;
+  void _internal_set_playstatus(const std::string& value);
+  std::string* _internal_mutable_playstatus();
+  public:
+
+  // @@protoc_insertion_point(class_scope:dash.PlayStatus)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr playstatus_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dash_2eproto;
+};
+// -------------------------------------------------------------------
+
+class MediaItem :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dash.MediaItem) */ {
+ public:
+  MediaItem();
+  virtual ~MediaItem();
+
+  MediaItem(const MediaItem& from);
+  MediaItem(MediaItem&& from) noexcept
+    : MediaItem() {
+    *this = ::std::move(from);
+  }
+
+  inline MediaItem& operator=(const MediaItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MediaItem& operator=(MediaItem&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const MediaItem& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MediaItem* internal_default_instance() {
+    return reinterpret_cast<const MediaItem*>(
+               &_MediaItem_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(MediaItem& a, MediaItem& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MediaItem* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MediaItem* New() const final {
+    return CreateMaybeMessage<MediaItem>(nullptr);
+  }
+
+  MediaItem* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<MediaItem>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const MediaItem& from);
+  void MergeFrom(const MediaItem& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MediaItem* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dash.MediaItem";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dash_2eproto);
+    return ::descriptor_table_dash_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTitleFieldNumber = 1,
+    kArtistFieldNumber = 2,
+    kAlbumFieldNumber = 3,
+  };
+  // string title = 1;
+  void clear_title();
+  const std::string& title() const;
+  void set_title(const std::string& value);
+  void set_title(std::string&& value);
+  void set_title(const char* value);
+  void set_title(const char* value, size_t size);
+  std::string* mutable_title();
+  std::string* release_title();
+  void set_allocated_title(std::string* title);
+  private:
+  const std::string& _internal_title() const;
+  void _internal_set_title(const std::string& value);
+  std::string* _internal_mutable_title();
+  public:
+
+  // string artist = 2;
+  void clear_artist();
+  const std::string& artist() const;
+  void set_artist(const std::string& value);
+  void set_artist(std::string&& value);
+  void set_artist(const char* value);
+  void set_artist(const char* value, size_t size);
+  std::string* mutable_artist();
+  std::string* release_artist();
+  void set_allocated_artist(std::string* artist);
+  private:
+  const std::string& _internal_artist() const;
+  void _internal_set_artist(const std::string& value);
+  std::string* _internal_mutable_artist();
+  public:
+
+  // string album = 3;
+  void clear_album();
+  const std::string& album() const;
+  void set_album(const std::string& value);
+  void set_album(std::string&& value);
+  void set_album(const char* value);
+  void set_album(const char* value, size_t size);
+  std::string* mutable_album();
+  std::string* release_album();
+  void set_allocated_album(std::string* album);
+  private:
+  const std::string& _internal_album() const;
+  void _internal_set_album(const std::string& value);
+  std::string* _internal_mutable_album();
+  public:
+
+  // @@protoc_insertion_point(class_scope:dash.MediaItem)
+ private:
+  class _Internal;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr title_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr artist_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr album_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dash_2eproto;
+};
+// -------------------------------------------------------------------
+
+class StatusResponse :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dash.StatusResponse) */ {
+ public:
+  StatusResponse();
+  virtual ~StatusResponse();
+
+  StatusResponse(const StatusResponse& from);
+  StatusResponse(StatusResponse&& from) noexcept
+    : StatusResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline StatusResponse& operator=(const StatusResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StatusResponse& operator=(StatusResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const StatusResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StatusResponse* internal_default_instance() {
+    return reinterpret_cast<const StatusResponse*>(
+               &_StatusResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(StatusResponse& a, StatusResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StatusResponse* other) {
+    if (other == this) return;
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StatusResponse* New() const final {
+    return CreateMaybeMessage<StatusResponse>(nullptr);
+  }
+
+  StatusResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<StatusResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const StatusResponse& from);
+  void MergeFrom(const StatusResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StatusResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dash.StatusResponse";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -579,7 +893,7 @@ class DashStatusResponse :
   void _internal_set_status(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:dash.DashStatusResponse)
+  // @@protoc_insertion_point(class_scope:dash.StatusResponse)
  private:
   class _Internal;
 
@@ -885,31 +1199,283 @@ inline void DashExtendedData::set_kickstand(bool value) {
 
 // -------------------------------------------------------------------
 
-// DashStatusResponse
+// PlayStatus
+
+// string playStatus = 1;
+inline void PlayStatus::clear_playstatus() {
+  playstatus_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& PlayStatus::playstatus() const {
+  // @@protoc_insertion_point(field_get:dash.PlayStatus.playStatus)
+  return _internal_playstatus();
+}
+inline void PlayStatus::set_playstatus(const std::string& value) {
+  _internal_set_playstatus(value);
+  // @@protoc_insertion_point(field_set:dash.PlayStatus.playStatus)
+}
+inline std::string* PlayStatus::mutable_playstatus() {
+  // @@protoc_insertion_point(field_mutable:dash.PlayStatus.playStatus)
+  return _internal_mutable_playstatus();
+}
+inline const std::string& PlayStatus::_internal_playstatus() const {
+  return playstatus_.GetNoArena();
+}
+inline void PlayStatus::_internal_set_playstatus(const std::string& value) {
+  
+  playstatus_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void PlayStatus::set_playstatus(std::string&& value) {
+  
+  playstatus_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dash.PlayStatus.playStatus)
+}
+inline void PlayStatus::set_playstatus(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  playstatus_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dash.PlayStatus.playStatus)
+}
+inline void PlayStatus::set_playstatus(const char* value, size_t size) {
+  
+  playstatus_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dash.PlayStatus.playStatus)
+}
+inline std::string* PlayStatus::_internal_mutable_playstatus() {
+  
+  return playstatus_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* PlayStatus::release_playstatus() {
+  // @@protoc_insertion_point(field_release:dash.PlayStatus.playStatus)
+  
+  return playstatus_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void PlayStatus::set_allocated_playstatus(std::string* playstatus) {
+  if (playstatus != nullptr) {
+    
+  } else {
+    
+  }
+  playstatus_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), playstatus);
+  // @@protoc_insertion_point(field_set_allocated:dash.PlayStatus.playStatus)
+}
+
+// -------------------------------------------------------------------
+
+// MediaItem
+
+// string title = 1;
+inline void MediaItem::clear_title() {
+  title_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& MediaItem::title() const {
+  // @@protoc_insertion_point(field_get:dash.MediaItem.title)
+  return _internal_title();
+}
+inline void MediaItem::set_title(const std::string& value) {
+  _internal_set_title(value);
+  // @@protoc_insertion_point(field_set:dash.MediaItem.title)
+}
+inline std::string* MediaItem::mutable_title() {
+  // @@protoc_insertion_point(field_mutable:dash.MediaItem.title)
+  return _internal_mutable_title();
+}
+inline const std::string& MediaItem::_internal_title() const {
+  return title_.GetNoArena();
+}
+inline void MediaItem::_internal_set_title(const std::string& value) {
+  
+  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void MediaItem::set_title(std::string&& value) {
+  
+  title_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dash.MediaItem.title)
+}
+inline void MediaItem::set_title(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dash.MediaItem.title)
+}
+inline void MediaItem::set_title(const char* value, size_t size) {
+  
+  title_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dash.MediaItem.title)
+}
+inline std::string* MediaItem::_internal_mutable_title() {
+  
+  return title_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* MediaItem::release_title() {
+  // @@protoc_insertion_point(field_release:dash.MediaItem.title)
+  
+  return title_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void MediaItem::set_allocated_title(std::string* title) {
+  if (title != nullptr) {
+    
+  } else {
+    
+  }
+  title_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), title);
+  // @@protoc_insertion_point(field_set_allocated:dash.MediaItem.title)
+}
+
+// string artist = 2;
+inline void MediaItem::clear_artist() {
+  artist_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& MediaItem::artist() const {
+  // @@protoc_insertion_point(field_get:dash.MediaItem.artist)
+  return _internal_artist();
+}
+inline void MediaItem::set_artist(const std::string& value) {
+  _internal_set_artist(value);
+  // @@protoc_insertion_point(field_set:dash.MediaItem.artist)
+}
+inline std::string* MediaItem::mutable_artist() {
+  // @@protoc_insertion_point(field_mutable:dash.MediaItem.artist)
+  return _internal_mutable_artist();
+}
+inline const std::string& MediaItem::_internal_artist() const {
+  return artist_.GetNoArena();
+}
+inline void MediaItem::_internal_set_artist(const std::string& value) {
+  
+  artist_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void MediaItem::set_artist(std::string&& value) {
+  
+  artist_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dash.MediaItem.artist)
+}
+inline void MediaItem::set_artist(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  artist_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dash.MediaItem.artist)
+}
+inline void MediaItem::set_artist(const char* value, size_t size) {
+  
+  artist_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dash.MediaItem.artist)
+}
+inline std::string* MediaItem::_internal_mutable_artist() {
+  
+  return artist_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* MediaItem::release_artist() {
+  // @@protoc_insertion_point(field_release:dash.MediaItem.artist)
+  
+  return artist_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void MediaItem::set_allocated_artist(std::string* artist) {
+  if (artist != nullptr) {
+    
+  } else {
+    
+  }
+  artist_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), artist);
+  // @@protoc_insertion_point(field_set_allocated:dash.MediaItem.artist)
+}
+
+// string album = 3;
+inline void MediaItem::clear_album() {
+  album_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& MediaItem::album() const {
+  // @@protoc_insertion_point(field_get:dash.MediaItem.album)
+  return _internal_album();
+}
+inline void MediaItem::set_album(const std::string& value) {
+  _internal_set_album(value);
+  // @@protoc_insertion_point(field_set:dash.MediaItem.album)
+}
+inline std::string* MediaItem::mutable_album() {
+  // @@protoc_insertion_point(field_mutable:dash.MediaItem.album)
+  return _internal_mutable_album();
+}
+inline const std::string& MediaItem::_internal_album() const {
+  return album_.GetNoArena();
+}
+inline void MediaItem::_internal_set_album(const std::string& value) {
+  
+  album_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+}
+inline void MediaItem::set_album(std::string&& value) {
+  
+  album_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dash.MediaItem.album)
+}
+inline void MediaItem::set_album(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  album_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dash.MediaItem.album)
+}
+inline void MediaItem::set_album(const char* value, size_t size) {
+  
+  album_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dash.MediaItem.album)
+}
+inline std::string* MediaItem::_internal_mutable_album() {
+  
+  return album_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* MediaItem::release_album() {
+  // @@protoc_insertion_point(field_release:dash.MediaItem.album)
+  
+  return album_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void MediaItem::set_allocated_album(std::string* album) {
+  if (album != nullptr) {
+    
+  } else {
+    
+  }
+  album_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), album);
+  // @@protoc_insertion_point(field_set_allocated:dash.MediaItem.album)
+}
+
+// -------------------------------------------------------------------
+
+// StatusResponse
 
 // int32 status = 1;
-inline void DashStatusResponse::clear_status() {
+inline void StatusResponse::clear_status() {
   status_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 DashStatusResponse::_internal_status() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 StatusResponse::_internal_status() const {
   return status_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 DashStatusResponse::status() const {
-  // @@protoc_insertion_point(field_get:dash.DashStatusResponse.status)
+inline ::PROTOBUF_NAMESPACE_ID::int32 StatusResponse::status() const {
+  // @@protoc_insertion_point(field_get:dash.StatusResponse.status)
   return _internal_status();
 }
-inline void DashStatusResponse::_internal_set_status(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void StatusResponse::_internal_set_status(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   status_ = value;
 }
-inline void DashStatusResponse::set_status(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void StatusResponse::set_status(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_status(value);
-  // @@protoc_insertion_point(field_set:dash.DashStatusResponse.status)
+  // @@protoc_insertion_point(field_set:dash.StatusResponse.status)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

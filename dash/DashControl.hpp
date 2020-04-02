@@ -25,7 +25,7 @@ using grpc::Status;
 using dash::DashControl;
 using dash::DashData;
 using dash::DashExtendedData;
-using dash::DashStatusResponse;
+using dash::StatusResponse;
 
 class Dashboard;
 
@@ -35,8 +35,8 @@ public:
 private:
     Dashboard* dash_;
     
-    Status UpdateDashData(ServerContext* context, const DashData* request, DashStatusResponse* response);
-    Status UpdateDashExtendedData(ServerContext *context, const DashExtendedData *request, DashStatusResponse *response);
+    Status UpdateDashData(ServerContext* context, const DashData* request, StatusResponse* response);
+    Status UpdateDashExtendedData(ServerContext *context, const DashExtendedData *request, StatusResponse *response);
 };
 
 #endif /* DashControl_hpp */

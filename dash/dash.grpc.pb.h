@@ -37,59 +37,59 @@ class DashControl final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::dash::DashStatusResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>> AsyncUpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>>(AsyncUpdateDashDataRaw(context, request, cq));
+    virtual ::grpc::Status UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::dash::StatusResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>> AsyncUpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>>(AsyncUpdateDashDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>> PrepareAsyncUpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>>(PrepareAsyncUpdateDashDataRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>> PrepareAsyncUpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>>(PrepareAsyncUpdateDashDataRaw(context, request, cq));
     }
-    virtual ::grpc::Status UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::dash::DashStatusResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>> AsyncUpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>>(AsyncUpdateDashExtendedDataRaw(context, request, cq));
+    virtual ::grpc::Status UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::dash::StatusResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>> AsyncUpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>>(AsyncUpdateDashExtendedDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>> PrepareAsyncUpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>>(PrepareAsyncUpdateDashExtendedDataRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>> PrepareAsyncUpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>>(PrepareAsyncUpdateDashExtendedDataRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void UpdateDashData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void UpdateDashExtendedData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UpdateDashData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UpdateDashExtendedData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>* AsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>* PrepareAsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>* AsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::DashStatusResponse>* PrepareAsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>* AsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>* PrepareAsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>* AsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>* PrepareAsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::dash::DashStatusResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>> AsyncUpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>>(AsyncUpdateDashDataRaw(context, request, cq));
+    ::grpc::Status UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::dash::StatusResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>> AsyncUpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>>(AsyncUpdateDashDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>> PrepareAsyncUpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>>(PrepareAsyncUpdateDashDataRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>> PrepareAsyncUpdateDashData(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>>(PrepareAsyncUpdateDashDataRaw(context, request, cq));
     }
-    ::grpc::Status UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::dash::DashStatusResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>> AsyncUpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>>(AsyncUpdateDashExtendedDataRaw(context, request, cq));
+    ::grpc::Status UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::dash::StatusResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>> AsyncUpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>>(AsyncUpdateDashExtendedDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>> PrepareAsyncUpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>>(PrepareAsyncUpdateDashExtendedDataRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>> PrepareAsyncUpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>>(PrepareAsyncUpdateDashExtendedDataRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)>) override;
-      void UpdateDashData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)>) override;
-      void UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)>) override;
-      void UpdateDashExtendedData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::DashStatusResponse* response, std::function<void(::grpc::Status)>) override;
+      void UpdateDashData(::grpc::ClientContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) override;
+      void UpdateDashData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) override;
+      void UpdateDashExtendedData(::grpc::ClientContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) override;
+      void UpdateDashExtendedData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -101,10 +101,10 @@ class DashControl final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>* AsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>* PrepareAsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>* AsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::dash::DashStatusResponse>* PrepareAsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* AsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* PrepareAsyncUpdateDashDataRaw(::grpc::ClientContext* context, const ::dash::DashData& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* AsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* PrepareAsyncUpdateDashExtendedDataRaw(::grpc::ClientContext* context, const ::dash::DashExtendedData& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateDashData_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateDashExtendedData_;
   };
@@ -114,8 +114,8 @@ class DashControl final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response);
-    virtual ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response);
+    virtual ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response);
+    virtual ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_UpdateDashData : public BaseClass {
@@ -129,11 +129,11 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUpdateDashData(::grpc::ServerContext* context, ::dash::DashData* request, ::grpc::ServerAsyncResponseWriter< ::dash::DashStatusResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestUpdateDashData(::grpc::ServerContext* context, ::dash::DashData* request, ::grpc::ServerAsyncResponseWriter< ::dash::StatusResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -149,11 +149,11 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUpdateDashExtendedData(::grpc::ServerContext* context, ::dash::DashExtendedData* request, ::grpc::ServerAsyncResponseWriter< ::dash::DashStatusResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestUpdateDashExtendedData(::grpc::ServerContext* context, ::dash::DashExtendedData* request, ::grpc::ServerAsyncResponseWriter< ::dash::StatusResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -165,10 +165,10 @@ class DashControl final {
    public:
     ExperimentalWithCallbackMethod_UpdateDashData() {
       ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::dash::DashData, ::dash::DashStatusResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::dash::DashData, ::dash::StatusResponse>(
           [this](::grpc::ServerContext* context,
                  const ::dash::DashData* request,
-                 ::dash::DashStatusResponse* response,
+                 ::dash::StatusResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->UpdateDashData(context, request, response, controller);
                  }));
@@ -177,11 +177,11 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_UpdateDashExtendedData : public BaseClass {
@@ -190,10 +190,10 @@ class DashControl final {
    public:
     ExperimentalWithCallbackMethod_UpdateDashExtendedData() {
       ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::dash::DashExtendedData, ::dash::DashStatusResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::dash::DashExtendedData, ::dash::StatusResponse>(
           [this](::grpc::ServerContext* context,
                  const ::dash::DashExtendedData* request,
-                 ::dash::DashStatusResponse* response,
+                 ::dash::StatusResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->UpdateDashExtendedData(context, request, response, controller);
                  }));
@@ -202,11 +202,11 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   typedef ExperimentalWithCallbackMethod_UpdateDashData<ExperimentalWithCallbackMethod_UpdateDashExtendedData<Service > > ExperimentalCallbackService;
   template <class BaseClass>
@@ -221,7 +221,7 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -238,7 +238,7 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -255,7 +255,7 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -275,7 +275,7 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -302,7 +302,7 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -327,7 +327,7 @@ class DashControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -340,18 +340,18 @@ class DashControl final {
    public:
     WithStreamedUnaryMethod_UpdateDashData() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::dash::DashData, ::dash::DashStatusResponse>(std::bind(&WithStreamedUnaryMethod_UpdateDashData<BaseClass>::StreamedUpdateDashData, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::dash::DashData, ::dash::StatusResponse>(std::bind(&WithStreamedUnaryMethod_UpdateDashData<BaseClass>::StreamedUpdateDashData, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_UpdateDashData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashData(::grpc::ServerContext* context, const ::dash::DashData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedUpdateDashData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::dash::DashData,::dash::DashStatusResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedUpdateDashData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::dash::DashData,::dash::StatusResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_UpdateDashExtendedData : public BaseClass {
@@ -360,22 +360,371 @@ class DashControl final {
    public:
     WithStreamedUnaryMethod_UpdateDashExtendedData() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler< ::dash::DashExtendedData, ::dash::DashStatusResponse>(std::bind(&WithStreamedUnaryMethod_UpdateDashExtendedData<BaseClass>::StreamedUpdateDashExtendedData, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::dash::DashExtendedData, ::dash::StatusResponse>(std::bind(&WithStreamedUnaryMethod_UpdateDashExtendedData<BaseClass>::StreamedUpdateDashExtendedData, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_UpdateDashExtendedData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::DashStatusResponse* response) override {
+    ::grpc::Status UpdateDashExtendedData(::grpc::ServerContext* context, const ::dash::DashExtendedData* request, ::dash::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedUpdateDashExtendedData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::dash::DashExtendedData,::dash::DashStatusResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedUpdateDashExtendedData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::dash::DashExtendedData,::dash::StatusResponse>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_UpdateDashData<WithStreamedUnaryMethod_UpdateDashExtendedData<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
   typedef WithStreamedUnaryMethod_UpdateDashData<WithStreamedUnaryMethod_UpdateDashExtendedData<Service > > StreamedService;
+};
+
+class MediaPlayer final {
+ public:
+  static constexpr char const* service_full_name() {
+    return "dash.MediaPlayer";
+  }
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    virtual ::grpc::Status PlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::dash::StatusResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>> AsyncPlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>>(AsyncPlayStatusChangedRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>> PrepareAsyncPlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>>(PrepareAsyncPlayStatusChangedRaw(context, request, cq));
+    }
+    virtual ::grpc::Status MediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::dash::StatusResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>> AsyncMediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>>(AsyncMediaChangedRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>> PrepareAsyncMediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>>(PrepareAsyncMediaChangedRaw(context, request, cq));
+    }
+    class experimental_async_interface {
+     public:
+      virtual ~experimental_async_interface() {}
+      virtual void PlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PlayStatusChanged(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void MediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void MediaChanged(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+    };
+    virtual class experimental_async_interface* experimental_async() { return nullptr; }
+  private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>* AsyncPlayStatusChangedRaw(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>* PrepareAsyncPlayStatusChangedRaw(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>* AsyncMediaChangedRaw(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::dash::StatusResponse>* PrepareAsyncMediaChangedRaw(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub final : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    ::grpc::Status PlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::dash::StatusResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>> AsyncPlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>>(AsyncPlayStatusChangedRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>> PrepareAsyncPlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>>(PrepareAsyncPlayStatusChangedRaw(context, request, cq));
+    }
+    ::grpc::Status MediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::dash::StatusResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>> AsyncMediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>>(AsyncMediaChangedRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>> PrepareAsyncMediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>>(PrepareAsyncMediaChangedRaw(context, request, cq));
+    }
+    class experimental_async final :
+      public StubInterface::experimental_async_interface {
+     public:
+      void PlayStatusChanged(::grpc::ClientContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) override;
+      void PlayStatusChanged(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) override;
+      void MediaChanged(::grpc::ClientContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) override;
+      void MediaChanged(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::dash::StatusResponse* response, std::function<void(::grpc::Status)>) override;
+     private:
+      friend class Stub;
+      explicit experimental_async(Stub* stub): stub_(stub) { }
+      Stub* stub() { return stub_; }
+      Stub* stub_;
+    };
+    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    class experimental_async async_stub_{this};
+    ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* AsyncPlayStatusChangedRaw(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* PrepareAsyncPlayStatusChangedRaw(::grpc::ClientContext* context, const ::dash::PlayStatus& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* AsyncMediaChangedRaw(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::dash::StatusResponse>* PrepareAsyncMediaChangedRaw(::grpc::ClientContext* context, const ::dash::MediaItem& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_PlayStatusChanged_;
+    const ::grpc::internal::RpcMethod rpcmethod_MediaChanged_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response);
+    virtual ::grpc::Status MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_PlayStatusChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_PlayStatusChanged() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_PlayStatusChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPlayStatusChanged(::grpc::ServerContext* context, ::dash::PlayStatus* request, ::grpc::ServerAsyncResponseWriter< ::dash::StatusResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_MediaChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_MediaChanged() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_MediaChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMediaChanged(::grpc::ServerContext* context, ::dash::MediaItem* request, ::grpc::ServerAsyncResponseWriter< ::dash::StatusResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_PlayStatusChanged<WithAsyncMethod_MediaChanged<Service > > AsyncService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_PlayStatusChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_PlayStatusChanged() {
+      ::grpc::Service::experimental().MarkMethodCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::dash::PlayStatus, ::dash::StatusResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::dash::PlayStatus* request,
+                 ::dash::StatusResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->PlayStatusChanged(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_PlayStatusChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_MediaChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_MediaChanged() {
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::dash::MediaItem, ::dash::StatusResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::dash::MediaItem* request,
+                 ::dash::StatusResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->MediaChanged(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_MediaChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_PlayStatusChanged<ExperimentalWithCallbackMethod_MediaChanged<Service > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class WithGenericMethod_PlayStatusChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_PlayStatusChanged() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_PlayStatusChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_MediaChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_MediaChanged() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_MediaChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_PlayStatusChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_PlayStatusChanged() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_PlayStatusChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPlayStatusChanged(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_MediaChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_MediaChanged() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_MediaChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestMediaChanged(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_PlayStatusChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_PlayStatusChanged() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->PlayStatusChanged(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_PlayStatusChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void PlayStatusChanged(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_MediaChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_MediaChanged() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->MediaChanged(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_MediaChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void MediaChanged(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_PlayStatusChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_PlayStatusChanged() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::StreamedUnaryHandler< ::dash::PlayStatus, ::dash::StatusResponse>(std::bind(&WithStreamedUnaryMethod_PlayStatusChanged<BaseClass>::StreamedPlayStatusChanged, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_PlayStatusChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status PlayStatusChanged(::grpc::ServerContext* context, const ::dash::PlayStatus* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedPlayStatusChanged(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::dash::PlayStatus,::dash::StatusResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_MediaChanged : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_MediaChanged() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::dash::MediaItem, ::dash::StatusResponse>(std::bind(&WithStreamedUnaryMethod_MediaChanged<BaseClass>::StreamedMediaChanged, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_MediaChanged() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status MediaChanged(::grpc::ServerContext* context, const ::dash::MediaItem* request, ::dash::StatusResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedMediaChanged(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::dash::MediaItem,::dash::StatusResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_PlayStatusChanged<WithStreamedUnaryMethod_MediaChanged<Service > > StreamedUnaryService;
+  typedef Service SplitStreamedService;
+  typedef WithStreamedUnaryMethod_PlayStatusChanged<WithStreamedUnaryMethod_MediaChanged<Service > > StreamedService;
 };
 
 }  // namespace dash

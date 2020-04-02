@@ -14,7 +14,7 @@ DashControlImpl::DashControlImpl(Dashboard* dash) {
     dash_ = dash;
 }
 
-Status DashControlImpl::UpdateDashData(ServerContext* context, const DashData* request, DashStatusResponse* response) {
+Status DashControlImpl::UpdateDashData(ServerContext* context, const DashData* request, StatusResponse* response) {
     Vehicle* vehicle = dash_->getVehicle();
     vehicle->setSpeed(request->speed());
     vehicle->setRPM(request->rpm());
@@ -24,7 +24,7 @@ Status DashControlImpl::UpdateDashData(ServerContext* context, const DashData* r
     return Status::OK;
 }
 
-Status DashControlImpl::UpdateDashExtendedData(ServerContext *context, const DashExtendedData *request, DashStatusResponse *response) {
+Status DashControlImpl::UpdateDashExtendedData(ServerContext *context, const DashExtendedData *request, StatusResponse *response) {
     Vehicle* vehicle = dash_->getVehicle();
     vehicle->setBatteryVoltage(request->batteryvoltage());
     vehicle->setCoolantTemperature(request->coolanttemperature());

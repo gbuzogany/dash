@@ -7,7 +7,7 @@
 //
 
 #include "Dashboard.hpp"
-#include "MediaService.hpp"
+#include "MediaPlayer.hpp"
 #include "DashControl.hpp"
 #include <thread>
 #include <functional>
@@ -55,7 +55,7 @@ Dashboard::Dashboard(Renderer &renderer) {
 
 void Dashboard::startMediaService() {
     std::string server_address("0.0.0.0:50051");
-    MediaServiceImpl service(this);
+    MediaPlayerImpl service(this);
     
     ServerBuilder builder;
     builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
