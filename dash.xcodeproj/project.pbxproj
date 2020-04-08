@@ -23,7 +23,6 @@
 		6659848323044ED5002D326C /* TextFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847A23044894002D326C /* TextFragment.glsl */; };
 		6659848623056DFF002D326C /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848423056DFF002D326C /* Vehicle.cpp */; };
 		6659848923057103002D326C /* Dashboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848723057103002D326C /* Dashboard.cpp */; };
-		6659848C2305742F002D326C /* CB650F.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848A2305742F002D326C /* CB650F.cpp */; };
 		6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB223786B13005BA4E4 /* libgrpc.dylib */; };
 		6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */; };
 		6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB623786B49005BA4E4 /* libprotobuf.dylib */; };
@@ -87,8 +86,6 @@
 		6659848523056DFF002D326C /* Vehicle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vehicle.hpp; sourceTree = "<group>"; };
 		6659848723057103002D326C /* Dashboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Dashboard.cpp; sourceTree = "<group>"; };
 		6659848823057103002D326C /* Dashboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dashboard.hpp; sourceTree = "<group>"; };
-		6659848A2305742F002D326C /* CB650F.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CB650F.cpp; sourceTree = "<group>"; };
-		6659848B2305742F002D326C /* CB650F.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CB650F.hpp; sourceTree = "<group>"; };
 		665984A22305C5A9002D326C /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
@@ -205,8 +202,6 @@
 			children = (
 				6659848423056DFF002D326C /* Vehicle.cpp */,
 				6659848523056DFF002D326C /* Vehicle.hpp */,
-				6659848A2305742F002D326C /* CB650F.cpp */,
-				6659848B2305742F002D326C /* CB650F.hpp */,
 			);
 			name = Vehicle;
 			sourceTree = "<group>";
@@ -281,7 +276,6 @@
 				6659848623056DFF002D326C /* Vehicle.cpp in Sources */,
 				66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
-				6659848C2305742F002D326C /* CB650F.cpp in Sources */,
 				66369DB22302EAFC00975025 /* Shader.cpp in Sources */,
 				66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */,
 				6659848923057103002D326C /* Dashboard.cpp in Sources */,

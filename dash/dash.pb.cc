@@ -134,6 +134,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dash_2eproto::offsets[] PROTOB
   PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, throttlepositionsensor_),
   PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, injectorduration_),
   PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, ignitionadvance_),
+  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, fuellevelpercent_),
+  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, fuelpressure_),
+  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, oillevelpercent_),
+  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, oilpressure_),
+  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, oiltemperature_),
+  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, lambdasensor1_),
+  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, lambdasensor2_),
   PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, kickstand_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::dash::PlayStatus, _internal_metadata_),
@@ -159,9 +166,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dash_2eproto::offsets[] PROTOB
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::dash::DashData)},
   { 11, -1, sizeof(::dash::DashExtendedData)},
-  { 24, -1, sizeof(::dash::PlayStatus)},
-  { 30, -1, sizeof(::dash::MediaItem)},
-  { 38, -1, sizeof(::dash::StatusResponse)},
+  { 31, -1, sizeof(::dash::PlayStatus)},
+  { 37, -1, sizeof(::dash::MediaItem)},
+  { 45, -1, sizeof(::dash::StatusResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -176,23 +183,27 @@ const char descriptor_table_protodef_dash_2eproto[] PROTOBUF_SECTION_VARIABLE(pr
   "\n\ndash.proto\022\004dash\"l\n\010DashData\022\r\n\005speed\030"
   "\001 \001(\002\022\013\n\003rpm\030\002 \001(\005\022\014\n\004gear\030\003 \001(\005\022\017\n\007neut"
   "ral\030\004 \001(\010\022\016\n\006clutch\030\005 \001(\010\022\025\n\rengineRunni"
-  "ng\030\006 \001(\010\"\344\001\n\020DashExtendedData\022\026\n\016battery"
+  "ng\030\006 \001(\010\"\210\003\n\020DashExtendedData\022\026\n\016battery"
   "Voltage\030\001 \001(\002\022\032\n\022coolantTemperature\030\002 \001("
   "\002\022\034\n\024airIntakeTemperature\030\003 \001(\002\022\030\n\020manif"
   "oldPressure\030\004 \001(\002\022\036\n\026throttlePositionSen"
   "sor\030\005 \001(\002\022\030\n\020injectorDuration\030\006 \001(\002\022\027\n\017i"
-  "gnitionAdvance\030\007 \001(\002\022\021\n\tkickstand\030\010 \001(\010\""
-  " \n\nPlayStatus\022\022\n\nplayStatus\030\001 \001(\t\"9\n\tMed"
-  "iaItem\022\r\n\005title\030\001 \001(\t\022\016\n\006artist\030\002 \001(\t\022\r\n"
-  "\005album\030\003 \001(\t\" \n\016StatusResponse\022\016\n\006status"
-  "\030\001 \001(\0052\221\001\n\013DashControl\0228\n\016UpdateDashData"
-  "\022\016.dash.DashData\032\024.dash.StatusResponse\"\000"
-  "\022H\n\026UpdateDashExtendedData\022\026.dash.DashEx"
-  "tendedData\032\024.dash.StatusResponse\"\0002\205\001\n\013M"
-  "ediaPlayer\022=\n\021PlayStatusChanged\022\020.dash.P"
-  "layStatus\032\024.dash.StatusResponse\"\000\0227\n\014Med"
-  "iaChanged\022\017.dash.MediaItem\032\024.dash.Status"
-  "Response\"\000b\006proto3"
+  "gnitionAdvance\030\007 \001(\002\022\030\n\020fuelLevelPercent"
+  "\030\010 \001(\002\022\024\n\014fuelPressure\030\t \001(\002\022\027\n\017oilLevel"
+  "Percent\030\n \001(\002\022\023\n\013oilPressure\030\013 \001(\002\022\026\n\016oi"
+  "lTemperature\030\014 \001(\002\022\025\n\rlambdaSensor1\030\r \001("
+  "\002\022\025\n\rlambdaSensor2\030\016 \001(\002\022\021\n\tkickstand\030\017 "
+  "\001(\010\" \n\nPlayStatus\022\022\n\nplayStatus\030\001 \001(\t\"9\n"
+  "\tMediaItem\022\r\n\005title\030\001 \001(\t\022\016\n\006artist\030\002 \001("
+  "\t\022\r\n\005album\030\003 \001(\t\" \n\016StatusResponse\022\016\n\006st"
+  "atus\030\001 \001(\0052\221\001\n\013DashControl\0228\n\016UpdateDash"
+  "Data\022\016.dash.DashData\032\024.dash.StatusRespon"
+  "se\"\000\022H\n\026UpdateDashExtendedData\022\026.dash.Da"
+  "shExtendedData\032\024.dash.StatusResponse\"\0002\205"
+  "\001\n\013MediaPlayer\022=\n\021PlayStatusChanged\022\020.da"
+  "sh.PlayStatus\032\024.dash.StatusResponse\"\000\0227\n"
+  "\014MediaChanged\022\017.dash.MediaItem\032\024.dash.St"
+  "atusResponse\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_dash_2eproto_deps[1] = {
 };
@@ -206,7 +217,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_das
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dash_2eproto_once;
 static bool descriptor_table_dash_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dash_2eproto = {
-  &descriptor_table_dash_2eproto_initialized, descriptor_table_protodef_dash_2eproto, "dash.proto", 778,
+  &descriptor_table_dash_2eproto_initialized, descriptor_table_protodef_dash_2eproto, "dash.proto", 942,
   &descriptor_table_dash_2eproto_once, descriptor_table_dash_2eproto_sccs, descriptor_table_dash_2eproto_deps, 5, 0,
   schemas, file_default_instances, TableStruct_dash_2eproto::offsets,
   file_level_metadata_dash_2eproto, 5, file_level_enum_descriptors_dash_2eproto, file_level_service_descriptors_dash_2eproto,
@@ -343,7 +354,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DashData::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* DashData::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:dash.DashData)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -351,37 +362,37 @@ failure:
 
   // float speed = 1;
   if (!(this->speed() <= 0 && this->speed() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_speed(), target);
   }
 
   // int32 rpm = 2;
   if (this->rpm() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_rpm(), target);
   }
 
   // int32 gear = 3;
   if (this->gear() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_gear(), target);
   }
 
   // bool neutral = 4;
   if (this->neutral() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_neutral(), target);
   }
 
   // bool clutch = 5;
   if (this->clutch() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_clutch(), target);
   }
 
   // bool engineRunning = 6;
   if (this->enginerunning() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_enginerunning(), target);
   }
 
@@ -634,9 +645,58 @@ const char* DashExtendedData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
-      // bool kickstand = 8;
+      // float fuelLevelPercent = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 69)) {
+          fuellevelpercent_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float fuelPressure = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 77)) {
+          fuelpressure_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float oilLevelPercent = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 85)) {
+          oillevelpercent_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float oilPressure = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 93)) {
+          oilpressure_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float oilTemperature = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 101)) {
+          oiltemperature_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float lambdaSensor1 = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 109)) {
+          lambdasensor1_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float lambdaSensor2 = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 117)) {
+          lambdasensor2_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // bool kickstand = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
           kickstand_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -661,7 +721,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DashExtendedData::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* DashExtendedData::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:dash.DashExtendedData)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -669,50 +729,92 @@ failure:
 
   // float batteryVoltage = 1;
   if (!(this->batteryvoltage() <= 0 && this->batteryvoltage() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_batteryvoltage(), target);
   }
 
   // float coolantTemperature = 2;
   if (!(this->coolanttemperature() <= 0 && this->coolanttemperature() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_coolanttemperature(), target);
   }
 
   // float airIntakeTemperature = 3;
   if (!(this->airintaketemperature() <= 0 && this->airintaketemperature() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_airintaketemperature(), target);
   }
 
   // float manifoldPressure = 4;
   if (!(this->manifoldpressure() <= 0 && this->manifoldpressure() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_manifoldpressure(), target);
   }
 
   // float throttlePositionSensor = 5;
   if (!(this->throttlepositionsensor() <= 0 && this->throttlepositionsensor() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_throttlepositionsensor(), target);
   }
 
   // float injectorDuration = 6;
   if (!(this->injectorduration() <= 0 && this->injectorduration() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_injectorduration(), target);
   }
 
   // float ignitionAdvance = 7;
   if (!(this->ignitionadvance() <= 0 && this->ignitionadvance() >= 0)) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(7, this->_internal_ignitionadvance(), target);
   }
 
-  // bool kickstand = 8;
+  // float fuelLevelPercent = 8;
+  if (!(this->fuellevelpercent() <= 0 && this->fuellevelpercent() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(8, this->_internal_fuellevelpercent(), target);
+  }
+
+  // float fuelPressure = 9;
+  if (!(this->fuelpressure() <= 0 && this->fuelpressure() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(9, this->_internal_fuelpressure(), target);
+  }
+
+  // float oilLevelPercent = 10;
+  if (!(this->oillevelpercent() <= 0 && this->oillevelpercent() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(10, this->_internal_oillevelpercent(), target);
+  }
+
+  // float oilPressure = 11;
+  if (!(this->oilpressure() <= 0 && this->oilpressure() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(11, this->_internal_oilpressure(), target);
+  }
+
+  // float oilTemperature = 12;
+  if (!(this->oiltemperature() <= 0 && this->oiltemperature() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(12, this->_internal_oiltemperature(), target);
+  }
+
+  // float lambdaSensor1 = 13;
+  if (!(this->lambdasensor1() <= 0 && this->lambdasensor1() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(13, this->_internal_lambdasensor1(), target);
+  }
+
+  // float lambdaSensor2 = 14;
+  if (!(this->lambdasensor2() <= 0 && this->lambdasensor2() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(14, this->_internal_lambdasensor2(), target);
+  }
+
+  // bool kickstand = 15;
   if (this->kickstand() != 0) {
-    stream->EnsureSpace(&target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_kickstand(), target);
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_kickstand(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -766,7 +868,42 @@ size_t DashExtendedData::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  // bool kickstand = 8;
+  // float fuelLevelPercent = 8;
+  if (!(this->fuellevelpercent() <= 0 && this->fuellevelpercent() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float fuelPressure = 9;
+  if (!(this->fuelpressure() <= 0 && this->fuelpressure() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float oilLevelPercent = 10;
+  if (!(this->oillevelpercent() <= 0 && this->oillevelpercent() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float oilPressure = 11;
+  if (!(this->oilpressure() <= 0 && this->oilpressure() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float oilTemperature = 12;
+  if (!(this->oiltemperature() <= 0 && this->oiltemperature() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float lambdaSensor1 = 13;
+  if (!(this->lambdasensor1() <= 0 && this->lambdasensor1() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float lambdaSensor2 = 14;
+  if (!(this->lambdasensor2() <= 0 && this->lambdasensor2() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // bool kickstand = 15;
   if (this->kickstand() != 0) {
     total_size += 1 + 1;
   }
@@ -823,6 +960,27 @@ void DashExtendedData::MergeFrom(const DashExtendedData& from) {
   if (!(from.ignitionadvance() <= 0 && from.ignitionadvance() >= 0)) {
     _internal_set_ignitionadvance(from._internal_ignitionadvance());
   }
+  if (!(from.fuellevelpercent() <= 0 && from.fuellevelpercent() >= 0)) {
+    _internal_set_fuellevelpercent(from._internal_fuellevelpercent());
+  }
+  if (!(from.fuelpressure() <= 0 && from.fuelpressure() >= 0)) {
+    _internal_set_fuelpressure(from._internal_fuelpressure());
+  }
+  if (!(from.oillevelpercent() <= 0 && from.oillevelpercent() >= 0)) {
+    _internal_set_oillevelpercent(from._internal_oillevelpercent());
+  }
+  if (!(from.oilpressure() <= 0 && from.oilpressure() >= 0)) {
+    _internal_set_oilpressure(from._internal_oilpressure());
+  }
+  if (!(from.oiltemperature() <= 0 && from.oiltemperature() >= 0)) {
+    _internal_set_oiltemperature(from._internal_oiltemperature());
+  }
+  if (!(from.lambdasensor1() <= 0 && from.lambdasensor1() >= 0)) {
+    _internal_set_lambdasensor1(from._internal_lambdasensor1());
+  }
+  if (!(from.lambdasensor2() <= 0 && from.lambdasensor2() >= 0)) {
+    _internal_set_lambdasensor2(from._internal_lambdasensor2());
+  }
   if (from.kickstand() != 0) {
     _internal_set_kickstand(from._internal_kickstand());
   }
@@ -856,6 +1014,13 @@ void DashExtendedData::InternalSwap(DashExtendedData* other) {
   swap(throttlepositionsensor_, other->throttlepositionsensor_);
   swap(injectorduration_, other->injectorduration_);
   swap(ignitionadvance_, other->ignitionadvance_);
+  swap(fuellevelpercent_, other->fuellevelpercent_);
+  swap(fuelpressure_, other->fuelpressure_);
+  swap(oillevelpercent_, other->oillevelpercent_);
+  swap(oilpressure_, other->oilpressure_);
+  swap(oiltemperature_, other->oiltemperature_);
+  swap(lambdasensor1_, other->lambdasensor1_);
+  swap(lambdasensor2_, other->lambdasensor2_);
   swap(kickstand_, other->kickstand_);
 }
 
@@ -931,7 +1096,9 @@ const char* PlayStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       // string playStatus = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_playstatus(), ptr, ctx, "dash.PlayStatus.playStatus");
+          auto str = _internal_mutable_playstatus();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.PlayStatus.playStatus"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -955,7 +1122,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* PlayStatus::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* PlayStatus::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:dash.PlayStatus)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1142,21 +1309,27 @@ const char* MediaItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
       // string title = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_title(), ptr, ctx, "dash.MediaItem.title");
+          auto str = _internal_mutable_title();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.MediaItem.title"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string artist = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_artist(), ptr, ctx, "dash.MediaItem.artist");
+          auto str = _internal_mutable_artist();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.MediaItem.artist"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string album = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(_internal_mutable_album(), ptr, ctx, "dash.MediaItem.album");
+          auto str = _internal_mutable_album();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.MediaItem.album"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1180,7 +1353,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* MediaItem::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* MediaItem::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:dash.MediaItem)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1418,7 +1591,7 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* StatusResponse::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* StatusResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:dash.StatusResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1426,7 +1599,7 @@ failure:
 
   // int32 status = 1;
   if (this->status() != 0) {
-    stream->EnsureSpace(&target);
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_status(), target);
   }
 

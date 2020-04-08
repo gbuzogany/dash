@@ -17,6 +17,12 @@ std::string Vehicle::getRPMString() {
 }
 
 std::string Vehicle::getGearString() {
+    if (neutral == true) {
+        return "N";
+    }
+    if (clutch == true) {
+        return "-";
+    }
     switch (gear) {
         case GEAR_NONE:
             return "-";
@@ -99,8 +105,16 @@ std::string Vehicle::getMaxTorqueString() {
     return ss.str();
 }
 
-int Vehicle::getNeutral() {
+bool Vehicle::getNeutral() {
     return neutral;
+}
+
+bool Vehicle::getKickstand() {
+    return kickstand;
+}
+
+bool Vehicle::getClutch() {
+    return kickstand;
 }
 
 void Vehicle::setSpeed(float speed) {

@@ -17,7 +17,6 @@
 #include FT_FREETYPE_H
 #include "Renderer.hpp"
 #include "Vehicle.hpp"
-#include "CB650F.hpp"
 #include "Definitions.h"
 
 typedef struct {

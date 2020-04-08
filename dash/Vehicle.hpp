@@ -14,7 +14,7 @@
 #include <sstream>
 #include <iomanip>
 
-enum {GEAR_NONE, GEAR_N, GEAR_1, GEAR_2, GEAR_3, GEAR_4, GEAR_5, GEAR_6};
+enum {GEAR_NONE, GEAR_1, GEAR_2, GEAR_3, GEAR_4, GEAR_5, GEAR_6, GEAR_N};
 
 class Vehicle {
 protected:
@@ -51,22 +51,22 @@ public:
     void setInjectorDuration(float injectorDuration);
     void setIgnitionAdvance(float ignitionAdvance);
     
-    virtual int getNeutral();
-    virtual std::string getRPMString();
-    virtual std::string getGearString();
-    virtual std::string getSpeedString();
-    virtual std::string getBattVoltageString();
-    virtual std::string getCoolantTempString();
-    virtual std::string getAirIntakeTempString();
-    virtual std::string getManifoldPressureString();
-    virtual std::string getTPSString();
-    virtual std::string getInjectorString();
-    virtual std::string getIgnitionAdvanceString();
-    virtual std::string getMaxPowerString();
-    virtual std::string getMaxTorqueString();
-    virtual void* serialize() { return NULL; };
-    virtual int guessGear() { return GEAR_NONE; };
-    virtual void read(uint8_t *buffer_pointer) {};
+    bool getNeutral();
+    bool getKickstand();
+    bool getClutch();
+    std::string getRPMString();
+    std::string getGearString();
+    std::string getSpeedString();
+    std::string getBattVoltageString();
+    std::string getCoolantTempString();
+    std::string getAirIntakeTempString();
+    std::string getManifoldPressureString();
+    std::string getTPSString();
+    std::string getInjectorString();
+    std::string getIgnitionAdvanceString();
+    std::string getMaxPowerString();
+    std::string getMaxTorqueString();
+    void read(uint8_t *buffer_pointer) {};
 };
 
 #endif /* Vehicle_hpp */

@@ -18,7 +18,7 @@ Dashboard::Dashboard(Renderer &renderer) {
     
     squareTextureId = Texture::loadBMP("square.bmp");
 
-    vehicle = new CB650F();
+    vehicle = new Vehicle();
     
     FT_Face face, faceItalic, faceBold;
     if (FT_New_Face(r->ft, "hnpro-medium-condensed.otf", 0, &face)) {
@@ -121,14 +121,12 @@ void Dashboard::createFramebuffer() {
 void Dashboard::render() {
     glUseProgram(r->textureProgram->getId());
     r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
-    
-    vehicle->guessGear();
 
     std::string degStr(1, '\xb0');
     std::string tempStr(1, '\xb0');
     tempStr.append("C");
     
-    if (vehicle->getNeutral() == KICKSTAND_NEUTRAL) {
+    if (vehicle->getKickstand() == true) {
         r->renderTexture(squareTextureId, 22, 363, 94, 94);
         
         glUseProgram(r->textProgram->getId());
