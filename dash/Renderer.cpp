@@ -170,7 +170,6 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     glUniform3f(uTextColor, color.x, color.y, color.z);
     glActiveTexture(GL_TEXTURE0);
     FT_ULong previous = NULL;
-    Character *previousCharacter = NULL;
     
     bindTexture(font.texture);
     
@@ -187,18 +186,11 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         }
         px -= kerning;
         
-        if (previousCharacter != NULL) {
-            px -= previousCharacter->bearing.x + previousCharacter->size.x * scale * scale;
-            px += (previousCharacter->advance >> 6) * scale;
-        }
-        
         GLfloat xpos = px + ch.bearing.x * scale;
         GLfloat ypos = y - (ch.size.y - ch.bearing.y) * scale;
         
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
-        
-        px += ch.bearing.x * scale + w;
         
         // pointer arithmetic is dangerous. always checking boundaries TODO: remove pointer arithmetic
         if (n + 6 < sizeof(coords)) {
@@ -210,8 +202,8 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
             coords[n++] = (point){xpos + w, ypos + h,   (ch.texCoords.x + ch.size.x) / font.texSize, ch.texCoords.y / font.texSize};
         }
 
+        px += (ch.advance >> 6) * scale;
         previous = character;
-        previousCharacter = &ch;
     }
     
     // Update content of VBO memory
@@ -270,97 +262,10 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     return x_align + px;
 }
 
-void Renderer::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat minAngle, GLfloat maxAngle, GLint maxValue, GLint ticksBetweenInts) {
-    
-    GLint ticks = (maxValue - 1) * ticksBetweenInts + maxValue;
-    GLint numberOfVertices = ticks * 2;
-    GLfloat allCircleVertices[numberOfVertices * 2];
-    GLfloat deltaAngle = maxAngle - minAngle;
-    
-    for ( int i = 0; i < ticks; i++)
-    {
-        GLfloat smallRadius = shortTickLength;
-        if (i % (ticksBetweenInts + 1) == 0) {
-            smallRadius = longTickLength;
-            this->renderText(font,
-                             std::to_string(i/(ticksBetweenInts+1)+1),
-                             x + ( (radius - smallRadius - 25) * cos(minAngle + i * (deltaAngle / ticks) ) ),
-                             y + ( (radius - smallRadius - 25) * sin(minAngle + i * (deltaAngle / ticks) ) ),
-                             1.0f,
-                             glm::vec3(1.0f, 1.0f, 1.0f),
-                             CENTER,
-                             CENTER);
-        }
-        
-        allCircleVertices[(i * 4)] = x + ( radius * cos(minAngle + i * (deltaAngle / ticks) ) );
-        allCircleVertices[(i * 4) + 1] = y + ( radius * sin(minAngle + i * (deltaAngle / ticks) ) );
-        
-        allCircleVertices[(i * 4) + 2] = x + ( (radius - smallRadius) * cos(minAngle + i * (deltaAngle / ticks)) );
-        allCircleVertices[(i * 4) + 3] = y + ( (radius - smallRadius) * sin(minAngle + i * (deltaAngle / ticks)) );
-    }
-    
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), allCircleVertices, GL_DYNAMIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glVertexAttribPointer(
-                          0, // The attribute we want to configure
-                          2, // size
-                          GL_FLOAT, // type
-                          GL_FALSE, // normalized?
-                          0, // stride
-                          0 // array buffer offset
-                          );
-    
-    // Render quad
-    glDrawArrays(GL_LINES, 0, numberOfVertices);
-    
-    glDisableVertexAttribArray(0);
-}
-
-void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides )
-{
-    GLint numberOfVertices = numberOfSides + 1;
-    
-    GLfloat doublePi = 2.0f * M_PI;
-    
-    GLfloat circleVerticesX[numberOfVertices];
-    GLfloat circleVerticesY[numberOfVertices];
-    
-    for ( int i = 0; i < numberOfVertices; i++ )
-    {
-        circleVerticesX[i] = x + ( radius * cos( i * doublePi / numberOfSides ) );
-        circleVerticesY[i] = y + ( radius * sin( i * doublePi / numberOfSides ) );
-    }
-    
-    GLfloat allCircleVertices[numberOfVertices * 2];
-    
-    for ( int i = 0; i < numberOfVertices; i++ )
-    {
-        allCircleVertices[i * 2] = circleVerticesX[i];
-        allCircleVertices[( i * 2 ) + 1] = circleVerticesY[i];
-    }
-    
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), allCircleVertices, GL_DYNAMIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glVertexAttribPointer(
-                          0, // The attribute we want to configure
-                          2, // size
-                          GL_FLOAT, // type
-                          GL_FALSE, // normalized?
-                          0, // stride
-                          0 // array buffer offset
-                          );
-    
-    // Render quad
-    glDrawArrays(GL_LINE_STRIP, 0, numberOfVertices);
-    
-    glDisableVertexAttribArray(0);
-    
-}
-
 Renderer::~Renderer() {
     SDL_GL_DeleteContext(context);
+}
+
+GLuint Renderer::getVertexBuffer() {
+    return vertexbuffer;
 }

@@ -158,7 +158,6 @@ void Dashboard::render() {
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), attrX["battVoltage"] + 5.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getRPMString(), 553.0f, 364.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 480-280.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     r->renderText(*hnproHugeOblique, vehicle->getGearString(), 550.0f, 230.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
     std::string speed = vehicle->getSpeedString();
     r->renderText(*hnproHuge, speed, 240.0f, 480-323.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
@@ -182,14 +181,127 @@ void Dashboard::renderFixed() {
     attrX["ignitionAdvance"] = r->renderText(*hnproMedium27, "Ignition Advance", 300.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
-    r->renderText(*hnproMediumOblique, "km/h", 170.0f, 480-363.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    r->renderText(*hnproMediumOblique, "km/h", 170.0f, 117.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    r->renderText(*hnproSmall, "RPM X 1000", 600.0f, 70.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     r->drawCircle(550, 230, 125, 50);
-    r->drawCounter(*hnproMediumOblique, 550, 230, 220, 30, 15, M_PI + M_PI_2, 0, 17, 4);
+    this->drawCounter(*hnproMediumOblique, // font
+                   550, // x
+                   230, // y
+                   220, // radius
+                   30, // long tick lenght
+                   15, // short tick length
+                   M_PI + M_PI_2, // start angle
+                   M_PI + M_PI_2 + M_PI_4, // end angle
+                   17, // max value
+                   4 // intermediary ticks
+                   );
+//    r->drawNeedle(550,
+//                  230, 220, 30, 15, M_PI + M_PI_2, 0, 17, 4);
     
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 Vehicle* Dashboard::getVehicle() {
     return vehicle;
+}
+
+void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat minAngle, GLfloat maxAngle, GLint maxValue, GLint ticksBetweenInts) {
+    
+    GLuint vertexbuffer = r->getVertexBuffer();
+    
+    GLint ticks = (maxValue - 1) * ticksBetweenInts + maxValue;
+    GLint numberOfVertices = ticks * 2;
+    GLfloat allCircleVertices[numberOfVertices * 2];
+    GLfloat deltaAngle = 0;
+    
+    if (minAngle > maxAngle) {
+        deltaAngle = maxAngle - minAngle;
+    }
+    else {
+        deltaAngle = (minAngle - maxAngle) - minAngle;
+    }
+    
+    for ( int i = 0; i < ticks; i++)
+    {
+        GLfloat smallRadius = shortTickLength;
+        if (i % (ticksBetweenInts + 1) == 0) {
+            smallRadius = longTickLength;
+            r->renderText(font,
+                             std::to_string(i/(ticksBetweenInts+1)+1),
+                             x + ( (radius - smallRadius - 25) * cos(minAngle + i * (deltaAngle / ticks) ) ),
+                             y + ( (radius - smallRadius - 25) * sin(minAngle + i * (deltaAngle / ticks) ) ),
+                             1.0f,
+                             glm::vec3(1.0f, 1.0f, 1.0f),
+                             CENTER,
+                             CENTER);
+        }
+        
+        allCircleVertices[(i * 4)] = x + ( radius * cos(minAngle + i * (deltaAngle / ticks) ) );
+        allCircleVertices[(i * 4) + 1] = y + ( radius * sin(minAngle + i * (deltaAngle / ticks) ) );
+        
+        allCircleVertices[(i * 4) + 2] = x + ( (radius - smallRadius) * cos(minAngle + i * (deltaAngle / ticks)) );
+        allCircleVertices[(i * 4) + 3] = y + ( (radius - smallRadius) * sin(minAngle + i * (deltaAngle / ticks)) );
+    }
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), allCircleVertices, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(
+                          0, // The attribute we want to configure
+                          2, // size
+                          GL_FLOAT, // type
+                          GL_FALSE, // normalized?
+                          0, // stride
+                          0 // array buffer offset
+                          );
+    
+    // Render quad
+    glDrawArrays(GL_LINES, 0, numberOfVertices);
+    
+    glDisableVertexAttribArray(0);
+}
+
+void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides )
+{
+    GLint numberOfVertices = numberOfSides + 1;
+    
+    GLfloat doublePi = 2.0f * M_PI;
+    
+    GLfloat circleVerticesX[numberOfVertices];
+    GLfloat circleVerticesY[numberOfVertices];
+    
+    for ( int i = 0; i < numberOfVertices; i++ )
+    {
+        circleVerticesX[i] = x + ( radius * cos( i * doublePi / numberOfSides ) );
+        circleVerticesY[i] = y + ( radius * sin( i * doublePi / numberOfSides ) );
+    }
+    
+    GLfloat allCircleVertices[numberOfVertices * 2];
+    
+    for ( int i = 0; i < numberOfVertices; i++ )
+    {
+        allCircleVertices[i * 2] = circleVerticesX[i];
+        allCircleVertices[( i * 2 ) + 1] = circleVerticesY[i];
+    }
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), allCircleVertices, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(
+                          0, // The attribute we want to configure
+                          2, // size
+                          GL_FLOAT, // type
+                          GL_FALSE, // normalized?
+                          0, // stride
+                          0 // array buffer offset
+                          );
+    
+    // Render quad
+    glDrawArrays(GL_LINE_STRIP, 0, numberOfVertices);
+    
+    glDisableVertexAttribArray(0);
+    
 }

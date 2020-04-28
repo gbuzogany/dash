@@ -58,6 +58,7 @@ public:
     void renderFixed();
     void setPlayStatus(std::string playStatus);
     void setNowPlaying(DashMediaItem mediaItem);
+    void drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat minAngle, GLfloat maxAngle, GLint maxValue, GLint ticksBetweenInts);
 };
 
 #endif /* Dashboard_hpp */
