@@ -20,6 +20,7 @@ Renderer::Renderer()
 void Renderer::initShaders() {
     textureProgram = loadShaders( "TransformVertexShader.glsl", "TextureFragmentShader.glsl" );
     textProgram = loadShaders( "TextVertex.glsl", "TextFragment.glsl" );
+    lineProgram = loadShaders( "LineVertex.glsl", "LineFragment.glsl" );
 }
 
 ShaderProgram* Renderer::loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath)
@@ -58,7 +59,7 @@ void Renderer::initGraphics()
     
     assert(SDL_GL_MakeCurrent(window, context) == 0);
     SDL_GL_SetSwapInterval(1);
-    SDL_ShowCursor(SDL_DISABLE);
+//    SDL_ShowCursor(SDL_DISABLE);
     
     printf("GL_VERSION = %s\n", glGetString(GL_VERSION));
     printf("GL_VENDOR = %s\n", glGetString(GL_VENDOR));
@@ -105,11 +106,9 @@ short Renderer::getFrameRate() {
 }
 
 void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
-
-    GLuint textureProgramId = textureProgram->getId();
-    GLuint u_squareTextureId = glGetUniformLocation(textureProgramId, "textureSampler");
     
-    GLuint u_projectionID = glGetUniformLocation(textureProgramId, "projection");
+    GLuint u_squareTextureId = textureProgram->getUniformLocation("textureSampler");
+    GLuint u_projectionID = textureProgram->getUniformLocation("projection");
     
     glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
     glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
@@ -147,7 +146,7 @@ void Renderer::bindTexture(GLuint texId) {
     }
 }
 
-float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
+float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign, uint vAlign)
 {
     struct point {
         GLfloat x;
@@ -156,21 +155,22 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         GLfloat v;
     } coords[6 * text.length()];
     
+    GLfloat px = x;
+    
+    int fontSize = font.getFontSize();
+    
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    GLuint programId = textProgram->getId();
-    
-    GLuint uTexID = glGetUniformLocation(programId, "tex");
-    GLuint uProjectionID = glGetUniformLocation(programId, "projection");
-    
-    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
-    glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
+    GLuint uTextColor = textProgram->getUniformLocation("textColor");
+    GLuint uTexID = textProgram->getUniformLocation("tex");
+    GLuint uProjectionID = textProgram->getUniformLocation("projection");
     
     glUniform1i(uTexID, 0);
-    glUniform3f(glGetUniformLocation(programId, "textColor"), color.x, color.y, color.z);
+    glUniform3f(uTextColor, color.x, color.y, color.z);
     glActiveTexture(GL_TEXTURE0);
     FT_ULong previous = NULL;
+    Character *previousCharacter = NULL;
     
     bindTexture(font.texture);
     
@@ -185,39 +185,35 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         if ((character == 'e' || character == 'o') && previous == 'T'){
             kerning = 2.0f;
         }
-        previous = character;
-
-        x -= kerning;
+        px -= kerning;
         
-        GLfloat xpos = x + ch.bearing.x * scale;
-        GLfloat ypos = 480.0f - y - (ch.size.y - ch.bearing.y) * scale;
+        if (previousCharacter != NULL) {
+            px -= previousCharacter->bearing.x + previousCharacter->size.x * scale * scale;
+            px += (previousCharacter->advance >> 6) * scale;
+        }
+        
+        GLfloat xpos = px + ch.bearing.x * scale;
+        GLfloat ypos = y - (ch.size.y - ch.bearing.y) * scale;
         
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
         
+        px += ch.bearing.x * scale + w;
+        
         // pointer arithmetic is dangerous. always checking boundaries TODO: remove pointer arithmetic
-        if (n < sizeof(coords)) {
+        if (n + 6 < sizeof(coords)) {
             coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
-        }
-        if (n < sizeof(coords)) {
             coords[n++] = (point){xpos,     ypos,       ch.texCoords.x / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-        }
-        if (n < sizeof(coords)) {
             coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-        }
-        if (n < sizeof(coords)) {
             coords[n++] = (point){xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
-        }
-        if (n < sizeof(coords)) {
             coords[n++] = (point){xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-        }
-        if (n < sizeof(coords)) {
             coords[n++] = (point){xpos + w, ypos + h,   (ch.texCoords.x + ch.size.x) / font.texSize, ch.texCoords.y / font.texSize};
         }
 
-        // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-        x += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
+        previous = character;
+        previousCharacter = &ch;
     }
+    
     // Update content of VBO memory
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(coords), coords, GL_DYNAMIC_DRAW);
@@ -232,13 +228,137 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
                           0 // array buffer offset
                           );
     
+    float x_align = 0;
+    float y_align = 0;
+    float totalWidth = px - x;
+    
+    switch(hAlign) {
+        case CENTER: {
+            x_align = -totalWidth/2;
+            break;
+        }
+        case RIGHT: {
+            x_align = -totalWidth;
+            break;
+        }
+    }
+    
+    switch(vAlign) {
+        case CENTER: {
+            y_align = -fontSize/2.8;
+            break;
+        }
+        case TOP: {
+            y_align = -fontSize;
+            break;
+        }
+    }
+    
+    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
+    projection = glm::translate(projection, vec3(x_align, y_align, 0));
+    glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
+    
     // Render quad
     glDrawArrays(GL_TRIANGLES, 0, n);
+    
+    projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
+    glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
     
     glDisableVertexAttribArray(0);
     bindTexture(0);
     
-    return x;
+    return x_align + px;
+}
+
+void Renderer::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat minAngle, GLfloat maxAngle, GLint maxValue, GLint ticksBetweenInts) {
+    
+    GLint ticks = (maxValue - 1) * ticksBetweenInts + maxValue;
+    GLint numberOfVertices = ticks * 2;
+    GLfloat allCircleVertices[numberOfVertices * 2];
+    GLfloat deltaAngle = maxAngle - minAngle;
+    
+    for ( int i = 0; i < ticks; i++)
+    {
+        GLfloat smallRadius = shortTickLength;
+        if (i % (ticksBetweenInts + 1) == 0) {
+            smallRadius = longTickLength;
+            this->renderText(font,
+                             std::to_string(i/(ticksBetweenInts+1)+1),
+                             x + ( (radius - smallRadius - 25) * cos(minAngle + i * (deltaAngle / ticks) ) ),
+                             y + ( (radius - smallRadius - 25) * sin(minAngle + i * (deltaAngle / ticks) ) ),
+                             1.0f,
+                             glm::vec3(1.0f, 1.0f, 1.0f),
+                             CENTER,
+                             CENTER);
+        }
+        
+        allCircleVertices[(i * 4)] = x + ( radius * cos(minAngle + i * (deltaAngle / ticks) ) );
+        allCircleVertices[(i * 4) + 1] = y + ( radius * sin(minAngle + i * (deltaAngle / ticks) ) );
+        
+        allCircleVertices[(i * 4) + 2] = x + ( (radius - smallRadius) * cos(minAngle + i * (deltaAngle / ticks)) );
+        allCircleVertices[(i * 4) + 3] = y + ( (radius - smallRadius) * sin(minAngle + i * (deltaAngle / ticks)) );
+    }
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), allCircleVertices, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(
+                          0, // The attribute we want to configure
+                          2, // size
+                          GL_FLOAT, // type
+                          GL_FALSE, // normalized?
+                          0, // stride
+                          0 // array buffer offset
+                          );
+    
+    // Render quad
+    glDrawArrays(GL_LINES, 0, numberOfVertices);
+    
+    glDisableVertexAttribArray(0);
+}
+
+void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides )
+{
+    GLint numberOfVertices = numberOfSides + 1;
+    
+    GLfloat doublePi = 2.0f * M_PI;
+    
+    GLfloat circleVerticesX[numberOfVertices];
+    GLfloat circleVerticesY[numberOfVertices];
+    
+    for ( int i = 0; i < numberOfVertices; i++ )
+    {
+        circleVerticesX[i] = x + ( radius * cos( i * doublePi / numberOfSides ) );
+        circleVerticesY[i] = y + ( radius * sin( i * doublePi / numberOfSides ) );
+    }
+    
+    GLfloat allCircleVertices[numberOfVertices * 2];
+    
+    for ( int i = 0; i < numberOfVertices; i++ )
+    {
+        allCircleVertices[i * 2] = circleVerticesX[i];
+        allCircleVertices[( i * 2 ) + 1] = circleVerticesY[i];
+    }
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), allCircleVertices, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(
+                          0, // The attribute we want to configure
+                          2, // size
+                          GL_FLOAT, // type
+                          GL_FALSE, // normalized?
+                          0, // stride
+                          0 // array buffer offset
+                          );
+    
+    // Render quad
+    glDrawArrays(GL_LINE_STRIP, 0, numberOfVertices);
+    
+    glDisableVertexAttribArray(0);
+    
 }
 
 Renderer::~Renderer() {

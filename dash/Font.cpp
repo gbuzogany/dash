@@ -25,6 +25,7 @@ using namespace glm;
 
 FontWrapper::FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList) {
     FT_Set_Pixel_Sizes(face, 0, size);
+    fontSize = size;
     
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // Disable byte-alignment restriction
     
@@ -120,4 +121,8 @@ void FontWrapper::loadCharProperties(FT_Face &face, int size, FT_ULong charCode)
         glm::ivec2(0, 0)
     };
     characters.insert(std::pair<GLchar, Character>(charCode, character));
+}
+
+int FontWrapper::getFontSize() {
+    return fontSize;
 }

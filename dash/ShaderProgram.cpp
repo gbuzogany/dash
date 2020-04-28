@@ -20,3 +20,12 @@ bool ShaderProgram::create(Shader *vertex_shader, Shader *fragment_shader)
     
     return true;
 }
+
+GLuint ShaderProgram::getUniformLocation(std::string name) {
+    if (uniformLocations.find(name) != uniformLocations.end()) {
+        GLuint uniform = glGetUniformLocation(Id, name.c_str());
+        uniformLocations[name] = uniform;
+        return uniform;
+    }
+    return uniformLocations[name];
+}

@@ -28,6 +28,8 @@ using namespace glm;
 #include "Font.hpp"
 #include "Texture.hpp"
 
+enum {LEFT, CENTER, RIGHT, TOP, BOTTOM};
+
 class Renderer {
 private:
     SDL_GLContext context;
@@ -46,6 +48,7 @@ public:
 
     ShaderProgram *textureProgram;
     ShaderProgram *textProgram;
+    ShaderProgram *lineProgram;
     SDL_Window *window;
     
     Renderer();
@@ -60,10 +63,13 @@ public:
     void endFrame();
     short getFrameRate();
     
-    float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
+    float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign = LEFT, uint vAlign = BOTTOM);
     void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
     
     void bindTexture(GLuint texId);
+    
+    void drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides );
+    void drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat minAngle, GLfloat maxAngle, GLint maxValue, GLint ticksBetweenInts);
 };
 
 #endif /* Renderer_hpp */

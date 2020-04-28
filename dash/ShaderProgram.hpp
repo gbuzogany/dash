@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <string>
+#include <map>
 #include "GLES2/gl2.h"
 #include "EGL/egl.h"
 #include "EGL/eglext.h"
@@ -20,6 +22,7 @@ class ShaderProgram {
     Shader *VertexShader;
     Shader *FragmentShader;
     GLuint Id;
+    std::map<std::string, GLuint> uniformLocations;
     
 public:
     
@@ -27,6 +30,7 @@ public:
     ~ShaderProgram() {}
     
     bool create(Shader *vertex_shader, Shader *fragment_shader);
+    GLuint getUniformLocation(std::string name);
     GLuint getId() { return Id; }
 };
 

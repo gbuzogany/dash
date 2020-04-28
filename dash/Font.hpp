@@ -29,8 +29,11 @@ public:
     int maxHeight = 0;
     
     float texSize;
+    int fontSize;
     
     GLuint texture;
+    
+    int getFontSize();
     
     std::map<GLchar, Character> characters;
     FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList);

@@ -41,6 +41,7 @@ class Dashboard {
     
     std::map<std::string, float> attrX;
     
+    FontWrapper *hnproSmall;
     FontWrapper *hnproMedium27;
     FontWrapper *hnproHuge;
     FontWrapper *hnproMediumOblique;
