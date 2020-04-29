@@ -54,6 +54,7 @@ public:
     bool getNeutral();
     bool getKickstand();
     bool getClutch();
+    int getRPM();
     std::string getRPMString();
     std::string getGearString();
     std::string getSpeedString();

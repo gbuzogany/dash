@@ -158,9 +158,49 @@ void Dashboard::render() {
     endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), attrX["battVoltage"] + 5.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getRPMString(), 553.0f, 364.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproHugeOblique, vehicle->getGearString(), 550.0f, 230.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
+    r->renderText(*hnproHugeOblique, vehicle->getGearString(), 540.0f, 230.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
     std::string speed = vehicle->getSpeedString();
     r->renderText(*hnproHuge, speed, 240.0f, 480-323.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+
+    float value = vehicle->getRPM()/1000.0f;
+    float max = 12;
+    
+    this->drawNeedle(value, // value
+                     max,  // max value
+                     550, // x
+                     230, // y
+                     220, // tip radius,
+                     100, // bottom radius,
+                     M_PI + M_PI_2, // start angle
+                     0 // end angle
+                     );
+    r->drawRingArc(value, // value
+                   max,// max value
+                   550, // x
+                   230, // y
+                   220, // outer radius
+                   0.1, // arc thickness
+                   0, // start angle
+                   0.75, // endPercent
+                   glm::vec3(1,0,0) //color
+                   );
+    
+    glUseProgram(r->textProgram->getId());
+    r->drawCircle(550, 230, 125, 50);
+    this->drawCounter(*hnproMediumOblique, // font
+                      550, // x
+                      230, // y
+                      220, // radius
+                      30, // long tick lenght
+                      15, // short tick length
+                      M_PI + M_PI_2, // start angle
+                      0, // end angle
+                      12, // max value
+                      10.5, // begin critical
+                      4 // intermediary ticks
+                      );
+    
+    glUseProgram(r->textProgram->getId());
     
     std::stringstream sfps;
     sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
@@ -183,22 +223,7 @@ void Dashboard::renderFixed() {
     
     r->renderText(*hnproMediumOblique, "km/h", 170.0f, 117.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     r->renderText(*hnproSmall, "RPM X 1000", 600.0f, 70.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    
-    r->drawCircle(550, 230, 125, 50);
-    this->drawCounter(*hnproMediumOblique, // font
-                   550, // x
-                   230, // y
-                   220, // radius
-                   30, // long tick lenght
-                   15, // short tick length
-                   M_PI + M_PI_2, // start angle
-                   M_PI + M_PI_2 + M_PI_4, // end angle
-                   17, // max value
-                   4 // intermediary ticks
-                   );
-//    r->drawNeedle(550,
-//                  230, 220, 30, 15, M_PI + M_PI_2, 0, 17, 4);
-    
+
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
@@ -206,7 +231,7 @@ Vehicle* Dashboard::getVehicle() {
     return vehicle;
 }
 
-void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat minAngle, GLfloat maxAngle, GLint maxValue, GLint ticksBetweenInts) {
+void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts) {
     
     GLuint vertexbuffer = r->getVertexBuffer();
     
@@ -215,11 +240,11 @@ void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat rad
     GLfloat allCircleVertices[numberOfVertices * 2];
     GLfloat deltaAngle = 0;
     
-    if (minAngle > maxAngle) {
-        deltaAngle = maxAngle - minAngle;
+    if (startAngle > endAngle) {
+        deltaAngle = endAngle - startAngle;
     }
     else {
-        deltaAngle = (minAngle - maxAngle) - minAngle;
+        deltaAngle = (startAngle - endAngle) - startAngle;
     }
     
     for ( int i = 0; i < ticks; i++)
@@ -229,19 +254,19 @@ void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat rad
             smallRadius = longTickLength;
             r->renderText(font,
                              std::to_string(i/(ticksBetweenInts+1)+1),
-                             x + ( (radius - smallRadius - 25) * cos(minAngle + i * (deltaAngle / ticks) ) ),
-                             y + ( (radius - smallRadius - 25) * sin(minAngle + i * (deltaAngle / ticks) ) ),
+                             x + ( (radius - smallRadius - 25) * cos(startAngle + i * (deltaAngle / ticks) ) ),
+                             y + ( (radius - smallRadius - 25) * sin(startAngle + i * (deltaAngle / ticks) ) ),
                              1.0f,
                              glm::vec3(1.0f, 1.0f, 1.0f),
                              CENTER,
                              CENTER);
         }
         
-        allCircleVertices[(i * 4)] = x + ( radius * cos(minAngle + i * (deltaAngle / ticks) ) );
-        allCircleVertices[(i * 4) + 1] = y + ( radius * sin(minAngle + i * (deltaAngle / ticks) ) );
+        allCircleVertices[(i * 4)] = x + ( radius * cos(startAngle + i * (deltaAngle / ticks) ) );
+        allCircleVertices[(i * 4) + 1] = y + ( radius * sin(startAngle + i * (deltaAngle / ticks) ) );
         
-        allCircleVertices[(i * 4) + 2] = x + ( (radius - smallRadius) * cos(minAngle + i * (deltaAngle / ticks)) );
-        allCircleVertices[(i * 4) + 3] = y + ( (radius - smallRadius) * sin(minAngle + i * (deltaAngle / ticks)) );
+        allCircleVertices[(i * 4) + 2] = x + ( (radius - smallRadius) * cos(startAngle + i * (deltaAngle / ticks)) );
+        allCircleVertices[(i * 4) + 3] = y + ( (radius - smallRadius) * sin(startAngle + i * (deltaAngle / ticks)) );
     }
     
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -263,31 +288,53 @@ void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat rad
     glDisableVertexAttribArray(0);
 }
 
-void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides )
-{
-    GLint numberOfVertices = numberOfSides + 1;
+void Dashboard::drawNeedle(float value, float maxValue, GLint x, GLint y, GLfloat tipRadius, GLfloat bottomRadius, GLfloat startAngle, GLfloat endAngle) {
+    GLfloat deltaAngle = 0;
     
-    GLfloat doublePi = 2.0f * M_PI;
+    float valuePercent = (value - 1) / maxValue;
     
-    GLfloat circleVerticesX[numberOfVertices];
-    GLfloat circleVerticesY[numberOfVertices];
-    
-    for ( int i = 0; i < numberOfVertices; i++ )
-    {
-        circleVerticesX[i] = x + ( radius * cos( i * doublePi / numberOfSides ) );
-        circleVerticesY[i] = y + ( radius * sin( i * doublePi / numberOfSides ) );
+    if (startAngle > endAngle) {
+        deltaAngle = endAngle - startAngle;
+    }
+    else {
+        deltaAngle = (startAngle - endAngle) - startAngle;
     }
     
-    GLfloat allCircleVertices[numberOfVertices * 2];
+    GLfloat buffer[3 * 2]; // 3 vertices x y
     
-    for ( int i = 0; i < numberOfVertices; i++ )
-    {
-        allCircleVertices[i * 2] = circleVerticesX[i];
-        allCircleVertices[( i * 2 ) + 1] = circleVerticesY[i];
+    // tip of needle
+    buffer[0] = tipRadius;
+    buffer[1] = 0;
+    
+    // bottom upper
+    buffer[2] = bottomRadius;
+    buffer[3] = 5;
+    
+    // bottom lower
+    buffer[4] = bottomRadius;
+    buffer[5] = -5;
+    
+    float angle = startAngle + valuePercent * deltaAngle;
+    float sinAngle = sin(angle);
+    float cosAngle = cos(angle);
+    
+    for (int i=0; i<6; i+=2) {
+        // rotate all vertices around origin
+        float px = buffer[i];
+        float py = buffer[i+1];
+        buffer[i]   = px * cosAngle - py * sinAngle;
+        buffer[i+1] = px * sinAngle + py * cosAngle;
+        
+        buffer[i]   += x;
+        buffer[i+1] += y;
     }
     
+    GLuint uTextColor = r->textProgram->getUniformLocation("textColor");
+    glUniform3f(uTextColor, 1, 0, 0);
+    
+    GLuint vertexbuffer = r->getVertexBuffer();
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), allCircleVertices, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(buffer), buffer, GL_DYNAMIC_DRAW);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glVertexAttribPointer(
@@ -298,10 +345,8 @@ void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfS
                           0, // stride
                           0 // array buffer offset
                           );
-    
+
     // Render quad
-    glDrawArrays(GL_LINE_STRIP, 0, numberOfVertices);
-    
+    glDrawArrays(GL_TRIANGLES, 0, 3);
     glDisableVertexAttribArray(0);
-    
 }

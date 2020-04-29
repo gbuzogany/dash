@@ -18,6 +18,7 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
+    ringArcProgram = loadShaders( "RingArcVertex.glsl", "RingArcFragment.glsl" );
     textureProgram = loadShaders( "TransformVertexShader.glsl", "TextureFragmentShader.glsl" );
     textProgram = loadShaders( "TextVertex.glsl", "TextFragment.glsl" );
     lineProgram = loadShaders( "LineVertex.glsl", "LineFragment.glsl" );
@@ -33,7 +34,8 @@ ShaderProgram* Renderer::loadShaders(const char *vertexShaderPath, const char *f
     fragment->loadFragmentShader(fragmentShaderPath);
     program->create(vertex, fragment);
     assert(glGetError() == 0);
-    glUseProgram(program->getId());
+    GLint progId = program->getId();
+    glUseProgram(progId);
     assert(glGetError() == 0);
     return program;
 }
@@ -268,4 +270,91 @@ Renderer::~Renderer() {
 
 GLuint Renderer::getVertexBuffer() {
     return vertexbuffer;
+}
+
+void Renderer::drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, vec3 color)
+{
+    glUseProgram(ringArcProgram->getId());
+
+    GLfloat deltaAngle = 0;
+    
+    GLuint u_projectionID = ringArcProgram->getUniformLocation("projection");
+    GLuint u_color = ringArcProgram->getUniformLocation("color");
+    GLuint u_valuePos = ringArcProgram->getUniformLocation("valuePos");
+    GLuint u_outerRadius = ringArcProgram->getUniformLocation("outerRadius");
+    GLuint u_innerRadius = ringArcProgram->getUniformLocation("innerRadius");
+    GLuint u_startAngle = ringArcProgram->getUniformLocation("startAngle");
+    GLuint u_endPercent = ringArcProgram->getUniformLocation("endPercent");
+    
+    glUniform3f(u_color, color.x, color.y, color.z);
+    glUniform1f(u_valuePos, (value - 1.0) / max);
+    glUniform1f(u_outerRadius, 1.0);
+    glUniform1f(u_innerRadius, innerRadius);
+    glUniform1f(u_startAngle, -M_PI_2);
+    glUniform1f(u_endPercent, 0.75);
+    
+    glm::mat4 projection = glm::ortho(0.0, 800.0, 0.0, 480.0);
+    glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
+    
+    GLfloat height = 2.0 * outerRadius;
+    GLfloat width = 2.0 * outerRadius;
+    
+    GLfloat vertices[6][4] = {
+        { x - width/2, y + height/2, 0.0, 1.0 }, // 0
+        { x - width/2, y - height/2, 0.0, 0.0 }, // 1
+        { x + width/2, y - height/2, 1.0, 0.0 }, // 2
+        
+        { x - width/2, y + height/2, 0.0, 1.0 }, // 3
+        { x + width/2, y - height/2, 1.0, 0.0 }, // 4
+        { x + width/2, y + height/2, 1.0, 1.0 }  // 5
+    };
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, &vertices[0], GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glDisableVertexAttribArray(0);
+}
+
+void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides )
+{
+    GLint numberOfVertices = numberOfSides + 1;
+    
+    GLfloat doublePi = 2.0f * M_PI;
+    
+    GLfloat circleVerticesX[numberOfVertices];
+    GLfloat circleVerticesY[numberOfVertices];
+    
+    for ( int i = 0; i < numberOfVertices; i++ )
+    {
+        circleVerticesX[i] = x + ( radius * cos( i * doublePi / numberOfSides ) );
+        circleVerticesY[i] = y + ( radius * sin( i * doublePi / numberOfSides ) );
+    }
+    
+    GLfloat allCircleVertices[numberOfVertices * 2];
+    
+    for ( int i = 0; i < numberOfVertices; i++ )
+    {
+        allCircleVertices[i * 2] = circleVerticesX[i];
+        allCircleVertices[( i * 2 ) + 1] = circleVerticesY[i];
+    }
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), allCircleVertices, GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+    glVertexAttribPointer(
+                          0, // The attribute we want to configure
+                          2, // size
+                          GL_FLOAT, // type
+                          GL_FALSE, // normalized?
+                          0, // stride
+                          0 // array buffer offset
+                          );
+    
+    // Render quad
+    glDrawArrays(GL_LINE_STRIP, 0, numberOfVertices);
+    glDisableVertexAttribArray(0);
 }

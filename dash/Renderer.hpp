@@ -47,6 +47,7 @@ public:
     FT_Library ft;
 
     ShaderProgram *textureProgram;
+    ShaderProgram *ringArcProgram;
     ShaderProgram *textProgram;
     ShaderProgram *lineProgram;
     SDL_Window *window;
@@ -70,7 +71,8 @@ public:
     
     void bindTexture(GLuint texId);
     
-    void drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides );
+    void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);
+    void drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, vec3 color);
 };
 
 #endif /* Renderer_hpp */

@@ -29,6 +29,8 @@
 		66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66754E4B2436303100B53C5A /* MediaPlayer.cpp */; };
 		66A686B224585EC800FF318E /* LineFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B024585E9E00FF318E /* LineFragment.glsl */; };
 		66A686B324585EC800FF318E /* LineVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B124585E9E00FF318E /* LineVertex.glsl */; };
+		66A686B6245889BA00FF318E /* RingArcFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B5245889B000FF318E /* RingArcFragment.glsl */; };
+		66A686B7245889BA00FF318E /* RingArcVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B4245889B000FF318E /* RingArcVertex.glsl */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
@@ -45,6 +47,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				66A686B6245889BA00FF318E /* RingArcFragment.glsl in CopyFiles */,
+				66A686B7245889BA00FF318E /* RingArcVertex.glsl in CopyFiles */,
 				66A686B224585EC800FF318E /* LineFragment.glsl in CopyFiles */,
 				66A686B324585EC800FF318E /* LineVertex.glsl in CopyFiles */,
 				66F48924230D8E8D0092BA35 /* square.bmp in CopyFiles */,
@@ -98,6 +102,8 @@
 		66754E4C2436303100B53C5A /* MediaPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaPlayer.hpp; sourceTree = "<group>"; };
 		66A686B024585E9E00FF318E /* LineFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineFragment.glsl; sourceTree = "<group>"; };
 		66A686B124585E9E00FF318E /* LineVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineVertex.glsl; sourceTree = "<group>"; };
+		66A686B4245889B000FF318E /* RingArcVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingArcVertex.glsl; sourceTree = "<group>"; };
+		66A686B5245889B000FF318E /* RingArcFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingArcFragment.glsl; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
 		66F48922230D8E700092BA35 /* square.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = square.bmp; sourceTree = "<group>"; };
@@ -195,6 +201,8 @@
 		66369DB62302EE8D00975025 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				66A686B5245889B000FF318E /* RingArcFragment.glsl */,
+				66A686B4245889B000FF318E /* RingArcVertex.glsl */,
 				66A686B024585E9E00FF318E /* LineFragment.glsl */,
 				66A686B124585E9E00FF318E /* LineVertex.glsl */,
 				66369DB32302EE8600975025 /* TextureFragmentShader.glsl */,

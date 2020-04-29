@@ -105,6 +105,10 @@ std::string Vehicle::getMaxTorqueString() {
     return ss.str();
 }
 
+int Vehicle::getRPM() {
+    return rpm;
+}
+
 bool Vehicle::getNeutral() {
     return neutral;
 }
