@@ -31,6 +31,10 @@
 		66A686B324585EC800FF318E /* LineVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B124585E9E00FF318E /* LineVertex.glsl */; };
 		66A686B6245889BA00FF318E /* RingArcFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B5245889B000FF318E /* RingArcFragment.glsl */; };
 		66A686B7245889BA00FF318E /* RingArcVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B4245889B000FF318E /* RingArcVertex.glsl */; };
+		66A686CD245A0B4300FF318E /* RingTextureArcFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */; };
+		66A686CE245A0B4300FF318E /* RingTextureArcVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686CB245A0A6400FF318E /* RingTextureArcVertex.glsl */; };
+		66A686D0245A0F7D00FF318E /* radial.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686CF245A0F7700FF318E /* radial.bmp */; };
+		66A686D2245A159400FF318E /* background.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686D1245A141100FF318E /* background.bmp */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
@@ -47,6 +51,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				66A686D2245A159400FF318E /* background.bmp in CopyFiles */,
+				66A686D0245A0F7D00FF318E /* radial.bmp in CopyFiles */,
+				66A686CD245A0B4300FF318E /* RingTextureArcFragment.glsl in CopyFiles */,
+				66A686CE245A0B4300FF318E /* RingTextureArcVertex.glsl in CopyFiles */,
 				66A686B6245889BA00FF318E /* RingArcFragment.glsl in CopyFiles */,
 				66A686B7245889BA00FF318E /* RingArcVertex.glsl in CopyFiles */,
 				66A686B224585EC800FF318E /* LineFragment.glsl in CopyFiles */,
@@ -104,6 +112,10 @@
 		66A686B124585E9E00FF318E /* LineVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineVertex.glsl; sourceTree = "<group>"; };
 		66A686B4245889B000FF318E /* RingArcVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingArcVertex.glsl; sourceTree = "<group>"; };
 		66A686B5245889B000FF318E /* RingArcFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingArcFragment.glsl; sourceTree = "<group>"; };
+		66A686CB245A0A6400FF318E /* RingTextureArcVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingTextureArcVertex.glsl; sourceTree = "<group>"; };
+		66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingTextureArcFragment.glsl; sourceTree = "<group>"; };
+		66A686CF245A0F7700FF318E /* radial.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = radial.bmp; sourceTree = "<group>"; };
+		66A686D1245A141100FF318E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = background.bmp; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
 		66F48922230D8E700092BA35 /* square.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = square.bmp; sourceTree = "<group>"; };
@@ -201,6 +213,8 @@
 		66369DB62302EE8D00975025 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */,
+				66A686CB245A0A6400FF318E /* RingTextureArcVertex.glsl */,
 				66A686B5245889B000FF318E /* RingArcFragment.glsl */,
 				66A686B4245889B000FF318E /* RingArcVertex.glsl */,
 				66A686B024585E9E00FF318E /* LineFragment.glsl */,
@@ -225,8 +239,10 @@
 		66F48923230D8E7C0092BA35 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66A686CF245A0F7700FF318E /* radial.bmp */,
 				66369DB92302F2F100975025 /* uvtemplate.bmp */,
 				66F48922230D8E700092BA35 /* square.bmp */,
+				66A686D1245A141100FF318E /* background.bmp */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

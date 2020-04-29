@@ -41,13 +41,14 @@ private:
     Uint32 startTime = 0;
     Uint32 endTime = 0;
     Uint32 delta = 0;
-    short fps = 60;
-    short timePerFrame = 16; // miliseconds
+    float fps = 60.0;
+    Uint32 timePerFrame = 16; // miliseconds
 public:
     FT_Library ft;
 
     ShaderProgram *textureProgram;
     ShaderProgram *ringArcProgram;
+    ShaderProgram *ringTexArcProgram;
     ShaderProgram *textProgram;
     ShaderProgram *lineProgram;
     SDL_Window *window;
@@ -73,6 +74,7 @@ public:
     
     void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);
     void drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, vec3 color);
+    void drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, GLint texId);
 };
 
 #endif /* Renderer_hpp */

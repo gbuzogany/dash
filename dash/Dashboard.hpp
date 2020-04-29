@@ -29,6 +29,8 @@ class Dashboard {
     Renderer *r;
     Vehicle *vehicle;
     
+    GLuint bgTextureId;
+    GLuint arcTextureId;
     GLuint squareTextureId;
     GLuint screenTexture;
     GLuint frameBuffer;
