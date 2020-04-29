@@ -166,16 +166,6 @@ void Dashboard::render() {
 
     float value = vehicle->getRPM()/1000.0f;
     float max = 12;
-    
-    this->drawNeedle(value, // value
-                     max,  // max value
-                     550, // x
-                     230, // y
-                     220, // tip radius,
-                     125, // bottom radius,
-                     M_PI + M_PI_2, // start angle
-                     0 // end angle
-                     );
 //    r->drawRingArc(value, // value
 //                   max,// max value
 //                   550, // x
@@ -191,8 +181,8 @@ void Dashboard::render() {
                    max,// max value
                    550, // x
                    230, // y
-                   215, // outer radius
-                   0.1, // arc thickness
+                   230, // outer radius
+                   0.2, // arc thickness
                    0, // start angle
                    0.75, // endPercent
                    arcTextureId // texture id
@@ -212,7 +202,15 @@ void Dashboard::render() {
                       10.5, // begin critical
                       4 // intermediary ticks
                       );
-    
+    this->drawNeedle(value, // value
+                     max,  // max value
+                     550, // x
+                     230, // y
+                     220, // tip radius,
+                     125, // bottom radius,
+                     M_PI + M_PI_2, // start angle
+                     0 // end angle
+                     );
     glUseProgram(r->textProgram->getId());
     
     std::stringstream sfps;
@@ -238,7 +236,7 @@ void Dashboard::renderFixed() {
     attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     r->renderText(*hnproMediumOblique, "km/h", 170.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproSmall, "RPM X 1000", 600.0f, 70.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }

@@ -324,6 +324,10 @@ void Renderer::drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat
     glDisableVertexAttribArray(0);
 }
 
+float map(float value, float inMin, float inMax, float outMin, float outMax) {
+    return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
+}
+
 void Renderer::drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, GLint texId)
 {
     glUseProgram(ringTexArcProgram->getId());
@@ -336,9 +340,12 @@ void Renderer::drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, 
     GLuint u_endPercent = ringTexArcProgram->getUniformLocation("endPercent");
     GLuint u_texID = ringTexArcProgram->getUniformLocation("tex");
     
+    float val = value/max;
+    val = map(val, 0, 1.0, 0.8, 1.0);
+    
     glUniform1i(u_texID, 0);
     glUniform1f(u_valuePos, (value - 1.0) / max);
-    glUniform1f(u_outerRadius, 1.0);
+    glUniform1f(u_outerRadius, val);
     glUniform1f(u_innerRadius, innerRadius);
     glUniform1f(u_startAngle, -M_PI_2);
     glUniform1f(u_endPercent, 0.75);
@@ -372,6 +379,11 @@ void Renderer::drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, 
 
 void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides )
 {
+    
+    GLuint uTextColor = textProgram->getUniformLocation("textColor");
+    
+    glUniform3f(uTextColor, 1.0, 1.0, 1.0);
+    
     GLint numberOfVertices = numberOfSides + 1;
     
     GLfloat doublePi = 2.0f * M_PI;
