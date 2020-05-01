@@ -136,12 +136,17 @@ void Dashboard::render() {
     
     float red = 0;
     
-    if (value/max > 0.5) {
-        red = 0.4 * map(value/max, 0.5, 1.0, 0.0, 1.0);
+    if (value/max > 0.8) {
+        red = 0.5 * map(value/max, 0.8, 1.0, 0.0, 1.0);
     }
     
-    glUniform3f(u_color, 0.1 + red, 0.1, 0.1);
-    r->renderFlat(*r->fractalBackgroundProgram, 425, 125, 250, 250);
+    glUniform3f(u_color, 0.06 + red, 0.06, 0.06);
+    
+    // full diameter
+    r->renderFlat(*r->fractalBackgroundProgram, 300, 0, 500, 500);
+    
+    // just inner circle
+//    r->renderFlat(*r->fractalBackgroundProgram, 425, 125, 250, 250);
 
     std::string degStr(1, '\xb0');
     std::string tempStr(1, '\xb0');
@@ -176,6 +181,8 @@ void Dashboard::render() {
     std::string speed = vehicle->getSpeedString();
     r->renderText(*hnproHuge, speed, 240.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
     
+    r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    
 //    r->drawRingArc(value, // value
 //                   max,// max value
 //                   550, // x
@@ -187,16 +194,16 @@ void Dashboard::render() {
 //                   glm::vec3(0.76,0.76,0.76) //color
 //                   );
     
-    r->drawRingArcTexture(value, // value
-                   max,// max value
-                   550, // x
-                   230, // y
-                   220, // outer radius
-                   0.2, // arc thickness
-                   0, // start angle
-                   0.75, // endPercent
-                   arcTextureId // texture id
-                   );
+//    r->drawRingArcTexture(value, // value
+//                   max,// max value
+//                   550, // x
+//                   230, // y
+//                   220, // outer radius
+//                   0.2, // arc thickness
+//                   0, // start angle
+//                   0.75, // endPercent
+//                   arcTextureId // texture id
+//                   );
     
 //    r->drawCircle(550, 230, 125, 50);
     this->drawCounter(*hnproMediumOblique, // font
@@ -216,7 +223,7 @@ void Dashboard::render() {
                      550, // x
                      230, // y
                      220, // tip radius,
-                     125, // bottom radius,
+                     70, // bottom radius,
                      M_PI + M_PI_2, // start angle
                      0 // end angle
                      );
@@ -230,7 +237,7 @@ void Dashboard::renderFixed() {
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    r->renderTexture(bgTextureId, 0, 0, WIDTH, HEIGHT);
+//    r->renderTexture(bgTextureId, 0, 0, WIDTH, HEIGHT);
     
     attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -242,7 +249,6 @@ void Dashboard::renderFixed() {
     attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     r->renderText(*hnproMediumOblique, "km/h", 170.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }

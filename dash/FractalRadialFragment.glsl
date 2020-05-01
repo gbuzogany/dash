@@ -34,13 +34,10 @@ vec2 get_coord(float i, float r, float np){
 
 void main()
 {
-    // just inner diameter
     vec2 uv = (2.0 * vec2(R.x/R.y, 1.0) * original_uv - vec2(1.0, 1.0)) / 1.0;
-    // full diameter
-//    vec2 uv = (2.0 * vec2(R.x/R.y, 1.0) * original_uv - vec2(2.29, 0.96)) / 1.0;
     vec3 col = vec3(uv, 0.0);
     float np = 180.;
-    float fac = time;
+    float fac = mod(time, 1000.0);
     
     float shape = 0.0;
     for (float i=0.0; i<=180.0; i++){
