@@ -121,9 +121,27 @@ void Dashboard::createFramebuffer() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
+float map(float value, float inMin, float inMax, float outMin, float outMax) {
+    return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
+}
+
 void Dashboard::render() {
-    glUseProgram(r->textureProgram->getId());
     r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
+    
+    float value = vehicle->getRPM()/1000.0f;
+    float max = 12;
+
+    r->useProgram(r->fractalBackgroundProgram->getId());
+    GLuint u_color = r->fractalBackgroundProgram->getUniformLocation("color");
+    
+    float red = 0;
+    
+    if (value/max > 0.5) {
+        red = 0.4 * map(value/max, 0.5, 1.0, 0.0, 1.0);
+    }
+    
+    glUniform3f(u_color, 0.1 + red, 0.1, 0.1);
+    r->renderFlat(*r->fractalBackgroundProgram, 425, 125, 250, 250);
 
     std::string degStr(1, '\xb0');
     std::string tempStr(1, '\xb0');
@@ -131,14 +149,8 @@ void Dashboard::render() {
     
     if (vehicle->getKickstand() == true) {
         r->renderTexture(squareTextureId, 22, 363, 94, 94);
-        
-        glUseProgram(r->textProgram->getId());
-        
-        r->renderText(*hnproMedium27, "SIDE", 46.0f, 480-400.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-        r->renderText(*hnproMedium27, "STAND", 36.0f, 480-436.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-    }
-    else {
-        glUseProgram(r->textProgram->getId());
+        r->renderText(*hnproMedium27, "SIDE", 46.0f, 80.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+        r->renderText(*hnproMedium27, "STAND", 36.0f, 44.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
     }
     
     float endX = 0;
@@ -163,9 +175,7 @@ void Dashboard::render() {
     r->renderText(*hnproHugeOblique, vehicle->getGearString(), 540.0f, 230.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
     std::string speed = vehicle->getSpeedString();
     r->renderText(*hnproHuge, speed, 240.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
-
-    float value = vehicle->getRPM()/1000.0f;
-    float max = 12;
+    
 //    r->drawRingArc(value, // value
 //                   max,// max value
 //                   550, // x
@@ -181,15 +191,14 @@ void Dashboard::render() {
                    max,// max value
                    550, // x
                    230, // y
-                   230, // outer radius
+                   220, // outer radius
                    0.2, // arc thickness
                    0, // start angle
                    0.75, // endPercent
                    arcTextureId // texture id
                    );
     
-    glUseProgram(r->textProgram->getId());
-    r->drawCircle(550, 230, 125, 50);
+//    r->drawCircle(550, 230, 125, 50);
     this->drawCounter(*hnproMediumOblique, // font
                       550, // x
                       230, // y
@@ -211,7 +220,6 @@ void Dashboard::render() {
                      M_PI + M_PI_2, // start angle
                      0 // end angle
                      );
-    glUseProgram(r->textProgram->getId());
     
     std::stringstream sfps;
     sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
@@ -222,10 +230,8 @@ void Dashboard::renderFixed() {
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    glUseProgram(r->textureProgram->getId());
     r->renderTexture(bgTextureId, 0, 0, WIDTH, HEIGHT);
     
-    glUseProgram(r->textProgram->getId());
     attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["airIntakeTemp"] = r->renderText(*hnproMedium27, "Air Intake Temp", 27.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));

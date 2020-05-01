@@ -27,6 +27,8 @@
 		6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */; };
 		6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB623786B49005BA4E4 /* libprotobuf.dylib */; };
 		66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66754E4B2436303100B53C5A /* MediaPlayer.cpp */; };
+		668CD42C245C50970076FCCD /* FractalRadialFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */; };
+		668CD42D245C50970076FCCD /* FractalRadialVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */; };
 		66A686B224585EC800FF318E /* LineFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B024585E9E00FF318E /* LineFragment.glsl */; };
 		66A686B324585EC800FF318E /* LineVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B124585E9E00FF318E /* LineVertex.glsl */; };
 		66A686B6245889BA00FF318E /* RingArcFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B5245889B000FF318E /* RingArcFragment.glsl */; };
@@ -51,6 +53,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				668CD42C245C50970076FCCD /* FractalRadialFragment.glsl in CopyFiles */,
+				668CD42D245C50970076FCCD /* FractalRadialVertex.glsl in CopyFiles */,
 				66A686D2245A159400FF318E /* background.bmp in CopyFiles */,
 				66A686D0245A0F7D00FF318E /* radial.bmp in CopyFiles */,
 				66A686CD245A0B4300FF318E /* RingTextureArcFragment.glsl in CopyFiles */,
@@ -108,6 +112,8 @@
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
 		66754E4B2436303100B53C5A /* MediaPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaPlayer.cpp; sourceTree = "<group>"; };
 		66754E4C2436303100B53C5A /* MediaPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaPlayer.hpp; sourceTree = "<group>"; };
+		668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FractalRadialFragment.glsl; sourceTree = "<group>"; };
+		668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FractalRadialVertex.glsl; sourceTree = "<group>"; };
 		66A686B024585E9E00FF318E /* LineFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineFragment.glsl; sourceTree = "<group>"; };
 		66A686B124585E9E00FF318E /* LineVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineVertex.glsl; sourceTree = "<group>"; };
 		66A686B4245889B000FF318E /* RingArcVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingArcVertex.glsl; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
 		66F48922230D8E700092BA35 /* square.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = square.bmp; sourceTree = "<group>"; };
+		66FA1B2A245C6FF300C07E4A /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +181,7 @@
 		66369D9B2302E7A000975025 /* dash */ = {
 			isa = PBXGroup;
 			children = (
+				66FA1B29245C6FE400C07E4A /* stb */,
 				66F48923230D8E7C0092BA35 /* Resources */,
 				6659848E2305765A002D326C /* Vehicle */,
 				66369DB62302EE8D00975025 /* Shaders */,
@@ -213,6 +221,8 @@
 		66369DB62302EE8D00975025 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */,
+				668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */,
 				66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */,
 				66A686CB245A0A6400FF318E /* RingTextureArcVertex.glsl */,
 				66A686B5245889B000FF318E /* RingArcFragment.glsl */,
@@ -245,6 +255,14 @@
 				66A686D1245A141100FF318E /* background.bmp */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		66FA1B29245C6FE400C07E4A /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				66FA1B2A245C6FF300C07E4A /* stb_image.h */,
+			);
+			name = stb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,7 +465,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/Cellar/sdl2/2.0.9_1/lib,
 					/usr/local/lib,
 					"\"$(SRCROOT)/../../angle/out/Release\"",
 				);
@@ -472,7 +489,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/Cellar/sdl2/2.0.9_1/lib,
 					/usr/local/lib,
 					"\"$(SRCROOT)/../../angle/out/Release\"",
 				);

@@ -37,20 +37,23 @@ private:
     GLuint VAO, VBO;
     
     GLuint lastTexture = -1;
+    GLuint lastProgram = -1;
     
     Uint32 startTime = 0;
     Uint32 endTime = 0;
+    float time = 0;
     Uint32 delta = 0;
     float fps = 60.0;
     Uint32 timePerFrame = 16; // miliseconds
 public:
     FT_Library ft;
-
+    
     ShaderProgram *textureProgram;
     ShaderProgram *ringArcProgram;
     ShaderProgram *ringTexArcProgram;
     ShaderProgram *textProgram;
     ShaderProgram *lineProgram;
+    ShaderProgram *fractalBackgroundProgram;
     SDL_Window *window;
     
     Renderer();
@@ -71,10 +74,12 @@ public:
     void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
     
     void bindTexture(GLuint texId);
+    void useProgram(GLuint programId);
     
     void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);
     void drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, vec3 color);
     void drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, GLint texId);
+    void renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
 };
 
 #endif /* Renderer_hpp */
