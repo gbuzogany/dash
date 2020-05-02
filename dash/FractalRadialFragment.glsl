@@ -46,7 +46,7 @@ void main()
         
         //line
         vec2 pos_line2 = get_coord(mod(i*fac, np), r, np);
-        float lines = line(pos, pos_line2, uv, 0.004);
+        float lines = line(pos, pos_line2, uv, 0.005);
         
         shape += circle(uv, pos, 80.);
         shape += lines;

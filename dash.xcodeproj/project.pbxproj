@@ -107,6 +107,8 @@
 		6659848723057103002D326C /* Dashboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Dashboard.cpp; sourceTree = "<group>"; };
 		6659848823057103002D326C /* Dashboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dashboard.hpp; sourceTree = "<group>"; };
 		665984A22305C5A9002D326C /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
+		665A527D245D72DA00AC6765 /* DissolveVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveVertex.glsl; sourceTree = "<group>"; };
+		665A527E245D72DA00AC6765 /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
@@ -221,6 +223,8 @@
 		66369DB62302EE8D00975025 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				665A527E245D72DA00AC6765 /* DissolveFragment.glsl */,
+				665A527D245D72DA00AC6765 /* DissolveVertex.glsl */,
 				668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */,
 				668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */,
 				66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */,

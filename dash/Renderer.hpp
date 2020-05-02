@@ -72,6 +72,7 @@ public:
     
     float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign = LEFT, uint vAlign = BOTTOM);
     void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
+    void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height);
     
     void bindTexture(GLuint texId);
     void useProgram(GLuint programId);

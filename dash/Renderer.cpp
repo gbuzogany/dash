@@ -77,7 +77,6 @@ void Renderer::initGraphics()
     glDepthFunc(GL_LEQUAL);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
-
 }
 
 void Renderer::updateScreen() {
@@ -128,25 +127,7 @@ void Renderer::renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat 
     glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
     glUniform1f(u_time, time / 4.0);
     
-    GLfloat xpos = x;
-    GLfloat ypos = 480.0 - y - height;
-    GLfloat vertices[6][4] = {
-        { xpos,         ypos + height,   0.0, 1.0 }, // 0
-        { xpos,         ypos,       0.0, 0.0 },      // 1
-        { xpos + width, ypos,       1.0, 0.0 },      // 2
-        
-        { xpos,         ypos + height,   0.0, 1.0 }, // 3
-        { xpos + width, ypos,       1.0, 0.0 },      // 4
-        { xpos + width, ypos + height,   1.0, 1.0 }  // 5
-    };
-    
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, &vertices[0], GL_DYNAMIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-    
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+    renderRect(x, y, width, height);
 }
 
 void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
@@ -162,6 +143,10 @@ void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat wid
     glActiveTexture(GL_TEXTURE0);
     bindTexture(textureId);
     
+    renderRect(x, y, width, height);
+}
+
+void Renderer::renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
     GLfloat xpos = x;
     GLfloat ypos = 480.0 - y - height;
     GLfloat vertices[6][4] = {
@@ -179,7 +164,7 @@ void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat wid
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-
+    
     glDrawArrays(GL_TRIANGLES, 0, 6);
 }
 

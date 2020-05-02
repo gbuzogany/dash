@@ -213,7 +213,7 @@ void Dashboard::render() {
                       30, // long tick lenght
                       15, // short tick length
                       M_PI + M_PI_2, // start angle
-                      0, // end angle
+                      0.0, // end angle
                       12, // max value
                       10.5, // begin critical
                       4 // intermediary ticks
