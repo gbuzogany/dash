@@ -49,6 +49,7 @@ public:
     FT_Library ft;
     
     ShaderProgram *textureProgram;
+    ShaderProgram *dissolveProgram;
     ShaderProgram *ringArcProgram;
     ShaderProgram *ringTexArcProgram;
     ShaderProgram *textProgram;
@@ -64,15 +65,15 @@ public:
     ShaderProgram* loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath);
     void updateScreen();
     
-    void startFrame();
+    float startFrame();
     void endFrame();
     short getFrameRate();
     
     GLuint getVertexBuffer();
     
     float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign = LEFT, uint vAlign = BOTTOM);
-    void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
-    void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height);
+    void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
+    void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     
     void bindTexture(GLuint texId);
     void useProgram(GLuint programId);
@@ -80,7 +81,7 @@ public:
     void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);
     void drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, vec3 color);
     void drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, GLint texId);
-    void renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height);
+    void renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
 };
 
 #endif /* Renderer_hpp */

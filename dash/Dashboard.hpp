@@ -15,7 +15,7 @@
 #include <map>
 #include <thread>
 #include FT_FREETYPE_H
-#include "Renderer.hpp"
+#include "Scene.hpp"
 #include "Vehicle.hpp"
 #include "Definitions.h"
 
@@ -25,13 +25,13 @@ typedef struct {
     std::string album;
 } DashMediaItem;
 
-class Dashboard {
-    Renderer *r;
+class Dashboard : Scene {
     Vehicle *vehicle;
     
-    GLuint bgTextureId;
     GLuint arcTextureId;
     GLuint squareTextureId;
+    GLuint bgImg;
+    
     GLuint screenTexture;
     GLuint frameBuffer;
     
@@ -56,7 +56,7 @@ class Dashboard {
 public:
     Dashboard(Renderer &r);
     Vehicle* getVehicle();
-    void render();
+    bool render(float delta);
     void renderFixed();
     void setPlayStatus(std::string playStatus);
     void setNowPlaying(DashMediaItem mediaItem);

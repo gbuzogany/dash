@@ -7,6 +7,7 @@ precision highp int;
 varying vec2 UV;
 
 uniform float dissolve;
+uniform float globalAlpha;
 
 uniform sampler2D baseTexture;
 uniform sampler2D noiseTexture;
@@ -34,11 +35,13 @@ void main() {
     float dissolve_remapped = map(dissolve, 0.14, 1.0, 0.75, 0.15);
     dissolve_remapped = map(dissolve_remapped, 0.0, 1.0, -0.5, 0.5);
     
-    float alpha = mask + dissolve_remapped < 0.5 ? 0.0 : 1.0;
     float mask_remapped = map(mask + dissolve_remapped, 0.0, 1.0, -4.0, 4.0);
     mask_remapped = 1.0 - clamp(mask_remapped, 0.0, 1.0);
     vec3 ramp_color = texture2D(rampTexture, vec2(mask_remapped, 0.0)).rgb;
 
-    gl_FragColor.rgb = ramp_color + texture2D(baseTexture, original_uv).rgb;
-    gl_FragColor.a = alpha;
+    vec4 pixel = texture2D(baseTexture, UV);
+    float alpha = mask + dissolve_remapped < 0.5 ? 0.0 : 1.0;
+
+    gl_FragColor.rgb = pixel.rgb + ramp_color;
+    gl_FragColor.a = alpha * globalAlpha;
 }

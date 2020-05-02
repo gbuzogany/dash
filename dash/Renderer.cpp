@@ -19,6 +19,7 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
+    dissolveProgram = loadShaders( "DissolveVertex.glsl", "DissolveFragment.glsl" );
     fractalBackgroundProgram = loadShaders( "FractalRadialVertex.glsl", "FractalRadialFragment.glsl" );
     ringArcProgram = loadShaders( "RingArcVertex.glsl", "RingArcFragment.glsl" );
     ringTexArcProgram = loadShaders( "RingTextureArcVertex.glsl", "RingTextureArcFragment.glsl" );
@@ -83,7 +84,7 @@ void Renderer::updateScreen() {
     SDL_GL_SwapWindow(window);
 }
 
-void Renderer::startFrame() {
+float Renderer::startFrame() {
     if (!startTime) {
         // get the time in ms passed from the moment the program started
         startTime = SDL_GetTicks();
@@ -106,6 +107,7 @@ void Renderer::startFrame() {
     else {
         fps = 1000.0 / delta;
     }
+    return delta / 1000.0;
 }
 
 void Renderer::endFrame() {
@@ -117,7 +119,7 @@ short Renderer::getFrameRate() {
     return fps;
 }
 
-void Renderer::renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
+void Renderer::renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY) {
 
     GLuint u_projectionID = program.getUniformLocation("projection");
     GLuint u_time = program.getUniformLocation("time");
@@ -127,10 +129,10 @@ void Renderer::renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat 
     glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
     glUniform1f(u_time, time / 4.0);
     
-    renderRect(x, y, width, height);
+    renderRect(x, y, width, height, flipY);
 }
 
-void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
+void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY) {
     useProgram(textureProgram->getId());
     
     GLuint u_squareTextureId = textureProgram->getUniformLocation("textureSampler");
@@ -143,20 +145,24 @@ void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat wid
     glActiveTexture(GL_TEXTURE0);
     bindTexture(textureId);
     
-    renderRect(x, y, width, height);
+    renderRect(x, y, width, height, flipY);
 }
 
-void Renderer::renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
+void Renderer::renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY) {
+
+    float top = flipY ? 0.0 : 1.0;
+    float bottom = flipY ? 1.0 : 0.0;
+    
     GLfloat xpos = x;
     GLfloat ypos = 480.0 - y - height;
     GLfloat vertices[6][4] = {
-        { xpos,         ypos + height,   0.0, 1.0 }, // 0
-        { xpos,         ypos,       0.0, 0.0 },      // 1
-        { xpos + width, ypos,       1.0, 0.0 },      // 2
+        { xpos,         ypos + height,   0.0, top }, // 0
+        { xpos,         ypos,            0.0, bottom },      // 1
+        { xpos + width, ypos,            1.0, bottom },      // 2
         
-        { xpos,         ypos + height,   0.0, 1.0 }, // 3
-        { xpos + width, ypos,       1.0, 0.0 },      // 4
-        { xpos + width, ypos + height,   1.0, 1.0 }  // 5
+        { xpos,         ypos + height,   0.0, top }, // 3
+        { xpos + width, ypos,            1.0, bottom },      // 4
+        { xpos + width, ypos + height,   1.0, top }  // 5
     };
     
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);

@@ -13,12 +13,10 @@
 #include <functional>
 #include <memory>
 
-Dashboard::Dashboard(Renderer &renderer) {
-    this->r = &renderer;
-    
-    bgTextureId = Texture::loadBMP("background.bmp");
+Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
     arcTextureId = Texture::loadBMP("radial.bmp");
-    squareTextureId = Texture::loadBMP("square.bmp");
+    squareTextureId = Texture::loadTGA("square.tga");
+    bgImg = Texture::loadTGA("splash.tga");
 
     vehicle = new Vehicle();
     
@@ -125,7 +123,7 @@ float map(float value, float inMin, float inMax, float outMin, float outMax) {
     return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
 }
 
-void Dashboard::render() {
+bool Dashboard::render(float delta) {
     r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
     
     float value = vehicle->getRPM()/1000.0f;
@@ -144,9 +142,11 @@ void Dashboard::render() {
     
     // full diameter
     r->renderFlat(*r->fractalBackgroundProgram, 300, 0, 500, 500);
-    
     // just inner circle
 //    r->renderFlat(*r->fractalBackgroundProgram, 425, 125, 250, 250);
+    
+    r->renderTexture(bgImg, -50, 0, 480, 480, true);
+//    r->renderTexture(splashLogo, -20, -230, 512, 512, true);
 
     std::string degStr(1, '\xb0');
     std::string tempStr(1, '\xb0');
@@ -174,12 +174,14 @@ void Dashboard::render() {
 //    endX = r->renderText(*hnproMedium27, "ms", endX + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getIgnitionAdvanceString(), attrX["ignitionAdvance"] + 3.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproMedium27, degStr, endX + 3.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), attrX["battVoltage"] + 5.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), attrX["battVoltage"] + 5.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getRPMString(), 553.0f, 364.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     r->renderText(*hnproHugeOblique, vehicle->getGearString(), 540.0f, 230.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
+    
     std::string speed = vehicle->getSpeedString();
-    r->renderText(*hnproHuge, speed, 240.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+    r->renderText(*hnproHuge, speed, 270.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+    r->renderText(*hnproMediumOblique, "km/h", 200.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
@@ -231,24 +233,22 @@ void Dashboard::render() {
     std::stringstream sfps;
     sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
     r->renderText(*hnproMedium27, sfps.str(), 0.0f, 0.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    
+    return true;
 }
 
 void Dashboard::renderFixed() {
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-//    r->renderTexture(bgTextureId, 0, 0, WIDTH, HEIGHT);
-    
-    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+
+//    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["airIntakeTemp"] = r->renderText(*hnproMedium27, "Air Intake Temp", 27.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["manifoldPressure"] = r->renderText(*hnproMedium27, "Manifold Pressure", 27.0f, 357.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["tps"] = r->renderText(*hnproMedium27, "TPS", 600.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["injectorDuration"] = r->renderText(*hnproMedium27, "Injector Duration", 300.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["ignitionAdvance"] = r->renderText(*hnproMedium27, "Ignition Advance", 300.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    
-    r->renderText(*hnproMediumOblique, "km/h", 170.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }

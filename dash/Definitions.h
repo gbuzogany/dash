@@ -9,12 +9,6 @@
 #ifndef Definitions_h
 #define Definitions_h
 
-typedef struct
-{
-    unsigned char *msg;
-    long bytes;
-} sock_msg_t;
-
 #define WIDTH 800
 #define HEIGHT 480
 

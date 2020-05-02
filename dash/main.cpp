@@ -18,6 +18,7 @@ using namespace glm;
 #include "Texture.hpp"
 #include "Vehicle.hpp"
 #include "Dashboard.hpp"
+#include "Splash.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -25,34 +26,41 @@ int main(int argc, char* argv[])
     r.initGraphics();
     r.initShaders();
     
-    Dashboard dash(r);
+    std::queue<Scene*> sceneQueue;
+    sceneQueue.push((Scene*) new Splash(r));
+    sceneQueue.push((Scene*) new Dashboard(r));
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
-    int running = 1;
     
-    dash.renderFixed();
-    
-    while (running) {
-        r.startFrame();
+    while (!sceneQueue.empty()) {
+        bool running = true;
         
-        SDL_Event ev;
-        while (SDL_PollEvent(&ev))
-        {
-            if (ev.type == SDL_QUIT)
+        Scene *currentScene = sceneQueue.front();
+        currentScene->renderFixed();
+        
+        float delta;
+        
+        while (running) {
+            delta = r.startFrame();
+            
+            SDL_Event ev;
+            while (SDL_PollEvent(&ev))
             {
-                running = 0;
-                break;
+                if (ev.type == SDL_QUIT)
+                {
+                    running = 0;
+                    break;
+                }
             }
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            
+            running = currentScene->render(delta);
+            
+            r.updateScreen();
+            r.endFrame();
         }
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
-        dash.render();
-
-        r.updateScreen();
-        r.endFrame();
+        sceneQueue.pop();
     }
-
     SDL_Quit();
     
     return 0;

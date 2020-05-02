@@ -23,6 +23,16 @@
 		6659848323044ED5002D326C /* TextFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847A23044894002D326C /* TextFragment.glsl */; };
 		6659848623056DFF002D326C /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848423056DFF002D326C /* Vehicle.cpp */; };
 		6659848923057103002D326C /* Dashboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848723057103002D326C /* Dashboard.cpp */; };
+		665A5284245D78C700AC6765 /* dissolve-ramp.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5283245D78C000AC6765 /* dissolve-ramp.tga */; };
+		665A5286245D7AF600AC6765 /* square.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5285245D7AF100AC6765 /* square.tga */; };
+		665A5288245D7C2E00AC6765 /* noise.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5287245D7C2200AC6765 /* noise.tga */; };
+		665A528B245D863100AC6765 /* logo.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5289245D862A00AC6765 /* logo.tga */; };
+		665A528C245D863100AC6765 /* splash.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A528A245D862A00AC6765 /* splash.tga */; };
+		665A528F245D91BB00AC6765 /* Splash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A528D245D91BB00AC6765 /* Splash.cpp */; };
+		665A5292245D932B00AC6765 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5290245D932B00AC6765 /* Scene.cpp */; };
+		665A5294245D980800AC6765 /* DissolveFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A527E245D72DA00AC6765 /* DissolveFragment.glsl */; };
+		665A5295245D980800AC6765 /* DissolveVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A527D245D72DA00AC6765 /* DissolveVertex.glsl */; };
+		665A5298245DA2C500AC6765 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5296245DA2C500AC6765 /* Animation.cpp */; };
 		6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB223786B13005BA4E4 /* libgrpc.dylib */; };
 		6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */; };
 		6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB623786B49005BA4E4 /* libprotobuf.dylib */; };
@@ -43,7 +53,6 @@
 		66B8057C230AC014001FC4A7 /* libGLESv2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057D230AC016001FC4A7 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66369DA92302E87800975025 /* libSDL2-2.0.0.dylib */; };
 		66B8057E230AC04A001FC4A7 /* libfreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6659847B23044960002D326C /* libfreetype.dylib */; };
-		66F48924230D8E8D0092BA35 /* square.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66F48922230D8E700092BA35 /* square.bmp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +62,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				665A5294245D980800AC6765 /* DissolveFragment.glsl in CopyFiles */,
+				665A5295245D980800AC6765 /* DissolveVertex.glsl in CopyFiles */,
+				665A528B245D863100AC6765 /* logo.tga in CopyFiles */,
+				665A528C245D863100AC6765 /* splash.tga in CopyFiles */,
+				665A5288245D7C2E00AC6765 /* noise.tga in CopyFiles */,
+				665A5286245D7AF600AC6765 /* square.tga in CopyFiles */,
+				665A5284245D78C700AC6765 /* dissolve-ramp.tga in CopyFiles */,
 				668CD42C245C50970076FCCD /* FractalRadialFragment.glsl in CopyFiles */,
 				668CD42D245C50970076FCCD /* FractalRadialVertex.glsl in CopyFiles */,
 				66A686D2245A159400FF318E /* background.bmp in CopyFiles */,
@@ -63,7 +79,6 @@
 				66A686B7245889BA00FF318E /* RingArcVertex.glsl in CopyFiles */,
 				66A686B224585EC800FF318E /* LineFragment.glsl in CopyFiles */,
 				66A686B324585EC800FF318E /* LineVertex.glsl in CopyFiles */,
-				66F48924230D8E8D0092BA35 /* square.bmp in CopyFiles */,
 				66369DB72302EE9D00975025 /* TextureFragmentShader.glsl in CopyFiles */,
 				66369DB82302EE9D00975025 /* TransformVertexShader.glsl in CopyFiles */,
 				66369DBA2302F2F700975025 /* uvtemplate.bmp in CopyFiles */,
@@ -109,6 +124,18 @@
 		665984A22305C5A9002D326C /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		665A527D245D72DA00AC6765 /* DissolveVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveVertex.glsl; sourceTree = "<group>"; };
 		665A527E245D72DA00AC6765 /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
+		665A5282245D77CC00AC6765 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		665A5283245D78C000AC6765 /* dissolve-ramp.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dissolve-ramp.tga"; sourceTree = "<group>"; };
+		665A5285245D7AF100AC6765 /* square.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = square.tga; sourceTree = "<group>"; };
+		665A5287245D7C2200AC6765 /* noise.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = noise.tga; sourceTree = "<group>"; };
+		665A5289245D862A00AC6765 /* logo.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.tga; sourceTree = "<group>"; };
+		665A528A245D862A00AC6765 /* splash.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = splash.tga; sourceTree = "<group>"; };
+		665A528D245D91BB00AC6765 /* Splash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Splash.cpp; sourceTree = "<group>"; };
+		665A528E245D91BB00AC6765 /* Splash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Splash.hpp; sourceTree = "<group>"; };
+		665A5290245D932B00AC6765 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		665A5291245D932B00AC6765 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
+		665A5296245DA2C500AC6765 /* Animation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
+		665A5297245DA2C500AC6765 /* Animation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
@@ -126,8 +153,6 @@
 		66A686D1245A141100FF318E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = background.bmp; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
-		66F48922230D8E700092BA35 /* square.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = square.bmp; sourceTree = "<group>"; };
-		66FA1B2A245C6FF300C07E4A /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,11 +208,12 @@
 		66369D9B2302E7A000975025 /* dash */ = {
 			isa = PBXGroup;
 			children = (
-				66FA1B29245C6FE400C07E4A /* stb */,
+				665A5281245D77BF00AC6765 /* stb */,
 				66F48923230D8E7C0092BA35 /* Resources */,
 				6659848E2305765A002D326C /* Vehicle */,
 				66369DB62302EE8D00975025 /* Shaders */,
 				660070332433C863001080A1 /* rpc */,
+				665A5293245D94CC00AC6765 /* Scenes */,
 				665984A22305C5A9002D326C /* Definitions.h */,
 				66369D9C2302E7A000975025 /* main.cpp */,
 				66369DA32302E7E200975025 /* Renderer.cpp */,
@@ -200,8 +226,6 @@
 				66369DBC2302F31000975025 /* Texture.hpp */,
 				6659847F23044A47002D326C /* Font.cpp */,
 				6659848023044A47002D326C /* Font.hpp */,
-				6659848723057103002D326C /* Dashboard.cpp */,
-				6659848823057103002D326C /* Dashboard.hpp */,
 			);
 			path = dash;
 			sourceTree = "<group>";
@@ -250,23 +274,42 @@
 			name = Vehicle;
 			sourceTree = "<group>";
 		};
+		665A5281245D77BF00AC6765 /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				665A5282245D77CC00AC6765 /* stb_image.h */,
+			);
+			name = stb;
+			sourceTree = "<group>";
+		};
+		665A5293245D94CC00AC6765 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				665A5290245D932B00AC6765 /* Scene.cpp */,
+				665A5291245D932B00AC6765 /* Scene.hpp */,
+				6659848723057103002D326C /* Dashboard.cpp */,
+				6659848823057103002D326C /* Dashboard.hpp */,
+				665A528D245D91BB00AC6765 /* Splash.cpp */,
+				665A528E245D91BB00AC6765 /* Splash.hpp */,
+				665A5296245DA2C500AC6765 /* Animation.cpp */,
+				665A5297245DA2C500AC6765 /* Animation.hpp */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		66F48923230D8E7C0092BA35 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				66A686CF245A0F7700FF318E /* radial.bmp */,
 				66369DB92302F2F100975025 /* uvtemplate.bmp */,
-				66F48922230D8E700092BA35 /* square.bmp */,
+				665A5285245D7AF100AC6765 /* square.tga */,
 				66A686D1245A141100FF318E /* background.bmp */,
+				665A5283245D78C000AC6765 /* dissolve-ramp.tga */,
+				665A5287245D7C2200AC6765 /* noise.tga */,
+				665A5289245D862A00AC6765 /* logo.tga */,
+				665A528A245D862A00AC6765 /* splash.tga */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		66FA1B29245C6FE400C07E4A /* stb */ = {
-			isa = PBXGroup;
-			children = (
-				66FA1B2A245C6FF300C07E4A /* stb_image.h */,
-			);
-			name = stb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +376,13 @@
 				66369DB22302EAFC00975025 /* Shader.cpp in Sources */,
 				66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */,
 				6659848923057103002D326C /* Dashboard.cpp in Sources */,
+				665A5292245D932B00AC6765 /* Scene.cpp in Sources */,
+				665A528F245D91BB00AC6765 /* Splash.cpp in Sources */,
 				66369D9D2302E7A000975025 /* main.cpp in Sources */,
 				660070322433C85E001080A1 /* dash.pb.cc in Sources */,
 				660070362433C8AE001080A1 /* DashControl.cpp in Sources */,
 				660070312433C85E001080A1 /* dash.grpc.pb.cc in Sources */,
+				665A5298245DA2C500AC6765 /* Animation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +517,7 @@
 					"$(inherited)",
 					/usr/local/lib,
 					"\"$(SRCROOT)/../../angle/out/Release\"",
+					"$(PROJECT_DIR)/libtga-1.0.1/src/.libs",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -495,6 +542,7 @@
 					"$(inherited)",
 					/usr/local/lib,
 					"\"$(SRCROOT)/../../angle/out/Release\"",
+					"$(PROJECT_DIR)/libtga-1.0.1/src/.libs",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
