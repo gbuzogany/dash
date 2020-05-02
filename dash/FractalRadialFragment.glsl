@@ -10,6 +10,7 @@ varying vec2 original_uv;
 uniform vec3 color;
 
 uniform float time;
+uniform float globalAlpha;
 
 float circle(vec2 st, vec2 p, float r){
     float d = length(st-p)*r;
@@ -53,5 +54,5 @@ void main()
     }
     
     col = (shape) * color;// + vec3(.12) * (1.0 - clamp(shape, 0.0, 1.0));
-    gl_FragColor = vec4(col, 1.0);
+    gl_FragColor = vec4(col, globalAlpha);
 }

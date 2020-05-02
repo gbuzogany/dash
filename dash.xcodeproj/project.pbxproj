@@ -285,14 +285,14 @@
 		665A5293245D94CC00AC6765 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				665A5296245DA2C500AC6765 /* Animation.cpp */,
+				665A5297245DA2C500AC6765 /* Animation.hpp */,
 				665A5290245D932B00AC6765 /* Scene.cpp */,
 				665A5291245D932B00AC6765 /* Scene.hpp */,
 				6659848723057103002D326C /* Dashboard.cpp */,
 				6659848823057103002D326C /* Dashboard.hpp */,
 				665A528D245D91BB00AC6765 /* Splash.cpp */,
 				665A528E245D91BB00AC6765 /* Splash.hpp */,
-				665A5296245DA2C500AC6765 /* Animation.cpp */,
-				665A5297245DA2C500AC6765 /* Animation.hpp */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";

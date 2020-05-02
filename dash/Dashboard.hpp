@@ -14,10 +14,12 @@
 #include <ft2build.h>
 #include <map>
 #include <thread>
+#include <queue>
 #include FT_FREETYPE_H
 #include "Scene.hpp"
 #include "Vehicle.hpp"
 #include "Definitions.h"
+#include "Animation.hpp"
 
 typedef struct {
     std::string title;
@@ -42,6 +44,7 @@ class Dashboard : Scene {
     std::thread dashServiceThread;
     
     std::map<std::string, float> attrX;
+    std::queue<Animation*> animationQueue;
     
     FontWrapper *hnproSmall;
     FontWrapper *hnproMedium27;

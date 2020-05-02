@@ -15,6 +15,8 @@ uniform float valuePos;
 uniform float outerRadius;
 uniform float innerRadius;
 
+uniform float globalAlpha;
+
 uniform float time;
 
 float map(float value, float inMin, float inMax, float outMin, float outMax) {
@@ -54,5 +56,5 @@ void main() {
     angle = 1.0 - ceil(angle);
     float aux7 = angle * aux4;
     vec3 aux3 = aux7 * color;
-    gl_FragColor = vec4(aux3, aux7);
+    gl_FragColor = vec4(aux3, aux7 * globalAlpha);
 }

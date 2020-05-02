@@ -22,7 +22,6 @@ class Splash : Scene {
     GLuint splashLogo;
     
     float totalTime = 0;
-    float globalAlpha = 0;
     float dissolve = 0;
 
     std::queue<Animation*> animationQueue;

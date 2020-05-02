@@ -15,6 +15,8 @@ uniform float valuePos;
 uniform float outerRadius;
 uniform float innerRadius;
 
+uniform float globalAlpha;
+
 uniform sampler2D tex;
 
 float map(float value, float inMin, float inMax, float outMin, float outMax) {
@@ -55,5 +57,5 @@ void main() {
     float aux7 = angle * aux4;
     vec3 sampled = texture2D(tex, UV).rgb;
     vec3 aux3 = aux7 * sampled;
-    gl_FragColor = vec4(aux3, aux7);
+    gl_FragColor = vec4(aux3, aux7 * globalAlpha);
 }

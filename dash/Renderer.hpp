@@ -45,6 +45,8 @@ private:
     Uint32 delta = 0;
     float fps = 60.0;
     Uint32 timePerFrame = 16; // miliseconds
+    
+    GLfloat globalAlpha = 1.0;
 public:
     FT_Library ft;
     
@@ -76,12 +78,14 @@ public:
     void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     
     void bindTexture(GLuint texId);
-    void useProgram(GLuint programId);
+    void useProgram(ShaderProgram &program);
     
     void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);
     void drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, vec3 color);
     void drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, GLint texId);
     void renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
+    void setProgramGlobalAlpha(ShaderProgram &program);
+    void setGlobalAlpha(float alpha);
 };
 
 #endif /* Renderer_hpp */

@@ -23,7 +23,8 @@ Splash::Splash(Renderer &renderer) : Scene(renderer) {
     
     animationQueue.push(new Animation("fadeIn", 0, 1.0, 1.0));
     animationQueue.push(new Animation("delay", 0, 1.0, 0.5));
-    animationQueue.push(new Animation("dissolve", 0, 1.0, 1.0));
+    animationQueue.push(new Animation("dissolve", 0, 1.0, 2.0));
+    animationQueue.push(new Animation("delay", 0, 1.0, 1.0));
 }
 
 bool Splash::render(float delta) {
@@ -32,12 +33,11 @@ bool Splash::render(float delta) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     if (!animationQueue.empty()) {
-        
         Animation *current = animationQueue.front();
         float value = current->animate(delta);
         
         if (current->getId() == "fadeIn") {
-            globalAlpha = value;
+            r->setGlobalAlpha(value);
         }
         if (current->getId() == "dissolve") {
             dissolve = value;
@@ -52,14 +52,14 @@ bool Splash::render(float delta) {
         return false;
     }
     
-    r->useProgram(r->dissolveProgram->getId());
+    r->useProgram(*r->dissolveProgram);
+    r->setProgramGlobalAlpha(*r->dissolveProgram);
 
     GLuint u_baseTexture = r->dissolveProgram->getUniformLocation("baseTexture");
     GLuint u_noiseTexture = r->dissolveProgram->getUniformLocation("noiseTexture");
     GLuint u_rampTexture = r->dissolveProgram->getUniformLocation("rampTexture");
     GLuint u_projection = r->dissolveProgram->getUniformLocation("projection");
     GLuint u_dissolve = r->dissolveProgram->getUniformLocation("dissolve");
-    GLuint u_globalAlpha = r->dissolveProgram->getUniformLocation("globalAlpha");
     
     glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
     glUniformMatrix4fv(u_projection, 1, GL_FALSE, &projection[0][0]);
@@ -77,7 +77,6 @@ bool Splash::render(float delta) {
     r->bindTexture(dissolveRampTextureId);
     
     glUniform1f(u_dissolve, dissolve);
-    glUniform1f(u_globalAlpha, globalAlpha);
 
 //    r->useProgram(r->fractalBackgroundProgram->getId());
 //    GLuint u_color = r->fractalBackgroundProgram->getUniformLocation("color");

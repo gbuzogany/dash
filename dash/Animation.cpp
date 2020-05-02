@@ -21,7 +21,6 @@ float Animation::animate(float delta) {
         elapsed = duration;
     }
     
-    printf("%f\n", elapsed);
     float deltaValue = to - from;
     return from + deltaValue * (elapsed / duration);
 }

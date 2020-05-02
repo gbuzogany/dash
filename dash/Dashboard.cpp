@@ -52,6 +52,8 @@ Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
     
     mediaServiceThread = std::thread(&Dashboard::startMediaService, this);
     dashServiceThread = std::thread(&Dashboard::startDashService, this);
+    
+    animationQueue.push(new Animation("fadeIn", 0, 1.0, 2.0));
 }
 
 void Dashboard::startMediaService() {
@@ -124,13 +126,29 @@ float map(float value, float inMin, float inMax, float outMin, float outMax) {
 }
 
 bool Dashboard::render(float delta) {
+    
+    if (!animationQueue.empty()) {
+        Animation *current = animationQueue.front();
+        float value = current->animate(delta);
+        
+        if (current->getId() == "fadeIn") {
+            r->setGlobalAlpha(value);
+        }
+        
+        if (current->complete()) {
+            animationQueue.pop();
+            delete current;
+        }
+    }
+    
     r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
     
     float value = vehicle->getRPM()/1000.0f;
     float max = 12;
 
-    r->useProgram(r->fractalBackgroundProgram->getId());
+    r->useProgram(*r->fractalBackgroundProgram);
     GLuint u_color = r->fractalBackgroundProgram->getUniformLocation("color");
+    GLuint u_globalAlpha = r->fractalBackgroundProgram->getUniformLocation("globalAlpha");
     
     float red = 0;
     
