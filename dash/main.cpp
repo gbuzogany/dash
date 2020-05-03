@@ -1,8 +1,3 @@
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtx/euler_angles.hpp>
-using namespace glm;
-
 #include <exception>
 #include <functional>
 #include <vector>

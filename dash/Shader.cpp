@@ -16,6 +16,7 @@
 
 bool Shader::loadFragmentShader(const char *filename)
 {
+    printf("Loading %s...\n", filename);
     assert(!Src);
     FILE* f = fopen(filename, "rb");
     assert(f);
@@ -36,6 +37,7 @@ bool Shader::loadFragmentShader(const char *filename)
 
 bool Shader::loadVertexShader(const char *filename)
 {
+    printf("Loading %s...\n", filename);
     assert(!Src);
     FILE* f = fopen(filename, "rb");
     assert(f);

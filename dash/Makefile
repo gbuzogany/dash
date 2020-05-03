@@ -1,11 +1,40 @@
-CXX      := g++
-CXXFLAGS := -std=c++1z -O3
-LDFLAGS  := -L/usr/local/lib -L/opt/vc/lib/ -lSDL2 -lbrcmGLESv2 -lfreetype -lbrcmEGL -lflatbuffers
+CXX      := arm-linux-gnueabihf-g++
+CXXFLAGS := -fPIC -std=c++11 -O3
+LDFLAGS  := \
+	--sysroot=/tmp/raspberrypi_root/raspberrypi-tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot \
+	-L/opt/vc/lib/ \
+	-L/tmp/raspberrypi_root/stage/lib \
+	-L/tmp/raspberrypi_root/raspberrypi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/lib \
+	-Wl,-rpath-link,/tmp/raspberrypi_root/stage/lib \
+	-Wl,-rpath-link,/tmp/raspberrypi_root/raspberrypi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/lib \
+	-lSDL2 \
+	-lbrcmGLESv2 \
+	-lfreetype \
+	-lbrcmEGL \
+	-lpng \
+	-lpthread \
+	-lprotobuf \
+	-lgrpc \
+	-lgrpc++ \
+	-lgpr \
+	-lgcc_s \
+	-lz \
+	-lm \
+	-lbcm_host \
+	-lvcos \
+	-lvchiq_arm \
+	-lssl \
+	-lcrypto \
+	-lcares
 BUILD    := ./build
 OBJ_DIR  := $(BUILD)/objects
-APP_DIR  := ./
+APP_DIR  := .
 TARGET   := dash
-INCLUDE  := -I/usr/local/include/freetype2
+INCLUDE  := -I/usr/local/include/freetype2 \
+ 			-I/opt/vc/include \
+ 			-I/tmp/raspberrypi_root/raspberrypi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/freetype2 \
+ 			-I/tmp/raspberrypi_root/raspberrypi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include \
+ 			-I/tmp/raspberrypi_root/stage/include
 SRC      := $(wildcard *.cpp)
 
 OBJECTS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)

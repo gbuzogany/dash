@@ -20,7 +20,7 @@ Renderer::Renderer()
 
 void Renderer::initShaders() {
     dissolveProgram = loadShaders( "DissolveVertex.glsl", "DissolveFragment.glsl" );
-    fractalBackgroundProgram = loadShaders( "FractalRadialVertex.glsl", "FractalRadialFragment.glsl" );
+//    fractalBackgroundProgram = loadShaders( "FractalRadialVertex.glsl", "FractalRadialFragment.glsl" );
     ringArcProgram = loadShaders( "RingArcVertex.glsl", "RingArcFragment.glsl" );
     ringTexArcProgram = loadShaders( "RingTextureArcVertex.glsl", "RingTextureArcFragment.glsl" );
     textureProgram = loadShaders( "TransformVertexShader.glsl", "TextureFragmentShader.glsl" );

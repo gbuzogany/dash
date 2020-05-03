@@ -126,6 +126,7 @@ float map(float value, float inMin, float inMax, float outMin, float outMax) {
 }
 
 bool Dashboard::render(float delta) {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     if (!animationQueue.empty()) {
         Animation *current = animationQueue.front();
@@ -146,23 +147,23 @@ bool Dashboard::render(float delta) {
     float value = vehicle->getRPM()/1000.0f;
     float max = 12;
 
-    r->useProgram(*r->fractalBackgroundProgram);
-    GLuint u_color = r->fractalBackgroundProgram->getUniformLocation("color");
-    GLuint u_globalAlpha = r->fractalBackgroundProgram->getUniformLocation("globalAlpha");
-    
-    float red = 0;
-    
-    if (value/max > 0.8) {
-        red = 0.5 * map(value/max, 0.8, 1.0, 0.0, 1.0);
-    }
-    
-    glUniform3f(u_color, 0.06 + red, 0.06, 0.06);
-    
-    // full diameter
-    r->renderFlat(*r->fractalBackgroundProgram, 300, 0, 500, 500);
-    // just inner circle
-//    r->renderFlat(*r->fractalBackgroundProgram, 425, 125, 250, 250);
-    
+//    r->useProgram(*r->fractalBackgroundProgram);
+//    GLuint u_color = r->fractalBackgroundProgram->getUniformLocation("color");
+//    GLuint u_globalAlpha = r->fractalBackgroundProgram->getUniformLocation("globalAlpha");
+//    
+//    float red = 0;
+//    
+//    if (value/max > 0.8) {
+//        red = 0.5 * map(value/max, 0.8, 1.0, 0.0, 1.0);
+//    }
+//    
+//    glUniform3f(u_color, 0.06 + red, 0.06, 0.06);
+//    
+//    // full diameter
+//    r->renderFlat(*r->fractalBackgroundProgram, 300, 0, 500, 500);
+//    // just inner circle
+////    r->renderFlat(*r->fractalBackgroundProgram, 425, 125, 250, 250);
+//    
     r->renderTexture(bgImg, -50, 0, 480, 480, true);
 //    r->renderTexture(splashLogo, -20, -230, 512, 512, true);
 

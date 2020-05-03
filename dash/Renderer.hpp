@@ -11,7 +11,6 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtx/euler_angles.hpp>
 using namespace glm;
 
 #include <stdio.h>
@@ -56,7 +55,7 @@ public:
     ShaderProgram *ringTexArcProgram;
     ShaderProgram *textProgram;
     ShaderProgram *lineProgram;
-    ShaderProgram *fractalBackgroundProgram;
+//    ShaderProgram *fractalBackgroundProgram;
     SDL_Window *window;
     
     Renderer();
