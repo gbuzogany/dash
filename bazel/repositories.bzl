@@ -1,19 +1,3 @@
-# Copyright 2018 The Cartographer Authors
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-"""External dependencies for Cartographer."""
-
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 def dash_repositories():
@@ -29,16 +13,16 @@ def dash_repositories():
         ]
     )
 
-    # _maybe(
-    #     http_archive,
-    #     name = "zlib",
-    #     sha256 = "6d4d6640ca3121620995ee255945161821218752b551a1a180f4215f7d124d45",
-    #     build_file = "@com_gbuzogany_dash//bazel/third_party:zlib.BUILD",
-    #     strip_prefix = "zlib-cacf7f1d4e3d44d871b605da3b647f07d718623f",
-    #     urls = [
-    #         "https://github.com/madler/zlib/archive/cacf7f1d4e3d44d871b605da3b647f07d718623f.tar.gz",
-    #     ]
-    # )
+    _maybe(
+        http_archive,
+        name = "glm",
+        sha256 = "6b79c3d06d9745d1cce3f38c0c15666596f9aefff25ddb74df3af0a02f011ee1",
+        build_file = "@com_gbuzogany_dash//bazel/third_party:glm.BUILD",
+        strip_prefix = "glm",
+        urls = [
+            "https://github.com/g-truc/glm/releases/download/0.9.9.7/glm-0.9.9.7.zip",
+        ]
+    )
 
     _maybe(
         http_archive,
