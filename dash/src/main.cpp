@@ -2,6 +2,7 @@
 #include <functional>
 #include <vector>
 #include <iostream>
+#include <unistd.h>
 
 #include <SDL2/SDL.h>
 #define GL_GLEXT_PROTOTYPES 1

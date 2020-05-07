@@ -72,16 +72,3 @@ cc_library(
 )
 """
 )
-
-# new_local_repository(
-#     name = "glm",
-#     path = "/usr/local/Cellar/glm/0.9.9.5/include",
-#     build_file_content = """
-# package(default_visibility = ["//visibility:public"])
-
-# cc_library(
-#     name = "headers",
-#     hdrs = glob(["**/*.h", "**/*.hpp", "**/*.inl"])
-# )
-# """
-# )

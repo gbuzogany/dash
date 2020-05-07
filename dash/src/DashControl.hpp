@@ -14,7 +14,7 @@
 #include <string>
 #include <grpcpp/grpcpp.h>
 #include <grpc/support/log.h>
-#include "dash.grpc.pb.h"
+#include "dash/proto/dash.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerAsyncResponseWriter;

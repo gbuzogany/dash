@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package dash;
+
+service DashControl {
+  rpc UpdateDashData (DashData) returns (StatusResponse) {}
+  rpc UpdateDashExtendedData (DashExtendedData) returns (StatusResponse) {}
+}
+
+service MediaPlayer {
+  rpc PlayStatusChanged (PlayStatus) returns (StatusResponse) {}
+  rpc MediaChanged (MediaItem) returns (StatusResponse) {}
+}
+
+message DashData {
+  float speed = 1;
+  int32 rpm = 2;
+  int32 gear = 3;
+  bool neutral = 4;
+  bool clutch = 5;
+  bool engineRunning = 6;
+}
+
+message DashExtendedData {
+  float batteryVoltage = 1;
+  float coolantTemperature = 2;
+  float airIntakeTemperature = 3;
+  float manifoldPressure = 4;
+  float throttlePositionSensor = 5;
+  float injectorDuration = 6;
+  float ignitionAdvance = 7;
+  float fuelLevelPercent = 8;
+  float fuelPressure = 9;
+  float oilLevelPercent = 10;
+  float oilPressure = 11;
+  float oilTemperature = 12;
+  float lambdaSensor1 = 13;
+  float lambdaSensor2 = 14;
+  bool kickstand = 15;
+}
+
+message PlayStatus {
+  string playStatus = 1;
+}
+
+message MediaItem {
+  string title = 1;
+  string artist = 2;
+  string album = 3;
+}
+
+message StatusResponse {
+  int32 status = 1;
+}
