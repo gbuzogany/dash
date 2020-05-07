@@ -47,6 +47,10 @@
 		6674FA54246453B300E4B6CC /* radial.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686CF245A0F7700FF318E /* radial.bmp */; };
 		6674FA55246453B300E4B6CC /* uvtemplate.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66369DB92302F2F100975025 /* uvtemplate.bmp */; };
 		6674FA56246453B300E4B6CC /* background.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686D1245A141100FF318E /* background.bmp */; };
+		6674FA5E2464549D00E4B6CC /* hnpro-extra-black-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5C2464548A00E4B6CC /* hnpro-extra-black-condensed.otf */; };
+		6674FA5F2464549D00E4B6CC /* hnpro-medium-condensed-oblique.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5A2464548A00E4B6CC /* hnpro-medium-condensed-oblique.otf */; };
+		6674FA602464549D00E4B6CC /* hnpro-medium-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */; };
+		6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */; };
 		66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66754E4B2436303100B53C5A /* MediaPlayer.cpp */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
@@ -109,6 +113,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6674FA5D2464549200E4B6CC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = fonts;
+			dstSubfolderSpec = 16;
+			files = (
+				6674FA5E2464549D00E4B6CC /* hnpro-extra-black-condensed.otf in CopyFiles */,
+				6674FA5F2464549D00E4B6CC /* hnpro-medium-condensed-oblique.otf in CopyFiles */,
+				6674FA602464549D00E4B6CC /* hnpro-medium-condensed.otf in CopyFiles */,
+				6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +176,10 @@
 		6674FA3824644B0B00E4B6CC /* dash.pb.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dash.pb.cc; sourceTree = "<group>"; };
 		6674FA3C24644B3400E4B6CC /* dash.grpc.pb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dash.grpc.pb.h; sourceTree = "<group>"; };
 		6674FA3D24644B3400E4B6CC /* dash.pb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dash.pb.h; sourceTree = "<group>"; };
+		6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hnpro-medium-condensed.otf"; sourceTree = "<group>"; };
+		6674FA5A2464548A00E4B6CC /* hnpro-medium-condensed-oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hnpro-medium-condensed-oblique.otf"; sourceTree = "<group>"; };
+		6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mexcellent.ttf; sourceTree = "<group>"; };
+		6674FA5C2464548A00E4B6CC /* hnpro-extra-black-condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hnpro-extra-black-condensed.otf"; sourceTree = "<group>"; };
 		66754E4B2436303100B53C5A /* MediaPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaPlayer.cpp; sourceTree = "<group>"; };
 		66754E4C2436303100B53C5A /* MediaPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaPlayer.hpp; sourceTree = "<group>"; };
 		6682BD4C245F2DA500FB020A /* faster.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = faster.tga; sourceTree = "<group>"; };
@@ -272,6 +293,7 @@
 		6674FA232463352C00E4B6CC /* etc */ = {
 			isa = PBXGroup;
 			children = (
+				6674FA582464547400E4B6CC /* fonts */,
 				6674FA282463358000E4B6CC /* shaders */,
 				6674FA292463358900E4B6CC /* textures */,
 			);
@@ -334,6 +356,17 @@
 			path = proto;
 			sourceTree = "<group>";
 		};
+		6674FA582464547400E4B6CC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6674FA5C2464548A00E4B6CC /* hnpro-extra-black-condensed.otf */,
+				6674FA5A2464548A00E4B6CC /* hnpro-medium-condensed-oblique.otf */,
+				6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */,
+				6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,6 +377,7 @@
 				6674FA3E246452AF00E4B6CC /* CopyFiles */,
 				6674FA4D2464531500E4B6CC /* CopyFiles */,
 				66369D972302E7A000975025 /* CopyFiles */,
+				6674FA5D2464549200E4B6CC /* CopyFiles */,
 				66369D952302E7A000975025 /* Sources */,
 				66369D962302E7A000975025 /* Frameworks */,
 			);
