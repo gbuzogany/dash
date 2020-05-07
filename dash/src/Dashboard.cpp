@@ -14,9 +14,9 @@
 #include <memory>
 
 Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
-    arcTextureId = Texture::loadBMP("radial.bmp");
-    squareTextureId = Texture::loadTGA("square.tga");
-    fasterTexture = Texture::loadTGA("faster.tga");
+    arcTextureId = Texture::loadBMP("textures/radial.bmp");
+    squareTextureId = Texture::loadTGA("textures/square.tga");
+    fasterTexture = Texture::loadTGA("textures/faster.tga");
 
     vehicle = new Vehicle();
     

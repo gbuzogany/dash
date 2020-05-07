@@ -20,13 +20,13 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
-    dissolveProgram = loadShaders( "DissolveVertex.glsl", "DissolveFragment.glsl" );
+    dissolveProgram = loadShaders( "shaders/DissolveVertex.glsl", "shaders/DissolveFragment.glsl" );
 //    fractalBackgroundProgram = loadShaders( "FractalRadialVertex.glsl", "FractalRadialFragment.glsl" );
-    ringArcProgram = loadShaders( "RingArcVertex.glsl", "RingArcFragment.glsl" );
-    ringTexArcProgram = loadShaders( "RingTextureArcVertex.glsl", "RingTextureArcFragment.glsl" );
-    textureProgram = loadShaders( "TransformVertexShader.glsl", "TextureFragmentShader.glsl" );
-    textProgram = loadShaders( "TextVertex.glsl", "TextFragment.glsl" );
-    lineProgram = loadShaders( "LineVertex.glsl", "LineFragment.glsl" );
+    ringArcProgram = loadShaders( "shaders/RingArcVertex.glsl", "shaders/RingArcFragment.glsl" );
+    ringTexArcProgram = loadShaders( "shaders/RingTextureArcVertex.glsl", "shaders/RingTextureArcFragment.glsl" );
+    textureProgram = loadShaders( "shaders/TransformVertexShader.glsl", "shaders/TextureFragmentShader.glsl" );
+    textProgram = loadShaders( "shaders/TextVertex.glsl", "shaders/TextFragment.glsl" );
+    lineProgram = loadShaders( "shaders/LineVertex.glsl", "shaders/LineFragment.glsl" );
 }
 
 ShaderProgram* Renderer::loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath)
