@@ -45,7 +45,7 @@ private:
     float fps = 60.0;
     Uint32 timePerFrame = 16; // miliseconds
     
-    GLfloat globalAlpha = 1.0;
+    GLfloat globalAlpha = 0.0;
 public:
     FT_Library ft;
     

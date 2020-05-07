@@ -16,7 +16,7 @@
 Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
     arcTextureId = Texture::loadBMP("radial.bmp");
     squareTextureId = Texture::loadTGA("square.tga");
-    bgImg = Texture::loadTGA("splash.tga");
+    fasterTexture = Texture::loadTGA("faster.tga");
 
     vehicle = new Vehicle();
     
@@ -45,7 +45,7 @@ Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
     hnproMedium27 = new FontWrapper(face, 26, usedChars);
     hnproHuge = new FontWrapper(face, 150, largeChars);
     hnproMediumOblique = new FontWrapper(faceItalic, 36, usedChars);
-    hnproHugeOblique = new FontWrapper(faceItalic, 150, largeChars);
+    hnproHugeOblique = new FontWrapper(faceItalic, 100, largeChars);
     hnproExtraHeavy36 = new FontWrapper(faceBold, 36, usedChars);
     
     createFramebuffer();
@@ -147,25 +147,7 @@ bool Dashboard::render(float delta) {
     float value = vehicle->getRPM()/1000.0f;
     float max = 12;
 
-//    r->useProgram(*r->fractalBackgroundProgram);
-//    GLuint u_color = r->fractalBackgroundProgram->getUniformLocation("color");
-//    GLuint u_globalAlpha = r->fractalBackgroundProgram->getUniformLocation("globalAlpha");
-//    
-//    float red = 0;
-//    
-//    if (value/max > 0.8) {
-//        red = 0.5 * map(value/max, 0.8, 1.0, 0.0, 1.0);
-//    }
-//    
-//    glUniform3f(u_color, 0.06 + red, 0.06, 0.06);
-//    
-//    // full diameter
-//    r->renderFlat(*r->fractalBackgroundProgram, 300, 0, 500, 500);
-//    // just inner circle
-////    r->renderFlat(*r->fractalBackgroundProgram, 425, 125, 250, 250);
-//    
-    r->renderTexture(bgImg, -50, 0, 480, 480, true);
-//    r->renderTexture(splashLogo, -20, -230, 512, 512, true);
+    r->renderTexture(fasterTexture, 400, 130, 350, 350, true);
 
     std::string degStr(1, '\xb0');
     std::string tempStr(1, '\xb0');
@@ -196,13 +178,13 @@ bool Dashboard::render(float delta) {
 //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), attrX["battVoltage"] + 5.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getRPMString(), 553.0f, 364.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproHugeOblique, vehicle->getGearString(), 540.0f, 230.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
+    r->renderText(*hnproHugeOblique, vehicle->getGearString(), 50.0f, 420.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
     
     std::string speed = vehicle->getSpeedString();
     r->renderText(*hnproHuge, speed, 270.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
     r->renderText(*hnproMediumOblique, "km/h", 200.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
-    r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
 //    r->drawRingArc(value, // value
 //                   max,// max value

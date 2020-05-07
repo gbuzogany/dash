@@ -32,7 +32,7 @@ class Dashboard : Scene {
     
     GLuint arcTextureId;
     GLuint squareTextureId;
-    GLuint bgImg;
+    GLuint fasterTexture;
     
     GLuint screenTexture;
     GLuint frameBuffer;

@@ -10,6 +10,7 @@
 #include <assert.h>
 #include <iostream>
 #include <cmath>
+#include "Definitions.h"
 
 Renderer::Renderer()
 {
@@ -138,7 +139,7 @@ void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat wid
     GLuint u_squareTextureId = textureProgram->getUniformLocation("textureSampler");
     GLuint u_projectionID = textureProgram->getUniformLocation("projection");
     
-    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
+    glm::mat4 projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
     glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
     
     glUniform1i(u_squareTextureId, 0);

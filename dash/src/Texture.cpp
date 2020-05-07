@@ -9,7 +9,7 @@
 #include "Texture.hpp"
 #include <GLES2/gl2.h>
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "stb/stb_image.h"
 
 GLuint Texture::loadBMP(const char * imagepath){
     unsigned char header[54];

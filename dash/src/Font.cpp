@@ -20,7 +20,7 @@ using namespace glm;
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include "Font.hpp"
+#include "dash/src/Font.hpp"
 
 FontWrapper::FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList) {
     FT_Set_Pixel_Sizes(face, 0, size);

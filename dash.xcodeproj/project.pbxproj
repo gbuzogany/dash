@@ -37,6 +37,7 @@
 		6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */; };
 		6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB623786B49005BA4E4 /* libprotobuf.dylib */; };
 		66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66754E4B2436303100B53C5A /* MediaPlayer.cpp */; };
+		6682BD4D245F2E6900FB020A /* faster.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6682BD4C245F2DA500FB020A /* faster.tga */; };
 		668CD42C245C50970076FCCD /* FractalRadialFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */; };
 		668CD42D245C50970076FCCD /* FractalRadialVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */; };
 		66A686B224585EC800FF318E /* LineFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B024585E9E00FF318E /* LineFragment.glsl */; };
@@ -62,6 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				6682BD4D245F2E6900FB020A /* faster.tga in CopyFiles */,
 				665A5294245D980800AC6765 /* DissolveFragment.glsl in CopyFiles */,
 				665A5295245D980800AC6765 /* DissolveVertex.glsl in CopyFiles */,
 				665A528B245D863100AC6765 /* logo.tga in CopyFiles */,
@@ -141,6 +143,7 @@
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
 		66754E4B2436303100B53C5A /* MediaPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaPlayer.cpp; sourceTree = "<group>"; };
 		66754E4C2436303100B53C5A /* MediaPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaPlayer.hpp; sourceTree = "<group>"; };
+		6682BD4C245F2DA500FB020A /* faster.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = faster.tga; sourceTree = "<group>"; };
 		668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FractalRadialFragment.glsl; sourceTree = "<group>"; };
 		668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FractalRadialVertex.glsl; sourceTree = "<group>"; };
 		66A686B024585E9E00FF318E /* LineFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineFragment.glsl; sourceTree = "<group>"; };
@@ -173,21 +176,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		660070332433C863001080A1 /* rpc */ = {
-			isa = PBXGroup;
-			children = (
-				66754E4B2436303100B53C5A /* MediaPlayer.cpp */,
-				66754E4C2436303100B53C5A /* MediaPlayer.hpp */,
-				660070342433C8AE001080A1 /* DashControl.cpp */,
-				660070352433C8AE001080A1 /* DashControl.hpp */,
-				6600702F2433C85E001080A1 /* dash.grpc.pb.cc */,
-				6600702D2433C85E001080A1 /* dash.grpc.pb.h */,
-				660070302433C85E001080A1 /* dash.pb.cc */,
-				6600702E2433C85E001080A1 /* dash.pb.h */,
-			);
-			name = rpc;
-			sourceTree = "<group>";
-		};
 		66369D902302E7A000975025 = {
 			isa = PBXGroup;
 			children = (
@@ -208,24 +196,8 @@
 		66369D9B2302E7A000975025 /* dash */ = {
 			isa = PBXGroup;
 			children = (
-				665A5281245D77BF00AC6765 /* stb */,
-				66F48923230D8E7C0092BA35 /* Resources */,
-				6659848E2305765A002D326C /* Vehicle */,
-				66369DB62302EE8D00975025 /* Shaders */,
-				660070332433C863001080A1 /* rpc */,
-				665A5293245D94CC00AC6765 /* Scenes */,
-				665984A22305C5A9002D326C /* Definitions.h */,
-				66369D9C2302E7A000975025 /* main.cpp */,
-				66369DA32302E7E200975025 /* Renderer.cpp */,
-				66369DA42302E7E200975025 /* Renderer.hpp */,
-				66369DAD2302EACF00975025 /* ShaderProgram.cpp */,
-				66369DAE2302EACF00975025 /* ShaderProgram.hpp */,
-				66369DB02302EAFC00975025 /* Shader.cpp */,
-				66369DB12302EAFC00975025 /* Shader.hpp */,
-				66369DBB2302F31000975025 /* Texture.cpp */,
-				66369DBC2302F31000975025 /* Texture.hpp */,
-				6659847F23044A47002D326C /* Font.cpp */,
-				6659848023044A47002D326C /* Font.hpp */,
+				6674FA232463352C00E4B6CC /* etc */,
+				6674FA2024632EA100E4B6CC /* src */,
 			);
 			path = dash;
 			sourceTree = "<group>";
@@ -244,7 +216,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		66369DB62302EE8D00975025 /* Shaders */ = {
+		6674FA2024632EA100E4B6CC /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6674FA2B24633B0900E4B6CC /* stb */,
+				6659848523056DFF002D326C /* Vehicle.hpp */,
+				66754E4C2436303100B53C5A /* MediaPlayer.hpp */,
+				660070352433C8AE001080A1 /* DashControl.hpp */,
+				6600702D2433C85E001080A1 /* dash.grpc.pb.h */,
+				665A5297245DA2C500AC6765 /* Animation.hpp */,
+				665A5291245D932B00AC6765 /* Scene.hpp */,
+				6659848823057103002D326C /* Dashboard.hpp */,
+				665A528E245D91BB00AC6765 /* Splash.hpp */,
+				665984A22305C5A9002D326C /* Definitions.h */,
+				66369DAE2302EACF00975025 /* ShaderProgram.hpp */,
+				66369DB12302EAFC00975025 /* Shader.hpp */,
+				66369DBC2302F31000975025 /* Texture.hpp */,
+				6659848023044A47002D326C /* Font.hpp */,
+				665A5296245DA2C500AC6765 /* Animation.cpp */,
+				665A5290245D932B00AC6765 /* Scene.cpp */,
+				6659848723057103002D326C /* Dashboard.cpp */,
+				665A528D245D91BB00AC6765 /* Splash.cpp */,
+				66754E4B2436303100B53C5A /* MediaPlayer.cpp */,
+				660070342433C8AE001080A1 /* DashControl.cpp */,
+				6600702F2433C85E001080A1 /* dash.grpc.pb.cc */,
+				6600702E2433C85E001080A1 /* dash.pb.h */,
+				660070302433C85E001080A1 /* dash.pb.cc */,
+				6659848423056DFF002D326C /* Vehicle.cpp */,
+				66369D9C2302E7A000975025 /* main.cpp */,
+				66369DA42302E7E200975025 /* Renderer.hpp */,
+				66369DA32302E7E200975025 /* Renderer.cpp */,
+				66369DAD2302EACF00975025 /* ShaderProgram.cpp */,
+				66369DB02302EAFC00975025 /* Shader.cpp */,
+				66369DBB2302F31000975025 /* Texture.cpp */,
+				6659847F23044A47002D326C /* Font.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		6674FA232463352C00E4B6CC /* etc */ = {
+			isa = PBXGroup;
+			children = (
+				6674FA282463358000E4B6CC /* shaders */,
+				6674FA292463358900E4B6CC /* textures */,
+			);
+			path = etc;
+			sourceTree = "<group>";
+		};
+		6674FA282463358000E4B6CC /* shaders */ = {
 			isa = PBXGroup;
 			children = (
 				665A527E245D72DA00AC6765 /* DissolveFragment.glsl */,
@@ -262,42 +281,10 @@
 				6659847A23044894002D326C /* TextFragment.glsl */,
 				6659847923044886002D326C /* TextVertex.glsl */,
 			);
-			name = Shaders;
+			path = shaders;
 			sourceTree = "<group>";
 		};
-		6659848E2305765A002D326C /* Vehicle */ = {
-			isa = PBXGroup;
-			children = (
-				6659848423056DFF002D326C /* Vehicle.cpp */,
-				6659848523056DFF002D326C /* Vehicle.hpp */,
-			);
-			name = Vehicle;
-			sourceTree = "<group>";
-		};
-		665A5281245D77BF00AC6765 /* stb */ = {
-			isa = PBXGroup;
-			children = (
-				665A5282245D77CC00AC6765 /* stb_image.h */,
-			);
-			name = stb;
-			sourceTree = "<group>";
-		};
-		665A5293245D94CC00AC6765 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				665A5296245DA2C500AC6765 /* Animation.cpp */,
-				665A5297245DA2C500AC6765 /* Animation.hpp */,
-				665A5290245D932B00AC6765 /* Scene.cpp */,
-				665A5291245D932B00AC6765 /* Scene.hpp */,
-				6659848723057103002D326C /* Dashboard.cpp */,
-				6659848823057103002D326C /* Dashboard.hpp */,
-				665A528D245D91BB00AC6765 /* Splash.cpp */,
-				665A528E245D91BB00AC6765 /* Splash.hpp */,
-			);
-			name = Scenes;
-			sourceTree = "<group>";
-		};
-		66F48923230D8E7C0092BA35 /* Resources */ = {
+		6674FA292463358900E4B6CC /* textures */ = {
 			isa = PBXGroup;
 			children = (
 				66A686CF245A0F7700FF318E /* radial.bmp */,
@@ -308,8 +295,17 @@
 				665A5287245D7C2200AC6765 /* noise.tga */,
 				665A5289245D862A00AC6765 /* logo.tga */,
 				665A528A245D862A00AC6765 /* splash.tga */,
+				6682BD4C245F2DA500FB020A /* faster.tga */,
 			);
-			name = Resources;
+			path = textures;
+			sourceTree = "<group>";
+		};
+		6674FA2B24633B0900E4B6CC /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				665A5282245D77CC00AC6765 /* stb_image.h */,
+			);
+			path = stb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,6 +508,7 @@
 					/usr/local/include,
 					/usr/local/include/freetype2,
 					"\"$(SRCROOT)/../../angle/include\"",
+					"\"$(SRCROOT)/\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,6 +534,7 @@
 					/usr/local/include,
 					/usr/local/include/freetype2,
 					"\"$(SRCROOT)/../../angle/include\"",
+					"\"$(SRCROOT)/\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
