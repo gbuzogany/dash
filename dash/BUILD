@@ -4,6 +4,15 @@ load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@com_github_grpc_grpc//bazel:cc_grpc_library.bzl", "cc_grpc_library")
 load("@com_github_grpc_grpc//bazel:grpc_build_system.bzl", "grpc_proto_library")
 
+alias(
+    name = "windows",
+    actual  = "@bazel_tools//src/conditions:windows"
+)
+
+alias(
+    name = "macos",
+    actual  = "@bazel_tools//src/conditions:darwin_x86_64"
+)
 
 filegroup(
     name = "textures",
@@ -54,6 +63,7 @@ cc_binary(
     defines = ["BAZEL_BUILD"],
     copts = [
         "-Iexternal/angle_headers",
+        "-Iexternal/sdl2_headers",
         "-Iexternal/glm",
         # the line below will get generated headers from proto
         "-Iexternal/dash_proto",
@@ -62,6 +72,8 @@ cc_binary(
     ],
     deps = [
         ":dash_cc_grpc",
+        "@sdl2//:SDL2",
+        "@sdl2_headers//:headers",
         "@angle//:lib",
     	"@angle_headers//:headers",
         "@glm//:headers",
