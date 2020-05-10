@@ -19,6 +19,7 @@
 		665A528F245D91BB00AC6765 /* Splash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A528D245D91BB00AC6765 /* Splash.cpp */; };
 		665A5292245D932B00AC6765 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5290245D932B00AC6765 /* Scene.cpp */; };
 		665A5298245DA2C500AC6765 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5296245DA2C500AC6765 /* Animation.cpp */; };
+		666DDFC12466F43A009526A8 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 666DDFC02466F43A009526A8 /* libSDL2.a */; };
 		6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB223786B13005BA4E4 /* libgrpc.dylib */; };
 		6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */; };
 		6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB623786B49005BA4E4 /* libprotobuf.dylib */; };
@@ -56,7 +57,6 @@
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057C230AC014001FC4A7 /* libGLESv2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
-		66B8057D230AC016001FC4A7 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66369DA92302E87800975025 /* libSDL2-2.0.0.dylib */; };
 		66B8057E230AC04A001FC4A7 /* libfreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6659847B23044960002D326C /* libfreetype.dylib */; };
 /* End PBXBuildFile section */
 
@@ -135,7 +135,6 @@
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		66369DA42302E7E200975025 /* Renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
-		66369DA92302E87800975025 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "/Users/gbuzogany/Projects/SDL_ES_Test/../../../../usr/local/Cellar/sdl2/2.0.9_1/lib/libSDL2-2.0.0.dylib"; sourceTree = "<absolute>"; };
 		66369DAD2302EACF00975025 /* ShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
 		66369DAE2302EACF00975025 /* ShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
 		66369DB02302EAFC00975025 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		665A5291245D932B00AC6765 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		665A5296245DA2C500AC6765 /* Animation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
 		665A5297245DA2C500AC6765 /* Animation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
+		666DDFC02466F43A009526A8 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = "../../../../../var/tmp/_bazel_gbuzogany/26e28cfedf3db84edb7936552422c370/execroot/bazelregistry_sdl2/bazel-out/darwin_x86_64-fastbuild/bin/libSDL2.a"; sourceTree = "<group>"; };
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
@@ -205,10 +205,10 @@
 				6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */,
 				66B8057E230AC04A001FC4A7 /* libfreetype.dylib in Frameworks */,
 				6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */,
+				666DDFC12466F43A009526A8 /* libSDL2.a in Frameworks */,
 				66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */,
 				66B8057C230AC014001FC4A7 /* libGLESv2.dylib in Frameworks */,
 				6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */,
-				66B8057D230AC016001FC4A7 /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +251,7 @@
 				66B80573230AB035001FC4A7 /* libEGL.dylib */,
 				66B80575230AB110001FC4A7 /* libGLESv2.dylib */,
 				6659847B23044960002D326C /* libfreetype.dylib */,
-				66369DA92302E87800975025 /* libSDL2-2.0.0.dylib */,
+				666DDFC02466F43A009526A8 /* libSDL2.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

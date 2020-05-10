@@ -54,9 +54,8 @@ cc_binary(
     defines = ["BAZEL_BUILD"],
     copts = [
         "-Iexternal/angle_headers",
-    	"-Iexternal/sdl2_headers",
         "-Iexternal/glm",
-        # the line below will get headers generated from proto
+        # the line below will get generated headers from proto
         "-Iexternal/dash_proto",
         "-Iexternal/freetype_headers",
         "-Iexternal/grpc_headers"
@@ -65,8 +64,6 @@ cc_binary(
         ":dash_cc_grpc",
         "@angle//:lib",
     	"@angle_headers//:headers",
-        "@sdl2//:lib",
-    	"@sdl2_headers//:headers",
         "@glm//:headers",
         "@com_github_grpc_grpc//:grpc++",
         "@org_freetype_freetype2//:freetype2"
