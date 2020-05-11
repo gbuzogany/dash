@@ -14,9 +14,9 @@
 #include <memory>
 
 Splash::Splash(Renderer &renderer) : Scene(renderer) {
-    dissolveRampTextureId = Texture::loadTGA("textures/dissolve-ramp.tga");
-    dissolveNoiseTextureId = Texture::loadTGA("textures/noise.tga");
-    splashLogo = Texture::loadTGA("textures/logo.tga");
+    dissolveRampTextureId = Texture::loadTGA("dash/etc/textures/dissolve-ramp.tga");
+    dissolveNoiseTextureId = Texture::loadTGA("dash/etc/textures/noise.tga");
+    splashLogo = Texture::loadTGA("dash/etc/textures/logo.tga");
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

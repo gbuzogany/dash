@@ -13,31 +13,31 @@ grpc_extra_deps()
 
 # end grpc deps
 
-new_local_repository(
-    name = "sdl2",
-    path = "/usr/local/lib/",
-    build_file_content = """
-package(default_visibility = ["//visibility:public"])
+# new_local_repository(
+#     name = "sdl2",
+#     path = "/Users/gbuzogany/Projects/sdl2/bazel-bin",
+#     build_file_content = """
+# package(default_visibility = ["//visibility:public"])
 
-cc_library(
-    name = "SDL2",
-    srcs = ["libSDL2.dylib"]
-)
-"""
-)
+# cc_library(
+#     name = "SDL2",
+#     srcs = ["SDL2.dylib"]
+# )
+# """
+# )
 
-new_local_repository(
-    name = "sdl2_headers",
-    path = "/usr/local/Cellar/sdl2/2.0.12_1/include",
-    build_file_content = """
-package(default_visibility = ["//visibility:public"])
+# new_local_repository(
+#     name = "sdl2_headers",
+#     path = "/Users/gbuzogany/Projects/sdl2/include",
+#     build_file_content = """
+# package(default_visibility = ["//visibility:public"])
 
-cc_library(
-    name = "headers",
-    hdrs = glob(["**/*.h"])
-)
-"""
-)
+# cc_library(
+#     name = "headers",
+#     hdrs = glob(["**/*.h"])
+# )
+# """
+# )
 
 
 # new_local_repository(

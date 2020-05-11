@@ -14,20 +14,20 @@
 #include <memory>
 
 Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
-    arcTextureId = Texture::loadBMP("textures/radial.bmp");
-    squareTextureId = Texture::loadTGA("textures/square.tga");
-    fasterTexture = Texture::loadTGA("textures/faster.tga");
+    arcTextureId = Texture::loadBMP("dash/etc/textures/radial.bmp");
+    squareTextureId = Texture::loadTGA("dash/etc/textures/square.tga");
+    fasterTexture = Texture::loadTGA("dash/etc/textures/faster.tga");
 
     vehicle = new Vehicle();
     
     FT_Face face, faceItalic, faceBold;
-    if (FT_New_Face(r->ft, "fonts/hnpro-medium-condensed.otf", 0, &face)) {
+    if (FT_New_Face(r->ft, "dash/etc/fonts/hnpro-medium-condensed.otf", 0, &face)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
-    if (FT_New_Face(r->ft, "fonts/hnpro-medium-condensed-oblique.otf", 0, &faceItalic)) {
+    if (FT_New_Face(r->ft, "dash/etc/fonts/hnpro-medium-condensed-oblique.otf", 0, &faceItalic)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
-    if (FT_New_Face(r->ft, "fonts/hnpro-extra-black-condensed.otf", 0, &faceBold)) {
+    if (FT_New_Face(r->ft, "dash/etc/fonts/hnpro-extra-black-condensed.otf", 0, &faceBold)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
     

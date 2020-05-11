@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		660070362433C8AE001080A1 /* DashControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660070342433C8AE001080A1 /* DashControl.cpp */; };
+		6631ED0D24698D9400FADFCD /* SDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6631ED0C24698D9400FADFCD /* SDL2.dylib */; };
 		66369D9D2302E7A000975025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369D9C2302E7A000975025 /* main.cpp */; };
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
 		66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* ShaderProgram.cpp */; };
@@ -19,7 +20,6 @@
 		665A528F245D91BB00AC6765 /* Splash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A528D245D91BB00AC6765 /* Splash.cpp */; };
 		665A5292245D932B00AC6765 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5290245D932B00AC6765 /* Scene.cpp */; };
 		665A5298245DA2C500AC6765 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5296245DA2C500AC6765 /* Animation.cpp */; };
-		666DDFC12466F43A009526A8 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 666DDFC02466F43A009526A8 /* libSDL2.a */; };
 		6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB223786B13005BA4E4 /* libgrpc.dylib */; };
 		6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */; };
 		6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB623786B49005BA4E4 /* libprotobuf.dylib */; };
@@ -53,29 +53,30 @@
 		6674FA602464549D00E4B6CC /* hnpro-medium-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */; };
 		6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */; };
 		66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66754E4B2436303100B53C5A /* MediaPlayer.cpp */; };
-		66B80579230AB16B001FC4A7 /* libEGL.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
-		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
+		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
+		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057C230AC014001FC4A7 /* libGLESv2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057E230AC04A001FC4A7 /* libfreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6659847B23044960002D326C /* libfreetype.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		66369D972302E7A000975025 /* CopyFiles */ = {
+		66369D972302E7A000975025 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in CopyFiles */,
-				66B80579230AB16B001FC4A7 /* libEGL.dylib in CopyFiles */,
+				66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */,
+				66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6674FA3E246452AF00E4B6CC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = shaders;
+			dstPath = dash/etc/shaders;
 			dstSubfolderSpec = 16;
 			files = (
 				6674FA3F246452D600E4B6CC /* DissolveFragment.glsl in CopyFiles */,
@@ -98,7 +99,7 @@
 		6674FA4D2464531500E4B6CC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = textures;
+			dstPath = dash/etc/textures;
 			dstSubfolderSpec = 16;
 			files = (
 				6674FA54246453B300E4B6CC /* radial.bmp in CopyFiles */,
@@ -116,7 +117,7 @@
 		6674FA5D2464549200E4B6CC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = fonts;
+			dstPath = dash/etc/fonts;
 			dstSubfolderSpec = 16;
 			files = (
 				6674FA5E2464549D00E4B6CC /* hnpro-extra-black-condensed.otf in CopyFiles */,
@@ -131,7 +132,8 @@
 /* Begin PBXFileReference section */
 		660070342433C8AE001080A1 /* DashControl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DashControl.cpp; sourceTree = "<group>"; };
 		660070352433C8AE001080A1 /* DashControl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashControl.hpp; sourceTree = "<group>"; };
-		66369D992302E7A000975025 /* dash */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dash; sourceTree = BUILT_PRODUCTS_DIR; };
+		6631ED0C24698D9400FADFCD /* SDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = SDL2.dylib; path = "../../../../../var/tmp/_bazel_gbuzogany/26e28cfedf3db84edb7936552422c370/execroot/bazelregistry_sdl2/bazel-out/darwin_x86_64-fastbuild/bin/SDL2.dylib"; sourceTree = "<group>"; };
+		66369D992302E7A000975025 /* dash_bin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dash_bin; sourceTree = BUILT_PRODUCTS_DIR; };
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		66369DA42302E7E200975025 /* Renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
@@ -168,7 +170,6 @@
 		665A5291245D932B00AC6765 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		665A5296245DA2C500AC6765 /* Animation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
 		665A5297245DA2C500AC6765 /* Animation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
-		666DDFC02466F43A009526A8 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = "../../../../../var/tmp/_bazel_gbuzogany/26e28cfedf3db84edb7936552422c370/execroot/bazelregistry_sdl2/bazel-out/darwin_x86_64-fastbuild/bin/libSDL2.a"; sourceTree = "<group>"; };
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
@@ -205,10 +206,10 @@
 				6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */,
 				66B8057E230AC04A001FC4A7 /* libfreetype.dylib in Frameworks */,
 				6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */,
-				666DDFC12466F43A009526A8 /* libSDL2.a in Frameworks */,
 				66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */,
 				66B8057C230AC014001FC4A7 /* libGLESv2.dylib in Frameworks */,
 				6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */,
+				6631ED0D24698D9400FADFCD /* SDL2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +228,7 @@
 		66369D9A2302E7A000975025 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66369D992302E7A000975025 /* dash */,
+				66369D992302E7A000975025 /* dash_bin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,7 +252,7 @@
 				66B80573230AB035001FC4A7 /* libEGL.dylib */,
 				66B80575230AB110001FC4A7 /* libGLESv2.dylib */,
 				6659847B23044960002D326C /* libfreetype.dylib */,
-				666DDFC02466F43A009526A8 /* libSDL2.a */,
+				6631ED0C24698D9400FADFCD /* SDL2.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -370,14 +371,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		66369D982302E7A000975025 /* dash */ = {
+		66369D982302E7A000975025 /* dash_bin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66369DA02302E7A000975025 /* Build configuration list for PBXNativeTarget "dash" */;
+			buildConfigurationList = 66369DA02302E7A000975025 /* Build configuration list for PBXNativeTarget "dash_bin" */;
 			buildPhases = (
 				6674FA3E246452AF00E4B6CC /* CopyFiles */,
 				6674FA4D2464531500E4B6CC /* CopyFiles */,
-				66369D972302E7A000975025 /* CopyFiles */,
 				6674FA5D2464549200E4B6CC /* CopyFiles */,
+				66369D972302E7A000975025 /* Copy Files */,
 				66369D952302E7A000975025 /* Sources */,
 				66369D962302E7A000975025 /* Frameworks */,
 			);
@@ -385,9 +386,9 @@
 			);
 			dependencies = (
 			);
-			name = dash;
+			name = dash_bin;
 			productName = dash;
-			productReference = 66369D992302E7A000975025 /* dash */;
+			productReference = 66369D992302E7A000975025 /* dash_bin */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -416,7 +417,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				66369D982302E7A000975025 /* dash */,
+				66369D982302E7A000975025 /* dash_bin */,
 			);
 		};
 /* End PBXProject section */
@@ -620,7 +621,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66369DA02302E7A000975025 /* Build configuration list for PBXNativeTarget "dash" */ = {
+		66369DA02302E7A000975025 /* Build configuration list for PBXNativeTarget "dash_bin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66369DA12302E7A000975025 /* Debug */,

@@ -60,10 +60,8 @@ cc_binary(
             "src/dash.pb.cc",
             "src/dash.pb.h"
         ]),
-    defines = ["BAZEL_BUILD"],
     copts = [
         "-Iexternal/angle_headers",
-        "-Iexternal/sdl2_headers",
         "-Iexternal/glm",
         # the line below will get generated headers from proto
         "-Iexternal/dash_proto",
@@ -73,7 +71,7 @@ cc_binary(
     deps = [
         ":dash_cc_grpc",
         "@sdl2//:SDL2",
-        "@sdl2_headers//:headers",
+        "@sdl2//:SDL2_hdrs",
         "@angle//:lib",
     	"@angle_headers//:headers",
         "@glm//:headers",

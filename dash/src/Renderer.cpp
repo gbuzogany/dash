@@ -20,13 +20,13 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
-    dissolveProgram = loadShaders( "shaders/DissolveVertex.glsl", "shaders/DissolveFragment.glsl" );
+    dissolveProgram = loadShaders( "dash/etc/shaders/DissolveVertex.glsl", "dash/etc/shaders/DissolveFragment.glsl" );
 //    fractalBackgroundProgram = loadShaders( "FractalRadialVertex.glsl", "FractalRadialFragment.glsl" );
-    ringArcProgram = loadShaders( "shaders/RingArcVertex.glsl", "shaders/RingArcFragment.glsl" );
-    ringTexArcProgram = loadShaders( "shaders/RingTextureArcVertex.glsl", "shaders/RingTextureArcFragment.glsl" );
-    textureProgram = loadShaders( "shaders/TransformVertexShader.glsl", "shaders/TextureFragmentShader.glsl" );
-    textProgram = loadShaders( "shaders/TextVertex.glsl", "shaders/TextFragment.glsl" );
-    lineProgram = loadShaders( "shaders/LineVertex.glsl", "shaders/LineFragment.glsl" );
+    ringArcProgram = loadShaders( "dash/etc/shaders/RingArcVertex.glsl", "dash/etc/shaders/RingArcFragment.glsl" );
+    ringTexArcProgram = loadShaders( "dash/etc/shaders/RingTextureArcVertex.glsl", "dash/etc/shaders/RingTextureArcFragment.glsl" );
+    textureProgram = loadShaders( "dash/etc/shaders/TransformVertexShader.glsl", "dash/etc/shaders/TextureFragmentShader.glsl" );
+    textProgram = loadShaders( "dash/etc/shaders/TextVertex.glsl", "dash/etc/shaders/TextFragment.glsl" );
+    lineProgram = loadShaders( "dash/etc/shaders/LineVertex.glsl", "dash/etc/shaders/LineFragment.glsl" );
 }
 
 ShaderProgram* Renderer::loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath)

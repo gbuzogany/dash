@@ -18,6 +18,13 @@
 
 int main(int argc, char* argv[])
 {
+    char cwd[PATH_MAX];
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        printf("Current working dir: %s\n", cwd);
+    } else {
+        perror("getcwd() error");
+    }
+    
     Renderer r;
     r.initGraphics();
     r.initShaders();
@@ -42,9 +49,10 @@ int main(int argc, char* argv[])
             SDL_Event ev;
             while (SDL_PollEvent(&ev))
             {
-                if (ev.type == SDL_QUIT)
+                int key = ev.key.keysym.sym;
+                if (ev.type == SDL_QUIT || (ev.type == SDL_KEYUP && key == 'q'))
                 {
-                    running = 0;
+                    exit(0);
                     break;
                 }
             }
