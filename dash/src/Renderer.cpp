@@ -202,7 +202,7 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         GLfloat v;
     };
     
-    point *coords = new point[6 * text.length()];
+    std::vector<point> coords(6 * text.length());
     
     GLfloat px = x;
     
@@ -241,14 +241,13 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
         
-        // pointer arithmetic is dangerous. always checking boundaries TODO: remove pointer arithmetic
         if (n + 6 < sizeof(coords)) {
-            coords[n++] = point{xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
-            coords[n++] = point{xpos,     ypos,       ch.texCoords.x / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-            coords[n++] = point{xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-            coords[n++] = point{xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
-            coords[n++] = point{xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
-            coords[n++] = point{xpos + w, ypos + h,   (ch.texCoords.x + ch.size.x) / font.texSize, ch.texCoords.y / font.texSize};
+            coords.at(n++) = point{xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
+            coords.at(n++) = point{xpos,     ypos,       ch.texCoords.x / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+            coords.at(n++) = point{xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+            coords.at(n++) = point{xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
+            coords.at(n++) = point{xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
+            coords.at(n++) = point{xpos + w, ypos + h,   (ch.texCoords.x + ch.size.x) / font.texSize, ch.texCoords.y / font.texSize};
         }
 
         px += (ch.advance >> 6) * scale;
@@ -257,7 +256,7 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     
     // Update content of VBO memory
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(coords), coords, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, coords.size() * sizeof(point), &coords.front(), GL_DYNAMIC_DRAW);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glVertexAttribPointer(
@@ -307,8 +306,6 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     
     glDisableVertexAttribArray(0);
     bindTexture(0);
-    
-    delete [] coords;
     
     return x_align + px;
 }
@@ -435,12 +432,14 @@ void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfS
     
     for ( int i = 0; i < numberOfVertices; i++ )
     {
-        allCircleVertices.at(i * 2) = circleVerticesX[i];
-        allCircleVertices.at(i * 2 + 1) = circleVerticesY[i];
+        allCircleVertices.at(i * 2) = circleVerticesX.at(i);
+        allCircleVertices.at(i * 2 + 1) = circleVerticesY.at(i);
     }
     
+    
+    
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(allCircleVertices), &allCircleVertices[0], GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, allCircleVertices.size() * sizeof(GLfloat), &allCircleVertices.front(), GL_DYNAMIC_DRAW);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glVertexAttribPointer(
