@@ -241,7 +241,7 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
         
-        if (n + 6 < sizeof(coords)) {
+        if (n + 6 < coords.size() + 1) {
             coords.at(n++) = point{xpos,     ypos + h,   ch.texCoords.x / font.texSize, ch.texCoords.y / font.texSize};
             coords.at(n++) = point{xpos,     ypos,       ch.texCoords.x / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
             coords.at(n++) = point{xpos + w, ypos,       (ch.texCoords.x + ch.size.x) / font.texSize, (ch.texCoords.y + ch.size.y) / font.texSize};
@@ -264,7 +264,7 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
                           4, // size
                           GL_FLOAT, // type
                           GL_FALSE, // normalized?
-                          4 * sizeof(GLfloat), // stride
+                          sizeof(point), // stride
                           0 // array buffer offset
                           );
     
