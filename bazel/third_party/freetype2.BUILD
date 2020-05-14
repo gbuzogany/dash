@@ -20,7 +20,6 @@ licenses(["notice"])  # BSD-style
 cc_library(
     name = "freetype2",
     srcs = [
-        "builds/unix/ftsystem.c",
         "src/autofit/autofit.c",
         "src/base/ftbase.c",
         "src/base/ftbbox.c",
@@ -66,9 +65,24 @@ cc_library(
         "src/winfonts/winfnt.c",
     ] + glob([
         "src/**/*.h",
-        "builds/unix/*.h",
         "include/freetype/internal/**/*.h",
-    ]),
+    ]) + select({
+        "@bazel_tools//src/conditions:windows" : [
+            "builds/windows/ftdebug.c",
+        ],
+        "@bazel_tools//src/conditions:darwin_x86_64" : [
+            "builds/unix/ftsystem.c",
+            ] + glob([
+                "builds/unix/*.h"
+            ]
+        ),
+        "//conditions:default" : [
+            "builds/unix/ftsystem.c",
+            ] + glob([
+                "builds/unix/*.h"
+            ]
+        ),
+    }),
     hdrs = glob([
         "include/freetype/*.h",
         "include/freetype/config/*.h",
@@ -241,18 +255,26 @@ cc_library(
         "src/type42/t42parse.c",
     ],
     copts = [
-        "-Wno-covered-switch-default",
         "-DFT_CONFIG_OPTION_SYSTEM_ZLIB",
         "-DFT_CONFIG_CONFIG_H=<ftconfig.h>",
         "-DFT_CONFIG_OPTION_USE_PNG",
         "-DFT2_BUILD_LIBRARY",
         "-DFT_CONFIG_MODULES_H=<ftmodule.h>",
-        "-DHAVE_UNISTD_H=1",
         "-DHAVE_FCNTL_H=1",
         "-DHAVE_STDINT_H=1",
         "-Iexternal/org_freetype_freetype2/builds/unix",
         "-Iexternal/org_freetype_freetype2/include/freetype/config",
-    ],
+    ] + select({
+        "@bazel_tools//src/conditions:windows" : [],
+        "@bazel_tools//src/conditions:darwin_x86_64" : [
+            "-Wno-covered-switch-default",
+            "-DHAVE_UNISTD_H=1",
+        ],
+        "//conditions:default" : [
+            "-Wno-covered-switch-default",
+            "-DHAVE_UNISTD_H=1",
+        ],
+    }),
     includes = ["include"],
     visibility = ["//visibility:public"],
     deps = [

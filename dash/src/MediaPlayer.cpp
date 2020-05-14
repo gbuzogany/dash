@@ -6,8 +6,8 @@
 //  Copyright © 2020 gbuzogany.com. All rights reserved.
 //
 
-#include "MediaPlayer.hpp"
 #include "Dashboard.hpp"
+#include "MediaPlayer.hpp"
 
 MediaPlayerImpl::MediaPlayerImpl(Dashboard* dash) {
     dash_ = dash;

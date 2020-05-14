@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		660070362433C8AE001080A1 /* DashControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660070342433C8AE001080A1 /* DashControl.cpp */; };
-		6631ED0D24698D9400FADFCD /* SDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6631ED0C24698D9400FADFCD /* SDL2.dylib */; };
 		66369D9D2302E7A000975025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369D9C2302E7A000975025 /* main.cpp */; };
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
 		66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* ShaderProgram.cpp */; };
@@ -53,6 +52,7 @@
 		6674FA602464549D00E4B6CC /* hnpro-medium-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */; };
 		6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */; };
 		66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66754E4B2436303100B53C5A /* MediaPlayer.cpp */; };
+		66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B17153246D76EF00A037C8 /* libSDL2.dylib */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
@@ -132,7 +132,6 @@
 /* Begin PBXFileReference section */
 		660070342433C8AE001080A1 /* DashControl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DashControl.cpp; sourceTree = "<group>"; };
 		660070352433C8AE001080A1 /* DashControl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashControl.hpp; sourceTree = "<group>"; };
-		6631ED0C24698D9400FADFCD /* SDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = SDL2.dylib; path = "../../../../../var/tmp/_bazel_gbuzogany/26e28cfedf3db84edb7936552422c370/execroot/bazelregistry_sdl2/bazel-out/darwin_x86_64-fastbuild/bin/SDL2.dylib"; sourceTree = "<group>"; };
 		66369D992302E7A000975025 /* dash_bin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dash_bin; sourceTree = BUILT_PRODUCTS_DIR; };
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
@@ -194,6 +193,7 @@
 		66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingTextureArcFragment.glsl; sourceTree = "<group>"; };
 		66A686CF245A0F7700FF318E /* radial.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = radial.bmp; sourceTree = "<group>"; };
 		66A686D1245A141100FF318E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = background.bmp; sourceTree = "<group>"; };
+		66B17153246D76EF00A037C8 /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../usr/local/lib/libSDL2.dylib; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,11 +205,11 @@
 			files = (
 				6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */,
 				66B8057E230AC04A001FC4A7 /* libfreetype.dylib in Frameworks */,
+				66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */,
 				6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */,
 				66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */,
 				66B8057C230AC014001FC4A7 /* libGLESv2.dylib in Frameworks */,
 				6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */,
-				6631ED0D24698D9400FADFCD /* SDL2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +252,7 @@
 				66B80573230AB035001FC4A7 /* libEGL.dylib */,
 				66B80575230AB110001FC4A7 /* libGLESv2.dylib */,
 				6659847B23044960002D326C /* libfreetype.dylib */,
-				6631ED0C24698D9400FADFCD /* SDL2.dylib */,
+				66B17153246D76EF00A037C8 /* libSDL2.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -572,6 +572,8 @@
 					/usr/local/include/freetype2,
 					"\"$(SRCROOT)/../../angle/include\"",
 					"\"$(SRCROOT)/\"",
+					"\"$(SRCROOT)/../../../Downloads/glatter-master/include\"",
+					/usr/local/include/SDL2,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -597,6 +599,8 @@
 					/usr/local/include/freetype2,
 					"\"$(SRCROOT)/../../angle/include\"",
 					"\"$(SRCROOT)/\"",
+					"\"$(SRCROOT)/../../../Downloads/glatter-master/include\"",
+					/usr/local/include/SDL2,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

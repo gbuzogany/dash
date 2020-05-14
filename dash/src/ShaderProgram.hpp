@@ -16,6 +16,11 @@
 #include "GLES2/gl2.h"
 #include "EGL/egl.h"
 #include "EGL/eglext.h"
+
+#ifdef Status
+#undef Status
+#endif
+
 #include "Shader.hpp"
 
 class ShaderProgram {

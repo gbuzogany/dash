@@ -12,6 +12,11 @@
 #include <iostream>
 #include <memory>
 #include <string>
+
+#ifdef Status
+#undef Status
+#endif
+
 #include <grpcpp/grpcpp.h>
 #include <grpc/support/log.h>
 #include "dash/proto/dash.grpc.pb.h"

@@ -46,9 +46,15 @@ cc_library(
         "zutil.h",
     ],
     hdrs = ["zlib.h"],
-    copts = [
-        "-Wno-implicit-function-declaration",
-    ],
+    copts = select({
+        "@bazel_tools//src/conditions:windows" : [],
+        "@bazel_tools//src/conditions:darwin_x86_64" : [
+            "-Wno-implicit-function-declaration",
+        ],
+        "//conditions:default" : [
+            "-Wno-implicit-function-declaration",
+        ],
+    }),
     includes = ["."],
 )
 

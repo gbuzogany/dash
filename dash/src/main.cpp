@@ -3,10 +3,6 @@
 #include <vector>
 #include <iostream>
 #include <unistd.h>
-
-#include <SDL2/SDL.h>
-#define GL_GLEXT_PROTOTYPES 1
-#include <SDL2/SDL_opengles2.h>
 #include <sstream>
 #include <iomanip>
 
@@ -18,13 +14,6 @@
 
 int main(int argc, char* argv[])
 {
-    char cwd[PATH_MAX];
-    if (getcwd(cwd, sizeof(cwd)) != NULL) {
-        printf("Current working dir: %s\n", cwd);
-    } else {
-        perror("getcwd() error");
-    }
-    
     Renderer r;
     r.initGraphics();
     r.initShaders();

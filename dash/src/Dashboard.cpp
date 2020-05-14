@@ -153,7 +153,7 @@ bool Dashboard::render(float delta) {
     float value = vehicle->getRPM()/1000.0f;
     float max = 12;
     
-    r->renderTexture(fasterTexture, 400, 130, 350, 350, true);
+//    r->renderTexture(fasterTexture, 400, 130, 350, 350, true);
     
     std::string degStr(1, '\xb0');
     std::string tempStr(1, '\xb0');
@@ -164,28 +164,28 @@ bool Dashboard::render(float delta) {
         r->renderText(*hnproMedium27, "SIDE", 46.0f, 80.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
         r->renderText(*hnproMedium27, "STAND", 36.0f, 44.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
     }
-    
-    float endX = 0;
-    r->renderText(*hnproMedium27, playStatus_, 30.0, 460.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproMedium27, nowPlaying_.title, 30.0, 440.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    
-    //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getCoolantTempString(), attrX["coolantTemp"] + 5.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getAirIntakeTempString(), attrX["airIntakeTemp"] + 5.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getManifoldPressureString(), attrX["manifoldPressure"] + 5.0f, 357.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproMedium27, "kPA", endX + 3.0f, 357.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getTPSString(), attrX["tps"] + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproMedium27, "%", endX + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getInjectorString(), attrX["injectorDuration"] + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproMedium27, "ms", endX + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getIgnitionAdvanceString(), attrX["ignitionAdvance"] + 3.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproMedium27, degStr, endX + 3.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), attrX["battVoltage"] + 5.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getRPMString(), 553.0f, 364.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//
+//    float endX = 0;
+//    r->renderText(*hnproMedium27, playStatus_, 30.0, 460.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    r->renderText(*hnproMedium27, nowPlaying_.title, 30.0, 440.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getCoolantTempString(), attrX["coolantTemp"] + 5.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getAirIntakeTempString(), attrX["airIntakeTemp"] + 5.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproMedium27, tempStr, endX + 3.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getManifoldPressureString(), attrX["manifoldPressure"] + 5.0f, 357.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproMedium27, "kPA", endX + 3.0f, 357.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getTPSString(), attrX["tps"] + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproMedium27, "%", endX + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getInjectorString(), attrX["injectorDuration"] + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproMedium27, "ms", endX + 3.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getIgnitionAdvanceString(), attrX["ignitionAdvance"] + 3.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproMedium27, degStr, endX + 3.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), attrX["battVoltage"] + 5.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    endX = r->renderText(*hnproExtraHeavy36, vehicle->getRPMString(), 553.0f, 364.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     r->renderText(*hnproHugeOblique, vehicle->getGearString(), 50.0f, 420.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
-    
+
     std::string speed = vehicle->getSpeedString();
     r->renderText(*hnproHuge, speed, 270.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
     r->renderText(*hnproMediumOblique, "km/h", 200.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -214,7 +214,7 @@ bool Dashboard::render(float delta) {
     //                   arcTextureId // texture id
     //                   );
     
-    //    r->drawCircle(550, 230, 125, 50);
+//        r->drawCircle(550, 230, 125, 50);
     this->drawCounter(*hnproMediumOblique, // font
                       550, // x
                       230, // y
@@ -247,17 +247,19 @@ bool Dashboard::render(float delta) {
 void Dashboard::renderFixed() {
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    r->useProgram(*r->textProgram);
     
-    //    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    attrX["airIntakeTemp"] = r->renderText(*hnproMedium27, "Air Intake Temp", 27.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    attrX["manifoldPressure"] = r->renderText(*hnproMedium27, "Manifold Pressure", 27.0f, 357.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    attrX["tps"] = r->renderText(*hnproMedium27, "TPS", 600.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    attrX["injectorDuration"] = r->renderText(*hnproMedium27, "Injector Duration", 300.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    attrX["ignitionAdvance"] = r->renderText(*hnproMedium27, "Ignition Advance", 300.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    //    attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    
+//    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    attrX["airIntakeTemp"] = r->renderText(*hnproMedium27, "Air Intake Temp", 27.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    attrX["manifoldPressure"] = r->renderText(*hnproMedium27, "Manifold Pressure", 27.0f, 357.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    attrX["tps"] = r->renderText(*hnproMedium27, "TPS", 600.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    attrX["injectorDuration"] = r->renderText(*hnproMedium27, "Injector Duration", 300.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    attrX["ignitionAdvance"] = r->renderText(*hnproMedium27, "Ignition Advance", 300.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    r->setGlobalAlpha(0.0);
 }
 
 Vehicle* Dashboard::getVehicle() {
@@ -303,7 +305,7 @@ void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat rad
     }
     
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, allCircleVertices.size() * sizeof(GLfloat), &allCircleVertices.front(), GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, allCircleVertices.size() * sizeof(GLfloat), &allCircleVertices.front(), GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glVertexAttribPointer(
@@ -367,7 +369,7 @@ void Dashboard::drawNeedle(float value, float maxValue, GLint x, GLint y, GLfloa
     
     GLuint vertexbuffer = r->getVertexBuffer();
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(buffer), buffer, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(buffer), buffer, GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glVertexAttribPointer(

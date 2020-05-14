@@ -16,9 +16,9 @@ using namespace glm;
 #include <stdio.h>
 #include <string>
 #include <map>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #define GL_GLEXT_PROTOTYPES 1
-#include <SDL2/SDL_opengles2.h>
+#include <SDL_opengles2.h>
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
