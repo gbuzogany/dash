@@ -7,10 +7,13 @@
 //
 
 #include "Shader.hpp"
-#include <SDL_opengles2.h>
-#include <assert.h>
+
+#if !defined (_WIN32)
 #include <fcntl.h>
 #include <unistd.h>
+#endif
+
+#include <assert.h>
 #include <iostream>
 #include <stdlib.h>
 

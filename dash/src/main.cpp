@@ -1,8 +1,11 @@
+#if !defined (_WIN32)
+#include <unistd.h>
+#endif
+
 #include <exception>
 #include <functional>
 #include <vector>
 #include <iostream>
-#include <unistd.h>
 #include <sstream>
 #include <iomanip>
 

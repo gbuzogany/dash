@@ -77,15 +77,15 @@ def dash_repositories():
     )
 
 
-    # _maybe(
-    #     http_archive,
-    #     name = "sdl2",
-    #     sha256 = "08fb91829a1e6a1aed3213788c88728d23afd387b424903195b7866dabfbb95e",
-    #     strip_prefix = "sdl2-bazel-v0.2",
-    #     urls = [
-    #         "https://github.com/gbuzogany/sdl2/archive/bazel-v0.2.tar.gz"
-    #     ]
-    # )
+    _maybe(
+        http_archive,
+        name = "sdl2",
+        sha256 = "caf2a260beb0fef96bf43056a19834ddd4c88db4108c167d59de22bdcd8d5f81",
+        strip_prefix = "sdl2-bazel-v0.3",
+        urls = [
+            "https://github.com/gbuzogany/sdl2/archive/bazel-v0.3.tar.gz"
+        ]
+    )
 
 def _maybe(repo_rule, name, **kwargs):
     if name not in native.existing_rules():

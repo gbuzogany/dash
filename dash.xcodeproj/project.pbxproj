@@ -53,6 +53,7 @@
 		6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */; };
 		66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66754E4B2436303100B53C5A /* MediaPlayer.cpp */; };
 		66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B17153246D76EF00A037C8 /* libSDL2.dylib */; };
+		66B17156246D7A3500A037C8 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 66B17155246D7A3500A037C8 /* glad.c */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
@@ -194,6 +195,7 @@
 		66A686CF245A0F7700FF318E /* radial.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = radial.bmp; sourceTree = "<group>"; };
 		66A686D1245A141100FF318E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = background.bmp; sourceTree = "<group>"; };
 		66B17153246D76EF00A037C8 /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../usr/local/lib/libSDL2.dylib; sourceTree = "<group>"; };
+		66B17155246D7A3500A037C8 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = glad/src/glad.c; sourceTree = SOURCE_ROOT; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,6 +289,7 @@
 				66369DB02302EAFC00975025 /* Shader.cpp */,
 				66369DBC2302F31000975025 /* Texture.hpp */,
 				66369DBB2302F31000975025 /* Texture.cpp */,
+				66B17155246D7A3500A037C8 /* glad.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				66369D9D2302E7A000975025 /* main.cpp in Sources */,
 				660070362433C8AE001080A1 /* DashControl.cpp in Sources */,
 				665A5298245DA2C500AC6765 /* Animation.cpp in Sources */,
+				66B17156246D7A3500A037C8 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +578,7 @@
 					"\"$(SRCROOT)/\"",
 					"\"$(SRCROOT)/../../../Downloads/glatter-master/include\"",
 					/usr/local/include/SDL2,
+					"\"$(SRCROOT)/glad/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -601,6 +606,7 @@
 					"\"$(SRCROOT)/\"",
 					"\"$(SRCROOT)/../../../Downloads/glatter-master/include\"",
 					/usr/local/include/SDL2,
+					"\"$(SRCROOT)/glad/include\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -69,6 +69,7 @@ cc_library(
     ]) + select({
         "@bazel_tools//src/conditions:windows" : [
             "builds/windows/ftdebug.c",
+            "src/base/ftsystem.c"
         ],
         "@bazel_tools//src/conditions:darwin_x86_64" : [
             "builds/unix/ftsystem.c",

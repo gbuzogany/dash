@@ -9,6 +9,9 @@
 #ifndef Renderer_hpp
 #define Renderer_hpp
 
+#define _USE_MATH_DEFINES
+#include <cmath>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 using namespace glm;
@@ -16,6 +19,7 @@ using namespace glm;
 #include <stdio.h>
 #include <string>
 #include <map>
+#include <glad/glad.h>
 #include <SDL.h>
 #define GL_GLEXT_PROTOTYPES 1
 #include <SDL_opengles2.h>

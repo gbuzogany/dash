@@ -18,6 +18,29 @@ alias(
     actual  = "@bazel_tools//src/conditions:linux_x86_64"
 )
 
+
+LINKOPTS = select({
+    ":windows": [
+        "-DEFAULTLIB:user32",
+        "-DEFAULTLIB:gdi32",
+        "-DEFAULTLIB:winmm",
+        "-DEFAULTLIB:imm32",
+        "-DEFAULTLIB:ole32",
+        "-DEFAULTLIB:oleaut32",
+        "-DEFAULTLIB:version",
+        "-DEFAULTLIB:uuid",
+        "-DEFAULTLIB:shell32",
+        "-DEFAULTLIB:advapi32",
+        "-DEFAULTLIB:hid",
+        "-DEFAULTLIB:setupapi",
+        "-DEFAULTLIB:opengl32",
+        "-DEFAULTLIB:kernel32",
+    ],
+    "//conditions:default": [
+        "-ldl"
+    ],
+})
+
 filegroup(
     name = "textures",
     srcs = glob(["etc/textures/*.tga"])
@@ -62,12 +85,13 @@ cc_binary(
     copts = [
         "-Iexternal/angle_headers",
         "-Iexternal/glm",
-        # the line below will get generated headers from proto
+        # the line below will add to include path the headers generated from .proto
         "-Iexternal/dash_proto",
         "-Iexternal/freetype_headers",
         "-Iexternal/grpc_headers",
     ],
     deps = [
+        "//glad:glad",
         ":dash_cc_grpc",
         "@sdl2//:SDL2_lib",
         "@sdl2//:SDL2_hdrs",
@@ -76,19 +100,8 @@ cc_binary(
         "@glm//:headers",
         "@com_github_grpc_grpc//:grpc++",
         "@org_freetype_freetype2//:freetype2"
-    ], # + select({
-        # ":windows": [
-        #     "@glfw//:glfw",
-        # ],
-        # ":macos": [
-        # ],
-        # "//conditions:default": [
-        #     "@glfw//:glfw",
-        # ],
-    # }),
-    linkopts = [
-        "-ldl"
     ],
+    linkopts = LINKOPTS,
     data = [
         "//dash:textures",
         "//dash:shaders",

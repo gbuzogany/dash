@@ -9,8 +9,6 @@
 #include "Renderer.hpp"
 #include <assert.h>
 #include <iostream>
-#define _USE_MATH_DEFINES
-#include <cmath>
 #include "Definitions.h"
 
 Renderer::Renderer()
@@ -61,9 +59,15 @@ void Renderer::initGraphics()
     
     window = SDL_CreateWindow("ANGLE", 100, 100, 800, 480, SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
     assert(window);
-    
+
     context = SDL_GL_CreateContext(window);
     assert(context);
+    
+    int version = gladLoadGLES2Loader((GLADloadproc) SDL_GL_GetProcAddress);
+    if(!version) {
+        printf("Something went wrong!\n");
+        exit(-1);
+    }
     
     assert(SDL_GL_MakeCurrent(window, context) == 0);
     SDL_GL_SetSwapInterval(1);

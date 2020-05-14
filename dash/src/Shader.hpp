@@ -10,12 +10,7 @@
 #define Shader_hpp
 
 #include <stdio.h>
-
-#if !defined (__APPLE_CC__)
-#include <GLFW/glfw3.h>
-#endif
-
-#include "GLES2/gl2.h"
+#include <glad/glad.h>
 #include "EGL/egl.h"
 #include "EGL/eglext.h"
 
