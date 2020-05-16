@@ -18,6 +18,12 @@ alias(
     actual  = "@bazel_tools//src/conditions:linux_x86_64"
 )
 
+config_setting(
+    name = "sdl2_local",
+    values = {
+        "define": "sdl2_source=local",
+    }
+)
 
 LINKOPTS = select({
     ":windows": [
@@ -36,9 +42,11 @@ LINKOPTS = select({
         "-DEFAULTLIB:opengl32",
         "-DEFAULTLIB:kernel32",
     ],
-    "//conditions:default": [
+    ":linux": [
+        "-lSDL2",
         "-ldl"
     ],
+    "//conditions:default": [],
 })
 
 filegroup(
@@ -93,14 +101,35 @@ cc_binary(
     deps = [
         "//glad:glad",
         ":dash_cc_grpc",
-        "@sdl2//:SDL2_lib",
-        "@sdl2//:SDL2_hdrs",
-        "@angle//:lib",
-    	"@angle_headers//:headers",
         "@glm//:headers",
         "@com_github_grpc_grpc//:grpc++",
         "@org_freetype_freetype2//:freetype2"
-    ],
+    ] + select({
+        ":linux" : [
+            "@sdl2_remote//:SDL2_hdrs",
+        ],
+        ":sdl2_local" : [
+            "@sdl2_local//:SDL2_lib",
+            "@sdl2_local//:SDL2_hdrs",
+        ],
+        "//conditions:default" : [
+            "@sdl2_remote//:SDL2_lib",
+            "@sdl2_remote//:SDL2_hdrs",
+        ]
+    }) + select({
+        ":windows" : [
+            "@angle_windows//:lib",
+            "@angle_windows//:headers",
+        ],
+        ":macos" : [
+            "@angle_mac//:lib",
+            "@angle_mac//:headers",
+        ],
+        "//conditions:default" : [
+            "@angle_linux//:lib",
+            "@angle_linux//:headers",
+        ]
+    }),
     linkopts = LINKOPTS,
     data = [
         "//dash:textures",

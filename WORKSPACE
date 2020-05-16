@@ -1,3 +1,10 @@
+SDL2_LOCAL_PATH = "/Users/gbuzogany/Projects/sdl2"
+SDL2_LOCAL_BUILD_PATH = SDL2_LOCAL_PATH + "/BUILD.bazel"
+
+ANGLE_PATH_WINDOWS = "C:/Users/gbuzogany/Desktop/angle"
+ANGLE_PATH_MAC = "/Users/gbuzogany/Personal/angle"
+ANGLE_PATH_LINUX = "/home/gbuzogany/angle"
+
 workspace(name = "com_gbuzogany_dash")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
 
@@ -14,87 +21,42 @@ grpc_extra_deps()
 
 # end grpc deps
 
-# new_local_repository(
-#     name = "sdl2",
-#     path = "/Users/gbuzogany/Projects/sdl2/bazel-bin",
-#     build_file_content = """
-# package(default_visibility = ["//visibility:public"])
-
-# cc_library(
-#     name = "SDL2",
-#     srcs = ["SDL2.dylib"]
-# )
-# """
-# )
-
-# new_local_repository(
-#     name = "sdl2_headers",
-#     path = "/Users/gbuzogany/Projects/sdl2/include",
-#     build_file_content = """
-# package(default_visibility = ["//visibility:public"])
-
-# cc_library(
-#     name = "headers",
-#     hdrs = glob(["**/*.h"])
-# )
-# """
-# )
-
-# new_local_repository(
-#     name = "sdl2",
-#     path = "/Users/gbuzogany/Projects/sdl2",
-#     build_file = "/Users/gbuzogany/Projects/sdl2/BUILD.bazel"
-# )
-
-# new_local_repository(
-#     name = "sdl2",
-#     path = "/home/gbuzogany/sdl2",
-#     build_file = "/home/gbuzogany/sdl2/BUILD.bazel"
-# )
+new_local_repository(
+    name = "sdl2_local",
+    path = SDL2_LOCAL_PATH,
+    build_file = SDL2_LOCAL_BUILD_PATH
+)
 
 ############### ANGLE
 
 ############### MAC
 
-# new_local_repository(
-#     name = "angle",
-#     path = "/Users/gbuzogany/Personal/angle",
-#     build_file_content = """
-# package(default_visibility = ["//visibility:public"])
+new_local_repository(
+    name = "angle_mac",
+    path = ANGLE_PATH_MAC,
+    build_file_content = """
+package(default_visibility = ["//visibility:public"])
 
-# cc_library(
-#     name = "headers",
-#     hdrs = glob(["include/**/*.h", "include/**/*.inc"]),
-# )
+cc_library(
+    name = "headers",
+    hdrs = glob(["include/**/*.h", "include/**/*.inc"]),
+)
 
-# cc_library(
-#     name = "lib",
-#     srcs = [
-#     	"out/Release/libEGL.dylib",
-#     	"out/Release/libGLESv2.dylib"
-#     ]
-# )
-# """
-# )
-
-# new_local_repository(
-#     name = "angle_headers",
-#     path = "/Users/gbuzogany/Personal/angle/include",
-#     build_file_content = """
-# package(default_visibility = ["//visibility:public"])
-
-# cc_library(
-#     name = "headers",
-#     hdrs = glob(["**/*.h", "**/*.inc"]),
-# )
-# """
-# )
+cc_library(
+    name = "lib",
+    srcs = [
+    	"out/Release/libEGL.dylib",
+    	"out/Release/libGLESv2.dylib"
+    ]
+)
+"""
+)
 
 ######################## LINUX
 
 new_local_repository(
-    name = "angle",
-    path = "/home/gbuzogany/angle",
+    name = "angle_linux",
+    path = ANGLE_PATH_LINUX,
     build_file_content = """
 package(default_visibility = ["//visibility:public"])
 
@@ -113,51 +75,25 @@ cc_library(
 """
 )
 
+############### WINDOWS
+
 new_local_repository(
-    name = "angle_headers",
-    path = "/home/gbuzogany/angle/include",
+    name = "angle_windows",
+    path = ANGLE_PATH_WINDOWS,
     build_file_content = """
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "headers",
-    hdrs = glob(["**/*.h", "**/*.inc"]),
+    hdrs = glob(["include/**/*.h", "include/**/*.inc"]),
+)
+
+cc_library(
+    name = "lib",
+    srcs = [
+      "out/Debug/libEGL.dll",
+      "out/Debug/libGLESv2.dll"
+    ]
 )
 """
 )
-
-############### WINDOWS
-
-# new_local_repository(
-#     name = "angle",
-#     path = "C:/Users/gbuzogany/Desktop/angle",
-#     build_file_content = """
-# package(default_visibility = ["//visibility:public"])
-
-# cc_library(
-#     name = "headers",
-#     hdrs = glob(["include/**/*.h", "include/**/*.inc"]),
-# )
-
-# cc_library(
-#     name = "lib",
-#     srcs = [
-#       "out/Debug/libEGL.dll",
-#       "out/Debug/libGLESv2.dll"
-#     ]
-# )
-# """
-# )
-
-# new_local_repository(
-#     name = "angle_headers",
-#     path = "C:/Users/gbuzogany/Desktop/angle/include",
-#     build_file_content = """
-# package(default_visibility = ["//visibility:public"])
-
-# cc_library(
-#     name = "headers",
-#     hdrs = glob(["**/*.h", "**/*.inc"]),
-# )
-# """
-# )

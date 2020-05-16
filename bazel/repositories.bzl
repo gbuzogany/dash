@@ -79,11 +79,11 @@ def dash_repositories():
 
     _maybe(
         http_archive,
-        name = "sdl2",
-        sha256 = "caf2a260beb0fef96bf43056a19834ddd4c88db4108c167d59de22bdcd8d5f81",
-        strip_prefix = "sdl2-bazel-v0.3",
+        name = "sdl2_remote",
+        sha256 = "6af801082372daacdd48bef7b4b4eaadb2c942668d76bec0296d4eaf8113b35a",
+        strip_prefix = "sdl2-bazel-v0.4",
         urls = [
-            "https://github.com/gbuzogany/sdl2/archive/bazel-v0.3.tar.gz"
+            "https://github.com/gbuzogany/sdl2/archive/bazel-v0.4.tar.gz"
         ]
     )
 
