@@ -118,7 +118,7 @@ cc_binary(
         ]
     }) + select({
         ":windows" : [
-            "@angle_windows//:lib",
+            "@angle_win//:lib",
         ],
         ":macos" : [
             "@angle_mac//:lib",
