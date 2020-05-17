@@ -32,7 +32,7 @@ vec4 map(vec4 value, vec4 inMin, vec4 inMax, vec4 outMin, vec4 outMax) {
 void main() {
     vec2 uv_remapped = map(UV, vec2(0.0, 1.0), vec2(1.0, 0.0), vec2(-1.0, -1.0), vec2(1.0, 1.0));
     float mask = texture2D(noiseTexture, UV).r;
-    float dissolve_remapped = map(dissolve, 0.14, 1.0, 0.75, 0.15);
+    float dissolve_remapped = map(dissolve, 0.0, 1.0, 1.0, 0.0);
     dissolve_remapped = map(dissolve_remapped, 0.0, 1.0, -0.5, 0.5);
     
     float mask_remapped = map(mask + dissolve_remapped, 0.0, 1.0, -4.0, 4.0);

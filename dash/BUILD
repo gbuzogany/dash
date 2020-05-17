@@ -91,7 +91,6 @@ cc_binary(
         "**/*.h"],
     ),
     copts = [
-        "-Iexternal/angle_headers",
         "-Iexternal/glm",
         # the line below will add to include path the headers generated from .proto
         "-Iexternal/dash_proto",
@@ -103,7 +102,8 @@ cc_binary(
         ":dash_cc_grpc",
         "@glm//:headers",
         "@com_github_grpc_grpc//:grpc++",
-        "@org_freetype_freetype2//:freetype2"
+        "@org_freetype_freetype2//:freetype2",
+        "@angle_headers//:headers"
     ] + select({
         ":linux" : [
             "@sdl2_remote//:SDL2_hdrs",
@@ -119,15 +119,12 @@ cc_binary(
     }) + select({
         ":windows" : [
             "@angle_windows//:lib",
-            "@angle_windows//:headers",
         ],
         ":macos" : [
             "@angle_mac//:lib",
-            "@angle_mac//:headers",
         ],
-        "//conditions:default" : [
+        ":linux" : [
             "@angle_linux//:lib",
-            "@angle_linux//:headers",
         ]
     }),
     linkopts = LINKOPTS,
