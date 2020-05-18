@@ -1,0 +1,10 @@
+{
+	"dash": {
+		"host" : "localhost",
+		"port" : 50052
+	},
+	"media": {
+		"host" : "localhost",
+		"port" : 50051
+	}
+}
