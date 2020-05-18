@@ -87,7 +87,8 @@ cc_binary(
     srcs = glob(
         [
         "src/*.cpp",
-        "src/*.hpp"
+        "src/*.hpp",
+        "src/**/*.h"
         ],
     ),
     copts = [
