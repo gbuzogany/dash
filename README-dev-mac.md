@@ -1,6 +1,6 @@
 # MacOS
 
-## 1 - Install XCode
+## 1 - Install Xcode
 
 [App Store link](https://apps.apple.com/app/xcode/id497799835)
 
