@@ -1,6 +1,6 @@
-# Rockette
+# Rockette 🚀
 
-Rockette is an open source automotive dashboard display platform. You can use it to make a custom dashboard for your car, motorcycle, driving simulator setup, or anything else that you find it useful for.
+Rockette is an open source dashboard display platform. You can use it to make a custom dashboard for your car, motorcycle, driving simulator setup, or anything else that you find it useful for.
 
 You can either use one of the already implemented display layouts to display your data, or create your own.
 
@@ -16,6 +16,15 @@ Check [INSTALLATION.md](INSTALLATION.md).
 
 Rockette uses [gRPC](https://grpc.io/) to receive the data to be displayed. You can use any programming language supported by gRPC to send the data to be displayed, even over a network if you prefer.
 
+Check [INTEGRATION.md](INTEGRATION.md).
+
 ## Development
 
 It's written in C++ with very minimal dependencies. Development can be done on Windows, Linux or macOS, and then cross-compiled to run on a Raspberry.
+
+Check the development environment instructions:
+
+- [Windows](README-dev-windows.md)
+- [macOS](README-dev-mac.md)
+- [Linux](README-dev-linux.md)
+

@@ -1,5 +1,5 @@
 # Rockette 🚀
 
-## Installation
+## Integration
 
 WIP
