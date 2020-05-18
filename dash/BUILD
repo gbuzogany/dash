@@ -87,8 +87,8 @@ cc_binary(
     srcs = glob(
         [
         "src/*.cpp",
-        "src/*.hpp",
-        "**/*.h"],
+        "src/*.hpp"
+        ],
     ),
     copts = [
         "-Iexternal/glm",
