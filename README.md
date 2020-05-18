@@ -10,7 +10,7 @@ It's super light-weight, and as it uses OpenGL, you can use it to render pretty 
 
 ## Installation
 
-Check (INSTALLATION.md)[INSTALLATION.md].
+Check [INSTALLATION.md](INSTALLATION.md).
 
 ## Integration
 
