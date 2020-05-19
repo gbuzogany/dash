@@ -19,12 +19,12 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
-    dissolveProgram = loadShaders( "dash/etc/shaders/DissolveVertex.glsl", "dash/etc/shaders/DissolveFragment.glsl" );
     ringArcProgram = loadShaders( "dash/etc/shaders/RingArcVertex.glsl", "dash/etc/shaders/RingArcFragment.glsl" );
     ringTexArcProgram = loadShaders( "dash/etc/shaders/RingTextureArcVertex.glsl", "dash/etc/shaders/RingTextureArcFragment.glsl" );
-    textureProgram = loadShaders( "dash/etc/shaders/TransformVertexShader.glsl", "dash/etc/shaders/TextureFragmentShader.glsl" );
-    textProgram = loadShaders( "dash/etc/shaders/TextVertex.glsl", "dash/etc/shaders/TextFragment.glsl" );
-    lineProgram = loadShaders( "dash/etc/shaders/LineVertex.glsl", "dash/etc/shaders/LineFragment.glsl" );
+    defaultTextProgram = loadShaders( "dash/etc/shaders/TextVertex.glsl", "dash/etc/shaders/TextFragment.glsl" );
+    defaultTextureProgram = loadShaders( "dash/etc/shaders/TransformVertexShader.glsl", "dash/etc/shaders/TextureFragmentShader.glsl" );
+    
+    textProgram = defaultTextProgram;
 }
 
 ShaderProgram* Renderer::loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath)
@@ -137,20 +137,26 @@ void Renderer::renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat 
     renderRect(x, y, width, height, flipY);
 }
 
-void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY) {
-    useProgram(*textureProgram);
+void Renderer::renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, ShaderProgram *program) {
+    if (program == nullptr) {
+        useProgram(*defaultTextureProgram);
+        
+        GLuint u_squareTextureId = defaultTextureProgram->getUniformLocation("textureSampler");
+        GLuint u_projectionID = defaultTextureProgram->getUniformLocation("projection");
+        
+        glm::mat4 projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
+        glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
+        
+        glUniform1i(u_squareTextureId, 0);
+        glActiveTexture(GL_TEXTURE0);
+    }
+    else {
+        useProgram(*program);
+    }
     
-    GLuint u_squareTextureId = textureProgram->getUniformLocation("textureSampler");
-    GLuint u_projectionID = textureProgram->getUniformLocation("projection");
-    
-    glm::mat4 projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
-    glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
-    
-    glUniform1i(u_squareTextureId, 0);
-    glActiveTexture(GL_TEXTURE0);
     bindTexture(textureId);
     
-    renderRect(x, y, width, height, flipY);
+    renderRect(x, y, width, height, true);
 }
 
 void Renderer::renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY) {
@@ -161,13 +167,13 @@ void Renderer::renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, b
     GLfloat xpos = x;
     GLfloat ypos = 480.0 - y - height;
     GLfloat vertices[6][4] = {
-        { xpos,         ypos + height,   0.0, top }, // 0
-        { xpos,         ypos,            0.0, bottom },      // 1
-        { xpos + width, ypos,            1.0, bottom },      // 2
+        { xpos,         ypos + height,   0.0, top },
+        { xpos,         ypos,            0.0, bottom },
+        { xpos + width, ypos,            1.0, bottom },
         
-        { xpos,         ypos + height,   0.0, top }, // 3
-        { xpos + width, ypos,            1.0, bottom },      // 4
-        { xpos + width, ypos + height,   1.0, top }  // 5
+        { xpos,         ypos + height,   0.0, top },
+        { xpos + width, ypos,            1.0, bottom },
+        { xpos + width, ypos + height,   1.0, top }
     };
     
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -186,6 +192,10 @@ void Renderer::bindTexture(GLuint texId) {
     }
 }
 
+void Renderer::setTextProgram(ShaderProgram *program) {
+    textProgram = program;
+}
+
 void Renderer::useProgram(ShaderProgram &program) {
     GLuint id = program.getId();
     if (lastProgram != id) {
@@ -198,6 +208,7 @@ void Renderer::useProgram(ShaderProgram &program) {
 float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign, uint vAlign)
 {
     useProgram(*textProgram);
+    
     struct point {
         GLfloat x;
         GLfloat y;
@@ -214,16 +225,7 @@ float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, G
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    GLuint uTextColor = textProgram->getUniformLocation("textColor");
-    GLuint uTexID = textProgram->getUniformLocation("tex");
-    GLuint uProjectionID = textProgram->getUniformLocation("projection");
-    
-    glUniform1i(uTexID, 0);
-    glUniform3f(uTextColor, color.x, color.y, color.z);
-    glActiveTexture(GL_TEXTURE0);
     FT_ULong previous = NULL;
-    
-    bindTexture(font.texture);
     
     int n = 0;
     
@@ -237,7 +239,7 @@ float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, G
             continue;
         }
 
-        // hardcoded kerning instead of using GPOS table
+        // TODO: use GPOS table instead of using hardcoded kerning
         if ((character == 'e' || character == 'o') && previous == 'T'){
             kerning = 2.0f;
         }
@@ -276,46 +278,37 @@ float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, G
                           0 // array buffer offset
                           );
     
-    float x_align = 0;
-    float y_align = 0;
-    float totalWidth = px - x;
+    std::pair<float, float> textAlign = Utils::calculateTextCenter(px - x, hAlign, vAlign, fontSize);
+    glm::mat4 projection;
     
-    switch(hAlign) {
-        case CENTER: {
-            x_align = -totalWidth/2;
-            break;
-        }
-        case RIGHT: {
-            x_align = -totalWidth;
-            break;
-        }
+    GLuint uTextColor = textProgram->getUniformLocation("textColor");
+    GLuint uTexID = textProgram->getUniformLocation("tex");
+    GLuint uProjectionID = textProgram->getUniformLocation("projection");
+    
+    if (textProgram == defaultTextProgram) {
+        glUniform1i(uTexID, 0);
+        glUniform3f(uTextColor, color.x, color.y, color.z);
+        glActiveTexture(GL_TEXTURE0);
+        
+        projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
+        projection = glm::translate(projection, vec3(textAlign.first, textAlign.second, 0));
+        glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
     }
     
-    switch(vAlign) {
-        case CENTER: {
-            y_align = -fontSize/2.8;
-            break;
-        }
-        case TOP: {
-            y_align = -fontSize;
-            break;
-        }
-    }
-    
-    glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
-    projection = glm::translate(projection, vec3(x_align, y_align, 0));
-    glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
+    bindTexture(font.texture);
     
     // Render quad
     glDrawArrays(GL_TRIANGLES, 0, n);
     
-    projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
-    glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
+    if (textProgram == defaultTextProgram) {
+        projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
+        glUniformMatrix4fv(uProjectionID, 1, GL_FALSE, &projection[0][0]);
+    }
     
     glDisableVertexAttribArray(0);
     bindTexture(0);
     
-    return x_align + px;
+    return textAlign.first + px;
 }
 
 Renderer::~Renderer() {

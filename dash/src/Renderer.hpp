@@ -30,8 +30,7 @@ using namespace glm;
 #include "ShaderProgram.hpp"
 #include "Font.hpp"
 #include "Texture.hpp"
-
-enum {LEFT, CENTER, RIGHT, TOP, BOTTOM};
+#include "Utils.hpp"
 
 class Renderer {
 private:
@@ -53,13 +52,12 @@ private:
 public:
     FT_Library ft;
     
-    ShaderProgram *textureProgram;
-    ShaderProgram *dissolveProgram;
     ShaderProgram *ringArcProgram;
     ShaderProgram *ringTexArcProgram;
     ShaderProgram *textProgram;
-    ShaderProgram *lineProgram;
-//    ShaderProgram *fractalBackgroundProgram;
+    
+    ShaderProgram *defaultTextProgram;
+    ShaderProgram *defaultTextureProgram;
     SDL_Window *window;
     
     Renderer();
@@ -77,10 +75,11 @@ public:
     GLuint getVertexBuffer();
     
     float renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign = LEFT, uint vAlign = BOTTOM);
-    void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
+    void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, ShaderProgram *program = nullptr);
     void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     
     void bindTexture(GLuint texId);
+    void setTextProgram(ShaderProgram *program);
     void useProgram(ShaderProgram &program);
     
     void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);

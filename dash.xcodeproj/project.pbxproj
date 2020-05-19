@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		661879D72473DA2500BB39FF /* DashService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661879D52473DA2500BB39FF /* DashService.cpp */; };
 		661879DA2474078500BB39FF /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661879D82474078500BB39FF /* Utils.cpp */; };
+		661879E124740C3200BB39FF /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 661879E024740C3200BB39FF /* glad.c */; };
 		66369D9D2302E7A000975025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369D9C2302E7A000975025 /* main.cpp */; };
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
 		66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* ShaderProgram.cpp */; };
@@ -47,7 +48,6 @@
 		6674FA602464549D00E4B6CC /* hnpro-medium-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */; };
 		6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */; };
 		66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B17153246D76EF00A037C8 /* libSDL2.dylib */; };
-		66B17156246D7A3500A037C8 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 66B17155246D7A3500A037C8 /* glad.c */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
@@ -127,6 +127,7 @@
 		661879D62473DA2500BB39FF /* DashService.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashService.hpp; sourceTree = "<group>"; };
 		661879D82474078500BB39FF /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		661879D92474078500BB39FF /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
+		661879E024740C3200BB39FF /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = glad/src/glad.c; sourceTree = SOURCE_ROOT; };
 		66369D992302E7A000975025 /* dash_bin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dash_bin; sourceTree = BUILT_PRODUCTS_DIR; };
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
@@ -179,7 +180,6 @@
 		66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingTextureArcFragment.glsl; sourceTree = "<group>"; };
 		66A686CF245A0F7700FF318E /* radial.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = radial.bmp; sourceTree = "<group>"; };
 		66B17153246D76EF00A037C8 /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../usr/local/lib/libSDL2.dylib; sourceTree = "<group>"; };
-		66B17155246D7A3500A037C8 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = glad/src/glad.c; sourceTree = SOURCE_ROOT; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
 		66D205BA2472A2BC0013932C /* dash.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dash.grpc.pb.cc; path = pregen/dash/proto/dash.grpc.pb.cc; sourceTree = "<group>"; };
@@ -206,6 +206,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		661879DB24740BC700BB39FF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				6659848823057103002D326C /* Dashboard.hpp */,
+				6659848723057103002D326C /* Dashboard.cpp */,
+				665A5291245D932B00AC6765 /* Scene.hpp */,
+				665A5290245D932B00AC6765 /* Scene.cpp */,
+				665A528E245D91BB00AC6765 /* Splash.hpp */,
+				665A528D245D91BB00AC6765 /* Splash.cpp */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		661879DC24740BE400BB39FF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				661879D62473DA2500BB39FF /* DashService.hpp */,
+				661879D52473DA2500BB39FF /* DashService.cpp */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		661879DE24740BF700BB39FF /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				66369DAE2302EACF00975025 /* ShaderProgram.hpp */,
+				66369DAD2302EACF00975025 /* ShaderProgram.cpp */,
+				66369DB12302EAFC00975025 /* Shader.hpp */,
+				66369DB02302EAFC00975025 /* Shader.cpp */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		661879DF24740C0C00BB39FF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6674FA2B24633B0900E4B6CC /* stb */,
+				661879E324740C6D00BB39FF /* Rendering */,
+				661879E024740C3200BB39FF /* glad.c */,
+				661879D92474078500BB39FF /* Utils.hpp */,
+				661879D82474078500BB39FF /* Utils.cpp */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		661879E324740C6D00BB39FF /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				6659848023044A47002D326C /* Font.hpp */,
+				6659847F23044A47002D326C /* Font.cpp */,
+				66369DBC2302F31000975025 /* Texture.hpp */,
+				66369DBB2302F31000975025 /* Texture.cpp */,
+			);
+			name = Rendering;
+			sourceTree = "<group>";
+		};
 		66369D902302E7A000975025 = {
 			isa = PBXGroup;
 			children = (
@@ -250,34 +306,18 @@
 		6674FA2024632EA100E4B6CC /* src */ = {
 			isa = PBXGroup;
 			children = (
-				6674FA2B24633B0900E4B6CC /* stb */,
-				661879D62473DA2500BB39FF /* DashService.hpp */,
-				661879D52473DA2500BB39FF /* DashService.cpp */,
-				665984A22305C5A9002D326C /* Definitions.h */,
-				6659848023044A47002D326C /* Font.hpp */,
-				6659847F23044A47002D326C /* Font.cpp */,
+				661879DB24740BC700BB39FF /* Scenes */,
+				661879DC24740BE400BB39FF /* Services */,
+				661879DE24740BF700BB39FF /* Shaders */,
+				661879DF24740C0C00BB39FF /* Utilities */,
 				665A5297245DA2C500AC6765 /* Animation.hpp */,
 				665A5296245DA2C500AC6765 /* Animation.cpp */,
-				665A5291245D932B00AC6765 /* Scene.hpp */,
-				665A5290245D932B00AC6765 /* Scene.cpp */,
-				6659848823057103002D326C /* Dashboard.hpp */,
-				6659848723057103002D326C /* Dashboard.cpp */,
-				665A528E245D91BB00AC6765 /* Splash.hpp */,
-				665A528D245D91BB00AC6765 /* Splash.cpp */,
+				665984A22305C5A9002D326C /* Definitions.h */,
 				6659848523056DFF002D326C /* Vehicle.hpp */,
 				6659848423056DFF002D326C /* Vehicle.cpp */,
 				66369D9C2302E7A000975025 /* main.cpp */,
-				66369DAE2302EACF00975025 /* ShaderProgram.hpp */,
-				66369DAD2302EACF00975025 /* ShaderProgram.cpp */,
 				66369DA42302E7E200975025 /* Renderer.hpp */,
 				66369DA32302E7E200975025 /* Renderer.cpp */,
-				66369DB12302EAFC00975025 /* Shader.hpp */,
-				66369DB02302EAFC00975025 /* Shader.cpp */,
-				66369DBC2302F31000975025 /* Texture.hpp */,
-				66369DBB2302F31000975025 /* Texture.cpp */,
-				66B17155246D7A3500A037C8 /* glad.c */,
-				661879D92474078500BB39FF /* Utils.hpp */,
-				661879D82474078500BB39FF /* Utils.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -427,9 +467,9 @@
 				66369D9D2302E7A000975025 /* main.cpp in Sources */,
 				661879DA2474078500BB39FF /* Utils.cpp in Sources */,
 				665A5298245DA2C500AC6765 /* Animation.cpp in Sources */,
-				66B17156246D7A3500A037C8 /* glad.c in Sources */,
 				66D205BF2472A2BC0013932C /* dash.pb.cc in Sources */,
 				66D205BE2472A2BC0013932C /* dash.grpc.pb.cc in Sources */,
+				661879E124740C3200BB39FF /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

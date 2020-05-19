@@ -23,6 +23,8 @@ class Splash : Scene {
     
     float totalTime = 0;
     float dissolve = 0;
+    
+    ShaderProgram *dissolveProgram;
 
     std::queue<Animation*> animationQueue;
 

@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
     
     std::thread dashServiceThread = std::thread(&startDashService, &service);
     
-//    sceneQueue.push((Scene*) new Splash(r));
+    sceneQueue.push((Scene*) new Splash(&r, &service));
     sceneQueue.push((Scene*) new Dashboard(&r, &service));
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

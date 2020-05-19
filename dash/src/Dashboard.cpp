@@ -65,13 +65,10 @@ bool Dashboard::render(float delta) {
             delete current;
         }
     }
-    
     _r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
     
     float value = vehicle->getRPM()/1000.0f;
     float max = 12;
-    
-//    r->renderTexture(fasterTexture, 400, 130, 350, 350, true);
     
     std::string degStr(1, '\xb0');
     std::string tempStr(1, '\xb0');
