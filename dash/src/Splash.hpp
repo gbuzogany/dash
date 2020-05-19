@@ -27,7 +27,7 @@ class Splash : Scene {
     std::queue<Animation*> animationQueue;
 
 public:
-    Splash(Renderer &r);
+    Splash(Renderer *r, DashServiceImpl *service);
     bool render(float delta);
     void renderFixed();
 };

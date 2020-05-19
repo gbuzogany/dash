@@ -37,12 +37,6 @@ class Dashboard : Scene {
     GLuint screenTexture;
     GLuint frameBuffer;
     
-    std::string playStatus_;
-    DashMediaItem nowPlaying_;
-    
-    std::thread mediaServiceThread;
-    std::thread dashServiceThread;
-    
     std::map<std::string, float> attrX;
     std::queue<Animation*> animationQueue;
     
@@ -54,10 +48,8 @@ class Dashboard : Scene {
     FontWrapper *hnproExtraHeavy36;
     
     void createFramebuffer();
-    void startMediaService();
-    void startDashService();
 public:
-    Dashboard(Renderer &r);
+    Dashboard(Renderer *r, DashServiceImpl *service);
     Vehicle* getVehicle();
     bool render(float delta);
     void renderFixed();

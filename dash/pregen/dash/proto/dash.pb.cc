@@ -15,82 +15,68 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 namespace dash {
-class DashDataDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DashData> _instance;
-} _DashData_default_instance_;
-class DashExtendedDataDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DashExtendedData> _instance;
-} _DashExtendedData_default_instance_;
-class PlayStatusDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PlayStatus> _instance;
-} _PlayStatus_default_instance_;
-class MediaItemDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MediaItem> _instance;
-} _MediaItem_default_instance_;
 class StatusResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StatusResponse> _instance;
 } _StatusResponse_default_instance_;
+class StringValueDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StringValue> _instance;
+} _StringValue_default_instance_;
+class IntValueDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<IntValue> _instance;
+} _IntValue_default_instance_;
+class FloatValueDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<FloatValue> _instance;
+} _FloatValue_default_instance_;
+class BytesValueDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BytesValue> _instance;
+} _BytesValue_default_instance_;
 }  // namespace dash
-static void InitDefaultsscc_info_DashData_dash_2eproto() {
+static void InitDefaultsscc_info_BytesValue_dash_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::dash::_DashData_default_instance_;
-    new (ptr) ::dash::DashData();
+    void* ptr = &::dash::_BytesValue_default_instance_;
+    new (ptr) ::dash::BytesValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::dash::DashData::InitAsDefaultInstance();
+  ::dash::BytesValue::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DashData_dash_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DashData_dash_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BytesValue_dash_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_BytesValue_dash_2eproto}, {}};
 
-static void InitDefaultsscc_info_DashExtendedData_dash_2eproto() {
+static void InitDefaultsscc_info_FloatValue_dash_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::dash::_DashExtendedData_default_instance_;
-    new (ptr) ::dash::DashExtendedData();
+    void* ptr = &::dash::_FloatValue_default_instance_;
+    new (ptr) ::dash::FloatValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::dash::DashExtendedData::InitAsDefaultInstance();
+  ::dash::FloatValue::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DashExtendedData_dash_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DashExtendedData_dash_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_FloatValue_dash_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_FloatValue_dash_2eproto}, {}};
 
-static void InitDefaultsscc_info_MediaItem_dash_2eproto() {
+static void InitDefaultsscc_info_IntValue_dash_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::dash::_MediaItem_default_instance_;
-    new (ptr) ::dash::MediaItem();
+    void* ptr = &::dash::_IntValue_default_instance_;
+    new (ptr) ::dash::IntValue();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::dash::MediaItem::InitAsDefaultInstance();
+  ::dash::IntValue::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_MediaItem_dash_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_MediaItem_dash_2eproto}, {}};
-
-static void InitDefaultsscc_info_PlayStatus_dash_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::dash::_PlayStatus_default_instance_;
-    new (ptr) ::dash::PlayStatus();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::dash::PlayStatus::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PlayStatus_dash_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_PlayStatus_dash_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_IntValue_dash_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_IntValue_dash_2eproto}, {}};
 
 static void InitDefaultsscc_info_StatusResponse_dash_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -106,118 +92,105 @@ static void InitDefaultsscc_info_StatusResponse_dash_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StatusResponse_dash_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_StatusResponse_dash_2eproto}, {}};
 
+static void InitDefaultsscc_info_StringValue_dash_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::dash::_StringValue_default_instance_;
+    new (ptr) ::dash::StringValue();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::dash::StringValue::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StringValue_dash_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_StringValue_dash_2eproto}, {}};
+
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dash_2eproto[5];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_dash_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_dash_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dash_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::dash::DashData, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::dash::DashData, speed_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashData, rpm_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashData, gear_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashData, neutral_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashData, clutch_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashData, enginerunning_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, batteryvoltage_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, coolanttemperature_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, airintaketemperature_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, manifoldpressure_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, throttlepositionsensor_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, injectorduration_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, ignitionadvance_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, fuellevelpercent_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, fuelpressure_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, oillevelpercent_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, oilpressure_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, oiltemperature_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, lambdasensor1_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, lambdasensor2_),
-  PROTOBUF_FIELD_OFFSET(::dash::DashExtendedData, kickstand_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::dash::PlayStatus, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::dash::PlayStatus, playstatus_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::dash::MediaItem, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::dash::MediaItem, title_),
-  PROTOBUF_FIELD_OFFSET(::dash::MediaItem, artist_),
-  PROTOBUF_FIELD_OFFSET(::dash::MediaItem, album_),
-  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::dash::StatusResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::dash::StatusResponse, status_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dash::StringValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dash::StringValue, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dash::StringValue, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dash::IntValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dash::IntValue, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dash::IntValue, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dash::FloatValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dash::FloatValue, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dash::FloatValue, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::dash::BytesValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::dash::BytesValue, identifier_),
+  PROTOBUF_FIELD_OFFSET(::dash::BytesValue, value_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::dash::DashData)},
-  { 11, -1, sizeof(::dash::DashExtendedData)},
-  { 31, -1, sizeof(::dash::PlayStatus)},
-  { 37, -1, sizeof(::dash::MediaItem)},
-  { 45, -1, sizeof(::dash::StatusResponse)},
+  { 0, -1, sizeof(::dash::StatusResponse)},
+  { 6, -1, sizeof(::dash::StringValue)},
+  { 13, -1, sizeof(::dash::IntValue)},
+  { 20, -1, sizeof(::dash::FloatValue)},
+  { 27, -1, sizeof(::dash::BytesValue)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_DashData_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_DashExtendedData_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_PlayStatus_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_MediaItem_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_StatusResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_StringValue_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_IntValue_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_FloatValue_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::dash::_BytesValue_default_instance_),
 };
 
 const char descriptor_table_protodef_dash_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\ndash.proto\022\004dash\"l\n\010DashData\022\r\n\005speed\030"
-  "\001 \001(\002\022\013\n\003rpm\030\002 \001(\005\022\014\n\004gear\030\003 \001(\005\022\017\n\007neut"
-  "ral\030\004 \001(\010\022\016\n\006clutch\030\005 \001(\010\022\025\n\rengineRunni"
-  "ng\030\006 \001(\010\"\210\003\n\020DashExtendedData\022\026\n\016battery"
-  "Voltage\030\001 \001(\002\022\032\n\022coolantTemperature\030\002 \001("
-  "\002\022\034\n\024airIntakeTemperature\030\003 \001(\002\022\030\n\020manif"
-  "oldPressure\030\004 \001(\002\022\036\n\026throttlePositionSen"
-  "sor\030\005 \001(\002\022\030\n\020injectorDuration\030\006 \001(\002\022\027\n\017i"
-  "gnitionAdvance\030\007 \001(\002\022\030\n\020fuelLevelPercent"
-  "\030\010 \001(\002\022\024\n\014fuelPressure\030\t \001(\002\022\027\n\017oilLevel"
-  "Percent\030\n \001(\002\022\023\n\013oilPressure\030\013 \001(\002\022\026\n\016oi"
-  "lTemperature\030\014 \001(\002\022\025\n\rlambdaSensor1\030\r \001("
-  "\002\022\025\n\rlambdaSensor2\030\016 \001(\002\022\021\n\tkickstand\030\017 "
-  "\001(\010\" \n\nPlayStatus\022\022\n\nplayStatus\030\001 \001(\t\"9\n"
-  "\tMediaItem\022\r\n\005title\030\001 \001(\t\022\016\n\006artist\030\002 \001("
-  "\t\022\r\n\005album\030\003 \001(\t\" \n\016StatusResponse\022\016\n\006st"
-  "atus\030\001 \001(\0052\221\001\n\013DashControl\0228\n\016UpdateDash"
-  "Data\022\016.dash.DashData\032\024.dash.StatusRespon"
-  "se\"\000\022H\n\026UpdateDashExtendedData\022\026.dash.Da"
-  "shExtendedData\032\024.dash.StatusResponse\"\0002\205"
-  "\001\n\013MediaPlayer\022=\n\021PlayStatusChanged\022\020.da"
-  "sh.PlayStatus\032\024.dash.StatusResponse\"\000\0227\n"
-  "\014MediaChanged\022\017.dash.MediaItem\032\024.dash.St"
-  "atusResponse\"\000b\006proto3"
+  "\n\ndash.proto\022\004dash\" \n\016StatusResponse\022\016\n\006"
+  "status\030\001 \001(\005\"0\n\013StringValue\022\022\n\nidentifie"
+  "r\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"-\n\010IntValue\022\022\n\nid"
+  "entifier\030\001 \001(\t\022\r\n\005value\030\002 \001(\005\"/\n\nFloatVa"
+  "lue\022\022\n\nidentifier\030\001 \001(\t\022\r\n\005value\030\002 \001(\002\"/"
+  "\n\nBytesValue\022\022\n\nidentifier\030\001 \001(\t\022\r\n\005valu"
+  "e\030\002 \001(\0142\217\002\n\013DashService\022;\n\021UpdateDashInt"
+  "Data\022\016.dash.IntValue\032\024.dash.StatusRespon"
+  "se\"\000\022\?\n\023UpdateDashFloatData\022\020.dash.Float"
+  "Value\032\024.dash.StatusResponse\"\000\022A\n\024UpdateD"
+  "ashStringData\022\021.dash.StringValue\032\024.dash."
+  "StatusResponse\"\000\022\?\n\023UpdateDashBytesData\022"
+  "\020.dash.BytesValue\032\024.dash.StatusResponse\""
+  "\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_dash_2eproto_deps[1] = {
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_dash_2eproto_sccs[5] = {
-  &scc_info_DashData_dash_2eproto.base,
-  &scc_info_DashExtendedData_dash_2eproto.base,
-  &scc_info_MediaItem_dash_2eproto.base,
-  &scc_info_PlayStatus_dash_2eproto.base,
+  &scc_info_BytesValue_dash_2eproto.base,
+  &scc_info_FloatValue_dash_2eproto.base,
+  &scc_info_IntValue_dash_2eproto.base,
   &scc_info_StatusResponse_dash_2eproto.base,
+  &scc_info_StringValue_dash_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dash_2eproto_once;
 static bool descriptor_table_dash_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dash_2eproto = {
-  &descriptor_table_dash_2eproto_initialized, descriptor_table_protodef_dash_2eproto, "dash.proto", 942,
+  &descriptor_table_dash_2eproto_initialized, descriptor_table_protodef_dash_2eproto, "dash.proto", 529,
   &descriptor_table_dash_2eproto_once, descriptor_table_dash_2eproto_sccs, descriptor_table_dash_2eproto_deps, 5, 0,
   schemas, file_default_instances, TableStruct_dash_2eproto::offsets,
   file_level_metadata_dash_2eproto, 5, file_level_enum_descriptors_dash_2eproto, file_level_service_descriptors_dash_2eproto,
@@ -226,1284 +199,6 @@ const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dash_2
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_dash_2eproto = (  ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_dash_2eproto), true);
 namespace dash {
-
-// ===================================================================
-
-void DashData::InitAsDefaultInstance() {
-}
-class DashData::_Internal {
- public:
-};
-
-DashData::DashData()
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:dash.DashData)
-}
-DashData::DashData(const DashData& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&speed_, &from.speed_,
-    static_cast<size_t>(reinterpret_cast<char*>(&enginerunning_) -
-    reinterpret_cast<char*>(&speed_)) + sizeof(enginerunning_));
-  // @@protoc_insertion_point(copy_constructor:dash.DashData)
-}
-
-void DashData::SharedCtor() {
-  ::memset(&speed_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&enginerunning_) -
-      reinterpret_cast<char*>(&speed_)) + sizeof(enginerunning_));
-}
-
-DashData::~DashData() {
-  // @@protoc_insertion_point(destructor:dash.DashData)
-  SharedDtor();
-}
-
-void DashData::SharedDtor() {
-}
-
-void DashData::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DashData& DashData::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DashData_dash_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void DashData::Clear() {
-// @@protoc_insertion_point(message_clear_start:dash.DashData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&speed_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&enginerunning_) -
-      reinterpret_cast<char*>(&speed_)) + sizeof(enginerunning_));
-  _internal_metadata_.Clear();
-}
-
-const char* DashData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // float speed = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13)) {
-          speed_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // int32 rpm = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          rpm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // int32 gear = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          gear_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool neutral = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          neutral_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool clutch = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          clutch_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool engineRunning = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          enginerunning_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* DashData::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:dash.DashData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // float speed = 1;
-  if (!(this->speed() <= 0 && this->speed() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_speed(), target);
-  }
-
-  // int32 rpm = 2;
-  if (this->rpm() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_rpm(), target);
-  }
-
-  // int32 gear = 3;
-  if (this->gear() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_gear(), target);
-  }
-
-  // bool neutral = 4;
-  if (this->neutral() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_neutral(), target);
-  }
-
-  // bool clutch = 5;
-  if (this->clutch() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_clutch(), target);
-  }
-
-  // bool engineRunning = 6;
-  if (this->enginerunning() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_enginerunning(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:dash.DashData)
-  return target;
-}
-
-size_t DashData::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:dash.DashData)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // float speed = 1;
-  if (!(this->speed() <= 0 && this->speed() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // int32 rpm = 2;
-  if (this->rpm() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_rpm());
-  }
-
-  // int32 gear = 3;
-  if (this->gear() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_gear());
-  }
-
-  // bool neutral = 4;
-  if (this->neutral() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool clutch = 5;
-  if (this->clutch() != 0) {
-    total_size += 1 + 1;
-  }
-
-  // bool engineRunning = 6;
-  if (this->enginerunning() != 0) {
-    total_size += 1 + 1;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void DashData::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:dash.DashData)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DashData* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DashData>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dash.DashData)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:dash.DashData)
-    MergeFrom(*source);
-  }
-}
-
-void DashData::MergeFrom(const DashData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:dash.DashData)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!(from.speed() <= 0 && from.speed() >= 0)) {
-    _internal_set_speed(from._internal_speed());
-  }
-  if (from.rpm() != 0) {
-    _internal_set_rpm(from._internal_rpm());
-  }
-  if (from.gear() != 0) {
-    _internal_set_gear(from._internal_gear());
-  }
-  if (from.neutral() != 0) {
-    _internal_set_neutral(from._internal_neutral());
-  }
-  if (from.clutch() != 0) {
-    _internal_set_clutch(from._internal_clutch());
-  }
-  if (from.enginerunning() != 0) {
-    _internal_set_enginerunning(from._internal_enginerunning());
-  }
-}
-
-void DashData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:dash.DashData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void DashData::CopyFrom(const DashData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:dash.DashData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool DashData::IsInitialized() const {
-  return true;
-}
-
-void DashData::InternalSwap(DashData* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(speed_, other->speed_);
-  swap(rpm_, other->rpm_);
-  swap(gear_, other->gear_);
-  swap(neutral_, other->neutral_);
-  swap(clutch_, other->clutch_);
-  swap(enginerunning_, other->enginerunning_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata DashData::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-void DashExtendedData::InitAsDefaultInstance() {
-}
-class DashExtendedData::_Internal {
- public:
-};
-
-DashExtendedData::DashExtendedData()
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:dash.DashExtendedData)
-}
-DashExtendedData::DashExtendedData(const DashExtendedData& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&batteryvoltage_, &from.batteryvoltage_,
-    static_cast<size_t>(reinterpret_cast<char*>(&kickstand_) -
-    reinterpret_cast<char*>(&batteryvoltage_)) + sizeof(kickstand_));
-  // @@protoc_insertion_point(copy_constructor:dash.DashExtendedData)
-}
-
-void DashExtendedData::SharedCtor() {
-  ::memset(&batteryvoltage_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&kickstand_) -
-      reinterpret_cast<char*>(&batteryvoltage_)) + sizeof(kickstand_));
-}
-
-DashExtendedData::~DashExtendedData() {
-  // @@protoc_insertion_point(destructor:dash.DashExtendedData)
-  SharedDtor();
-}
-
-void DashExtendedData::SharedDtor() {
-}
-
-void DashExtendedData::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DashExtendedData& DashExtendedData::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DashExtendedData_dash_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void DashExtendedData::Clear() {
-// @@protoc_insertion_point(message_clear_start:dash.DashExtendedData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&batteryvoltage_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&kickstand_) -
-      reinterpret_cast<char*>(&batteryvoltage_)) + sizeof(kickstand_));
-  _internal_metadata_.Clear();
-}
-
-const char* DashExtendedData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // float batteryVoltage = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13)) {
-          batteryvoltage_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float coolantTemperature = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
-          coolanttemperature_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float airIntakeTemperature = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
-          airintaketemperature_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float manifoldPressure = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
-          manifoldpressure_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float throttlePositionSensor = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
-          throttlepositionsensor_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float injectorDuration = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
-          injectorduration_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float ignitionAdvance = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 61)) {
-          ignitionadvance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float fuelLevelPercent = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 69)) {
-          fuellevelpercent_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float fuelPressure = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 77)) {
-          fuelpressure_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float oilLevelPercent = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 85)) {
-          oillevelpercent_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float oilPressure = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 93)) {
-          oilpressure_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float oilTemperature = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 101)) {
-          oiltemperature_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float lambdaSensor1 = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 109)) {
-          lambdasensor1_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // float lambdaSensor2 = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 117)) {
-          lambdasensor2_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
-          ptr += sizeof(float);
-        } else goto handle_unusual;
-        continue;
-      // bool kickstand = 15;
-      case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
-          kickstand_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* DashExtendedData::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:dash.DashExtendedData)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // float batteryVoltage = 1;
-  if (!(this->batteryvoltage() <= 0 && this->batteryvoltage() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_batteryvoltage(), target);
-  }
-
-  // float coolantTemperature = 2;
-  if (!(this->coolanttemperature() <= 0 && this->coolanttemperature() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_coolanttemperature(), target);
-  }
-
-  // float airIntakeTemperature = 3;
-  if (!(this->airintaketemperature() <= 0 && this->airintaketemperature() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_airintaketemperature(), target);
-  }
-
-  // float manifoldPressure = 4;
-  if (!(this->manifoldpressure() <= 0 && this->manifoldpressure() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_manifoldpressure(), target);
-  }
-
-  // float throttlePositionSensor = 5;
-  if (!(this->throttlepositionsensor() <= 0 && this->throttlepositionsensor() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_throttlepositionsensor(), target);
-  }
-
-  // float injectorDuration = 6;
-  if (!(this->injectorduration() <= 0 && this->injectorduration() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_injectorduration(), target);
-  }
-
-  // float ignitionAdvance = 7;
-  if (!(this->ignitionadvance() <= 0 && this->ignitionadvance() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(7, this->_internal_ignitionadvance(), target);
-  }
-
-  // float fuelLevelPercent = 8;
-  if (!(this->fuellevelpercent() <= 0 && this->fuellevelpercent() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(8, this->_internal_fuellevelpercent(), target);
-  }
-
-  // float fuelPressure = 9;
-  if (!(this->fuelpressure() <= 0 && this->fuelpressure() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(9, this->_internal_fuelpressure(), target);
-  }
-
-  // float oilLevelPercent = 10;
-  if (!(this->oillevelpercent() <= 0 && this->oillevelpercent() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(10, this->_internal_oillevelpercent(), target);
-  }
-
-  // float oilPressure = 11;
-  if (!(this->oilpressure() <= 0 && this->oilpressure() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(11, this->_internal_oilpressure(), target);
-  }
-
-  // float oilTemperature = 12;
-  if (!(this->oiltemperature() <= 0 && this->oiltemperature() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(12, this->_internal_oiltemperature(), target);
-  }
-
-  // float lambdaSensor1 = 13;
-  if (!(this->lambdasensor1() <= 0 && this->lambdasensor1() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(13, this->_internal_lambdasensor1(), target);
-  }
-
-  // float lambdaSensor2 = 14;
-  if (!(this->lambdasensor2() <= 0 && this->lambdasensor2() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(14, this->_internal_lambdasensor2(), target);
-  }
-
-  // bool kickstand = 15;
-  if (this->kickstand() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_kickstand(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:dash.DashExtendedData)
-  return target;
-}
-
-size_t DashExtendedData::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:dash.DashExtendedData)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // float batteryVoltage = 1;
-  if (!(this->batteryvoltage() <= 0 && this->batteryvoltage() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float coolantTemperature = 2;
-  if (!(this->coolanttemperature() <= 0 && this->coolanttemperature() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float airIntakeTemperature = 3;
-  if (!(this->airintaketemperature() <= 0 && this->airintaketemperature() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float manifoldPressure = 4;
-  if (!(this->manifoldpressure() <= 0 && this->manifoldpressure() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float throttlePositionSensor = 5;
-  if (!(this->throttlepositionsensor() <= 0 && this->throttlepositionsensor() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float injectorDuration = 6;
-  if (!(this->injectorduration() <= 0 && this->injectorduration() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float ignitionAdvance = 7;
-  if (!(this->ignitionadvance() <= 0 && this->ignitionadvance() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float fuelLevelPercent = 8;
-  if (!(this->fuellevelpercent() <= 0 && this->fuellevelpercent() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float fuelPressure = 9;
-  if (!(this->fuelpressure() <= 0 && this->fuelpressure() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float oilLevelPercent = 10;
-  if (!(this->oillevelpercent() <= 0 && this->oillevelpercent() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float oilPressure = 11;
-  if (!(this->oilpressure() <= 0 && this->oilpressure() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float oilTemperature = 12;
-  if (!(this->oiltemperature() <= 0 && this->oiltemperature() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float lambdaSensor1 = 13;
-  if (!(this->lambdasensor1() <= 0 && this->lambdasensor1() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // float lambdaSensor2 = 14;
-  if (!(this->lambdasensor2() <= 0 && this->lambdasensor2() >= 0)) {
-    total_size += 1 + 4;
-  }
-
-  // bool kickstand = 15;
-  if (this->kickstand() != 0) {
-    total_size += 1 + 1;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void DashExtendedData::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:dash.DashExtendedData)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DashExtendedData* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DashExtendedData>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dash.DashExtendedData)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:dash.DashExtendedData)
-    MergeFrom(*source);
-  }
-}
-
-void DashExtendedData::MergeFrom(const DashExtendedData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:dash.DashExtendedData)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!(from.batteryvoltage() <= 0 && from.batteryvoltage() >= 0)) {
-    _internal_set_batteryvoltage(from._internal_batteryvoltage());
-  }
-  if (!(from.coolanttemperature() <= 0 && from.coolanttemperature() >= 0)) {
-    _internal_set_coolanttemperature(from._internal_coolanttemperature());
-  }
-  if (!(from.airintaketemperature() <= 0 && from.airintaketemperature() >= 0)) {
-    _internal_set_airintaketemperature(from._internal_airintaketemperature());
-  }
-  if (!(from.manifoldpressure() <= 0 && from.manifoldpressure() >= 0)) {
-    _internal_set_manifoldpressure(from._internal_manifoldpressure());
-  }
-  if (!(from.throttlepositionsensor() <= 0 && from.throttlepositionsensor() >= 0)) {
-    _internal_set_throttlepositionsensor(from._internal_throttlepositionsensor());
-  }
-  if (!(from.injectorduration() <= 0 && from.injectorduration() >= 0)) {
-    _internal_set_injectorduration(from._internal_injectorduration());
-  }
-  if (!(from.ignitionadvance() <= 0 && from.ignitionadvance() >= 0)) {
-    _internal_set_ignitionadvance(from._internal_ignitionadvance());
-  }
-  if (!(from.fuellevelpercent() <= 0 && from.fuellevelpercent() >= 0)) {
-    _internal_set_fuellevelpercent(from._internal_fuellevelpercent());
-  }
-  if (!(from.fuelpressure() <= 0 && from.fuelpressure() >= 0)) {
-    _internal_set_fuelpressure(from._internal_fuelpressure());
-  }
-  if (!(from.oillevelpercent() <= 0 && from.oillevelpercent() >= 0)) {
-    _internal_set_oillevelpercent(from._internal_oillevelpercent());
-  }
-  if (!(from.oilpressure() <= 0 && from.oilpressure() >= 0)) {
-    _internal_set_oilpressure(from._internal_oilpressure());
-  }
-  if (!(from.oiltemperature() <= 0 && from.oiltemperature() >= 0)) {
-    _internal_set_oiltemperature(from._internal_oiltemperature());
-  }
-  if (!(from.lambdasensor1() <= 0 && from.lambdasensor1() >= 0)) {
-    _internal_set_lambdasensor1(from._internal_lambdasensor1());
-  }
-  if (!(from.lambdasensor2() <= 0 && from.lambdasensor2() >= 0)) {
-    _internal_set_lambdasensor2(from._internal_lambdasensor2());
-  }
-  if (from.kickstand() != 0) {
-    _internal_set_kickstand(from._internal_kickstand());
-  }
-}
-
-void DashExtendedData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:dash.DashExtendedData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void DashExtendedData::CopyFrom(const DashExtendedData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:dash.DashExtendedData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool DashExtendedData::IsInitialized() const {
-  return true;
-}
-
-void DashExtendedData::InternalSwap(DashExtendedData* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(batteryvoltage_, other->batteryvoltage_);
-  swap(coolanttemperature_, other->coolanttemperature_);
-  swap(airintaketemperature_, other->airintaketemperature_);
-  swap(manifoldpressure_, other->manifoldpressure_);
-  swap(throttlepositionsensor_, other->throttlepositionsensor_);
-  swap(injectorduration_, other->injectorduration_);
-  swap(ignitionadvance_, other->ignitionadvance_);
-  swap(fuellevelpercent_, other->fuellevelpercent_);
-  swap(fuelpressure_, other->fuelpressure_);
-  swap(oillevelpercent_, other->oillevelpercent_);
-  swap(oilpressure_, other->oilpressure_);
-  swap(oiltemperature_, other->oiltemperature_);
-  swap(lambdasensor1_, other->lambdasensor1_);
-  swap(lambdasensor2_, other->lambdasensor2_);
-  swap(kickstand_, other->kickstand_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata DashExtendedData::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-void PlayStatus::InitAsDefaultInstance() {
-}
-class PlayStatus::_Internal {
- public:
-};
-
-PlayStatus::PlayStatus()
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:dash.PlayStatus)
-}
-PlayStatus::PlayStatus(const PlayStatus& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  playstatus_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_playstatus().empty()) {
-    playstatus_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.playstatus_);
-  }
-  // @@protoc_insertion_point(copy_constructor:dash.PlayStatus)
-}
-
-void PlayStatus::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PlayStatus_dash_2eproto.base);
-  playstatus_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-PlayStatus::~PlayStatus() {
-  // @@protoc_insertion_point(destructor:dash.PlayStatus)
-  SharedDtor();
-}
-
-void PlayStatus::SharedDtor() {
-  playstatus_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void PlayStatus::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const PlayStatus& PlayStatus::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_PlayStatus_dash_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void PlayStatus::Clear() {
-// @@protoc_insertion_point(message_clear_start:dash.PlayStatus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  playstatus_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-const char* PlayStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string playStatus = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_playstatus();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.PlayStatus.playStatus"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* PlayStatus::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:dash.PlayStatus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string playStatus = 1;
-  if (this->playstatus().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_playstatus().data(), static_cast<int>(this->_internal_playstatus().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "dash.PlayStatus.playStatus");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_playstatus(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:dash.PlayStatus)
-  return target;
-}
-
-size_t PlayStatus::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:dash.PlayStatus)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string playStatus = 1;
-  if (this->playstatus().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_playstatus());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void PlayStatus::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:dash.PlayStatus)
-  GOOGLE_DCHECK_NE(&from, this);
-  const PlayStatus* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PlayStatus>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dash.PlayStatus)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:dash.PlayStatus)
-    MergeFrom(*source);
-  }
-}
-
-void PlayStatus::MergeFrom(const PlayStatus& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:dash.PlayStatus)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.playstatus().size() > 0) {
-
-    playstatus_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.playstatus_);
-  }
-}
-
-void PlayStatus::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:dash.PlayStatus)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void PlayStatus::CopyFrom(const PlayStatus& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:dash.PlayStatus)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool PlayStatus::IsInitialized() const {
-  return true;
-}
-
-void PlayStatus::InternalSwap(PlayStatus* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  playstatus_.Swap(&other->playstatus_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata PlayStatus::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-void MediaItem::InitAsDefaultInstance() {
-}
-class MediaItem::_Internal {
- public:
-};
-
-MediaItem::MediaItem()
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:dash.MediaItem)
-}
-MediaItem::MediaItem(const MediaItem& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  title_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_title().empty()) {
-    title_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.title_);
-  }
-  artist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_artist().empty()) {
-    artist_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.artist_);
-  }
-  album_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_album().empty()) {
-    album_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.album_);
-  }
-  // @@protoc_insertion_point(copy_constructor:dash.MediaItem)
-}
-
-void MediaItem::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MediaItem_dash_2eproto.base);
-  title_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  artist_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  album_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-MediaItem::~MediaItem() {
-  // @@protoc_insertion_point(destructor:dash.MediaItem)
-  SharedDtor();
-}
-
-void MediaItem::SharedDtor() {
-  title_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  artist_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  album_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void MediaItem::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const MediaItem& MediaItem::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_MediaItem_dash_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void MediaItem::Clear() {
-// @@protoc_insertion_point(message_clear_start:dash.MediaItem)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  title_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  artist_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  album_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-const char* MediaItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string title = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_title();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.MediaItem.title"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string artist = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_artist();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.MediaItem.artist"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string album = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_album();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.MediaItem.album"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* MediaItem::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:dash.MediaItem)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string title = 1;
-  if (this->title().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_title().data(), static_cast<int>(this->_internal_title().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "dash.MediaItem.title");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_title(), target);
-  }
-
-  // string artist = 2;
-  if (this->artist().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_artist().data(), static_cast<int>(this->_internal_artist().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "dash.MediaItem.artist");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_artist(), target);
-  }
-
-  // string album = 3;
-  if (this->album().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_album().data(), static_cast<int>(this->_internal_album().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "dash.MediaItem.album");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_album(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:dash.MediaItem)
-  return target;
-}
-
-size_t MediaItem::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:dash.MediaItem)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string title = 1;
-  if (this->title().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_title());
-  }
-
-  // string artist = 2;
-  if (this->artist().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_artist());
-  }
-
-  // string album = 3;
-  if (this->album().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_album());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void MediaItem::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:dash.MediaItem)
-  GOOGLE_DCHECK_NE(&from, this);
-  const MediaItem* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MediaItem>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dash.MediaItem)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:dash.MediaItem)
-    MergeFrom(*source);
-  }
-}
-
-void MediaItem::MergeFrom(const MediaItem& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:dash.MediaItem)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.title().size() > 0) {
-
-    title_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.title_);
-  }
-  if (from.artist().size() > 0) {
-
-    artist_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.artist_);
-  }
-  if (from.album().size() > 0) {
-
-    album_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.album_);
-  }
-}
-
-void MediaItem::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:dash.MediaItem)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void MediaItem::CopyFrom(const MediaItem& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:dash.MediaItem)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool MediaItem::IsInitialized() const {
-  return true;
-}
-
-void MediaItem::InternalSwap(MediaItem* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  title_.Swap(&other->title_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  artist_.Swap(&other->artist_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  album_.Swap(&other->album_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata MediaItem::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
 
 // ===================================================================
 
@@ -1691,23 +386,944 @@ void StatusResponse::InternalSwap(StatusResponse* other) {
 }
 
 
+// ===================================================================
+
+void StringValue::InitAsDefaultInstance() {
+}
+class StringValue::_Internal {
+ public:
+};
+
+StringValue::StringValue()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:dash.StringValue)
+}
+StringValue::StringValue(const StringValue& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.identifier_);
+  }
+  value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_value().empty()) {
+    value_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.value_);
+  }
+  // @@protoc_insertion_point(copy_constructor:dash.StringValue)
+}
+
+void StringValue::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_StringValue_dash_2eproto.base);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+StringValue::~StringValue() {
+  // @@protoc_insertion_point(destructor:dash.StringValue)
+  SharedDtor();
+}
+
+void StringValue::SharedDtor() {
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void StringValue::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const StringValue& StringValue::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_StringValue_dash_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void StringValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:dash.StringValue)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+const char* StringValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.StringValue.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_value();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.StringValue.value"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* StringValue::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dash.StringValue)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dash.StringValue.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // string value = 2;
+  if (this->value().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_value().data(), static_cast<int>(this->_internal_value().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dash.StringValue.value");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_value(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dash.StringValue)
+  return target;
+}
+
+size_t StringValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dash.StringValue)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // string value = 2;
+  if (this->value().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_value());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void StringValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dash.StringValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  const StringValue* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StringValue>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dash.StringValue)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dash.StringValue)
+    MergeFrom(*source);
+  }
+}
+
+void StringValue::MergeFrom(const StringValue& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dash.StringValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+
+    identifier_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.identifier_);
+  }
+  if (from.value().size() > 0) {
+
+    value_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.value_);
+  }
+}
+
+void StringValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dash.StringValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void StringValue::CopyFrom(const StringValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dash.StringValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool StringValue::IsInitialized() const {
+  return true;
+}
+
+void StringValue::InternalSwap(StringValue* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  value_.Swap(&other->value_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata StringValue::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void IntValue::InitAsDefaultInstance() {
+}
+class IntValue::_Internal {
+ public:
+};
+
+IntValue::IntValue()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:dash.IntValue)
+}
+IntValue::IntValue(const IntValue& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.identifier_);
+  }
+  value_ = from.value_;
+  // @@protoc_insertion_point(copy_constructor:dash.IntValue)
+}
+
+void IntValue::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_IntValue_dash_2eproto.base);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_ = 0;
+}
+
+IntValue::~IntValue() {
+  // @@protoc_insertion_point(destructor:dash.IntValue)
+  SharedDtor();
+}
+
+void IntValue::SharedDtor() {
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void IntValue::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const IntValue& IntValue::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_IntValue_dash_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void IntValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:dash.IntValue)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_ = 0;
+  _internal_metadata_.Clear();
+}
+
+const char* IntValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.IntValue.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          value_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* IntValue::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dash.IntValue)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dash.IntValue.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // int32 value = 2;
+  if (this->value() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_value(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dash.IntValue)
+  return target;
+}
+
+size_t IntValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dash.IntValue)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // int32 value = 2;
+  if (this->value() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_value());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void IntValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dash.IntValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  const IntValue* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<IntValue>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dash.IntValue)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dash.IntValue)
+    MergeFrom(*source);
+  }
+}
+
+void IntValue::MergeFrom(const IntValue& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dash.IntValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+
+    identifier_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.identifier_);
+  }
+  if (from.value() != 0) {
+    _internal_set_value(from._internal_value());
+  }
+}
+
+void IntValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dash.IntValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void IntValue::CopyFrom(const IntValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dash.IntValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool IntValue::IsInitialized() const {
+  return true;
+}
+
+void IntValue::InternalSwap(IntValue* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(value_, other->value_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata IntValue::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void FloatValue::InitAsDefaultInstance() {
+}
+class FloatValue::_Internal {
+ public:
+};
+
+FloatValue::FloatValue()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:dash.FloatValue)
+}
+FloatValue::FloatValue(const FloatValue& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.identifier_);
+  }
+  value_ = from.value_;
+  // @@protoc_insertion_point(copy_constructor:dash.FloatValue)
+}
+
+void FloatValue::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_FloatValue_dash_2eproto.base);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_ = 0;
+}
+
+FloatValue::~FloatValue() {
+  // @@protoc_insertion_point(destructor:dash.FloatValue)
+  SharedDtor();
+}
+
+void FloatValue::SharedDtor() {
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void FloatValue::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const FloatValue& FloatValue::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_FloatValue_dash_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void FloatValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:dash.FloatValue)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_ = 0;
+  _internal_metadata_.Clear();
+}
+
+const char* FloatValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.FloatValue.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
+          value_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* FloatValue::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dash.FloatValue)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dash.FloatValue.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // float value = 2;
+  if (!(this->value() <= 0 && this->value() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_value(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dash.FloatValue)
+  return target;
+}
+
+size_t FloatValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dash.FloatValue)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // float value = 2;
+  if (!(this->value() <= 0 && this->value() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void FloatValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dash.FloatValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FloatValue* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<FloatValue>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dash.FloatValue)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dash.FloatValue)
+    MergeFrom(*source);
+  }
+}
+
+void FloatValue::MergeFrom(const FloatValue& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dash.FloatValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+
+    identifier_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.identifier_);
+  }
+  if (!(from.value() <= 0 && from.value() >= 0)) {
+    _internal_set_value(from._internal_value());
+  }
+}
+
+void FloatValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dash.FloatValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FloatValue::CopyFrom(const FloatValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dash.FloatValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FloatValue::IsInitialized() const {
+  return true;
+}
+
+void FloatValue::InternalSwap(FloatValue* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(value_, other->value_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FloatValue::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void BytesValue::InitAsDefaultInstance() {
+}
+class BytesValue::_Internal {
+ public:
+};
+
+BytesValue::BytesValue()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:dash.BytesValue)
+}
+BytesValue::BytesValue(const BytesValue& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_identifier().empty()) {
+    identifier_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.identifier_);
+  }
+  value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_value().empty()) {
+    value_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.value_);
+  }
+  // @@protoc_insertion_point(copy_constructor:dash.BytesValue)
+}
+
+void BytesValue::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_BytesValue_dash_2eproto.base);
+  identifier_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+BytesValue::~BytesValue() {
+  // @@protoc_insertion_point(destructor:dash.BytesValue)
+  SharedDtor();
+}
+
+void BytesValue::SharedDtor() {
+  identifier_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void BytesValue::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const BytesValue& BytesValue::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BytesValue_dash_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void BytesValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:dash.BytesValue)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  identifier_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  value_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+const char* BytesValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string identifier = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_identifier();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "dash.BytesValue.identifier"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_value();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* BytesValue::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:dash.BytesValue)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_identifier().data(), static_cast<int>(this->_internal_identifier().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dash.BytesValue.identifier");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_identifier(), target);
+  }
+
+  // bytes value = 2;
+  if (this->value().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_value(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:dash.BytesValue)
+  return target;
+}
+
+size_t BytesValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:dash.BytesValue)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string identifier = 1;
+  if (this->identifier().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_identifier());
+  }
+
+  // bytes value = 2;
+  if (this->value().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_value());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void BytesValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:dash.BytesValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BytesValue* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BytesValue>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:dash.BytesValue)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:dash.BytesValue)
+    MergeFrom(*source);
+  }
+}
+
+void BytesValue::MergeFrom(const BytesValue& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:dash.BytesValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.identifier().size() > 0) {
+
+    identifier_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.identifier_);
+  }
+  if (from.value().size() > 0) {
+
+    value_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.value_);
+  }
+}
+
+void BytesValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:dash.BytesValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BytesValue::CopyFrom(const BytesValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:dash.BytesValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BytesValue::IsInitialized() const {
+  return true;
+}
+
+void BytesValue::InternalSwap(BytesValue* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  identifier_.Swap(&other->identifier_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  value_.Swap(&other->value_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BytesValue::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace dash
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::dash::DashData* Arena::CreateMaybeMessage< ::dash::DashData >(Arena* arena) {
-  return Arena::CreateInternal< ::dash::DashData >(arena);
-}
-template<> PROTOBUF_NOINLINE ::dash::DashExtendedData* Arena::CreateMaybeMessage< ::dash::DashExtendedData >(Arena* arena) {
-  return Arena::CreateInternal< ::dash::DashExtendedData >(arena);
-}
-template<> PROTOBUF_NOINLINE ::dash::PlayStatus* Arena::CreateMaybeMessage< ::dash::PlayStatus >(Arena* arena) {
-  return Arena::CreateInternal< ::dash::PlayStatus >(arena);
-}
-template<> PROTOBUF_NOINLINE ::dash::MediaItem* Arena::CreateMaybeMessage< ::dash::MediaItem >(Arena* arena) {
-  return Arena::CreateInternal< ::dash::MediaItem >(arena);
-}
 template<> PROTOBUF_NOINLINE ::dash::StatusResponse* Arena::CreateMaybeMessage< ::dash::StatusResponse >(Arena* arena) {
   return Arena::CreateInternal< ::dash::StatusResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dash::StringValue* Arena::CreateMaybeMessage< ::dash::StringValue >(Arena* arena) {
+  return Arena::CreateInternal< ::dash::StringValue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dash::IntValue* Arena::CreateMaybeMessage< ::dash::IntValue >(Arena* arena) {
+  return Arena::CreateInternal< ::dash::IntValue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dash::FloatValue* Arena::CreateMaybeMessage< ::dash::FloatValue >(Arena* arena) {
+  return Arena::CreateInternal< ::dash::FloatValue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::dash::BytesValue* Arena::CreateMaybeMessage< ::dash::BytesValue >(Arena* arena) {
+  return Arena::CreateInternal< ::dash::BytesValue >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -14,6 +14,9 @@
 #include "Vehicle.hpp"
 #include "Dashboard.hpp"
 #include "Splash.hpp"
+#include "DashService.hpp"
+
+void startDashService(DashServiceImpl *service);
 
 int main(int argc, char* argv[])
 {
@@ -22,8 +25,12 @@ int main(int argc, char* argv[])
     r.initShaders();
     
     std::queue<Scene*> sceneQueue;
-    sceneQueue.push((Scene*) new Splash(r));
-    sceneQueue.push((Scene*) new Dashboard(r));
+    DashServiceImpl service;
+    
+    std::thread dashServiceThread = std::thread(&startDashService, &service);
+    
+//    sceneQueue.push((Scene*) new Splash(r));
+    sceneQueue.push((Scene*) new Dashboard(&r, &service));
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     
@@ -60,4 +67,16 @@ int main(int argc, char* argv[])
     SDL_Quit();
     
     return 0;
+}
+
+void startDashService(DashServiceImpl *service) {
+    std::string server_address("0.0.0.0:50052");
+    
+    ServerBuilder builder;
+    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+    builder.RegisterService(service);
+    std::unique_ptr<Server> server(builder.BuildAndStart());
+    std::cout << "DashService listening on " << server_address << std::endl;
+    
+    server->Wait();
 }

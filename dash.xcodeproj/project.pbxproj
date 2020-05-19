@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		660070362433C8AE001080A1 /* DashControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660070342433C8AE001080A1 /* DashControl.cpp */; };
+		661879D72473DA2500BB39FF /* DashService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661879D52473DA2500BB39FF /* DashService.cpp */; };
 		66369D9D2302E7A000975025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369D9C2302E7A000975025 /* main.cpp */; };
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
 		66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* ShaderProgram.cpp */; };
@@ -36,20 +36,15 @@
 		6674FA4A246452D600E4B6CC /* TransformVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66369DB42302EE8600975025 /* TransformVertexShader.glsl */; };
 		6674FA4B246452D600E4B6CC /* TextFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847A23044894002D326C /* TextFragment.glsl */; };
 		6674FA4C246452D600E4B6CC /* TextVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847923044886002D326C /* TextVertex.glsl */; };
-		6674FA4E2464532B00E4B6CC /* square.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5285245D7AF100AC6765 /* square.tga */; };
 		6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5283245D78C000AC6765 /* dissolve-ramp.tga */; };
 		6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5287245D7C2200AC6765 /* noise.tga */; };
 		6674FA512464532B00E4B6CC /* logo.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5289245D862A00AC6765 /* logo.tga */; };
-		6674FA522464532B00E4B6CC /* splash.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A528A245D862A00AC6765 /* splash.tga */; };
-		6674FA532464532B00E4B6CC /* faster.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6682BD4C245F2DA500FB020A /* faster.tga */; };
 		6674FA54246453B300E4B6CC /* radial.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686CF245A0F7700FF318E /* radial.bmp */; };
 		6674FA55246453B300E4B6CC /* uvtemplate.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66369DB92302F2F100975025 /* uvtemplate.bmp */; };
-		6674FA56246453B300E4B6CC /* background.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686D1245A141100FF318E /* background.bmp */; };
 		6674FA5E2464549D00E4B6CC /* hnpro-extra-black-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5C2464548A00E4B6CC /* hnpro-extra-black-condensed.otf */; };
 		6674FA5F2464549D00E4B6CC /* hnpro-medium-condensed-oblique.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5A2464548A00E4B6CC /* hnpro-medium-condensed-oblique.otf */; };
 		6674FA602464549D00E4B6CC /* hnpro-medium-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */; };
 		6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */; };
-		66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66754E4B2436303100B53C5A /* MediaPlayer.cpp */; };
 		66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B17153246D76EF00A037C8 /* libSDL2.dylib */; };
 		66B17156246D7A3500A037C8 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 66B17155246D7A3500A037C8 /* glad.c */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
@@ -105,13 +100,9 @@
 			files = (
 				6674FA54246453B300E4B6CC /* radial.bmp in CopyFiles */,
 				6674FA55246453B300E4B6CC /* uvtemplate.bmp in CopyFiles */,
-				6674FA56246453B300E4B6CC /* background.bmp in CopyFiles */,
-				6674FA4E2464532B00E4B6CC /* square.tga in CopyFiles */,
 				6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */,
 				6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */,
 				6674FA512464532B00E4B6CC /* logo.tga in CopyFiles */,
-				6674FA522464532B00E4B6CC /* splash.tga in CopyFiles */,
-				6674FA532464532B00E4B6CC /* faster.tga in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +122,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		660070342433C8AE001080A1 /* DashControl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DashControl.cpp; sourceTree = "<group>"; };
-		660070352433C8AE001080A1 /* DashControl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashControl.hpp; sourceTree = "<group>"; };
+		661879D52473DA2500BB39FF /* DashService.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DashService.cpp; sourceTree = "<group>"; };
+		661879D62473DA2500BB39FF /* DashService.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashService.hpp; sourceTree = "<group>"; };
 		66369D992302E7A000975025 /* dash_bin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dash_bin; sourceTree = BUILT_PRODUCTS_DIR; };
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
@@ -160,10 +151,8 @@
 		665A527E245D72DA00AC6765 /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
 		665A5282245D77CC00AC6765 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		665A5283245D78C000AC6765 /* dissolve-ramp.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dissolve-ramp.tga"; sourceTree = "<group>"; };
-		665A5285245D7AF100AC6765 /* square.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = square.tga; sourceTree = "<group>"; };
 		665A5287245D7C2200AC6765 /* noise.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = noise.tga; sourceTree = "<group>"; };
 		665A5289245D862A00AC6765 /* logo.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.tga; sourceTree = "<group>"; };
-		665A528A245D862A00AC6765 /* splash.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = splash.tga; sourceTree = "<group>"; };
 		665A528D245D91BB00AC6765 /* Splash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Splash.cpp; sourceTree = "<group>"; };
 		665A528E245D91BB00AC6765 /* Splash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Splash.hpp; sourceTree = "<group>"; };
 		665A5290245D932B00AC6765 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -177,9 +166,6 @@
 		6674FA5A2464548A00E4B6CC /* hnpro-medium-condensed-oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hnpro-medium-condensed-oblique.otf"; sourceTree = "<group>"; };
 		6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mexcellent.ttf; sourceTree = "<group>"; };
 		6674FA5C2464548A00E4B6CC /* hnpro-extra-black-condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hnpro-extra-black-condensed.otf"; sourceTree = "<group>"; };
-		66754E4B2436303100B53C5A /* MediaPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaPlayer.cpp; sourceTree = "<group>"; };
-		66754E4C2436303100B53C5A /* MediaPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaPlayer.hpp; sourceTree = "<group>"; };
-		6682BD4C245F2DA500FB020A /* faster.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = faster.tga; sourceTree = "<group>"; };
 		668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FractalRadialFragment.glsl; sourceTree = "<group>"; };
 		668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FractalRadialVertex.glsl; sourceTree = "<group>"; };
 		66A686B024585E9E00FF318E /* LineFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineFragment.glsl; sourceTree = "<group>"; };
@@ -189,7 +175,6 @@
 		66A686CB245A0A6400FF318E /* RingTextureArcVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingTextureArcVertex.glsl; sourceTree = "<group>"; };
 		66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingTextureArcFragment.glsl; sourceTree = "<group>"; };
 		66A686CF245A0F7700FF318E /* radial.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = radial.bmp; sourceTree = "<group>"; };
-		66A686D1245A141100FF318E /* background.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = background.bmp; sourceTree = "<group>"; };
 		66B17153246D76EF00A037C8 /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../usr/local/lib/libSDL2.dylib; sourceTree = "<group>"; };
 		66B17155246D7A3500A037C8 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = glad/src/glad.c; sourceTree = SOURCE_ROOT; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
@@ -263,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				6674FA2B24633B0900E4B6CC /* stb */,
+				661879D62473DA2500BB39FF /* DashService.hpp */,
+				661879D52473DA2500BB39FF /* DashService.cpp */,
 				665984A22305C5A9002D326C /* Definitions.h */,
 				6659848023044A47002D326C /* Font.hpp */,
 				6659847F23044A47002D326C /* Font.cpp */,
@@ -274,10 +261,6 @@
 				6659848723057103002D326C /* Dashboard.cpp */,
 				665A528E245D91BB00AC6765 /* Splash.hpp */,
 				665A528D245D91BB00AC6765 /* Splash.cpp */,
-				66754E4C2436303100B53C5A /* MediaPlayer.hpp */,
-				66754E4B2436303100B53C5A /* MediaPlayer.cpp */,
-				660070352433C8AE001080A1 /* DashControl.hpp */,
-				660070342433C8AE001080A1 /* DashControl.cpp */,
 				6659848523056DFF002D326C /* Vehicle.hpp */,
 				6659848423056DFF002D326C /* Vehicle.cpp */,
 				66369D9C2302E7A000975025 /* main.cpp */,
@@ -330,13 +313,9 @@
 			children = (
 				66A686CF245A0F7700FF318E /* radial.bmp */,
 				66369DB92302F2F100975025 /* uvtemplate.bmp */,
-				665A5285245D7AF100AC6765 /* square.tga */,
-				66A686D1245A141100FF318E /* background.bmp */,
 				665A5283245D78C000AC6765 /* dissolve-ramp.tga */,
 				665A5287245D7C2200AC6765 /* noise.tga */,
 				665A5289245D862A00AC6765 /* logo.tga */,
-				665A528A245D862A00AC6765 /* splash.tga */,
-				6682BD4C245F2DA500FB020A /* faster.tga */,
 			);
 			path = textures;
 			sourceTree = "<group>";
@@ -436,12 +415,11 @@
 				66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
 				66369DB22302EAFC00975025 /* Shader.cpp in Sources */,
-				66754E4D2436303100B53C5A /* MediaPlayer.cpp in Sources */,
+				661879D72473DA2500BB39FF /* DashService.cpp in Sources */,
 				6659848923057103002D326C /* Dashboard.cpp in Sources */,
 				665A5292245D932B00AC6765 /* Scene.cpp in Sources */,
 				665A528F245D91BB00AC6765 /* Splash.cpp in Sources */,
 				66369D9D2302E7A000975025 /* main.cpp in Sources */,
-				660070362433C8AE001080A1 /* DashControl.cpp in Sources */,
 				665A5298245DA2C500AC6765 /* Animation.cpp in Sources */,
 				66B17156246D7A3500A037C8 /* glad.c in Sources */,
 				66D205BF2472A2BC0013932C /* dash.pb.cc in Sources */,

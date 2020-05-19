@@ -8,6 +8,7 @@
 
 #include "Scene.hpp"
 
-Scene::Scene(Renderer &renderer) {
-    this->r = &renderer;
+Scene::Scene(Renderer *renderer, DashServiceImpl *service) {
+    this->_r = renderer;
+    this->_service = service;
 };

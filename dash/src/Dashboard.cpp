@@ -7,8 +7,6 @@
 //
 
 #include "Dashboard.hpp"
-#include "MediaPlayer.hpp"
-#include "DashControl.hpp"
 #include <thread>
 #include <functional>
 #include <memory>
@@ -19,21 +17,20 @@
 #define M_PI_2 1.57079632679489661923
 #endif
 
-Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
+Dashboard::Dashboard(Renderer *renderer, DashServiceImpl *service) : Scene(renderer, service) {
     arcTextureId = Texture::loadBMP("dash/etc/textures/radial.bmp");
-    squareTextureId = Texture::loadTGA("dash/etc/textures/square.tga");
     fasterTexture = Texture::loadTGA("dash/etc/textures/faster.tga");
     
     vehicle = new Vehicle();
     
     FT_Face face, faceItalic, faceBold;
-    if (FT_New_Face(r->ft, "dash/etc/fonts/hnpro-medium-condensed.otf", 0, &face)) {
+    if (FT_New_Face(_r->ft, "dash/etc/fonts/hnpro-medium-condensed.otf", 0, &face)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
-    if (FT_New_Face(r->ft, "dash/etc/fonts/hnpro-medium-condensed-oblique.otf", 0, &faceItalic)) {
+    if (FT_New_Face(_r->ft, "dash/etc/fonts/hnpro-medium-condensed-oblique.otf", 0, &faceItalic)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
-    if (FT_New_Face(r->ft, "dash/etc/fonts/hnpro-extra-black-condensed.otf", 0, &faceBold)) {
+    if (FT_New_Face(_r->ft, "dash/etc/fonts/hnpro-extra-black-condensed.otf", 0, &faceBold)) {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
     
@@ -44,7 +41,7 @@ Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
     };
     
     std::vector<FT_ULong> largeChars = {
-        'N','0','1','2','3','4','5','6','7','8','9','-'
+        'N','0','1','2','3','4','5','6','7','8','9','-','.'
     };
     
     hnproSmall = new FontWrapper(face, 16, usedChars);
@@ -56,44 +53,7 @@ Dashboard::Dashboard(Renderer &renderer) : Scene(renderer) {
     
     createFramebuffer();
     
-    mediaServiceThread = std::thread(&Dashboard::startMediaService, this);
-    dashServiceThread = std::thread(&Dashboard::startDashService, this);
-    
     animationQueue.push(new Animation("fadeIn", 0, 1.0, 2.0));
-}
-
-void Dashboard::startMediaService() {
-    std::string server_address("0.0.0.0:50051");
-    MediaPlayerImpl service(this);
-    
-    ServerBuilder builder;
-    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-    builder.RegisterService(&service);
-    std::unique_ptr<Server> server(builder.BuildAndStart());
-    std::cout << "Media Server listening on " << server_address << std::endl;
-    
-    server->Wait();
-}
-
-void Dashboard::startDashService() {
-    std::string server_address("0.0.0.0:50052");
-    DashControlImpl service(this);
-    
-    ServerBuilder builder;
-    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-    builder.RegisterService(&service);
-    std::unique_ptr<Server> server(builder.BuildAndStart());
-    std::cout << "Dash Server listening on " << server_address << std::endl;
-    
-    server->Wait();
-}
-
-void Dashboard::setPlayStatus(std::string playStatus) {
-    playStatus_ = playStatus;
-}
-
-void Dashboard::setNowPlaying(DashMediaItem mediaItem) {
-    nowPlaying_ = mediaItem;
 }
 
 void Dashboard::createFramebuffer() {
@@ -103,7 +63,7 @@ void Dashboard::createFramebuffer() {
     glGenTextures(1, &screenTexture);
     
     // "Bind" the newly created texture : all future texture functions will modify this texture
-    r->bindTexture(screenTexture);
+    _r->bindTexture(screenTexture);
     
     // Give an empty image to OpenGL ( the last "0" )
     glTexImage2D(GL_TEXTURE_2D, 0,GL_RGB, WIDTH, HEIGHT, 0,GL_RGB, GL_UNSIGNED_BYTE, 0);
@@ -139,7 +99,7 @@ bool Dashboard::render(float delta) {
         float value = current->animate(delta);
         
         if (current->getId() == "fadeIn") {
-            r->setGlobalAlpha(value);
+            _r->setGlobalAlpha(value);
         }
         
         if (current->complete()) {
@@ -148,7 +108,7 @@ bool Dashboard::render(float delta) {
         }
     }
     
-    r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
+    _r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
     
     float value = vehicle->getRPM()/1000.0f;
     float max = 12;
@@ -160,9 +120,9 @@ bool Dashboard::render(float delta) {
     tempStr.append("C");
     
     if (vehicle->getKickstand() == true) {
-        r->renderTexture(squareTextureId, 22, 363, 94, 94);
-        r->renderText(*hnproMedium27, "SIDE", 46.0f, 80.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-        r->renderText(*hnproMedium27, "STAND", 36.0f, 44.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+        _r->renderTexture(squareTextureId, 22, 363, 94, 94);
+        _r->renderText(*hnproMedium27, "SIDE", 46.0f, 80.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+        _r->renderText(*hnproMedium27, "STAND", 36.0f, 44.0f, 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
     }
 //
 //    float endX = 0;
@@ -184,11 +144,17 @@ bool Dashboard::render(float delta) {
 //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getBattVoltageString(), attrX["battVoltage"] + 5.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproMedium27, "V", endX + 3.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    endX = r->renderText(*hnproExtraHeavy36, vehicle->getRPMString(), 553.0f, 364.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    r->renderText(*hnproHugeOblique, vehicle->getGearString(), 50.0f, 420.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
+    _r->renderText(*hnproHugeOblique, vehicle->getGearString(), 50.0f, 420.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
 
-    std::string speed = vehicle->getSpeedString();
-    r->renderText(*hnproHuge, speed, 270.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
-    r->renderText(*hnproMediumOblique, "km/h", 200.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+//    std::string speed = vehicle->getSpeedString();
+    float speed = 0.0;
+    _service->getFloatValue("speed", speed);
+    
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(0) << speed;
+    
+    _r->renderText(*hnproHuge, stream.str(), 270.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+    _r->renderText(*hnproMediumOblique, "km/h", 200.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     //    r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
@@ -238,8 +204,8 @@ bool Dashboard::render(float delta) {
                      );
     
     std::stringstream sfps;
-    sfps << std::fixed << std::setprecision(0) << r->getFrameRate();
-    r->renderText(*hnproMedium27, sfps.str(), 0.0f, 0.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    sfps << std::fixed << std::setprecision(0) << _r->getFrameRate();
+    _r->renderText(*hnproMedium27, sfps.str(), 0.0f, 0.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     return true;
 }
@@ -259,7 +225,7 @@ void Dashboard::renderFixed() {
 //    attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    r->setGlobalAlpha(0.0);
+    _r->setGlobalAlpha(0.0);
 }
 
 Vehicle* Dashboard::getVehicle() {
@@ -268,7 +234,7 @@ Vehicle* Dashboard::getVehicle() {
 
 void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts) {
     
-    GLuint vertexbuffer = r->getVertexBuffer();
+    GLuint vertexbuffer = _r->getVertexBuffer();
     
     GLint ticks = (maxValue - 1) * ticksBetweenInts + maxValue;
     GLint numberOfVertices = ticks * 2;
@@ -287,7 +253,7 @@ void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat rad
         GLfloat smallRadius = shortTickLength;
         if (i % (ticksBetweenInts + 1) == 0) {
             smallRadius = longTickLength;
-            r->renderText(font,
+            _r->renderText(font,
                           std::to_string(i/(ticksBetweenInts+1)+1),
                           x + ( (radius - smallRadius - 25) * cos(startAngle + i * (deltaAngle / ticks) ) ),
                           y + ( (radius - smallRadius - 25) * sin(startAngle + i * (deltaAngle / ticks) ) ),
@@ -364,10 +330,10 @@ void Dashboard::drawNeedle(float value, float maxValue, GLint x, GLint y, GLfloa
         buffer[i+1] += y;
     }
     
-    GLuint uTextColor = r->textProgram->getUniformLocation("textColor");
+    GLuint uTextColor = _r->textProgram->getUniformLocation("textColor");
     glUniform3f(uTextColor, 1, 0, 0);
     
-    GLuint vertexbuffer = r->getVertexBuffer();
+    GLuint vertexbuffer = _r->getVertexBuffer();
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(buffer), buffer, GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);

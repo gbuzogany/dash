@@ -11,13 +11,15 @@
 
 #include <stdio.h>
 #include "Renderer.hpp"
+#include "DashService.hpp"
 
 class Scene {
 protected:
-    Renderer *r;
+    Renderer *_r;
+    DashServiceImpl *_service;
     
 public:
-    Scene(Renderer &renderer);
+    Scene(Renderer *renderer, DashServiceImpl *service);
     virtual bool render(float delta) = 0;
     virtual void renderFixed() = 0;
 };

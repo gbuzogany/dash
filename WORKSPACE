@@ -1,9 +1,5 @@
-SDL2_LOCAL_PATH = "/Users/gbuzogany/Projects/sdl2"
+SDL2_LOCAL_PATH = "path_to_local_sdl2"
 SDL2_LOCAL_BUILD_PATH = SDL2_LOCAL_PATH + "/BUILD.bazel"
-
-ANGLE_PATH_WINDOWS = "C:/Users/gbuzogany/Desktop/angle"
-ANGLE_PATH_MAC = "/Users/gbuzogany/Personal/angle"
-ANGLE_PATH_LINUX = "/home/gbuzogany/angle"
 
 workspace(name = "com_gbuzogany_dash")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")

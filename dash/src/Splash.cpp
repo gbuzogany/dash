@@ -7,13 +7,10 @@
 //
 
 #include "Splash.hpp"
-#include "MediaPlayer.hpp"
-#include "DashControl.hpp"
-#include <thread>
 #include <functional>
 #include <memory>
 
-Splash::Splash(Renderer &renderer) : Scene(renderer) {
+Splash::Splash(Renderer *renderer, DashServiceImpl *service) : Scene(renderer, service) {
     dissolveRampTextureId = Texture::loadTGA("dash/etc/textures/dissolve-ramp.tga");
     dissolveNoiseTextureId = Texture::loadTGA("dash/etc/textures/noise.tga");
     splashLogo = Texture::loadTGA("dash/etc/textures/logo.tga");
@@ -37,7 +34,7 @@ bool Splash::render(float delta) {
         float value = current->animate(delta);
         
         if (current->getId() == "fadeIn") {
-            r->setGlobalAlpha(value);
+            _r->setGlobalAlpha(value);
         }
         if (current->getId() == "dissolve") {
             dissolve = value;
@@ -52,29 +49,29 @@ bool Splash::render(float delta) {
         return false;
     }
     
-    r->useProgram(*r->dissolveProgram);
-    r->setProgramGlobalAlpha(*r->dissolveProgram);
+    _r->useProgram(*_r->dissolveProgram);
+    _r->setProgramGlobalAlpha(*_r->dissolveProgram);
 
-    GLuint u_baseTexture = r->dissolveProgram->getUniformLocation("baseTexture");
-    GLuint u_noiseTexture = r->dissolveProgram->getUniformLocation("noiseTexture");
-    GLuint u_rampTexture = r->dissolveProgram->getUniformLocation("rampTexture");
-    GLuint u_projection = r->dissolveProgram->getUniformLocation("projection");
-    GLuint u_dissolve = r->dissolveProgram->getUniformLocation("dissolve");
+    GLuint u_baseTexture = _r->dissolveProgram->getUniformLocation("baseTexture");
+    GLuint u_noiseTexture = _r->dissolveProgram->getUniformLocation("noiseTexture");
+    GLuint u_rampTexture = _r->dissolveProgram->getUniformLocation("rampTexture");
+    GLuint u_projection = _r->dissolveProgram->getUniformLocation("projection");
+    GLuint u_dissolve = _r->dissolveProgram->getUniformLocation("dissolve");
     
     glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 480.0f);
     glUniformMatrix4fv(u_projection, 1, GL_FALSE, &projection[0][0]);
     
     glUniform1i(u_baseTexture, 0);
     glActiveTexture(GL_TEXTURE0);
-    r->bindTexture(splashLogo);
+    _r->bindTexture(splashLogo);
     
     glUniform1i(u_noiseTexture, 1);
     glActiveTexture(GL_TEXTURE1);
-    r->bindTexture(dissolveNoiseTextureId);
+    _r->bindTexture(dissolveNoiseTextureId);
     
     glUniform1i(u_rampTexture, 2);
     glActiveTexture(GL_TEXTURE2);
-    r->bindTexture(dissolveRampTextureId);
+    _r->bindTexture(dissolveRampTextureId);
     
     glUniform1f(u_dissolve, dissolve);
 
@@ -82,7 +79,7 @@ bool Splash::render(float delta) {
 //    GLuint u_color = r->fractalBackgroundProgram->getUniformLocation("color");
 //
 //    glUniform3f(u_color, 0.06, 0.06, 0.06);
-    r->renderRect(10, -170, 800, 800, true);
+    _r->renderRect(10, -170, 800, 800, true);
     
     return true;
 }
