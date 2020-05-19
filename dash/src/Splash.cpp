@@ -11,8 +11,6 @@
 #include <memory>
 
 Splash::Splash(Renderer *renderer, DashServiceImpl *service) : Scene(renderer, service) {
-    dissolveRampTextureId = Texture::loadTGA("dash/etc/textures/dissolve-ramp.tga");
-    dissolveNoiseTextureId = Texture::loadTGA("dash/etc/textures/noise.tga");
     splashLogo = Texture::loadTGA("dash/etc/textures/logo.tga");
     
     glEnable(GL_BLEND);
@@ -27,7 +25,7 @@ Splash::Splash(Renderer *renderer, DashServiceImpl *service) : Scene(renderer, s
 bool Splash::render(float delta) {
     totalTime += delta;
 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    _r->clear();
     
     if (!animationQueue.empty()) {
         Animation *current = animationQueue.front();
@@ -75,10 +73,6 @@ bool Splash::render(float delta) {
     
     glUniform1f(u_dissolve, dissolve);
 
-//    r->useProgram(r->fractalBackgroundProgram->getId());
-//    GLuint u_color = r->fractalBackgroundProgram->getUniformLocation("color");
-//
-//    glUniform3f(u_color, 0.06, 0.06, 0.06);
     _r->renderRect(10, -170, 800, 800, true);
     
     return true;

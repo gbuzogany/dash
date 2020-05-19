@@ -20,6 +20,7 @@
 #include "Vehicle.hpp"
 #include "Definitions.h"
 #include "Animation.hpp"
+#include "Utils.hpp"
 
 typedef struct {
     std::string title;
@@ -40,22 +41,22 @@ class Dashboard : Scene {
     std::map<std::string, float> attrX;
     std::queue<Animation*> animationQueue;
     
-    FontWrapper *hnproSmall;
-    FontWrapper *hnproMedium27;
-    FontWrapper *hnproHuge;
-    FontWrapper *hnproMediumOblique;
-    FontWrapper *hnproHugeOblique;
-    FontWrapper *hnproExtraHeavy36;
+    Font *hnproSmall;
+    Font *hnproMedium27;
+    Font *hnproHuge;
+    Font *hnproMediumOblique;
+    Font *hnproHugeOblique;
+    Font *hnproExtraHeavy36;
     
     void createFramebuffer();
 public:
     Dashboard(Renderer *r, DashServiceImpl *service);
-    Vehicle* getVehicle();
+
     bool render(float delta);
     void renderFixed();
     void setPlayStatus(std::string playStatus);
     void setNowPlaying(DashMediaItem mediaItem);
-    void drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts);
+    void drawCounter(Font &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts);
     void drawNeedle(float value, float maxValue, GLint x, GLint y, GLfloat tipRadius, GLfloat bottomRadius, GLfloat startAngle, GLfloat endAngle);
 };
 

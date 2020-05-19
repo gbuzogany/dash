@@ -33,7 +33,9 @@ public:
     DashServiceImpl();
     
     int getIntValue(std::string identifier, int& result);
+    int getIntValueAsString(std::string identifier, std::string& result);
     int getFloatValue(std::string identifier, float& result);
+    int getFloatValueAsString(std::string identifier, std::string& result, int precision = 0);
     int getStringValue(std::string identifier, std::string& result);
     int getBytesValue(std::string identifier, std::string& result);
     

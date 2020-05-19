@@ -76,7 +76,7 @@ public:
     
     GLuint getVertexBuffer();
     
-    float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign = LEFT, uint vAlign = BOTTOM);
+    float renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign = LEFT, uint vAlign = BOTTOM);
     void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     
@@ -89,6 +89,10 @@ public:
     void renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     void setProgramGlobalAlpha(ShaderProgram &program);
     void setGlobalAlpha(float alpha);
+    
+    void createFramebuffer(GLuint &frameBuffer, GLuint &screenTexture, GLuint width, GLuint height);
+    void bindFramebuffer(GLuint frameBuffer);
+    void clear();
 };
 
 #endif /* Renderer_hpp */

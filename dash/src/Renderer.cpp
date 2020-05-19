@@ -195,7 +195,7 @@ void Renderer::useProgram(ShaderProgram &program) {
     }
 }
 
-float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign, uint vAlign)
+float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign, uint vAlign)
 {
     useProgram(*textProgram);
     struct point {
@@ -230,7 +230,12 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
     for (auto it = text.begin(); it != text.end(); it++) {
         long kerning = 0;
         FT_ULong character = *it;
-        Character ch = font.characters[character];
+        Character ch;
+        int error = font.getCharacter(character, ch);
+        if (error != 0) {
+            printf("Error: Character %lu not available in this font.\n", character);
+            continue;
+        }
 
         // hardcoded kerning instead of using GPOS table
         if ((character == 'e' || character == 'o') && previous == 'T'){
@@ -466,4 +471,39 @@ void Renderer::setGlobalAlpha(float alpha) {
 void Renderer::setProgramGlobalAlpha(ShaderProgram &program) {
     GLuint u_globalAlpha = program.getUniformLocation("globalAlpha");
     glUniform1f(u_globalAlpha, globalAlpha);
+}
+
+void Renderer::createFramebuffer(GLuint &frameBuffer, GLuint &screenTexture, GLuint width, GLuint height) {
+    glGenFramebuffers(1, &frameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+    
+    glGenTextures(1, &screenTexture);
+    
+    // "Bind" the newly created texture : all future texture functions will modify this texture
+    bindTexture(screenTexture);
+    
+    // Give an empty image to OpenGL ( the last "0" )
+    glTexImage2D(GL_TEXTURE_2D, 0,GL_RGB, width, height, 0,GL_RGB, GL_UNSIGNED_BYTE, 0);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, screenTexture, 0);
+    
+    if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+    {
+        printf("Error creating framebuffer!\n");
+    }
+    
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void Renderer::bindFramebuffer(GLuint frameBuffer) {
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+}
+
+void Renderer::clear() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }

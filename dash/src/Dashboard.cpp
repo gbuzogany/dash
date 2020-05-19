@@ -23,16 +23,9 @@ Dashboard::Dashboard(Renderer *renderer, DashServiceImpl *service) : Scene(rende
     
     vehicle = new Vehicle();
     
-    FT_Face face, faceItalic, faceBold;
-    if (FT_New_Face(_r->ft, "dash/etc/fonts/hnpro-medium-condensed.otf", 0, &face)) {
-        std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
-    }
-    if (FT_New_Face(_r->ft, "dash/etc/fonts/hnpro-medium-condensed-oblique.otf", 0, &faceItalic)) {
-        std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
-    }
-    if (FT_New_Face(_r->ft, "dash/etc/fonts/hnpro-extra-black-condensed.otf", 0, &faceBold)) {
-        std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
-    }
+    Font::loadFontFace(_r, "hnpro", "dash/etc/fonts/hnpro-medium-condensed.otf");
+    Font::loadFontFace(_r, "hnpro-italic", "dash/etc/fonts/hnpro-medium-condensed-oblique.otf");
+    Font::loadFontFace(_r, "hnpro-bold", "dash/etc/fonts/hnpro-extra-black-condensed.otf");
     
     std::vector<FT_ULong> usedChars = {
         'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
@@ -43,56 +36,21 @@ Dashboard::Dashboard(Renderer *renderer, DashServiceImpl *service) : Scene(rende
     std::vector<FT_ULong> largeChars = {
         'N','0','1','2','3','4','5','6','7','8','9','-','.'
     };
-    
-    hnproSmall = new FontWrapper(face, 16, usedChars);
-    hnproMedium27 = new FontWrapper(face, 26, usedChars);
-    hnproHuge = new FontWrapper(face, 150, largeChars);
-    hnproMediumOblique = new FontWrapper(faceItalic, 36, usedChars);
-    hnproHugeOblique = new FontWrapper(faceItalic, 100, largeChars);
-    hnproExtraHeavy36 = new FontWrapper(faceBold, 36, usedChars);
-    
-    createFramebuffer();
+
+    hnproSmall = new Font("hnpro", 16, usedChars);
+    hnproMedium27 = new Font("hnpro", 26, usedChars);
+    hnproHuge = new Font("hnpro", 150, largeChars);
+    hnproMediumOblique = new Font("hnpro-italic", 36, usedChars);
+    hnproHugeOblique = new Font("hnpro-italic", 100, largeChars);
+    hnproExtraHeavy36 = new Font("hnpro-bold", 36, usedChars);
     
     animationQueue.push(new Animation("fadeIn", 0, 1.0, 2.0));
-}
-
-void Dashboard::createFramebuffer() {
-    glGenFramebuffers(1, &frameBuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     
-    glGenTextures(1, &screenTexture);
-    
-    // "Bind" the newly created texture : all future texture functions will modify this texture
-    _r->bindTexture(screenTexture);
-    
-    // Give an empty image to OpenGL ( the last "0" )
-    glTexImage2D(GL_TEXTURE_2D, 0,GL_RGB, WIDTH, HEIGHT, 0,GL_RGB, GL_UNSIGNED_BYTE, 0);
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, screenTexture, 0);
-    
-    GLint maxTextureSize;
-    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
-    printf("Max texture size: %dx%d\n", maxTextureSize, maxTextureSize);
-    
-    if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-    {
-        printf("Error creating framebuffer!\n");
-    }
-    
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-}
-
-float map(float value, float inMin, float inMax, float outMin, float outMax) {
-    return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
+    _r->createFramebuffer(frameBuffer, screenTexture, WIDTH, HEIGHT);
 }
 
 bool Dashboard::render(float delta) {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    _r->clear();
     
     if (!animationQueue.empty()) {
         Animation *current = animationQueue.front();
@@ -147,13 +105,10 @@ bool Dashboard::render(float delta) {
     _r->renderText(*hnproHugeOblique, vehicle->getGearString(), 50.0f, 420.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
 
 //    std::string speed = vehicle->getSpeedString();
-    float speed = 0.0;
-    _service->getFloatValue("speed", speed);
+    std::string speed = "";
+    _service->getFloatValueAsString("speed", speed);
     
-    std::stringstream stream;
-    stream << std::fixed << std::setprecision(0) << speed;
-    
-    _r->renderText(*hnproHuge, stream.str(), 270.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+    _r->renderText(*hnproHuge, speed, 270.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
     _r->renderText(*hnproMediumOblique, "km/h", 200.0f, 160.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
     //    r->renderText(*hnproSmall, "RPM X 1000", 700.0f, 200.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -211,8 +166,9 @@ bool Dashboard::render(float delta) {
 }
 
 void Dashboard::renderFixed() {
-    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    _r->bindFramebuffer(frameBuffer);
+    _r->clear();
+
 //    r->useProgram(*r->textProgram);
     
 //    attrX["coolantTemp"] = r->renderText(*hnproMedium27, "Coolant Temp", 27.0f, 441.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -224,15 +180,11 @@ void Dashboard::renderFixed() {
 //    attrX["ignitionAdvance"] = r->renderText(*hnproMedium27, "Ignition Advance", 300.0f, 397.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //    attrX["battVoltage"] = r->renderText(*hnproMedium27, "Battery Voltage", 140.0f, 29.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 //
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    _r->bindFramebuffer(0);
     _r->setGlobalAlpha(0.0);
 }
 
-Vehicle* Dashboard::getVehicle() {
-    return vehicle;
-}
-
-void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts) {
+void Dashboard::drawCounter(Font &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts) {
     
     GLuint vertexbuffer = _r->getVertexBuffer();
     

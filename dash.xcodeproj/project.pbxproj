@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		661879D72473DA2500BB39FF /* DashService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661879D52473DA2500BB39FF /* DashService.cpp */; };
+		661879DA2474078500BB39FF /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661879D82474078500BB39FF /* Utils.cpp */; };
 		66369D9D2302E7A000975025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369D9C2302E7A000975025 /* main.cpp */; };
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
 		66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* ShaderProgram.cpp */; };
@@ -124,6 +125,8 @@
 /* Begin PBXFileReference section */
 		661879D52473DA2500BB39FF /* DashService.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DashService.cpp; sourceTree = "<group>"; };
 		661879D62473DA2500BB39FF /* DashService.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashService.hpp; sourceTree = "<group>"; };
+		661879D82474078500BB39FF /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		661879D92474078500BB39FF /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
 		66369D992302E7A000975025 /* dash_bin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dash_bin; sourceTree = BUILT_PRODUCTS_DIR; };
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
@@ -273,6 +276,8 @@
 				66369DBC2302F31000975025 /* Texture.hpp */,
 				66369DBB2302F31000975025 /* Texture.cpp */,
 				66B17155246D7A3500A037C8 /* glad.c */,
+				661879D92474078500BB39FF /* Utils.hpp */,
+				661879D82474078500BB39FF /* Utils.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				665A5292245D932B00AC6765 /* Scene.cpp in Sources */,
 				665A528F245D91BB00AC6765 /* Splash.cpp in Sources */,
 				66369D9D2302E7A000975025 /* main.cpp in Sources */,
+				661879DA2474078500BB39FF /* Utils.cpp in Sources */,
 				665A5298245DA2C500AC6765 /* Animation.cpp in Sources */,
 				66B17156246D7A3500A037C8 /* glad.c in Sources */,
 				66D205BF2472A2BC0013932C /* dash.pb.cc in Sources */,

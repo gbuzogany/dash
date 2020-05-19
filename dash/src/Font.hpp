@@ -10,8 +10,8 @@
 #define Font_hpp
 
 #include <stdio.h>
-#include "Shader.hpp"
 #include <vector>
+#include "Shader.hpp"
 
 struct Character {
     glm::ivec2 size;       // Size of glyph
@@ -20,10 +20,17 @@ struct Character {
     glm::ivec2 texCoords;
 };
 
-class FontWrapper {
+class Renderer;
+
+class Font {
+    int createFontTextureAtlas(FT_Face &face, int size, std::vector<FT_ULong> charList);
     void addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode, int x, int y);
     void loadCharProperties(FT_Face &face, int size, FT_ULong charCode);
     int closestPowerOf2(int n);
+    
+    std::map<GLchar, Character> characters;
+    
+    static std::map<std::string, FT_Face> faceMap;
 public:
     int maxWidth = 0;
     int maxHeight = 0;
@@ -34,9 +41,11 @@ public:
     GLuint texture;
     
     int getFontSize();
+    int getCharacter(GLchar key, Character &out);
     
-    std::map<GLchar, Character> characters;
-    FontWrapper(FT_Face &face, int size, std::vector<FT_ULong> charList);
+    Font(std::string fontName, int size, std::vector<FT_ULong> charList);
+    
+    static int loadFontFace(Renderer* r, std::string name, std::string path);
+    static int getFace(std::string name, FT_Face &face);
 };
-
 #endif /* Font_hpp */

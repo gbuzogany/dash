@@ -7,6 +7,9 @@
 //
 
 #include "DashService.hpp"
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 
 DashServiceImpl::DashServiceImpl() {
 }
@@ -19,9 +22,28 @@ int DashServiceImpl::getIntValue(std::string identifier, int& result) {
     return -1;
 }
 
+int DashServiceImpl::getIntValueAsString(std::string identifier, std::string& result) {
+    if (intValues.find(identifier) != intValues.end()) {
+        result = std::to_string(intValues[identifier]);
+        return 0;
+    }
+    return -1;
+}
+
 int DashServiceImpl::getFloatValue(std::string identifier, float& result) {
     if (floatValues.find(identifier) != floatValues.end()) {
         result = floatValues[identifier];
+        return 0;
+    }
+    return -1;
+}
+
+int DashServiceImpl::getFloatValueAsString(std::string identifier, std::string& result, int precision) {
+    if (floatValues.find(identifier) != floatValues.end()) {
+        float value = floatValues[identifier];
+        std::stringstream stream;
+        stream << std::fixed << std::setprecision(precision) << value;
+        result = stream.str();
         return 0;
     }
     return -1;
