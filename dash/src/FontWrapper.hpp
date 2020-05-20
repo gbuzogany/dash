@@ -22,7 +22,7 @@ struct Character {
 
 class Renderer;
 
-class Font {
+class FontWrapper {
     int createFontTextureAtlas(FT_Face &face, int size, std::vector<FT_ULong> charList);
     void addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode, int x, int y);
     void loadCharProperties(FT_Face &face, int size, FT_ULong charCode);
@@ -43,9 +43,10 @@ public:
     int getFontSize();
     int getCharacter(GLchar key, Character &out);
     
-    Font(std::string fontName, int size, std::vector<FT_ULong> charList);
+    FontWrapper(std::string fontName, int size, std::vector<FT_ULong> charList);
     
     static int loadFontFace(Renderer* r, std::string name, std::string path);
     static int getFace(std::string name, FT_Face &face);
 };
+
 #endif /* Font_hpp */

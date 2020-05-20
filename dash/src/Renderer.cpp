@@ -205,7 +205,7 @@ void Renderer::useProgram(ShaderProgram &program) {
     }
 }
 
-float Renderer::renderText(Font &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign, uint vAlign)
+float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign, uint vAlign)
 {
     useProgram(*textProgram);
     

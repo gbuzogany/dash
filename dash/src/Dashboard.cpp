@@ -23,9 +23,9 @@ Dashboard::Dashboard(Renderer *renderer, DashServiceImpl *service) : Scene(rende
     
     vehicle = new Vehicle();
     
-    Font::loadFontFace(_r, "hnpro", "dash/etc/fonts/hnpro-medium-condensed.otf");
-    Font::loadFontFace(_r, "hnpro-italic", "dash/etc/fonts/hnpro-medium-condensed-oblique.otf");
-    Font::loadFontFace(_r, "hnpro-bold", "dash/etc/fonts/hnpro-extra-black-condensed.otf");
+    FontWrapper::loadFontFace(_r, "hnpro", "dash/etc/fonts/hnpro-medium-condensed.otf");
+    FontWrapper::loadFontFace(_r, "hnpro-italic", "dash/etc/fonts/hnpro-medium-condensed-oblique.otf");
+    FontWrapper::loadFontFace(_r, "hnpro-bold", "dash/etc/fonts/hnpro-extra-black-condensed.otf");
     
     std::vector<FT_ULong> usedChars = {
         'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
@@ -37,12 +37,12 @@ Dashboard::Dashboard(Renderer *renderer, DashServiceImpl *service) : Scene(rende
         'N','0','1','2','3','4','5','6','7','8','9','-','.'
     };
 
-    hnproSmall = new Font("hnpro", 16, usedChars);
-    hnproMedium27 = new Font("hnpro", 26, usedChars);
-    hnproHuge = new Font("hnpro", 150, largeChars);
-    hnproMediumOblique = new Font("hnpro-italic", 36, usedChars);
-    hnproHugeOblique = new Font("hnpro-italic", 100, largeChars);
-    hnproExtraHeavy36 = new Font("hnpro-bold", 36, usedChars);
+    hnproSmall = new FontWrapper("hnpro", 16, usedChars);
+    hnproMedium27 = new FontWrapper("hnpro", 26, usedChars);
+    hnproHuge = new FontWrapper("hnpro", 150, largeChars);
+    hnproMediumOblique = new FontWrapper("hnpro-italic", 36, usedChars);
+    hnproHugeOblique = new FontWrapper("hnpro-italic", 100, largeChars);
+    hnproExtraHeavy36 = new FontWrapper("hnpro-bold", 36, usedChars);
     
     animationQueue.push(new Animation("fadeIn", 0, 1.0, 2.0));
     
@@ -181,7 +181,7 @@ void Dashboard::renderFixed() {
     _r->setGlobalAlpha(0.0);
 }
 
-void Dashboard::drawCounter(Font &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts) {
+void Dashboard::drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts) {
     
     GLuint vertexbuffer = _r->getVertexBuffer();
     

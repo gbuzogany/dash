@@ -15,15 +15,17 @@
 #include <glm/gtc/matrix_transform.hpp>
 using namespace glm;
 
-#include "dash/src/Font.hpp"
+#include "dash/src/FontWrapper.hpp"
 #include "Renderer.hpp"
 
-std::map<std::string, FT_Face> Font::faceMap;
+std::map<std::string, FT_Face> FontWrapper::faceMap;
 
-Font::Font(std::string fontName, int size, std::vector<FT_ULong> charList) {
+FontWrapper::FontWrapper(std::string fontName, int size, std::vector<FT_ULong> charList) {
     FT_Face face;
-    if (Font::faceMap.find(fontName) != Font::faceMap.end()) {
-        face = faceMap[fontName];
+    
+    int error = FontWrapper::getFace(fontName, face);
+    if (!error) {
+        face = FontWrapper::faceMap[fontName];
     }
     else {
         printf("Error: Attempting to load a FontFace that isn't loaded.");
@@ -33,7 +35,7 @@ Font::Font(std::string fontName, int size, std::vector<FT_ULong> charList) {
     createFontTextureAtlas(face, size, charList);
 }
 
-int Font::createFontTextureAtlas(FT_Face &face, int size, std::vector<FT_ULong> charList) {
+int FontWrapper::createFontTextureAtlas(FT_Face &face, int size, std::vector<FT_ULong> charList) {
     FT_Set_Pixel_Sizes(face, 0, size);
     fontSize = size;
     
@@ -88,7 +90,7 @@ int Font::createFontTextureAtlas(FT_Face &face, int size, std::vector<FT_ULong> 
     return 0;
 }
 
-void Font::addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode, int x, int y) {
+void FontWrapper::addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode, int x, int y) {
     FT_GlyphSlot glyph = face->glyph;
     
     // Load character glyph
@@ -101,7 +103,7 @@ void Font::addCharFromCharCode(FT_Face &face, int size, FT_ULong charCode, int x
     glTexSubImage2D(GL_TEXTURE_2D, 0, x, y, glyph->bitmap.width, glyph->bitmap.rows, GL_ALPHA, GL_UNSIGNED_BYTE, glyph->bitmap.buffer);
 }
 
-int Font::closestPowerOf2(int n) {
+int FontWrapper::closestPowerOf2(int n) {
     n--;
     n |= n >> 1;
     n |= n >> 2;
@@ -112,7 +114,7 @@ int Font::closestPowerOf2(int n) {
     return n;
 }
 
-void Font::loadCharProperties(FT_Face &face, int size, FT_ULong charCode) {
+void FontWrapper::loadCharProperties(FT_Face &face, int size, FT_ULong charCode) {
     if (FT_Load_Char(face, charCode, FT_LOAD_RENDER | FT_LOAD_NO_HINTING))
     {
         std::cout << "ERROR::FREETYTPE: Failed to load Glyph" << std::endl;
@@ -135,11 +137,11 @@ void Font::loadCharProperties(FT_Face &face, int size, FT_ULong charCode) {
     characters.insert(std::pair<GLchar, Character>(charCode, character));
 }
 
-int Font::getFontSize() {
+int FontWrapper::getFontSize() {
     return fontSize;
 }
 
-int Font::getCharacter(GLchar key, Character &out) {
+int FontWrapper::getCharacter(GLchar key, Character &out) {
     if (characters.find(key) != characters.end()) {
         out = characters[key];
         return 0;
@@ -149,9 +151,9 @@ int Font::getCharacter(GLchar key, Character &out) {
 
 #pragma STATIC
 
-int Font::loadFontFace(Renderer* r, std::string name, std::string path) {
+int FontWrapper::loadFontFace(Renderer* r, std::string name, std::string path) {
     FT_Face face;
-    int error = Font::getFace(name, face);
+    int error = FontWrapper::getFace(name, face);
     if (error != 0) {
         if (FT_New_Face(r->ft, path.c_str(), 0, &face)) {
             std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
@@ -164,9 +166,9 @@ int Font::loadFontFace(Renderer* r, std::string name, std::string path) {
     return -1;
 }
 
-int Font::getFace(std::string name, FT_Face &face) {
-    if (Font::faceMap.find(name) != Font::faceMap.end()) {
-        face = Font::faceMap[name];
+int FontWrapper::getFace(std::string name, FT_Face &face) {
+    if (faceMap.find(name) != faceMap.end()) {
+        face = faceMap[name];
         return 0;
     }
     return -1;

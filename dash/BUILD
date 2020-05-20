@@ -83,7 +83,7 @@ cc_grpc_library(
 )
 
 cc_binary(
-    name = "dash_bin",
+    name = "rockette",
     srcs = glob(
         [
         "src/*.cpp",

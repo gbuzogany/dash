@@ -1,12 +1,14 @@
 # Rockette 🚀
 
-Rockette is an open source dashboard display platform. You can use it to make a custom dashboard for your car, motorcycle, driving simulator setup, or anything else that you find it useful for.
+Rockette (/ʁɔ.kɛt/, borrowed from French [_roquette_](https://fr.wikipedia.org/wiki/Roquette_(plante))) is an open source embedded display platform. Its purpose is to simplify development of custom displays for embedded systems using OpenGL ES 2.0. It enables development on Windows/Linux/macOS using OpenGL ES 2.0 (using [ANGLE](https://github.com/google/angle)), so you can implement everything on your favourite development platform, and then just cross-compile it to run on the target platform.
 
-You can either use one of the already implemented display layouts to display your data, or create your own.
+It's super light-weight, and has basic features already included:
 
-It can be run in any Linux system with OpenGL ES 2.0 support (for example: a Raspberry Pi with a display).
-
-It's super light-weight, and as it uses OpenGL, you can use it to render pretty much any graphical effects.
+- Basic OTF/TTF font loading/rendering
+- TGA texture loader
+- Basic shaders
+- Simple [gRPC](https://grpc.io/) integration
+- Many cool examples!
 
 ## Installation
 
