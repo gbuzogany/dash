@@ -12,10 +12,6 @@ It's super light-weight, and has basic features already included:
 - Simple [gRPC](https://grpc.io/) integration
 - Many cool examples!
 
-## Installation
-
-Check [INSTALLATION.md](INSTALLATION.md).
-
 ## Integration
 
 Rockette uses [gRPC](https://grpc.io/) to receive the data to be displayed. You can use any programming language supported by gRPC to send the data to be displayed, even over a network if you prefer.
