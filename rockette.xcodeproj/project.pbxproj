@@ -16,8 +16,7 @@
 		66369DB22302EAFC00975025 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DB02302EAFC00975025 /* Shader.cpp */; };
 		66369DBD2302F31000975025 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DBB2302F31000975025 /* Texture.cpp */; };
 		6659848123044A47002D326C /* FontWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659847F23044A47002D326C /* FontWrapper.cpp */; };
-		6659848623056DFF002D326C /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848423056DFF002D326C /* Vehicle.cpp */; };
-		6659848923057103002D326C /* Dashboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848723057103002D326C /* Dashboard.cpp */; };
+		6659848923057103002D326C /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848723057103002D326C /* MainScene.cpp */; };
 		665A528F245D91BB00AC6765 /* Splash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A528D245D91BB00AC6765 /* Splash.cpp */; };
 		665A5292245D932B00AC6765 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5290245D932B00AC6765 /* Scene.cpp */; };
 		665A5298245DA2C500AC6765 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5296245DA2C500AC6765 /* Animation.cpp */; };
@@ -146,10 +145,8 @@
 		6659847B23044960002D326C /* libfreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.dylib; path = ../../../../../usr/local/lib/libfreetype.dylib; sourceTree = "<group>"; };
 		6659847F23044A47002D326C /* FontWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FontWrapper.cpp; sourceTree = "<group>"; };
 		6659848023044A47002D326C /* FontWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FontWrapper.hpp; sourceTree = "<group>"; };
-		6659848423056DFF002D326C /* Vehicle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vehicle.cpp; sourceTree = "<group>"; };
-		6659848523056DFF002D326C /* Vehicle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vehicle.hpp; sourceTree = "<group>"; };
-		6659848723057103002D326C /* Dashboard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Dashboard.cpp; sourceTree = "<group>"; };
-		6659848823057103002D326C /* Dashboard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Dashboard.hpp; sourceTree = "<group>"; };
+		6659848723057103002D326C /* MainScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainScene.cpp; sourceTree = "<group>"; };
+		6659848823057103002D326C /* MainScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainScene.hpp; sourceTree = "<group>"; };
 		665984A22305C5A9002D326C /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		665A527D245D72DA00AC6765 /* DissolveVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveVertex.glsl; sourceTree = "<group>"; };
 		665A527E245D72DA00AC6765 /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
@@ -209,8 +206,8 @@
 		661879DB24740BC700BB39FF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				6659848823057103002D326C /* Dashboard.hpp */,
-				6659848723057103002D326C /* Dashboard.cpp */,
+				6659848823057103002D326C /* MainScene.hpp */,
+				6659848723057103002D326C /* MainScene.cpp */,
 				665A5291245D932B00AC6765 /* Scene.hpp */,
 				665A5290245D932B00AC6765 /* Scene.cpp */,
 				665A528E245D91BB00AC6765 /* Splash.hpp */,
@@ -313,8 +310,6 @@
 				665A5297245DA2C500AC6765 /* Animation.hpp */,
 				665A5296245DA2C500AC6765 /* Animation.cpp */,
 				665984A22305C5A9002D326C /* Definitions.h */,
-				6659848523056DFF002D326C /* Vehicle.hpp */,
-				6659848423056DFF002D326C /* Vehicle.cpp */,
 				66369D9C2302E7A000975025 /* main.cpp */,
 				66369DA42302E7E200975025 /* Renderer.hpp */,
 				66369DA32302E7E200975025 /* Renderer.cpp */,
@@ -456,13 +451,12 @@
 			files = (
 				6659848123044A47002D326C /* FontWrapper.cpp in Sources */,
 				66369DBD2302F31000975025 /* Texture.cpp in Sources */,
-				6659848623056DFF002D326C /* Vehicle.cpp in Sources */,
 				66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
 				66369DB22302EAFC00975025 /* Shader.cpp in Sources */,
 				6663160D247553AD00665646 /* rkt.pb.cc in Sources */,
 				661879D72473DA2500BB39FF /* RocketteService.cpp in Sources */,
-				6659848923057103002D326C /* Dashboard.cpp in Sources */,
+				6659848923057103002D326C /* MainScene.cpp in Sources */,
 				665A5292245D932B00AC6765 /* Scene.cpp in Sources */,
 				665A528F245D91BB00AC6765 /* Splash.cpp in Sources */,
 				66369D9D2302E7A000975025 /* main.cpp in Sources */,

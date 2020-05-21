@@ -472,7 +472,7 @@ void Renderer::createFramebuffer(GLuint &frameBuffer, GLuint &screenTexture, GLu
     
     glGenTextures(1, &screenTexture);
     
-    // "Bind" the newly created texture : all future texture functions will modify this texture
+    // Binds the newly created texture : all future texture functions will modify this texture
     bindTexture(screenTexture);
     
     // Give an empty image to OpenGL ( the last "0" )

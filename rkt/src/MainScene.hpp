@@ -1,13 +1,13 @@
 //
-//  Dashboard.hpp
+//  MainScene.hpp
 //  dash
 //
 //  Created by Gustavo Buzogany Eboli on 15/08/2019.
 //  Copyright © 2019 gbuzogany.com. All rights reserved.
 //
 
-#ifndef Dashboard_hpp
-#define Dashboard_hpp
+#ifndef MainScene_hpp
+#define MainScene_hpp
 
 #include <stdio.h>
 #include <iostream>
@@ -17,7 +17,6 @@
 #include <queue>
 #include FT_FREETYPE_H
 #include "Scene.hpp"
-#include "Vehicle.hpp"
 #include "Definitions.h"
 #include "Animation.hpp"
 #include "Utils.hpp"
@@ -28,8 +27,7 @@ typedef struct {
     std::string album;
 } DashMediaItem;
 
-class Dashboard : Scene {
-    Vehicle *vehicle;
+class MainScene : Scene {
     
     GLuint arcTextureId;
     GLuint squareTextureId;
@@ -50,7 +48,7 @@ class Dashboard : Scene {
     
     void createFramebuffer();
 public:
-    Dashboard(Renderer *r, RocketteServiceImpl *service);
+    MainScene(Renderer *r, RocketteServiceImpl *service);
 
     void render();
     void renderFixed();
@@ -62,4 +60,4 @@ public:
     void drawNeedle(float value, float maxValue, GLint x, GLint y, GLfloat tipRadius, GLfloat bottomRadius, GLfloat startAngle, GLfloat endAngle);
 };
 
-#endif /* Dashboard_hpp */
+#endif /* MainScene_hpp */

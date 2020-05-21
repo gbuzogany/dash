@@ -6,7 +6,7 @@ The steps described below were tested on Debian 10, but should be easily transla
 
 ### 1.1 - Manual installation
 
-[Bazel Installation Instructions](https://docs.bazel.build/versions/master/install-windows.html).
+[Bazel Installation Instructions](https://docs.bazel.build/versions/master/install.html).
 
 
 ### 1.2 - Step by step
@@ -28,12 +28,24 @@ sudo apt-get install libsdl2-dev
 
 ## 3 - Building the project
 
+For x86/x86_64 linux:
 ```
 bazel build //rkt:rockette
 ```
 
+For arm:
+```
+bazel build //rkt:rockette --define arm=true
+```
+
 ## 4 - Running the project
 
+For x86/x86_64 linux:
 ```
 bazel run //rkt:rockette
+```
+
+For arm:
+```
+bazel run //rkt:rockette --define arm=true
 ```

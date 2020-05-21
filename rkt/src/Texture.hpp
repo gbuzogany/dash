@@ -17,7 +17,6 @@
 
 class Texture {
 public:
-    static GLuint loadBMP(const char * imagepath);
     static GLuint loadTGA(const char * imagepath);
 };
 

@@ -11,8 +11,7 @@
 
 #include "Renderer.hpp"
 #include "Texture.hpp"
-#include "Vehicle.hpp"
-#include "Dashboard.hpp"
+#include "MainScene.hpp"
 #include "Splash.hpp"
 #include "RocketteService.hpp"
 
@@ -30,7 +29,7 @@ int main(int argc, char* argv[])
     std::thread dashServiceThread = std::thread(&startDashService, &service);
     
     sceneQueue.push((Scene*) new Splash(&r, &service));
-    sceneQueue.push((Scene*) new Dashboard(&r, &service));
+    sceneQueue.push((Scene*) new MainScene(&r, &service));
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     
