@@ -43,5 +43,5 @@ void main() {
     float alpha = mask + dissolve_remapped < 0.5 ? 0.0 : 1.0;
 
     gl_FragColor.rgb = pixel.rgb + ramp_color;
-    gl_FragColor.a = alpha * globalAlpha;
+    gl_FragColor.a = pixel.a * alpha * globalAlpha;
 }

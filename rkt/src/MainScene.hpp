@@ -21,30 +21,13 @@
 #include "Animation.hpp"
 #include "Utils.hpp"
 
-typedef struct {
-    std::string title;
-    std::string artist;
-    std::string album;
-} DashMediaItem;
-
 class MainScene : Scene {
-    
-    GLuint arcTextureId;
-    GLuint squareTextureId;
-    GLuint fasterTexture;
-    
     GLuint screenTexture;
     GLuint frameBuffer;
     
-    std::map<std::string, float> attrX;
     std::queue<Animation*> animationQueue;
     
-    FontWrapper *hnproSmall;
-    FontWrapper *hnproMedium27;
-    FontWrapper *hnproHuge;
-    FontWrapper *hnproMediumOblique;
-    FontWrapper *hnproHugeOblique;
-    FontWrapper *hnproExtraHeavy36;
+    FontWrapper *roboto, *robotoSmall;
     
     void createFramebuffer();
 public:
@@ -53,11 +36,6 @@ public:
     void render();
     void renderFixed();
     bool update(float delta);
-    
-    void setPlayStatus(std::string playStatus);
-    void setNowPlaying(DashMediaItem mediaItem);
-    void drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts);
-    void drawNeedle(float value, float maxValue, GLint x, GLint y, GLfloat tipRadius, GLfloat bottomRadius, GLfloat startAngle, GLfloat endAngle);
 };
 
 #endif /* MainScene_hpp */

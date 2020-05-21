@@ -19,10 +19,8 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
-    ringArcProgram = loadShaders( "rkt/etc/shaders/RingArcVertex.glsl", "rkt/etc/shaders/RingArcFragment.glsl" );
-    ringTexArcProgram = loadShaders( "rkt/etc/shaders/RingTextureArcVertex.glsl", "rkt/etc/shaders/RingTextureArcFragment.glsl" );
     defaultTextProgram = loadShaders( "rkt/etc/shaders/TextVertex.glsl", "rkt/etc/shaders/TextFragment.glsl" );
-    defaultTextureProgram = loadShaders( "rkt/etc/shaders/TransformVertexShader.glsl", "rkt/etc/shaders/TextureFragmentShader.glsl" );
+    defaultTextureProgram = loadShaders( "rkt/etc/shaders/TextureVertexShader.glsl", "rkt/etc/shaders/TextureFragmentShader.glsl" );
     
     textProgram = defaultTextProgram;
 }
@@ -56,7 +54,7 @@ void Renderer::initGraphics()
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
     
-    window = SDL_CreateWindow("ANGLE", 100, 100, 800, 480, SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Rockette", 100, 100, 800, 480, SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN);
     assert(window);
 
     context = SDL_GL_CreateContext(window);
@@ -243,10 +241,11 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         if ((character == 'e' || character == 'o') && previous == 'T'){
             kerning = 2.0f;
         }
+        
         px -= kerning;
         
-        GLfloat xpos = px + ch.bearing.x * scale;
-        GLfloat ypos = y - (ch.size.y - ch.bearing.y) * scale;
+        GLfloat xpos = px + ((float)ch.bearing.x) * scale;
+        GLfloat ypos = HEIGHT - y - (ch.size.y - ch.bearing.y) * scale;
         
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;
@@ -317,96 +316,6 @@ Renderer::~Renderer() {
 
 GLuint Renderer::getVertexBuffer() {
     return vertexbuffer;
-}
-
-void Renderer::drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, vec3 color)
-{
-    useProgram(*ringArcProgram);
-    
-    GLuint u_projectionID = ringArcProgram->getUniformLocation("projection");
-    GLuint u_color = ringArcProgram->getUniformLocation("color");
-    GLuint u_valuePos = ringArcProgram->getUniformLocation("valuePos");
-    GLuint u_outerRadius = ringArcProgram->getUniformLocation("outerRadius");
-    GLuint u_innerRadius = ringArcProgram->getUniformLocation("innerRadius");
-    GLuint u_startAngle = ringArcProgram->getUniformLocation("startAngle");
-    GLuint u_endPercent = ringArcProgram->getUniformLocation("endPercent");
-    
-    glUniform3f(u_color, color.x, color.y, color.z);
-    glUniform1f(u_valuePos, (value - 1.0) / max);
-    glUniform1f(u_outerRadius, 1.0);
-    glUniform1f(u_innerRadius, innerRadius);
-    glUniform1f(u_startAngle, -M_PI_2);
-    glUniform1f(u_endPercent, 0.75);
-    
-    glm::mat4 projection = glm::ortho(0.0, 800.0, 0.0, 480.0);
-    glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
-    
-    GLfloat height = 2.0 * outerRadius;
-    GLfloat width = 2.0 * outerRadius;
-    
-    GLfloat vertices[6][4] = {
-        { x - width/2, y + height/2, 0.0, 1.0 }, // 0
-        { x - width/2, y - height/2, 0.0, 0.0 }, // 1
-        { x + width/2, y - height/2, 1.0, 0.0 }, // 2
-        
-        { x - width/2, y + height/2, 0.0, 1.0 }, // 3
-        { x + width/2, y - height/2, 1.0, 0.0 }, // 4
-        { x + width/2, y + height/2, 1.0, 1.0 }  // 5
-    };
-    
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, &vertices[0], GL_DYNAMIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-    glDisableVertexAttribArray(0);
-}
-
-void Renderer::drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, GLint texId)
-{
-    useProgram(*ringTexArcProgram);
-    
-    GLuint u_projectionID = ringTexArcProgram->getUniformLocation("projection");
-    GLuint u_valuePos = ringTexArcProgram->getUniformLocation("valuePos");
-    GLuint u_outerRadius = ringTexArcProgram->getUniformLocation("outerRadius");
-    GLuint u_innerRadius = ringTexArcProgram->getUniformLocation("innerRadius");
-    GLuint u_startAngle = ringTexArcProgram->getUniformLocation("startAngle");
-    GLuint u_endPercent = ringTexArcProgram->getUniformLocation("endPercent");
-    GLuint u_texID = ringTexArcProgram->getUniformLocation("tex");
-
-    glUniform1i(u_texID, 0);
-    glUniform1f(u_valuePos, (value - 1.0) / max);
-    glUniform1f(u_outerRadius, 1.0);
-    glUniform1f(u_innerRadius, innerRadius);
-    glUniform1f(u_startAngle, -M_PI_2);
-    glUniform1f(u_endPercent, 0.75);
-    
-    glActiveTexture(GL_TEXTURE0);
-    bindTexture(texId);
-    glm::mat4 projection = glm::ortho(0.0, 800.0, 0.0, 480.0);
-    glUniformMatrix4fv(u_projectionID, 1, GL_FALSE, &projection[0][0]);
-    
-    GLfloat height = 2.0 * outerRadius;
-    GLfloat width = 2.0 * outerRadius;
-    
-    GLfloat vertices[6][4] = {
-        { x - width/2, y + height/2, 0.0, 1.0 }, // 0
-        { x - width/2, y - height/2, 0.0, 0.0 }, // 1
-        { x + width/2, y - height/2, 1.0, 0.0 }, // 2
-        
-        { x - width/2, y + height/2, 0.0, 1.0 }, // 3
-        { x + width/2, y - height/2, 1.0, 0.0 }, // 4
-        { x + width/2, y + height/2, 1.0, 1.0 }  // 5
-    };
-    
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, &vertices[0], GL_DYNAMIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-    glDisableVertexAttribArray(0);
 }
 
 void Renderer::drawCircle( GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides )

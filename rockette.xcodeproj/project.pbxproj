@@ -22,32 +22,19 @@
 		665A5298245DA2C500AC6765 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A5296245DA2C500AC6765 /* Animation.cpp */; };
 		6663160D247553AD00665646 /* rkt.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6663160B247553AD00665646 /* rkt.pb.cc */; };
 		6663160E247553AD00665646 /* rkt.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6663160C247553AD00665646 /* rkt.grpc.pb.cc */; };
+		666316102476C5E800665646 /* TextureVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6663160F2476C5E100665646 /* TextureVertexShader.glsl */; };
+		666316152476C74100665646 /* DissolveFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666316132476C73E00665646 /* DissolveFragment.glsl */; };
+		666316162476C74300665646 /* DissolveVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666316142476C73E00665646 /* DissolveVertex.glsl */; };
+		6663162C2476CA7700665646 /* Roboto-Regular.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6663161E2476CA6C00665646 /* Roboto-Regular.ttf */; };
+		666316312476CF5000665646 /* rocket.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666316302476CF4300665646 /* rocket.tga */; };
 		6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB223786B13005BA4E4 /* libgrpc.dylib */; };
 		6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */; };
 		6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB623786B49005BA4E4 /* libprotobuf.dylib */; };
-		6674FA3F246452D600E4B6CC /* DissolveFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A527E245D72DA00AC6765 /* DissolveFragment.glsl */; };
-		6674FA40246452D600E4B6CC /* DissolveVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A527D245D72DA00AC6765 /* DissolveVertex.glsl */; };
-		6674FA41246452D600E4B6CC /* FractalRadialFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */; };
-		6674FA42246452D600E4B6CC /* FractalRadialVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */; };
-		6674FA43246452D600E4B6CC /* RingTextureArcFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */; };
-		6674FA44246452D600E4B6CC /* RingTextureArcVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686CB245A0A6400FF318E /* RingTextureArcVertex.glsl */; };
-		6674FA45246452D600E4B6CC /* RingArcFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B5245889B000FF318E /* RingArcFragment.glsl */; };
-		6674FA46246452D600E4B6CC /* RingArcVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B4245889B000FF318E /* RingArcVertex.glsl */; };
-		6674FA47246452D600E4B6CC /* LineFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B024585E9E00FF318E /* LineFragment.glsl */; };
-		6674FA48246452D600E4B6CC /* LineVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686B124585E9E00FF318E /* LineVertex.glsl */; };
 		6674FA49246452D600E4B6CC /* TextureFragmentShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66369DB32302EE8600975025 /* TextureFragmentShader.glsl */; };
-		6674FA4A246452D600E4B6CC /* TransformVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66369DB42302EE8600975025 /* TransformVertexShader.glsl */; };
 		6674FA4B246452D600E4B6CC /* TextFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847A23044894002D326C /* TextFragment.glsl */; };
 		6674FA4C246452D600E4B6CC /* TextVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847923044886002D326C /* TextVertex.glsl */; };
 		6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5283245D78C000AC6765 /* dissolve-ramp.tga */; };
 		6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5287245D7C2200AC6765 /* noise.tga */; };
-		6674FA512464532B00E4B6CC /* logo.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5289245D862A00AC6765 /* logo.tga */; };
-		6674FA54246453B300E4B6CC /* radial.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A686CF245A0F7700FF318E /* radial.bmp */; };
-		6674FA55246453B300E4B6CC /* uvtemplate.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66369DB92302F2F100975025 /* uvtemplate.bmp */; };
-		6674FA5E2464549D00E4B6CC /* hnpro-extra-black-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5C2464548A00E4B6CC /* hnpro-extra-black-condensed.otf */; };
-		6674FA5F2464549D00E4B6CC /* hnpro-medium-condensed-oblique.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5A2464548A00E4B6CC /* hnpro-medium-condensed-oblique.otf */; };
-		6674FA602464549D00E4B6CC /* hnpro-medium-condensed.otf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */; };
-		6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */; };
 		66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B17153246D76EF00A037C8 /* libSDL2.dylib */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
@@ -75,18 +62,10 @@
 			dstPath = rkt/etc/shaders;
 			dstSubfolderSpec = 16;
 			files = (
-				6674FA3F246452D600E4B6CC /* DissolveFragment.glsl in CopyFiles */,
-				6674FA40246452D600E4B6CC /* DissolveVertex.glsl in CopyFiles */,
-				6674FA41246452D600E4B6CC /* FractalRadialFragment.glsl in CopyFiles */,
-				6674FA42246452D600E4B6CC /* FractalRadialVertex.glsl in CopyFiles */,
-				6674FA43246452D600E4B6CC /* RingTextureArcFragment.glsl in CopyFiles */,
-				6674FA44246452D600E4B6CC /* RingTextureArcVertex.glsl in CopyFiles */,
-				6674FA45246452D600E4B6CC /* RingArcFragment.glsl in CopyFiles */,
-				6674FA46246452D600E4B6CC /* RingArcVertex.glsl in CopyFiles */,
-				6674FA47246452D600E4B6CC /* LineFragment.glsl in CopyFiles */,
-				6674FA48246452D600E4B6CC /* LineVertex.glsl in CopyFiles */,
+				666316152476C74100665646 /* DissolveFragment.glsl in CopyFiles */,
+				666316162476C74300665646 /* DissolveVertex.glsl in CopyFiles */,
+				666316102476C5E800665646 /* TextureVertexShader.glsl in CopyFiles */,
 				6674FA49246452D600E4B6CC /* TextureFragmentShader.glsl in CopyFiles */,
-				6674FA4A246452D600E4B6CC /* TransformVertexShader.glsl in CopyFiles */,
 				6674FA4B246452D600E4B6CC /* TextFragment.glsl in CopyFiles */,
 				6674FA4C246452D600E4B6CC /* TextVertex.glsl in CopyFiles */,
 			);
@@ -98,11 +77,9 @@
 			dstPath = rkt/etc/textures;
 			dstSubfolderSpec = 16;
 			files = (
-				6674FA54246453B300E4B6CC /* radial.bmp in CopyFiles */,
-				6674FA55246453B300E4B6CC /* uvtemplate.bmp in CopyFiles */,
+				666316312476CF5000665646 /* rocket.tga in CopyFiles */,
 				6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */,
 				6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */,
-				6674FA512464532B00E4B6CC /* logo.tga in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,10 +89,7 @@
 			dstPath = rkt/etc/fonts;
 			dstSubfolderSpec = 16;
 			files = (
-				6674FA5E2464549D00E4B6CC /* hnpro-extra-black-condensed.otf in CopyFiles */,
-				6674FA5F2464549D00E4B6CC /* hnpro-medium-condensed-oblique.otf in CopyFiles */,
-				6674FA602464549D00E4B6CC /* hnpro-medium-condensed.otf in CopyFiles */,
-				6674FA612464549D00E4B6CC /* Mexcellent.ttf in CopyFiles */,
+				6663162C2476CA7700665646 /* Roboto-Regular.ttf in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,8 +110,6 @@
 		66369DB02302EAFC00975025 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		66369DB12302EAFC00975025 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		66369DB32302EE8600975025 /* TextureFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextureFragmentShader.glsl; sourceTree = "<group>"; };
-		66369DB42302EE8600975025 /* TransformVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TransformVertexShader.glsl; sourceTree = "<group>"; };
-		66369DB92302F2F100975025 /* uvtemplate.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = uvtemplate.bmp; sourceTree = "<group>"; };
 		66369DBB2302F31000975025 /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		66369DBC2302F31000975025 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 		6659847923044886002D326C /* TextVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextVertex.glsl; sourceTree = "<group>"; };
@@ -148,12 +120,9 @@
 		6659848723057103002D326C /* MainScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainScene.cpp; sourceTree = "<group>"; };
 		6659848823057103002D326C /* MainScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainScene.hpp; sourceTree = "<group>"; };
 		665984A22305C5A9002D326C /* Definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
-		665A527D245D72DA00AC6765 /* DissolveVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveVertex.glsl; sourceTree = "<group>"; };
-		665A527E245D72DA00AC6765 /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
 		665A5282245D77CC00AC6765 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		665A5283245D78C000AC6765 /* dissolve-ramp.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dissolve-ramp.tga"; sourceTree = "<group>"; };
 		665A5287245D7C2200AC6765 /* noise.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = noise.tga; sourceTree = "<group>"; };
-		665A5289245D862A00AC6765 /* logo.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.tga; sourceTree = "<group>"; };
 		665A528D245D91BB00AC6765 /* Splash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Splash.cpp; sourceTree = "<group>"; };
 		665A528E245D91BB00AC6765 /* Splash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Splash.hpp; sourceTree = "<group>"; };
 		665A5290245D932B00AC6765 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -164,22 +133,14 @@
 		6663160A247553AD00665646 /* rkt.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rkt.pb.h; path = pregen/rkt/proto/rkt.pb.h; sourceTree = "<group>"; };
 		6663160B247553AD00665646 /* rkt.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rkt.pb.cc; path = pregen/rkt/proto/rkt.pb.cc; sourceTree = "<group>"; };
 		6663160C247553AD00665646 /* rkt.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rkt.grpc.pb.cc; path = pregen/rkt/proto/rkt.grpc.pb.cc; sourceTree = "<group>"; };
+		6663160F2476C5E100665646 /* TextureVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextureVertexShader.glsl; sourceTree = "<group>"; };
+		666316132476C73E00665646 /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
+		666316142476C73E00665646 /* DissolveVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveVertex.glsl; sourceTree = "<group>"; };
+		6663161E2476CA6C00665646 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		666316302476CF4300665646 /* rocket.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocket.tga; sourceTree = "<group>"; };
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
-		6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hnpro-medium-condensed.otf"; sourceTree = "<group>"; };
-		6674FA5A2464548A00E4B6CC /* hnpro-medium-condensed-oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hnpro-medium-condensed-oblique.otf"; sourceTree = "<group>"; };
-		6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mexcellent.ttf; sourceTree = "<group>"; };
-		6674FA5C2464548A00E4B6CC /* hnpro-extra-black-condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hnpro-extra-black-condensed.otf"; sourceTree = "<group>"; };
-		668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FractalRadialFragment.glsl; sourceTree = "<group>"; };
-		668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FractalRadialVertex.glsl; sourceTree = "<group>"; };
-		66A686B024585E9E00FF318E /* LineFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineFragment.glsl; sourceTree = "<group>"; };
-		66A686B124585E9E00FF318E /* LineVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineVertex.glsl; sourceTree = "<group>"; };
-		66A686B4245889B000FF318E /* RingArcVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingArcVertex.glsl; sourceTree = "<group>"; };
-		66A686B5245889B000FF318E /* RingArcFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingArcFragment.glsl; sourceTree = "<group>"; };
-		66A686CB245A0A6400FF318E /* RingTextureArcVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingTextureArcVertex.glsl; sourceTree = "<group>"; };
-		66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = RingTextureArcFragment.glsl; sourceTree = "<group>"; };
-		66A686CF245A0F7700FF318E /* radial.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = radial.bmp; sourceTree = "<group>"; };
 		66B17153246D76EF00A037C8 /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../usr/local/lib/libSDL2.dylib; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
@@ -330,18 +291,10 @@
 		6674FA282463358000E4B6CC /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				665A527E245D72DA00AC6765 /* DissolveFragment.glsl */,
-				665A527D245D72DA00AC6765 /* DissolveVertex.glsl */,
-				668CD42A245C508F0076FCCD /* FractalRadialFragment.glsl */,
-				668CD42B245C508F0076FCCD /* FractalRadialVertex.glsl */,
-				66A686CC245A0A6500FF318E /* RingTextureArcFragment.glsl */,
-				66A686CB245A0A6400FF318E /* RingTextureArcVertex.glsl */,
-				66A686B5245889B000FF318E /* RingArcFragment.glsl */,
-				66A686B4245889B000FF318E /* RingArcVertex.glsl */,
-				66A686B024585E9E00FF318E /* LineFragment.glsl */,
-				66A686B124585E9E00FF318E /* LineVertex.glsl */,
+				666316132476C73E00665646 /* DissolveFragment.glsl */,
+				666316142476C73E00665646 /* DissolveVertex.glsl */,
+				6663160F2476C5E100665646 /* TextureVertexShader.glsl */,
 				66369DB32302EE8600975025 /* TextureFragmentShader.glsl */,
-				66369DB42302EE8600975025 /* TransformVertexShader.glsl */,
 				6659847A23044894002D326C /* TextFragment.glsl */,
 				6659847923044886002D326C /* TextVertex.glsl */,
 			);
@@ -351,11 +304,9 @@
 		6674FA292463358900E4B6CC /* textures */ = {
 			isa = PBXGroup;
 			children = (
-				66A686CF245A0F7700FF318E /* radial.bmp */,
-				66369DB92302F2F100975025 /* uvtemplate.bmp */,
 				665A5283245D78C000AC6765 /* dissolve-ramp.tga */,
 				665A5287245D7C2200AC6765 /* noise.tga */,
-				665A5289245D862A00AC6765 /* logo.tga */,
+				666316302476CF4300665646 /* rocket.tga */,
 			);
 			path = textures;
 			sourceTree = "<group>";
@@ -371,10 +322,7 @@
 		6674FA582464547400E4B6CC /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				6674FA5C2464548A00E4B6CC /* hnpro-extra-black-condensed.otf */,
-				6674FA5A2464548A00E4B6CC /* hnpro-medium-condensed-oblique.otf */,
-				6674FA592464548A00E4B6CC /* hnpro-medium-condensed.otf */,
-				6674FA5B2464548A00E4B6CC /* Mexcellent.ttf */,
+				6663161E2476CA6C00665646 /* Roboto-Regular.ttf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";

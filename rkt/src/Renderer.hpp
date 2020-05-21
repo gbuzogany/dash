@@ -83,8 +83,6 @@ public:
     void useProgram(ShaderProgram &program);
     
     void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);
-    void drawRingArc(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, vec3 color);
-    void drawRingArcTexture(float value, float max, GLfloat x, GLfloat y, GLfloat outerRadius, GLfloat innerRadius, GLfloat startAngle, GLfloat endPercent, GLint texId);
     void renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     void setProgramGlobalAlpha(ShaderProgram &program);
     void setGlobalAlpha(float alpha);

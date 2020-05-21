@@ -20,13 +20,15 @@ class Splash : Scene {
     GLuint dissolveRampTextureId;
     GLuint dissolveNoiseTextureId;
     GLuint splashLogo;
-    
+
     float totalTime = 0;
     float dissolve = 0;
     
     ShaderProgram *dissolveProgram;
 
     std::queue<Animation*> animationQueue;
+    
+    void setupDissolve(GLuint textureId);
 
 public:
     Splash(Renderer *r, RocketteServiceImpl *service);
