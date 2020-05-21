@@ -1,6 +1,6 @@
 # Rockette 🚀
 
-Rockette (/ʁɔ.kɛt/, borrowed from French [_roquette_](https://fr.wikipedia.org/wiki/Roquette_(plante))) is an open source platform to ease development of graphical applications to embedded systems. Its purpose is to simplify development of custom displays for embedded systems using OpenGL ES 2.0. It enables development on Windows/Linux/macOS using OpenGL ES 2.0 (using [ANGLE](https://github.com/google/angle)), so you can implement everything on your favourite development platform, and then just cross-compile it to run on the target platform.
+Rockette (/ʁɔ.kɛt/, borrowed from French [_roquette_](https://fr.wikipedia.org/wiki/Roquette_(plante))) is an open source platform to ease development of graphical applications for embedded systems. Its purpose is to simplify development of custom displays for embedded systems using OpenGL ES 2.0. It enables development on Windows/Linux/macOS using OpenGL ES 2.0 (using [ANGLE](https://github.com/google/angle)), so you can implement everything on your favourite development platform, and then just cross-compile it to run on the target platform.
 
 It's super light-weight, and has basic features already included:
 
