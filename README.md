@@ -24,7 +24,7 @@ Check [INTEGRATION.md](INTEGRATION.md).
 
 ## Development
 
-It's written in C++ with very minimal dependencies. Development can be done on Windows, Linux or macOS, and then cross-compiled to run on a Raspberry.
+It's written in C++ with very minimal dependencies. Development can be done on Windows, Linux or macOS, and then cross-compiled to run on a Raspberry Pi, for example.
 
 Check the development environment instructions:
 

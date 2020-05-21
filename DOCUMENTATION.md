@@ -25,7 +25,7 @@ Rendering happens on `Scene` objects, that are expected to implement the interfa
 
 The `Renderer` class has methods to perform basic rendering operations, like rendering text, or an image.
 
-The received RPC calls are handled by the `RocketService` class, which stores received data in `std::map`s that can be easily accessed, as the `RocketService` instance is passed to all scenes by default.
+The received RPC calls are handled by the `RocketteService` class, which stores received data in `std::map`s that can be easily accessed, as the `RocketteService` instance is passed to all scenes by default.
 
 ### Scenes
 
@@ -134,6 +134,6 @@ To set which framebuffer to use. Framebuffer `0` is the one bound to the screen.
 
 ## RPC
 
-The `RocketService` class is the class responsible for handling the RPC calls triggered by external applications. The default implementation has methods for receiving `int`, `float`, `string` and `bytes` from external applications. The RocketService methods and parameters are defined in `src/proto/rkt.proto`.
+The `RocketteService` class is the class responsible for handling the RPC calls triggered by external applications. The default implementation has methods for receiving `int`, `float`, `string` and `bytes` from external applications. The `RocketteService` methods and parameters are defined in `src/proto/rkt.proto`.
 
-For example, you can have an external Python application calling remotely the `UpdateIntData()` method, with identifier `hello` and value `10`. This will store the value `10` in a map, that can be retrieved from the `RocketService` instance through 
+For example, you can have an external Python application calling remotely the `UpdateIntData()` method, with identifier `hello` and value `10`. This will store the value `10` in a map, that can be retrieved from the `RocketteService` instance through the `RocketteService::getIntValue()` method.
