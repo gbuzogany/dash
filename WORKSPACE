@@ -22,3 +22,17 @@ new_local_repository(
     path = SDL2_LOCAL_PATH,
     build_file = SDL2_LOCAL_BUILD_PATH
 )
+
+new_local_repository(
+    name = "pi_deps",
+    path = "/opt/vc/include",
+    build_file_content = """
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "headers",
+    hdrs = glob(["**/*.h"])
+)
+
+"""
+)

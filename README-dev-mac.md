@@ -11,11 +11,11 @@
 ## 3 - Build the project
 
 ```
-bazel build //dash:dash_bin --cpu="darwin_x86_64"
+bazel build //rkt:rockette --cpu="darwin_x86_64"
 ```
 
 ## 4 - Run the project
 
 ```
-bazel run //dash:dash_bin --cpu="darwin_x86_64"
+bazel run //rkt:rockette --cpu="darwin_x86_64"
 ```

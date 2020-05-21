@@ -40,20 +40,20 @@ Make sure you install the `Desktop development with C++` package.
 From a command prompt, go to the project directory, and run:
 
 ```
-bazel build //dash:dash_bin
+bazel build //rkt:rockette
 ```
 
 It should download all the dependencies automatically.
 
 ## 4 - Running the project
 
-There's just one more step that's needed to run the project on Windows. The program expects to find all assets (shaders, textures, fonts, etc) in a directory called "dash" in the CWD (current working directory, the directory where the project is running from).
-For it to work with `bazel run`, you should copy the `{PROJECT_DIR}/dash/etc` directory to `{PROJECT_DIR}/bazel-bin/dash/dash_bin.exe.runfiles/dash/`.
+There's just one more step that's needed to run the project on Windows. The program expects to find all assets (shaders, textures, fonts, etc) in a directory called "rkt" in the CWD (current working directory, the directory where the project is running from).
+For it to work with `bazel run`, you should copy the `{PROJECT_DIR}/rkt/etc` directory to `{PROJECT_DIR}/bazel-bin/rkt/rockette.exe.runfiles/rkt/`.
 
 Then, run:
 
 ```
-bazel run //dash:dash_bin
+bazel run //rkt:rockette
 ```
 
 To run the project.

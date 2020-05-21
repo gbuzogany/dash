@@ -1,4 +1,6 @@
-# Linux (Debian 10)
+# Linux
+
+The steps described below were tested on Debian 10, but should be easily translatable to compatible platforms.
 
 ## 1 - Install bazel
 
@@ -27,11 +29,11 @@ sudo apt-get install libsdl2-dev
 ## 3 - Building the project
 
 ```
-bazel build //dash:dash_bin
+bazel build //rkt:rockette
 ```
 
 ## 4 - Running the project
 
 ```
-bazel run //dash:dash_bin
+bazel run //rkt:rockette
 ```
