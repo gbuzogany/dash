@@ -1,11 +1,3 @@
-//
-//  Animation.cpp
-//  dash
-//
-//  Created by Gustavo Buzogany Eboli on 02/05/2020.
-//  Copyright © 2020 gbuzogany.com. All rights reserved.
-//
-
 #include "Animation.hpp"
 
 Animation::Animation(std::string id, float from, float to, float duration) {

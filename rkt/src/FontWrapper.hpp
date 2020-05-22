@@ -1,11 +1,3 @@
-//
-//  Font.hpp
-//  dash
-//
-//  Created by Gustavo Buzogany Eboli on 14/08/2019.
-//  Copyright © 2019 gbuzogany.com. All rights reserved.
-//
-
 #ifndef Font_hpp
 #define Font_hpp
 

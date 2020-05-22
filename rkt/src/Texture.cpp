@@ -1,11 +1,3 @@
-//
-//  Texture.cpp
-//  dash
-//
-//  Created by Gustavo Buzogany Eboli on 13/08/2019.
-//  Copyright © 2019 gbuzogany.com. All rights reserved.
-//
-
 #include "Texture.hpp"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"

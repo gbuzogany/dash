@@ -1,11 +1,3 @@
-//
-//  DashService.hpp
-//  dash_bin
-//
-//  Created by Gustavo Buzogany Eboli on 19/05/2020.
-//  Copyright © 2020 gbuzogany.com. All rights reserved.
-//
-
 #ifndef DashService_hpp
 #define DashService_hpp
 

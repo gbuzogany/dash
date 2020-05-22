@@ -1,11 +1,3 @@
-//
-//  Animation.hpp
-//  dash
-//
-//  Created by Gustavo Buzogany Eboli on 02/05/2020.
-//  Copyright © 2020 gbuzogany.com. All rights reserved.
-//
-
 #ifndef Animation_hpp
 #define Animation_hpp
 

@@ -1,11 +1,3 @@
-//
-//  ShaderProgram.hpp
-//  dash
-//
-//  Created by Gustavo Buzogany Eboli on 13/08/2019.
-//  Copyright © 2019 gbuzogany.com. All rights reserved.
-//
-
 #ifndef ShaderProgram_hpp
 #define ShaderProgram_hpp
 

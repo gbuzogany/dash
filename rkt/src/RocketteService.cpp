@@ -1,11 +1,3 @@
-//
-//  DashService.cpp
-//  dash_bin
-//
-//  Created by Gustavo Buzogany Eboli on 19/05/2020.
-//  Copyright © 2020 gbuzogany.com. All rights reserved.
-//
-
 #include "RocketteService.hpp"
 #include <iostream>
 #include <iomanip>

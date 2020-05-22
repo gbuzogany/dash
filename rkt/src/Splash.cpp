@@ -1,11 +1,3 @@
-//
-//  Splash.cpp
-//  dash
-//
-//  Created by Gustavo Buzogany Eboli on 15/08/2019.
-//  Copyright © 2019 gbuzogany.com. All rights reserved.
-//
-
 #include "Splash.hpp"
 #include <functional>
 #include <memory>
@@ -96,8 +88,9 @@ void Splash::render() {
     _r->clear();
     
     setupDissolve(splashLogo);
-    _r->renderRect(WIDTH/2 - 125, HEIGHT/2 - 125, 250, 250, true);
+    _r->renderRect(WIDTH/2 - 75, HEIGHT/2 - 75, 150, 150, true);
 }
 
 void Splash::renderFixed() {
+    
 }
