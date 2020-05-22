@@ -100,7 +100,7 @@
 		661879D82474078500BB39FF /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		661879D92474078500BB39FF /* Utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
 		661879E024740C3200BB39FF /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = glad/src/glad.c; sourceTree = SOURCE_ROOT; };
-		66369D992302E7A000975025 /* rockette_bin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rockette_bin; sourceTree = BUILT_PRODUCTS_DIR; };
+		66369D992302E7A000975025 /* rockette */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rockette; sourceTree = BUILT_PRODUCTS_DIR; };
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		66369DA42302E7E200975025 /* Renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 		66369D9A2302E7A000975025 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66369D992302E7A000975025 /* rockette_bin */,
+				66369D992302E7A000975025 /* rockette */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,9 +336,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		66369D982302E7A000975025 /* rockette_bin */ = {
+		66369D982302E7A000975025 /* rockette */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66369DA02302E7A000975025 /* Build configuration list for PBXNativeTarget "rockette_bin" */;
+			buildConfigurationList = 66369DA02302E7A000975025 /* Build configuration list for PBXNativeTarget "rockette" */;
 			buildPhases = (
 				6674FA3E246452AF00E4B6CC /* CopyFiles */,
 				6674FA4D2464531500E4B6CC /* CopyFiles */,
@@ -351,9 +351,9 @@
 			);
 			dependencies = (
 			);
-			name = rockette_bin;
+			name = rockette;
 			productName = dash;
-			productReference = 66369D992302E7A000975025 /* rockette_bin */;
+			productReference = 66369D992302E7A000975025 /* rockette */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -382,7 +382,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				66369D982302E7A000975025 /* rockette_bin */,
+				66369D982302E7A000975025 /* rockette */,
 			);
 		};
 /* End PBXProject section */
@@ -593,7 +593,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66369DA02302E7A000975025 /* Build configuration list for PBXNativeTarget "rockette_bin" */ = {
+		66369DA02302E7A000975025 /* Build configuration list for PBXNativeTarget "rockette" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66369DA12302E7A000975025 /* Debug */,

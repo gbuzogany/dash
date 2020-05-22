@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "66369D982302E7A000975025"
-               BuildableName = "rockette_bin"
-               BlueprintName = "rockette_bin"
+               BuildableName = "rockette"
+               BlueprintName = "rockette"
                ReferencedContainer = "container:rockette.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "66369D982302E7A000975025"
-            BuildableName = "rockette_bin"
-            BlueprintName = "rockette_bin"
+            BuildableName = "rockette"
+            BlueprintName = "rockette"
             ReferencedContainer = "container:rockette.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "66369D982302E7A000975025"
-            BuildableName = "rockette_bin"
-            BlueprintName = "rockette_bin"
+            BuildableName = "rockette"
+            BlueprintName = "rockette"
             ReferencedContainer = "container:rockette.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "66369D982302E7A000975025"
-            BuildableName = "rockette_bin"
-            BlueprintName = "rockette_bin"
+            BuildableName = "rockette"
+            BlueprintName = "rockette"
             ReferencedContainer = "container:rockette.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
