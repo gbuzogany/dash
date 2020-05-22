@@ -13,10 +13,10 @@ Splash::Splash(Renderer *renderer, RocketteServiceImpl *service) : Scene(rendere
     
     animationQueue.push(new Animation("fadeIn", 0, 1.0, 1.0));
     animationQueue.push(new Animation("delay", 0, 1.0, 0.5));
-    animationQueue.push(new Animation("dissolve", 0, 1.0, 1.0));
+    animationQueue.push(new Animation("dissolve", 0, 1.0, 2.0));
     animationQueue.push(new Animation("delay", 0, 1.0, 1.0));
     
-    dissolveProgram = _r->loadShaders( "rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl" );
+    dissolveProgram = new ShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl");
 }
 
 bool Splash::update(float delta) {
@@ -88,9 +88,17 @@ void Splash::render() {
     _r->clear();
     
     setupDissolve(splashLogo);
-    _r->renderRect(WIDTH/2 - 75, HEIGHT/2 - 75, 150, 150, true);
+    _r->renderRect(WIDTH/2 - 175, HEIGHT/2 - 175, 350, 350, true);
 }
 
 void Splash::renderFixed() {
     
+}
+
+Splash::~Splash() {
+    Texture::destroyTexture(splashLogo);
+    Texture::destroyTexture(dissolveRampTextureId);
+    Texture::destroyTexture(dissolveNoiseTextureId);
+    
+//    _r->destroyShader(dissolveProgram);
 }

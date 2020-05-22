@@ -25,3 +25,7 @@ GLuint Texture::loadTGA(const char * imagepath) {
     
     return textureID;
 }
+
+void Texture::destroyTexture(GLuint textureId) {
+    
+}

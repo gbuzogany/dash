@@ -22,6 +22,7 @@ class Splash : Scene {
     
     void setupDissolve(GLuint textureId);
 
+    ~Splash();
 public:
     Splash(Renderer *r, RocketteServiceImpl *service);
     void render();

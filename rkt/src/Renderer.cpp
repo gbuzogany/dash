@@ -11,26 +11,10 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
-    defaultTextProgram = loadShaders( "rkt/etc/shaders/TextVertex.glsl", "rkt/etc/shaders/TextFragment.glsl" );
-    defaultTextureProgram = loadShaders( "rkt/etc/shaders/TextureVertexShader.glsl", "rkt/etc/shaders/TextureFragmentShader.glsl" );
+    defaultTextProgram = new ShaderProgram( "rkt/etc/shaders/TextVertex.glsl", "rkt/etc/shaders/TextFragment.glsl" );
+    defaultTextureProgram = new ShaderProgram( "rkt/etc/shaders/TextureVertexShader.glsl", "rkt/etc/shaders/TextureFragmentShader.glsl" );
     
     textProgram = defaultTextProgram;
-}
-
-ShaderProgram* Renderer::loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath)
-{
-    ShaderProgram *program = new ShaderProgram();
-    Shader *vertex = new Shader();
-    Shader *fragment = new Shader();
-    
-    vertex->loadVertexShader(vertexShaderPath);
-    fragment->loadFragmentShader(fragmentShaderPath);
-    program->create(vertex, fragment);
-    assert(glGetError() == 0);
-    GLint progId = program->getId();
-    glUseProgram(progId);
-    assert(glGetError() == 0);
-    return program;
 }
 
 void Renderer::initGraphics()

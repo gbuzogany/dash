@@ -13,7 +13,6 @@
 		66369D9D2302E7A000975025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369D9C2302E7A000975025 /* main.cpp */; };
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
 		66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* ShaderProgram.cpp */; };
-		66369DB22302EAFC00975025 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DB02302EAFC00975025 /* Shader.cpp */; };
 		66369DBD2302F31000975025 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DBB2302F31000975025 /* Texture.cpp */; };
 		6659848123044A47002D326C /* FontWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659847F23044A47002D326C /* FontWrapper.cpp */; };
 		6659848923057103002D326C /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848723057103002D326C /* MainScene.cpp */; };
@@ -107,8 +106,6 @@
 		66369DA42302E7E200975025 /* Renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
 		66369DAD2302EACF00975025 /* ShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
 		66369DAE2302EACF00975025 /* ShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
-		66369DB02302EAFC00975025 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
-		66369DB12302EAFC00975025 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		66369DB32302EE8600975025 /* TextureFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextureFragmentShader.glsl; sourceTree = "<group>"; };
 		66369DBB2302F31000975025 /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		66369DBC2302F31000975025 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
@@ -191,8 +188,6 @@
 			children = (
 				66369DAE2302EACF00975025 /* ShaderProgram.hpp */,
 				66369DAD2302EACF00975025 /* ShaderProgram.cpp */,
-				66369DB12302EAFC00975025 /* Shader.hpp */,
-				66369DB02302EAFC00975025 /* Shader.cpp */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -401,7 +396,6 @@
 				66369DBD2302F31000975025 /* Texture.cpp in Sources */,
 				66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
-				66369DB22302EAFC00975025 /* Shader.cpp in Sources */,
 				6663160D247553AD00665646 /* rkt.pb.cc in Sources */,
 				661879D72473DA2500BB39FF /* RocketteService.cpp in Sources */,
 				6659848923057103002D326C /* MainScene.cpp in Sources */,

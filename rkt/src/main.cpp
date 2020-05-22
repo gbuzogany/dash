@@ -15,7 +15,7 @@
 #include "Splash.hpp"
 #include "RocketteService.hpp"
 
-void startDashService(RocketteServiceImpl *service);
+void startRocketteService(RocketteServiceImpl *service);
 
 int main(int argc, char* argv[])
 {
@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     std::queue<Scene*> sceneQueue;
     RocketteServiceImpl service;
     
-    std::thread dashServiceThread = std::thread(&startDashService, &service);
+    std::thread rocketteServiceThread = std::thread(&startRocketteService, &service);
     
     sceneQueue.push((Scene*) new Splash(&r, &service));
     sceneQueue.push((Scene*) new MainScene(&r, &service));
@@ -58,14 +58,14 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void startDashService(RocketteServiceImpl *service) {
+void startRocketteService(RocketteServiceImpl *service) {
     std::string server_address("0.0.0.0:50052");
     
     ServerBuilder builder;
     builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
     builder.RegisterService(service);
     std::unique_ptr<Server> server(builder.BuildAndStart());
-    std::cout << "DashService listening on " << server_address << std::endl;
+    std::cout << "RocketteService listening on " << server_address << std::endl;
     
     server->Wait();
 }

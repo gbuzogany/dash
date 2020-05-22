@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <vector>
-#include "Shader.hpp"
+#include <glad/glad.h>
 
 struct Character {
     glm::ivec2 size;       // Size of glyph

@@ -1,16 +1,18 @@
 #include "ShaderProgram.hpp"
+#include <iostream>
 
-bool ShaderProgram::create(Shader *vertex_shader, Shader *fragment_shader)
-{
-    VertexShader = vertex_shader;
-    FragmentShader = fragment_shader;
-    Id = glCreateProgram();
-    glAttachShader(Id, VertexShader->getId());
-    glAttachShader(Id, FragmentShader->getId());
-    glLinkProgram(Id);
-    assert(glGetError() == 0);
+ShaderProgram::ShaderProgram(const std::string vertex_shader, const std::string fragment_shader) {
     
-    return true;
+    GLuint vs = compileShader(vertex_shader, GL_VERTEX_SHADER);
+    GLuint fs = compileShader(fragment_shader, GL_FRAGMENT_SHADER);
+    
+    Id = glCreateProgram();
+    glAttachShader(Id, vs);
+    glAttachShader(Id, fs);
+    glLinkProgram(Id);
+    assert(glGetError() == GL_NO_ERROR);
+    glUseProgram(Id);
+    assert(glGetError() == GL_NO_ERROR);
 }
 
 GLuint ShaderProgram::getUniformLocation(std::string name) {
@@ -20,4 +22,33 @@ GLuint ShaderProgram::getUniformLocation(std::string name) {
         return uniform;
     }
     return uniformLocations[name];
+}
+
+ShaderProgram::~ShaderProgram() {
+    
+}
+
+GLuint ShaderProgram::compileShader(const std::string filename, const GLuint shader_type) {
+    GLchar* Src;
+    GLuint progId;
+    
+    printf("Loading %s...\n", filename.c_str());
+    FILE* f = fopen(filename.c_str(), "rb");
+    assert(f);
+    fseek(f,0,SEEK_END);
+    long sz = ftell(f);
+    fseek(f,0,SEEK_SET);
+    Src = new GLchar[sz+1];
+    fread(Src,1,sz,f);
+    Src[sz] = 0;
+    fclose(f);
+    
+    progId = glCreateShader(shader_type);
+    glShaderSource(progId, 1, (const GLchar**)&Src, 0);
+    glCompileShader(progId);
+    assert(glGetError() == GL_NO_ERROR);
+    
+    delete[] Src;
+    
+    return progId;
 }

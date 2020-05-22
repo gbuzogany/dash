@@ -44,12 +44,10 @@ private:
 public:
     FT_Library ft;
     
-    ShaderProgram *ringArcProgram;
-    ShaderProgram *ringTexArcProgram;
     ShaderProgram *textProgram;
-    
     ShaderProgram *defaultTextProgram;
     ShaderProgram *defaultTextureProgram;
+    
     SDL_Window *window;
     
     Renderer();
@@ -57,7 +55,6 @@ public:
     
     void initGraphics();
     void initShaders();
-    ShaderProgram* loadShaders(const char *vertexShaderPath, const char *fragmentShaderPath);
     void updateScreen();
     
     float startFrame();
@@ -65,7 +62,7 @@ public:
     short getFrameRate();
     
     GLuint getVertexBuffer();
-    
+
     float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign = LEFT, uint vAlign = BOTTOM);
     void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, ShaderProgram *program = nullptr);
     void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);

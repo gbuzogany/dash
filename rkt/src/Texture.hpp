@@ -10,6 +10,7 @@
 class Texture {
 public:
     static GLuint loadTGA(const char * imagepath);
+    static void destroyTexture(GLuint textureId);
 };
 
 #endif /* Texture_hpp */
