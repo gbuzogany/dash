@@ -1,9 +1,9 @@
 #include "ShaderProgram.hpp"
 #include <iostream>
 
-ShaderProgram::ShaderProgram(const std::string vertex_shader, const std::string fragment_shader) {
-    vs = compileShader(vertex_shader, GL_VERTEX_SHADER);
-    fs = compileShader(fragment_shader, GL_FRAGMENT_SHADER);
+ShaderProgram::ShaderProgram(const std::string vertexShader, const std::string fragmentShader) {
+    vs = compileShader(vertexShader, GL_VERTEX_SHADER);
+    fs = compileShader(fragmentShader, GL_FRAGMENT_SHADER);
     
     Id = glCreateProgram();
     glAttachShader(Id, vs);
@@ -27,7 +27,7 @@ ShaderProgram::~ShaderProgram() {
     glDeleteShader(Id);
 }
 
-GLuint ShaderProgram::compileShader(const std::string filename, const GLuint shader_type) {
+GLuint ShaderProgram::compileShader(const std::string filename, const GLuint shaderSype) {
     GLchar* Src;
     GLuint progId;
     
@@ -42,7 +42,7 @@ GLuint ShaderProgram::compileShader(const std::string filename, const GLuint sha
     Src[sz] = 0;
     fclose(f);
     
-    progId = glCreateShader(shader_type);
+    progId = glCreateShader(shaderSype);
     glShaderSource(progId, 1, (const GLchar**)&Src, 0);
     glCompileShader(progId);
     assert(glGetError() == GL_NO_ERROR);

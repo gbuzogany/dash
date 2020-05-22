@@ -19,10 +19,10 @@ class ShaderProgram {
     
 public:
     
-    ShaderProgram(const std::string vertex_shader, const std::string fragment_shader);
+    ShaderProgram(const std::string vertexShader, const std::string fragmentShader);
     ~ShaderProgram();
     
-    GLuint compileShader(std::string filename, GLuint shader_type);
+    GLuint compileShader(std::string filename, GLuint shaderType);
     GLuint getUniformLocation(std::string name);
     GLuint getId() { return Id; }
 };
