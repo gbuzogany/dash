@@ -27,5 +27,5 @@ GLuint Texture::loadTGA(const char * imagepath) {
 }
 
 void Texture::destroyTexture(GLuint textureId) {
-    
+    glDeleteTextures(1, &textureId);
 }

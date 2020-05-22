@@ -2,9 +2,8 @@
 #include <iostream>
 
 ShaderProgram::ShaderProgram(const std::string vertex_shader, const std::string fragment_shader) {
-    
-    GLuint vs = compileShader(vertex_shader, GL_VERTEX_SHADER);
-    GLuint fs = compileShader(fragment_shader, GL_FRAGMENT_SHADER);
+    vs = compileShader(vertex_shader, GL_VERTEX_SHADER);
+    fs = compileShader(fragment_shader, GL_FRAGMENT_SHADER);
     
     Id = glCreateProgram();
     glAttachShader(Id, vs);
@@ -25,7 +24,7 @@ GLuint ShaderProgram::getUniformLocation(std::string name) {
 }
 
 ShaderProgram::~ShaderProgram() {
-    
+    glDeleteShader(Id);
 }
 
 GLuint ShaderProgram::compileShader(const std::string filename, const GLuint shader_type) {

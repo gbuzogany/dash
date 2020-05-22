@@ -14,7 +14,7 @@
 #endif
 
 class ShaderProgram {
-    GLuint Id;
+    GLuint Id, vs, fs;
     std::map<std::string, GLuint> uniformLocations;
     
 public:

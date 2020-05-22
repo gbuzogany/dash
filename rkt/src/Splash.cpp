@@ -100,5 +100,5 @@ Splash::~Splash() {
     Texture::destroyTexture(dissolveRampTextureId);
     Texture::destroyTexture(dissolveNoiseTextureId);
     
-//    _r->destroyShader(dissolveProgram);
+    delete dissolveProgram;
 }
