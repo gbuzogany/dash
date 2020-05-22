@@ -27,6 +27,10 @@ FontWrapper::FontWrapper(std::string fontName, int size, std::vector<FT_ULong> c
     createFontTextureAtlas(face, size, charList);
 }
 
+FontWrapper::~FontWrapper() {
+    glDeleteTextures(1, &texture);
+}
+
 int FontWrapper::createFontTextureAtlas(FT_Face &face, int size, std::vector<FT_ULong> charList) {
     FT_Set_Pixel_Sizes(face, 0, size);
     fontSize = size;
@@ -145,8 +149,8 @@ int FontWrapper::getCharacter(GLchar key, Character &out) {
 
 int FontWrapper::loadFontFace(Renderer* r, std::string name, std::string path) {
     FT_Face face;
-    int error = FontWrapper::getFace(name, face);
-    if (error != 0) {
+    int loaded = FontWrapper::getFace(name, face);
+    if (loaded == -1) {
         if (FT_New_Face(r->ft, path.c_str(), 0, &face)) {
             std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
             return -2;
@@ -154,7 +158,9 @@ int FontWrapper::loadFontFace(Renderer* r, std::string name, std::string path) {
         faceMap[name] = face;
         return 0;
     }
-    std::cout << "ERROR: FontFace could not be found." << std::endl;
+    else {
+        std::cout << "FontFace \"" << name << "\" was already loaded." << std::endl;
+    }
     return -1;
 }
 

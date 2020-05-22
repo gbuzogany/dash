@@ -21,7 +21,7 @@ class Splash : Scene {
     std::queue<Animation*> animationQueue;
     
     void setupDissolve(GLuint textureId);
-
+    
     ~Splash();
 public:
     Splash(Renderer *r, RocketteServiceImpl *service);

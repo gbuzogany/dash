@@ -23,19 +23,20 @@ class FontWrapper {
     std::map<GLchar, Character> characters;
     
     static std::map<std::string, FT_Face> faceMap;
-public:
+    
     int maxWidth = 0;
     int maxHeight = 0;
-    
-    float texSize;
     int fontSize;
     
+public:
+    float texSize;
     GLuint texture;
     
     int getFontSize();
     int getCharacter(GLchar key, Character &out);
     
     FontWrapper(std::string fontName, int size, std::vector<FT_ULong> charList);
+    ~FontWrapper();
     
     static int loadFontFace(Renderer* r, std::string name, std::string path);
     static int getFace(std::string name, FT_Face &face);

@@ -24,6 +24,7 @@ class MainScene : Scene {
     void createFramebuffer();
 public:
     MainScene(Renderer *r, RocketteServiceImpl *service);
+    ~MainScene();
 
     void render();
     void renderFixed();

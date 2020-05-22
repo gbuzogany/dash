@@ -19,6 +19,14 @@ Splash::Splash(Renderer *renderer, RocketteServiceImpl *service) : Scene(rendere
     dissolveProgram = new ShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl");
 }
 
+Splash::~Splash() {
+    Texture::destroyTexture(splashLogo);
+    Texture::destroyTexture(dissolveRampTextureId);
+    Texture::destroyTexture(dissolveNoiseTextureId);
+    
+    delete dissolveProgram;
+}
+
 bool Splash::update(float delta) {
     totalTime += delta;
     
@@ -93,12 +101,4 @@ void Splash::render() {
 
 void Splash::renderFixed() {
     
-}
-
-Splash::~Splash() {
-    Texture::destroyTexture(splashLogo);
-    Texture::destroyTexture(dissolveRampTextureId);
-    Texture::destroyTexture(dissolveNoiseTextureId);
-    
-    delete dissolveProgram;
 }

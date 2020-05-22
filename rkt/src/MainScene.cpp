@@ -30,6 +30,11 @@ MainScene::MainScene(Renderer *renderer, RocketteServiceImpl *service) : Scene(r
     _r->createFramebuffer(frameBuffer, screenTexture, WIDTH, HEIGHT);
 }
 
+MainScene::~MainScene() {
+    delete roboto;
+    delete robotoSmall;
+}
+
 bool MainScene::update(float delta) {
     SDL_Event ev;
     while (SDL_PollEvent(&ev))
