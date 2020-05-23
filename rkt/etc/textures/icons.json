@@ -1,0 +1,105 @@
+{
+    "texture" : {
+        "path" : "rkt/etc/textures/icons.tga",
+        "width" : 1024,
+        "height" : 1024
+    },
+    "icons" : {
+        "maintenance" : {
+            "x" : 4,
+            "y" : 4,
+            "width" : 112,
+            "height" : 112
+        },
+        "battery" : {
+            "x" : 147,
+            "y" : 6,
+            "width" : 112,
+            "height" : 112
+        },
+        "indicator-both" : {
+            "x" : 293,
+            "y" : 4,
+            "width" : 112,
+            "height" : 112
+        },
+        "turbo" : {
+            "x" : 437,
+            "y" : 8,
+            "width" : 112,
+            "height" : 112
+        },
+        "hazard" : {
+            "x" : 585,
+            "y" : 4,
+            "width" : 112,
+            "height" : 112
+        },
+        "fuel" : {
+            "x" : 744,
+            "y" : 4,
+            "width" : 112,
+            "height" : 112
+        },
+        "engine" : {
+            "x" : 908,
+            "y" : 0,
+            "width" : 112,
+            "height" : 112
+        },
+        "seatbelt" : {
+            "x" : 2,
+            "y" : 129,
+            "width" : 112,
+            "height" : 112
+        },
+        "abs" : {
+            "x" : 146,
+            "y" : 131,
+            "width" : 112,
+            "height" : 112
+        },
+        "coolant-temp" : {
+            "x" : 292,
+            "y" : 131,
+            "width" : 112,
+            "height" : 112
+        },
+        "lowbeam" : {
+            "x" : 444,
+            "y" : 131,
+            "width" : 112,
+            "height" : 112
+        },
+        "highbeam" : {
+            "x" : 584,
+            "y" : 128,
+            "width" : 112,
+            "height" : 112
+        },
+        "brakes" : {
+            "x" : 2,
+            "y" : 129,
+            "width" : 112,
+            "height" : 112
+        },
+        "phone" : {
+            "x" : 747,
+            "y" : 125,
+            "width" : 112,
+            "height" : 112
+        },
+        "indicator-left" : {
+            "x" : 3,
+            "y" : 259,
+            "width" : 112,
+            "height" : 112
+        },
+        "indicator-right" : {
+            "x" : 146,
+            "y" : 258,
+            "width" : 112,
+            "height" : 112
+        }
+    }
+}
