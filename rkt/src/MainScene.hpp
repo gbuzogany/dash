@@ -21,6 +21,7 @@ class MainScene : Scene {
     std::queue<Animation*> animationQueue;
     
     DashIcons *dashIcons;
+    float totalTime = 0;
     
     FontWrapper *roboto, *robotoSmall;
     

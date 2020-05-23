@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
     
     std::thread rocketteServiceThread = std::thread(&startRocketteService, &service);
     
-//    sceneQueue.push((Scene*) new Splash(&r, &service));
+    sceneQueue.push((Scene*) new Splash(&r, &service));
     sceneQueue.push((Scene*) new MainScene(&r, &service));
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

@@ -19,6 +19,9 @@
 		6642E5852479519800B7FF5C /* DashIcons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5832479519800B7FF5C /* DashIcons.cpp */; };
 		6642E5882479543300B7FF5C /* Icon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5862479543300B7FF5C /* Icon.cpp */; };
 		6642E58A247961B600B7FF5C /* uvmap.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E589247961B000B7FF5C /* uvmap.tga */; };
+		6642E58E24796F3400B7FF5C /* HBlurVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */; };
+		6642E58F24796F3400B7FF5C /* VBlurVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */; };
+		6642E59024796F3400B7FF5C /* BlurFragmentShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */; };
 		6659848123044A47002D326C /* FontWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659847F23044A47002D326C /* FontWrapper.cpp */; };
 		6659848923057103002D326C /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6659848723057103002D326C /* MainScene.cpp */; };
 		665A528F245D91BB00AC6765 /* Splash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665A528D245D91BB00AC6765 /* Splash.cpp */; };
@@ -66,6 +69,9 @@
 			dstPath = rkt/etc/shaders;
 			dstSubfolderSpec = 16;
 			files = (
+				6642E58E24796F3400B7FF5C /* HBlurVertexShader.glsl in CopyFiles */,
+				6642E58F24796F3400B7FF5C /* VBlurVertexShader.glsl in CopyFiles */,
+				6642E59024796F3400B7FF5C /* BlurFragmentShader.glsl in CopyFiles */,
 				666316152476C74100665646 /* DissolveFragment.glsl in CopyFiles */,
 				666316162476C74300665646 /* DissolveVertex.glsl in CopyFiles */,
 				666316102476C5E800665646 /* TextureVertexShader.glsl in CopyFiles */,
@@ -125,6 +131,9 @@
 		6642E5862479543300B7FF5C /* Icon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Icon.cpp; sourceTree = "<group>"; };
 		6642E5872479543300B7FF5C /* Icon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Icon.hpp; sourceTree = "<group>"; };
 		6642E589247961B000B7FF5C /* uvmap.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = uvmap.tga; sourceTree = "<group>"; };
+		6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = HBlurVertexShader.glsl; sourceTree = "<group>"; };
+		6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VBlurVertexShader.glsl; sourceTree = "<group>"; };
+		6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = BlurFragmentShader.glsl; sourceTree = "<group>"; };
 		6659847923044886002D326C /* TextVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextVertex.glsl; sourceTree = "<group>"; };
 		6659847A23044894002D326C /* TextFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextFragment.glsl; sourceTree = "<group>"; };
 		6659847B23044960002D326C /* libfreetype.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.dylib; path = ../../../../../usr/local/lib/libfreetype.dylib; sourceTree = "<group>"; };
@@ -321,6 +330,9 @@
 				66369DB32302EE8600975025 /* TextureFragmentShader.glsl */,
 				6659847A23044894002D326C /* TextFragment.glsl */,
 				6659847923044886002D326C /* TextVertex.glsl */,
+				6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */,
+				6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */,
+				6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */,
 			);
 			path = shaders;
 			sourceTree = "<group>";

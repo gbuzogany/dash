@@ -28,6 +28,7 @@ class Renderer {
 private:
     SDL_GLContext context;
     GLuint vertexbuffer;
+    GLuint uvbuffer;
     GLuint VAO, VBO;
     
     GLuint lastTexture = -1;
@@ -43,6 +44,14 @@ private:
     GLfloat globalAlpha = 0.0;
 public:
     FT_Library ft;
+    
+    ShaderProgram *hBlurProgram;
+    ShaderProgram *vBlurProgram;
+    
+    GLuint screenTexture1;
+    GLuint frameBuffer1;
+    GLuint screenTexture2;
+    GLuint frameBuffer2;
     
     ShaderProgram *textProgram;
     ShaderProgram *defaultTextProgram;
@@ -61,10 +70,13 @@ public:
     void endFrame();
     short getFrameRate();
     
+    GLuint blurTexture(GLuint texId, float blurAmount);
+    
     GLuint getVertexBuffer();
+    GLuint getUVBuffer();
 
     float renderText(FontWrapper &font, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color, uint hAlign = LEFT, uint vAlign = BOTTOM);
-    void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, ShaderProgram *program = nullptr);
+    void renderTexture(GLuint textureId, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false, bool defaultProgram = true);
     void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     
     void bindTexture(GLuint texId);

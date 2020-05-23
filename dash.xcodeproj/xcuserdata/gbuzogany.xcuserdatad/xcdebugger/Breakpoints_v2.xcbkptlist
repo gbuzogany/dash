@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "rkt/src/DashIcons.cpp"
-            timestampString = "611936493.3879189"
+            timestampString = "611942112.240442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -26,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "rkt/src/DashIcons.cpp"
-            timestampString = "611936493.387982"
+            timestampString = "611942112.240502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
             landmarkName = "DashIcons::renderIcon(Renderer *r, std::string name, int x, int y, float scale, glm::vec3 color)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "rkt/src/Renderer.cpp"
+            timestampString = "611942112.240545"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "Renderer::blurTexture(GLuint texId, float blurAmount)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

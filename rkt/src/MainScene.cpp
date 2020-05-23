@@ -39,6 +39,7 @@ MainScene::~MainScene() {
 }
 
 bool MainScene::update(float delta) {
+    totalTime += delta;
     SDL_Event ev;
     while (SDL_PollEvent(&ev))
     {
@@ -69,17 +70,27 @@ bool MainScene::update(float delta) {
 
 void MainScene::render() {
     _r->clear();
-    _r->renderTexture(screenTexture, 0, 0, WIDTH, HEIGHT);
+    _r->bindFramebuffer(frameBuffer);
+    _r->clear();
   
     std::string message = "";
     _service->getStringValue("message", message);
     
-    _r->renderText(*roboto, "Hello world!", WIDTH/2.0, HEIGHT/2.0, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
-    _r->renderText(*robotoSmall, message, WIDTH/2.0, HEIGHT/2.0 + 30.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
+    dashIcons->renderIcon(_r, "maintenance", 0, 0, 0.5, glm::vec3(1.0, 0.0, 0.0));
+    dashIcons->renderIcon(_r, "indicator-left", 62, 0, 0.5, glm::vec3(0.0, 1.0, 0.0));
+    dashIcons->renderIcon(_r, "indicator-right", 124, 0, 0.5, glm::vec3(0.0, 1.0, 0.0));
+
+    GLuint tex = _r->blurTexture(screenTexture, 0.004);
+    
+    _r->bindFramebuffer(0);
+    _r->renderTexture(tex, 0, 0, WIDTH, HEIGHT, nullptr, false);
     
     dashIcons->renderIcon(_r, "maintenance", 0, 0, 0.5, glm::vec3(1.0, 0.0, 0.0));
     dashIcons->renderIcon(_r, "indicator-left", 62, 0, 0.5, glm::vec3(0.0, 1.0, 0.0));
     dashIcons->renderIcon(_r, "indicator-right", 124, 0, 0.5, glm::vec3(0.0, 1.0, 0.0));
+    
+    _r->renderText(*roboto, "Hello world!", WIDTH/2.0, HEIGHT/2.0, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
+    _r->renderText(*robotoSmall, message, WIDTH/2.0, HEIGHT/2.0 + 30.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
     
     std::stringstream sfps;
     sfps << std::fixed << std::setprecision(0) << _r->getFrameRate();
