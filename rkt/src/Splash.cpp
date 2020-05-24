@@ -14,9 +14,25 @@ Splash::Splash(Renderer *renderer, RocketteServiceImpl *service) : Scene(rendere
     animationQueue.push(new Animation("fadeIn", 0, 1.0, 1.0));
     animationQueue.push(new Animation("delay", 0, 1.0, 0.5));
     animationQueue.push(new Animation("dissolve", 0, 1.0, 1.0));
-    animationQueue.push(new Animation("delay", 0, 1.0, 1.0));
+    animationQueue.push(new Animation("fadeOut", 1.0, 0.0, 1.0));
     
     dissolveProgram = new RawShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl");
+    
+    splashFire = new ShaderProgram("rkt/etc/shaders/dashVertex.glsl", "rkt/etc/shaders/dashFragment.glsl", "rkt/etc/shaders/splashUniforms.json");
+    
+    baseTex = Texture::loadTGA("rkt/etc/textures/dash.tga");
+    maskTex = Texture::loadTGA("rkt/etc/textures/splash_mask.tga");
+    FX1FlowTex = Texture::loadTGA("rkt/etc/textures/flow_tunnel.tga");
+    FX1Tex = Texture::loadTGA("rkt/etc/textures/splash.tga");
+    
+    glm::mat4 projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
+    splashFire->setMat4Uniform("projection", projection);
+    splashFire->setTextureUniform("baseTexture", baseTex);
+    splashFire->setTextureUniform("maskTex", maskTex);
+    splashFire->setTextureUniform("FX1Texture", FX1Tex);
+    splashFire->setTextureUniform("FX1FlowTexture", FX1FlowTex);
+    
+    splashFire->setVec4Uniform("FX1Color", glm::vec4(1.0, 0.407, 0.0, 1.0));
 }
 
 Splash::~Splash() {
@@ -28,8 +44,6 @@ Splash::~Splash() {
 }
 
 bool Splash::update(float delta) {
-    totalTime += delta;
-    
     SDL_Event ev;
     while (SDL_PollEvent(&ev))
     {
@@ -51,7 +65,9 @@ bool Splash::update(float delta) {
         if (current->getId() == "dissolve") {
             dissolve = value;
         }
-        
+        if (current->getId() == "fadeOut") {
+            _r->setGlobalAlpha(value);
+        }
         if (current->complete()) {
             animationQueue.pop();
             delete current;
@@ -95,7 +111,13 @@ void Splash::setupDissolve(GLuint textureId) {
 void Splash::render() {
     _r->clear();
     
+    splashFire->setFloatUniform("time", _r->getTotalTime() / 20.0f);
+    splashFire->use(_r);
+    _r->setGlobalAlpha();
+    _r->renderRect(0, 0, WIDTH, HEIGHT, true);
+    
     setupDissolve(splashLogo);
+    
     _r->renderRect(WIDTH/2 - 175, HEIGHT/2 - 175, 350, 350, true);
 }
 

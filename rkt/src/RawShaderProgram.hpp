@@ -1,5 +1,5 @@
-#ifndef ShaderProgram_hpp
-#define ShaderProgram_hpp
+#ifndef RawShaderProgram_hpp
+#define RawShaderProgram_hpp
 
 #include <stdio.h>
 #include <assert.h>

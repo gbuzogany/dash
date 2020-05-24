@@ -17,6 +17,10 @@ RawShaderProgram::RawShaderProgram(const std::string vertexShader, const std::st
 GLuint RawShaderProgram::getUniformLocation(std::string name) {
     if (uniformLocations.find(name) == uniformLocations.end()) {
         GLuint uniform = glGetUniformLocation(Id, name.c_str());
+        if (uniform == -1) {
+//            std::cout << "RawShaderProgram: Uniform \"" << name << "\" not found." << std::endl;
+            return -1;
+        }
         uniformLocations[name] = uniform;
         return uniform;
     }

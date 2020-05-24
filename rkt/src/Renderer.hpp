@@ -9,6 +9,8 @@
 using namespace glm;
 
 #include <stdio.h>
+#include <assert.h>
+#include <iostream>
 #include <string>
 #include <map>
 #include <glad/glad.h>
@@ -23,6 +25,7 @@ using namespace glm;
 #include "FontWrapper.hpp"
 #include "Texture.hpp"
 #include "Utils.hpp"
+#include "Definitions.h"
 
 class Renderer {
 private:
@@ -37,6 +40,7 @@ private:
     Uint32 startTime = 0;
     Uint32 endTime = 0;
     float time = 0;
+    float totalTime = 0;
     Uint32 delta = 0;
     float fps = 60.0;
     Uint32 timePerFrame = 16; // miliseconds
@@ -70,6 +74,8 @@ public:
     void endFrame();
     short getFrameRate();
     
+    float getTotalTime();
+    
     GLuint blurTexture(GLuint texId, float blurAmount);
     
     GLuint getVertexBuffer();
@@ -86,6 +92,7 @@ public:
     void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);
     void renderFlat(RawShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     void setProgramGlobalAlpha(RawShaderProgram &program);
+    void setGlobalAlpha();
     void setGlobalAlpha(float alpha);
     
     void createFramebuffer(GLuint &frameBuffer, GLuint &screenTexture, GLuint width, GLuint height);

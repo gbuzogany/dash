@@ -1,7 +1,4 @@
 #include "Renderer.hpp"
-#include <assert.h>
-#include <iostream>
-#include "Definitions.h"
 
 Renderer::Renderer()
 {
@@ -70,6 +67,10 @@ void Renderer::updateScreen() {
     SDL_GL_SwapWindow(window);
 }
 
+float Renderer::getTotalTime() {
+    return totalTime;
+}
+
 float Renderer::startFrame() {
     if (!startTime) {
         // get the time in ms passed from the moment the program started
@@ -93,6 +94,7 @@ float Renderer::startFrame() {
     else {
         fps = 1000.0 / delta;
     }
+    totalTime += delta / 1000.0;
     return delta / 1000.0;
 }
 
@@ -354,9 +356,18 @@ void Renderer::setGlobalAlpha(float alpha) {
     globalAlpha = alpha;
 }
 
+void Renderer::setGlobalAlpha() {
+    GLuint u_globalAlpha = glGetUniformLocation(lastProgram, "globalAlpha");
+    if (u_globalAlpha != -1) {
+        glUniform1f(u_globalAlpha, globalAlpha);
+    }
+}
+
 void Renderer::setProgramGlobalAlpha(RawShaderProgram &program) {
     GLuint u_globalAlpha = program.getUniformLocation("globalAlpha");
-    glUniform1f(u_globalAlpha, globalAlpha);
+    if (u_globalAlpha != -1) {
+        glUniform1f(u_globalAlpha, globalAlpha);
+    }
 }
 
 void Renderer::createFramebuffer(GLuint &frameBuffer, GLuint &screenTexture, GLuint width, GLuint height) {

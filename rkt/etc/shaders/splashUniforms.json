@@ -1,0 +1,330 @@
+{
+	"baseTexture": {
+		"label" : "Base Texture",
+		"type": "t",
+		"value": null
+	},
+	"maskTex": {
+		"type": "t",
+		"value": null
+	},
+	"FX1": {
+		"type" : "group",
+		"FX1Texture": {
+			"type": "t",
+			"value": null
+		},
+		"FX1FlowTexture": {
+			"type": "t",
+			"value": null
+		},
+		"FX1Color": {
+			"isColor" : true,
+			"type": "vec4",
+			"value": [0,0,0,1]
+		},
+		"FX1Intensity": {
+			"value": 8
+		},
+		"FX1Invert": {
+			"value": 0
+		},
+		"FX1DistortionAmount": {
+			"step" : 0.001,
+			"value": 0
+		},
+		"FX1PulseAmount": {
+			"value": 0
+		},
+		"FX1PulseRate": {
+			"value": 20
+		},
+		"FX1PulseIntensity": {
+			"value": 0.5
+		},
+		"FX1PulseClip": {
+			"value": 0
+		},
+		"FX1OscillationSpeed": {
+			"value": 0
+		},
+		"FX1Oscillation": {
+			"type": "vec4",
+			"value": [1,1,0,0]
+		},
+		"FX1ScrollRotateFlow": {
+			"step" : 1,
+			"value": 2
+		},
+		"FX1ScrollAngle": {
+			"value": 0
+		},
+		"FX1ScrollXSpeed": {
+			"value": 2
+		},
+		"FX1ScrollYSpeed": {
+			"value": 0
+		},
+		"FX1RotationSpeed": {
+			"value": 10
+		},
+		"FX1RotationCenterX": {
+			"value": 0.5
+		},
+		"FX1RotationCenterY": {
+			"value": 0.5
+		},
+		"FX1FlowAngle": {
+			"value": 0
+		},
+		"FX1FlowMapXOffset": {
+			"value": 0.25
+		},
+		"FX1FlowMapYOffset": {
+			"value": 0.67
+		},
+		"FX1FlowMapScrollXSpeed": {
+			"value": 10.0
+		},
+		"FX1FlowMapScrollYSpeed": {
+			"value": 0.0
+		},
+		"FX1FlowMapScaleXSpeed": {
+			"value": 0.60
+		},
+		"FX1FlowMapScaleYSpeed": {
+			"value": 0.42
+		},
+		"FX1ScaleX": {
+			"value": 1
+		},
+		"FX1ScaleY": {
+			"value": 1
+		}
+	},
+	"FX2": {
+		"type" : "group",
+		"FX2Texture": {
+			"type": "t",
+			"value": null
+		},
+		"FX2Color": {
+			"isColor" : true,
+			"type": "vec4",
+			"value": [0,0,0,1]
+		},
+		"FX2Intensity": {
+			"value": 0
+		},
+		"FX2Invert": {
+			"value": 0
+		},
+		"FX2Blend": {
+			"value": 0
+		},
+		"FX2DistortionAmount": {
+			"step" : 0.001,
+			"value": 0
+		},
+		"FX2PulseAmount": {
+			"value": 0.625
+		},
+		"FX2PulseRate": {
+			"value": 20
+		},
+		"FX2PulseIntensity": {
+			"value": 0.5
+		},
+		"FX2PulseClip": {
+			"value": 0.9
+		},
+		"FX2OscillationSpeed": {
+			"value": 0
+		},
+		"FX2Oscillation": {
+			"type": "vec4",
+			"value": [1,1,0,0]
+		},
+		"FX2ScrollRotate": {
+			"value": 1
+		},
+		"FX2ScrollAngle": {
+			"value": 0
+		},
+		"FX2ScrollXSpeed": {
+			"value": 0
+		},
+		"FX2ScrollYSpeed": {
+			"value": 0
+		},
+		"FX2RotationSpeed": {
+			"value": -10
+		},
+		"FX2RotationCenterX": {
+			"value": -1
+		},
+		"FX2RotationCenterY": {
+			"value": -1
+		},
+		"FX2ScaleX": {
+			"value": 1.11
+		},
+		"FX2ScaleY": {
+			"value": 1
+		}
+	},
+	"FX3": {
+		"type" : "group",
+		"FX3Texture": {
+			"type": "t",
+			"value": null
+		},
+		"FX3Color": {
+			"isColor" : true,
+			"type": "vec4",
+			"value": [0,0,0,1]
+		},
+		"FX3Intensity": {
+			"value": 0
+		},
+		"FX3ColorIntensity": {
+			"value": 0
+		},
+		"FX3Invert": {
+			"value": 0
+		},
+		"FX3Blend": {
+			"value": 0
+		},
+		"FX3DistortionAmount": {
+			"step" : 0.001,
+			"value": 0
+		},
+		"FX3PulseAmount": {
+			"value": 0.4
+		},
+		"FX3PulseRate": {
+			"value": 40
+		},
+		"FX3PulseIntensity": {
+			"value": 0.5
+		},
+		"FX3PulseClip": {
+			"value": 0.9
+		},
+		"FX3RotationSpeed": {
+			"value": 10
+		},
+		"FX3RotationCenterX": {
+			"value": 0.5
+		},
+		"FX3RotationCenterY": {
+			"value": 0.5
+		},
+		"FX3OscillationSpeed": {
+			"value": 0
+		},
+		"FX3Oscillation": {
+			"type": "vec4",
+			"value": [1,1,0,0]
+		},
+		"FX3ScrollRotate": {
+			"value": 0
+		},
+		"FX3ScrollAngle": {
+			"value": -0.25
+		},
+		"FX3ScrollXSpeed": {
+			"value": -6
+		},
+		"FX3ScrollYSpeed": {
+			"value": 0
+		},
+		"FX3ScaleX": {
+			"value": 2
+		},
+		"FX3ScaleY": {
+			"value": 2
+		}
+	},
+	"FX4": {
+		"type" : "group",
+		"FX4Texture": {
+			"type": "t",
+			"value": null
+		},
+		"FX4AddAlpha": {
+			"value": 0.027
+		},
+		"FX4Color": {
+			"isColor" : true,
+			"type": "vec4",
+			"value": [0,0,0,1]
+		},
+		"FX4Intensity": {
+			"value": 2
+		},
+		"FX4ColorIntensity": {
+			"value": 1
+		},
+		"FX4PulseAmount": {
+			"value": 0.9
+		},
+		"FX4PulseRate": {
+			"value": 40
+		},
+		"FX4PulseIntensity": {
+			"value": 0.5
+		},
+		"FX4PulseClip": {
+			"value": 0.9
+		},
+		"FX4OscillationSpeed": {
+			"value": 0
+		},
+		"FX4Oscillation": {
+			"type": "vec4",
+			"value": [1,1,0,0]
+		},
+		"FX4ScrollAngle": {
+			"value": 2.13
+		},
+		"FX4ScrollXSpeed": {
+			"value": 3
+		},
+		"FX4ScrollYSpeed": {
+			"value": 0
+		},
+		"FX4ScaleX": {
+			"value": 1
+		},
+		"FX4ScaleY": {
+			"value": 1
+		}
+	},
+	"General" : {
+		"type" : "group",
+		"DistortionVector": {
+			"type": "vec4",
+			"value": [1,1,1,1]
+		},
+		"FXBrightness": {
+			"value": -0.15
+		},
+		"FXIntensity": {
+			"value": 1
+		},
+		"LightingBlend": {
+			"value": 0
+		},
+		"Seed": {
+			"value": 0.0
+		},
+		"timeScale": {
+			"value": 1.0
+		},
+		"time": {
+			"value": 0.0
+		}
+	}
+}

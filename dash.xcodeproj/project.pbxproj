@@ -14,6 +14,17 @@
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
 		66369DAF2302EACF00975025 /* RawShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* RawShaderProgram.cpp */; };
 		66369DBD2302F31000975025 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DBB2302F31000975025 /* Texture.cpp */; };
+		66383FD5247AA7F300A79018 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66383FD3247AA7F300A79018 /* ShaderProgram.cpp */; };
+		66383FD8247AD8A400A79018 /* dashFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD1247A9C7D00A79018 /* dashFragment.glsl */; };
+		66383FD9247AD8A400A79018 /* dashVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD2247A9C7D00A79018 /* dashVertex.glsl */; };
+		66383FDA247AD8A400A79018 /* dashUniforms.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD6247AD5E200A79018 /* dashUniforms.json */; };
+		66383FDB247ADA5300A79018 /* splash.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD7247AD75B00A79018 /* splash.tga */; };
+		66383FDC247ADA5300A79018 /* dash_mask.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FCF247A9C6800A79018 /* dash_mask.tga */; };
+		66383FDD247ADA5300A79018 /* flowmap_test.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD0247A9C6D00A79018 /* flowmap_test.tga */; };
+		66383FDF247AE5BC00A79018 /* dash.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FDE247AE5B300A79018 /* dash.tga */; };
+		66383FE2247AE67E00A79018 /* flow_tunnel.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE1247AE67700A79018 /* flow_tunnel.tga */; };
+		66383FE3247AE67E00A79018 /* splash_mask.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE0247AE67200A79018 /* splash_mask.tga */; };
+		66383FE5247AE9D100A79018 /* splashUniforms.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE4247AE9B700A79018 /* splashUniforms.json */; };
 		6642E57E24794CD700B7FF5C /* icons.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E57D24794CD200B7FF5C /* icons.tga */; };
 		6642E58124794F2400B7FF5C /* icons.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58024794F1A00B7FF5C /* icons.json */; };
 		6642E5852479519800B7FF5C /* DashIcons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5832479519800B7FF5C /* DashIcons.cpp */; };
@@ -69,6 +80,10 @@
 			dstPath = rkt/etc/shaders;
 			dstSubfolderSpec = 16;
 			files = (
+				66383FE5247AE9D100A79018 /* splashUniforms.json in CopyFiles */,
+				66383FD8247AD8A400A79018 /* dashFragment.glsl in CopyFiles */,
+				66383FD9247AD8A400A79018 /* dashVertex.glsl in CopyFiles */,
+				66383FDA247AD8A400A79018 /* dashUniforms.json in CopyFiles */,
 				6642E58E24796F3400B7FF5C /* HBlurVertexShader.glsl in CopyFiles */,
 				6642E58F24796F3400B7FF5C /* VBlurVertexShader.glsl in CopyFiles */,
 				6642E59024796F3400B7FF5C /* BlurFragmentShader.glsl in CopyFiles */,
@@ -87,6 +102,12 @@
 			dstPath = rkt/etc/textures;
 			dstSubfolderSpec = 16;
 			files = (
+				66383FE2247AE67E00A79018 /* flow_tunnel.tga in CopyFiles */,
+				66383FE3247AE67E00A79018 /* splash_mask.tga in CopyFiles */,
+				66383FDF247AE5BC00A79018 /* dash.tga in CopyFiles */,
+				66383FDB247ADA5300A79018 /* splash.tga in CopyFiles */,
+				66383FDC247ADA5300A79018 /* dash_mask.tga in CopyFiles */,
+				66383FDD247ADA5300A79018 /* flowmap_test.tga in CopyFiles */,
 				666316312476CF5000665646 /* rocket.tga in CopyFiles */,
 				6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */,
 				6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */,
@@ -125,8 +146,16 @@
 		66369DBC2302F31000975025 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 		66383FCF247A9C6800A79018 /* dash_mask.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = dash_mask.tga; sourceTree = "<group>"; };
 		66383FD0247A9C6D00A79018 /* flowmap_test.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = flowmap_test.tga; sourceTree = "<group>"; };
-		66383FD1247A9C7D00A79018 /* dashFrag.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashFrag.glsl; sourceTree = "<group>"; };
+		66383FD1247A9C7D00A79018 /* dashFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashFragment.glsl; sourceTree = "<group>"; };
 		66383FD2247A9C7D00A79018 /* dashVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashVertex.glsl; sourceTree = "<group>"; };
+		66383FD3247AA7F300A79018 /* ShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
+		66383FD4247AA7F300A79018 /* ShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
+		66383FD6247AD5E200A79018 /* dashUniforms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dashUniforms.json; sourceTree = "<group>"; };
+		66383FD7247AD75B00A79018 /* splash.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = splash.tga; sourceTree = "<group>"; };
+		66383FDE247AE5B300A79018 /* dash.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = dash.tga; sourceTree = "<group>"; };
+		66383FE0247AE67200A79018 /* splash_mask.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = splash_mask.tga; sourceTree = "<group>"; };
+		66383FE1247AE67700A79018 /* flow_tunnel.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = flow_tunnel.tga; sourceTree = "<group>"; };
+		66383FE4247AE9B700A79018 /* splashUniforms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = splashUniforms.json; sourceTree = "<group>"; };
 		6642E57D24794CD200B7FF5C /* icons.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.tga; sourceTree = "<group>"; };
 		6642E57F24794EBF00B7FF5C /* rapidjson */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rapidjson; sourceTree = "<group>"; };
 		6642E58024794F1A00B7FF5C /* icons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
@@ -215,6 +244,8 @@
 		661879DE24740BF700BB39FF /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				66383FD4247AA7F300A79018 /* ShaderProgram.hpp */,
+				66383FD3247AA7F300A79018 /* ShaderProgram.cpp */,
 				66369DAE2302EACF00975025 /* RawShaderProgram.hpp */,
 				66369DAD2302EACF00975025 /* RawShaderProgram.cpp */,
 			);
@@ -337,8 +368,10 @@
 				6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */,
 				6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */,
 				6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */,
-				66383FD1247A9C7D00A79018 /* dashFrag.glsl */,
+				66383FD1247A9C7D00A79018 /* dashFragment.glsl */,
 				66383FD2247A9C7D00A79018 /* dashVertex.glsl */,
+				66383FE4247AE9B700A79018 /* splashUniforms.json */,
+				66383FD6247AD5E200A79018 /* dashUniforms.json */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -346,6 +379,10 @@
 		6674FA292463358900E4B6CC /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				66383FE1247AE67700A79018 /* flow_tunnel.tga */,
+				66383FE0247AE67200A79018 /* splash_mask.tga */,
+				66383FDE247AE5B300A79018 /* dash.tga */,
+				66383FD7247AD75B00A79018 /* splash.tga */,
 				66383FCF247A9C6800A79018 /* dash_mask.tga */,
 				66383FD0247A9C6D00A79018 /* flowmap_test.tga */,
 				6642E57D24794CD200B7FF5C /* icons.tga */,
@@ -460,6 +497,7 @@
 				665A5298245DA2C500AC6765 /* Animation.cpp in Sources */,
 				661879E124740C3200BB39FF /* glad.c in Sources */,
 				6642E5852479519800B7FF5C /* DashIcons.cpp in Sources */,
+				66383FD5247AA7F300A79018 /* ShaderProgram.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

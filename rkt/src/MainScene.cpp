@@ -39,7 +39,7 @@ MainScene::~MainScene() {
 }
 
 bool MainScene::update(float delta) {
-    totalTime += delta;
+
     SDL_Event ev;
     while (SDL_PollEvent(&ev))
     {
@@ -88,6 +88,7 @@ void MainScene::render() {
     // render to screen
     _r->bindFramebuffer(0);
     // render blurred texture
+    _r->bindTexture(tex);
     _r->renderTexture(tex, 0, 0, WIDTH, HEIGHT);
 
     // render again elements that were blurred

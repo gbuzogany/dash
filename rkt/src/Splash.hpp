@@ -7,13 +7,20 @@
 #include "Definitions.h"
 #include "Scene.hpp"
 #include "Animation.hpp"
+#include "ShaderProgram.hpp"
 
 class Splash : Scene {
     GLuint dissolveRampTextureId;
     GLuint dissolveNoiseTextureId;
     GLuint splashLogo;
+    
+    GLuint baseTex;
+    GLuint maskTex;
+    GLuint FX1Tex;
+    GLuint FX1FlowTex;
+    
+    ShaderProgram *splashFire;
 
-    float totalTime = 0;
     float dissolve = 0;
     
     RawShaderProgram *dissolveProgram;
