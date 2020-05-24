@@ -70,6 +70,8 @@ bool MainScene::update(float delta) {
 
 void MainScene::render() {
     _r->clear();
+    
+    // render to texture
     _r->bindFramebuffer(frameBuffer);
     _r->clear();
   
@@ -80,11 +82,15 @@ void MainScene::render() {
     dashIcons->renderIcon(_r, "indicator-left", 62, 0, 0.5, glm::vec3(0.0, 1.0, 0.0));
     dashIcons->renderIcon(_r, "indicator-right", 124, 0, 0.5, glm::vec3(0.0, 1.0, 0.0));
 
+    // apply blur to screentexture, get id of texture blurred as return value
     GLuint tex = _r->blurTexture(screenTexture, 0.004);
-    
+
+    // render to screen
     _r->bindFramebuffer(0);
-    _r->renderTexture(tex, 0, 0, WIDTH, HEIGHT, nullptr, false);
-    
+    // render blurred texture
+    _r->renderTexture(tex, 0, 0, WIDTH, HEIGHT);
+
+    // render again elements that were blurred
     dashIcons->renderIcon(_r, "maintenance", 0, 0, 0.5, glm::vec3(1.0, 0.0, 0.0));
     dashIcons->renderIcon(_r, "indicator-left", 62, 0, 0.5, glm::vec3(0.0, 1.0, 0.0));
     dashIcons->renderIcon(_r, "indicator-right", 124, 0, 0.5, glm::vec3(0.0, 1.0, 0.0));

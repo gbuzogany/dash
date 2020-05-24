@@ -18,6 +18,10 @@ class MainScene : Scene {
     GLuint screenTexture;
     GLuint frameBuffer;
     
+    GLuint dashMask;
+    GLuint daskFX1FlowTex;
+    GLuint dashFX1Tex;
+    
     std::queue<Animation*> animationQueue;
     
     DashIcons *dashIcons;

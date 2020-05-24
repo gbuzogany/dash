@@ -1,7 +1,7 @@
-#include "ShaderProgram.hpp"
+#include "RawShaderProgram.hpp"
 #include <iostream>
 
-ShaderProgram::ShaderProgram(const std::string vertexShader, const std::string fragmentShader) {
+RawShaderProgram::RawShaderProgram(const std::string vertexShader, const std::string fragmentShader) {
     vs = compileShader(vertexShader, GL_VERTEX_SHADER);
     fs = compileShader(fragmentShader, GL_FRAGMENT_SHADER);
     
@@ -14,7 +14,7 @@ ShaderProgram::ShaderProgram(const std::string vertexShader, const std::string f
     assert(glGetError() == GL_NO_ERROR);
 }
 
-GLuint ShaderProgram::getUniformLocation(std::string name) {
+GLuint RawShaderProgram::getUniformLocation(std::string name) {
     if (uniformLocations.find(name) == uniformLocations.end()) {
         GLuint uniform = glGetUniformLocation(Id, name.c_str());
         uniformLocations[name] = uniform;
@@ -23,11 +23,11 @@ GLuint ShaderProgram::getUniformLocation(std::string name) {
     return uniformLocations[name];
 }
 
-ShaderProgram::~ShaderProgram() {
+RawShaderProgram::~RawShaderProgram() {
     glDeleteShader(Id);
 }
 
-GLuint ShaderProgram::compileShader(const std::string filename, const GLuint shaderSype) {
+GLuint RawShaderProgram::compileShader(const std::string filename, const GLuint shaderSype) {
     GLchar* Src;
     GLuint progId;
     

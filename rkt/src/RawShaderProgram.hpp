@@ -13,14 +13,14 @@
 #undef Status
 #endif
 
-class ShaderProgram {
+class RawShaderProgram {
     GLuint Id, vs, fs;
     std::map<std::string, GLuint> uniformLocations;
     
 public:
     
-    ShaderProgram(const std::string vertexShader, const std::string fragmentShader);
-    ~ShaderProgram();
+    RawShaderProgram(const std::string vertexShader, const std::string fragmentShader);
+    ~RawShaderProgram();
     
     GLuint compileShader(std::string filename, GLuint shaderType);
     GLuint getUniformLocation(std::string name);

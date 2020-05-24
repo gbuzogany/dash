@@ -16,7 +16,7 @@ Splash::Splash(Renderer *renderer, RocketteServiceImpl *service) : Scene(rendere
     animationQueue.push(new Animation("dissolve", 0, 1.0, 1.0));
     animationQueue.push(new Animation("delay", 0, 1.0, 1.0));
     
-    dissolveProgram = new ShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl");
+    dissolveProgram = new RawShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl");
 }
 
 Splash::~Splash() {

@@ -11,11 +11,11 @@ Renderer::Renderer()
 }
 
 void Renderer::initShaders() {
-    defaultTextProgram = new ShaderProgram( "rkt/etc/shaders/TextVertex.glsl", "rkt/etc/shaders/TextFragment.glsl" );
-    defaultTextureProgram = new ShaderProgram( "rkt/etc/shaders/TextureVertexShader.glsl", "rkt/etc/shaders/TextureFragmentShader.glsl" );
+    defaultTextProgram = new RawShaderProgram( "rkt/etc/shaders/TextVertex.glsl", "rkt/etc/shaders/TextFragment.glsl" );
+    defaultTextureProgram = new RawShaderProgram( "rkt/etc/shaders/TextureVertexShader.glsl", "rkt/etc/shaders/TextureFragmentShader.glsl" );
     
-    hBlurProgram = new ShaderProgram( "rkt/etc/shaders/HBlurVertexShader.glsl", "rkt/etc/shaders/BlurFragmentShader.glsl" );
-    vBlurProgram = new ShaderProgram( "rkt/etc/shaders/VBlurVertexShader.glsl", "rkt/etc/shaders/BlurFragmentShader.glsl" );
+    hBlurProgram = new RawShaderProgram( "rkt/etc/shaders/HBlurVertexShader.glsl", "rkt/etc/shaders/BlurFragmentShader.glsl" );
+    vBlurProgram = new RawShaderProgram( "rkt/etc/shaders/VBlurVertexShader.glsl", "rkt/etc/shaders/BlurFragmentShader.glsl" );
     
     textProgram = defaultTextProgram;
     
@@ -105,7 +105,7 @@ short Renderer::getFrameRate() {
     return fps;
 }
 
-void Renderer::renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY) {
+void Renderer::renderFlat(RawShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY) {
 
     GLuint u_projectionID = program.getUniformLocation("projection");
     GLuint u_time = program.getUniformLocation("time");
@@ -170,11 +170,11 @@ void Renderer::bindTexture(GLuint texId) {
     }
 }
 
-void Renderer::setTextProgram(ShaderProgram *program) {
+void Renderer::setTextProgram(RawShaderProgram *program) {
     textProgram = program;
 }
 
-void Renderer::useProgram(ShaderProgram &program) {
+void Renderer::useProgram(RawShaderProgram &program) {
     GLuint id = program.getId();
     if (lastProgram != id) {
         glUseProgram(id);
@@ -354,7 +354,7 @@ void Renderer::setGlobalAlpha(float alpha) {
     globalAlpha = alpha;
 }
 
-void Renderer::setProgramGlobalAlpha(ShaderProgram &program) {
+void Renderer::setProgramGlobalAlpha(RawShaderProgram &program) {
     GLuint u_globalAlpha = program.getUniformLocation("globalAlpha");
     glUniform1f(u_globalAlpha, globalAlpha);
 }

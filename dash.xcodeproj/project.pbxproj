@@ -12,7 +12,7 @@
 		661879E124740C3200BB39FF /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 661879E024740C3200BB39FF /* glad.c */; };
 		66369D9D2302E7A000975025 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369D9C2302E7A000975025 /* main.cpp */; };
 		66369DA52302E7E200975025 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DA32302E7E200975025 /* Renderer.cpp */; };
-		66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* ShaderProgram.cpp */; };
+		66369DAF2302EACF00975025 /* RawShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* RawShaderProgram.cpp */; };
 		66369DBD2302F31000975025 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DBB2302F31000975025 /* Texture.cpp */; };
 		6642E57E24794CD700B7FF5C /* icons.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E57D24794CD200B7FF5C /* icons.tga */; };
 		6642E58124794F2400B7FF5C /* icons.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58024794F1A00B7FF5C /* icons.json */; };
@@ -118,11 +118,15 @@
 		66369D9C2302E7A000975025 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66369DA32302E7E200975025 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		66369DA42302E7E200975025 /* Renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Renderer.hpp; sourceTree = "<group>"; };
-		66369DAD2302EACF00975025 /* ShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
-		66369DAE2302EACF00975025 /* ShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
+		66369DAD2302EACF00975025 /* RawShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RawShaderProgram.cpp; sourceTree = "<group>"; };
+		66369DAE2302EACF00975025 /* RawShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RawShaderProgram.hpp; sourceTree = "<group>"; };
 		66369DB32302EE8600975025 /* TextureFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = TextureFragmentShader.glsl; sourceTree = "<group>"; };
 		66369DBB2302F31000975025 /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		66369DBC2302F31000975025 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
+		66383FCF247A9C6800A79018 /* dash_mask.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = dash_mask.tga; sourceTree = "<group>"; };
+		66383FD0247A9C6D00A79018 /* flowmap_test.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = flowmap_test.tga; sourceTree = "<group>"; };
+		66383FD1247A9C7D00A79018 /* dashFrag.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashFrag.glsl; sourceTree = "<group>"; };
+		66383FD2247A9C7D00A79018 /* dashVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashVertex.glsl; sourceTree = "<group>"; };
 		6642E57D24794CD200B7FF5C /* icons.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.tga; sourceTree = "<group>"; };
 		6642E57F24794EBF00B7FF5C /* rapidjson */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rapidjson; sourceTree = "<group>"; };
 		6642E58024794F1A00B7FF5C /* icons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
@@ -211,8 +215,8 @@
 		661879DE24740BF700BB39FF /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				66369DAE2302EACF00975025 /* ShaderProgram.hpp */,
-				66369DAD2302EACF00975025 /* ShaderProgram.cpp */,
+				66369DAE2302EACF00975025 /* RawShaderProgram.hpp */,
+				66369DAD2302EACF00975025 /* RawShaderProgram.cpp */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -333,6 +337,8 @@
 				6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */,
 				6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */,
 				6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */,
+				66383FD1247A9C7D00A79018 /* dashFrag.glsl */,
+				66383FD2247A9C7D00A79018 /* dashVertex.glsl */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -340,6 +346,8 @@
 		6674FA292463358900E4B6CC /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				66383FCF247A9C6800A79018 /* dash_mask.tga */,
+				66383FD0247A9C6D00A79018 /* flowmap_test.tga */,
 				6642E57D24794CD200B7FF5C /* icons.tga */,
 				665A5283245D78C000AC6765 /* dissolve-ramp.tga */,
 				665A5287245D7C2200AC6765 /* noise.tga */,
@@ -439,7 +447,7 @@
 				6659848123044A47002D326C /* FontWrapper.cpp in Sources */,
 				66369DBD2302F31000975025 /* Texture.cpp in Sources */,
 				6642E5882479543300B7FF5C /* Icon.cpp in Sources */,
-				66369DAF2302EACF00975025 /* ShaderProgram.cpp in Sources */,
+				66369DAF2302EACF00975025 /* RawShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
 				6663160D247553AD00665646 /* rkt.pb.cc in Sources */,
 				661879D72473DA2500BB39FF /* RocketteService.cpp in Sources */,

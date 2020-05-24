@@ -16,7 +16,7 @@ class Splash : Scene {
     float totalTime = 0;
     float dissolve = 0;
     
-    ShaderProgram *dissolveProgram;
+    RawShaderProgram *dissolveProgram;
 
     std::queue<Animation*> animationQueue;
     

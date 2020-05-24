@@ -19,7 +19,7 @@ using namespace glm;
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include "ShaderProgram.hpp"
+#include "RawShaderProgram.hpp"
 #include "FontWrapper.hpp"
 #include "Texture.hpp"
 #include "Utils.hpp"
@@ -45,17 +45,17 @@ private:
 public:
     FT_Library ft;
     
-    ShaderProgram *hBlurProgram;
-    ShaderProgram *vBlurProgram;
+    RawShaderProgram *hBlurProgram;
+    RawShaderProgram *vBlurProgram;
     
     GLuint screenTexture1;
     GLuint frameBuffer1;
     GLuint screenTexture2;
     GLuint frameBuffer2;
     
-    ShaderProgram *textProgram;
-    ShaderProgram *defaultTextProgram;
-    ShaderProgram *defaultTextureProgram;
+    RawShaderProgram *textProgram;
+    RawShaderProgram *defaultTextProgram;
+    RawShaderProgram *defaultTextureProgram;
     
     SDL_Window *window;
     
@@ -80,12 +80,12 @@ public:
     void renderRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
     
     void bindTexture(GLuint texId);
-    void setTextProgram(ShaderProgram *program);
-    void useProgram(ShaderProgram &program);
+    void setTextProgram(RawShaderProgram *program);
+    void useProgram(RawShaderProgram &program);
     
     void drawCircle(GLfloat x, GLfloat y, GLfloat radius, GLint numberOfSides);
-    void renderFlat(ShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
-    void setProgramGlobalAlpha(ShaderProgram &program);
+    void renderFlat(RawShaderProgram &program, GLfloat x, GLfloat y, GLfloat width, GLfloat height, bool flipY = false);
+    void setProgramGlobalAlpha(RawShaderProgram &program);
     void setGlobalAlpha(float alpha);
     
     void createFramebuffer(GLuint &frameBuffer, GLuint &screenTexture, GLuint width, GLuint height);
