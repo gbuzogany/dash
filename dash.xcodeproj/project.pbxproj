@@ -25,11 +25,11 @@
 		66383FE2247AE67E00A79018 /* flow_tunnel.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE1247AE67700A79018 /* flow_tunnel.tga */; };
 		66383FE3247AE67E00A79018 /* splash_mask.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE0247AE67200A79018 /* splash_mask.tga */; };
 		66383FE5247AE9D100A79018 /* splashUniforms.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE4247AE9B700A79018 /* splashUniforms.json */; };
+		66383FE7247AEAFB00A79018 /* logo.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE6247AEAEF00A79018 /* logo.tga */; };
 		6642E57E24794CD700B7FF5C /* icons.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E57D24794CD200B7FF5C /* icons.tga */; };
 		6642E58124794F2400B7FF5C /* icons.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58024794F1A00B7FF5C /* icons.json */; };
 		6642E5852479519800B7FF5C /* DashIcons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5832479519800B7FF5C /* DashIcons.cpp */; };
 		6642E5882479543300B7FF5C /* Icon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5862479543300B7FF5C /* Icon.cpp */; };
-		6642E58A247961B600B7FF5C /* uvmap.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E589247961B000B7FF5C /* uvmap.tga */; };
 		6642E58E24796F3400B7FF5C /* HBlurVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */; };
 		6642E58F24796F3400B7FF5C /* VBlurVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */; };
 		6642E59024796F3400B7FF5C /* BlurFragmentShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */; };
@@ -102,6 +102,7 @@
 			dstPath = rkt/etc/textures;
 			dstSubfolderSpec = 16;
 			files = (
+				66383FE7247AEAFB00A79018 /* logo.tga in CopyFiles */,
 				66383FE2247AE67E00A79018 /* flow_tunnel.tga in CopyFiles */,
 				66383FE3247AE67E00A79018 /* splash_mask.tga in CopyFiles */,
 				66383FDF247AE5BC00A79018 /* dash.tga in CopyFiles */,
@@ -112,7 +113,6 @@
 				6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */,
 				6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */,
 				6642E57E24794CD700B7FF5C /* icons.tga in CopyFiles */,
-				6642E58A247961B600B7FF5C /* uvmap.tga in CopyFiles */,
 				6642E58124794F2400B7FF5C /* icons.json in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +156,7 @@
 		66383FE0247AE67200A79018 /* splash_mask.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = splash_mask.tga; sourceTree = "<group>"; };
 		66383FE1247AE67700A79018 /* flow_tunnel.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = flow_tunnel.tga; sourceTree = "<group>"; };
 		66383FE4247AE9B700A79018 /* splashUniforms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = splashUniforms.json; sourceTree = "<group>"; };
+		66383FE6247AEAEF00A79018 /* logo.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.tga; sourceTree = "<group>"; };
 		6642E57D24794CD200B7FF5C /* icons.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.tga; sourceTree = "<group>"; };
 		6642E57F24794EBF00B7FF5C /* rapidjson */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rapidjson; sourceTree = "<group>"; };
 		6642E58024794F1A00B7FF5C /* icons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		6642E5842479519800B7FF5C /* DashIcons.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashIcons.hpp; sourceTree = "<group>"; };
 		6642E5862479543300B7FF5C /* Icon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Icon.cpp; sourceTree = "<group>"; };
 		6642E5872479543300B7FF5C /* Icon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Icon.hpp; sourceTree = "<group>"; };
-		6642E589247961B000B7FF5C /* uvmap.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = uvmap.tga; sourceTree = "<group>"; };
 		6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = HBlurVertexShader.glsl; sourceTree = "<group>"; };
 		6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VBlurVertexShader.glsl; sourceTree = "<group>"; };
 		6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = BlurFragmentShader.glsl; sourceTree = "<group>"; };
@@ -389,8 +389,8 @@
 				665A5283245D78C000AC6765 /* dissolve-ramp.tga */,
 				665A5287245D7C2200AC6765 /* noise.tga */,
 				666316302476CF4300665646 /* rocket.tga */,
-				6642E589247961B000B7FF5C /* uvmap.tga */,
 				6642E58024794F1A00B7FF5C /* icons.json */,
+				66383FE6247AEAEF00A79018 /* logo.tga */,
 			);
 			path = textures;
 			sourceTree = "<group>";
