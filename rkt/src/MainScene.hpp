@@ -12,19 +12,22 @@
 #include "Definitions.h"
 #include "Animation.hpp"
 #include "Utils.hpp"
-#include "DashIcons.hpp"
+#include "SpriteMap.hpp"
+#include "ShaderProgram.hpp"
 
 class MainScene : Scene {
     GLuint screenTexture;
     GLuint frameBuffer;
     
-    GLuint dashMask;
-    GLuint daskFX1FlowTex;
-    GLuint dashFX1Tex;
+    GLuint baseTex;
+    GLuint maskTex;
+    GLuint FX1Tex;
+    GLuint FX1FlowTex;
     
     std::queue<Animation*> animationQueue;
     
-    DashIcons *dashIcons;
+    SpriteMap *dashIcons;
+    ShaderProgram *vfxProgram;
     
     FontWrapper *roboto, *robotoSmall;
     

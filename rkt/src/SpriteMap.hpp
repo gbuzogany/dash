@@ -1,13 +1,5 @@
-//
-//  DashIcons.hpp
-//  dash
-//
-//  Created by Gustavo Buzogany Eboli on 23/05/2020.
-//  Copyright © 2020 gbuzogany.com. All rights reserved.
-//
-
-#ifndef DashIcons_hpp
-#define DashIcons_hpp
+#ifndef SpriteMap_hpp
+#define SpriteMap_hpp
 
 #include "Renderer.hpp"
 #include "Icon.hpp"
@@ -20,23 +12,24 @@
 
 using namespace rapidjson;
 
-class DashIcons;
+class SpriteMap;
 
-class DashIcons {
+class SpriteMap {
     
-    DashIcons();
+    SpriteMap();
     GLuint iconsTexture;
     GLfloat texWidth, texHeight;
     
     std::map<std::string, Icon*> iconMap;
     
-    static DashIcons *instance;
+    static SpriteMap *instance;
     void parseIcons(const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> obj);
     void parseTexture(const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> obj);
 public:
-    static DashIcons* getInstance();
+    ~SpriteMap();
+    static SpriteMap* getInstance();
     void loadIcons(std::string jsonPath);
     void renderIcon(Renderer *r, std::string name, int x, int y, float scale, glm::vec3 color);
 };
 
-#endif /* DashIcons_hpp */
+#endif /* SpriteMap_hpp */

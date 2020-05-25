@@ -13,6 +13,10 @@ ShaderProgram::ShaderProgram(std::string vertexShaderPath, std::string fragmentS
     parseUniforms(uniformsPath);
 }
 
+ShaderProgram::~ShaderProgram() {
+    delete rawShaderProgram;
+}
+
 GLuint ShaderProgram::getUniform(std::string uniformName) {
     return rawShaderProgram->getUniformLocation(uniformName);
 }
@@ -32,6 +36,8 @@ void ShaderProgram::parseUniforms(std::string uniformsPath) {
             parseElement(itr->name.GetString(), itr->value.GetObject());
         }
     }
+    
+    fclose(config);
 }
 
 void ShaderProgram::parseElement(std::string name, const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> &obj) {

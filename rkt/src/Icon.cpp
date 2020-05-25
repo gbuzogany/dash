@@ -11,3 +11,7 @@
 Icon::Icon(std::string name, int x, int y, int width, int height) : name(name), x(x), y(y), width(width), height(height) {
     
 }
+
+Icon::~Icon() {
+    std::cout << "Removed icon." << std::endl;
+}

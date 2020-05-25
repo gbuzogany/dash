@@ -35,6 +35,7 @@ class ShaderProgram {
     
 public:
     ShaderProgram(std::string vertexShaderPath, std::string fragmentShaderPath, std::string uniformsPath);
+    ~ShaderProgram();
     
     void parseUniforms(std::string uniformsPath);
     void parseElement(std::string name, const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> &obj);

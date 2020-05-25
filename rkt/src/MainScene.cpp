@@ -23,12 +23,19 @@ MainScene::MainScene(Renderer *renderer, RocketteServiceImpl *service) : Scene(r
         '0','1','2','3','4','5','6','7','8','9','@',(FT_ULong)176,' ','.','%','/', '!'
     };
     
-    dashIcons = DashIcons::getInstance();
+    dashIcons = SpriteMap::getInstance();
     dashIcons->loadIcons("rkt/etc/textures/icons.json");
 
     roboto = new FontWrapper("Roboto-Regular", 50, usedChars);
     robotoSmall = new FontWrapper("Roboto-Regular", 20, usedChars);
     animationQueue.push(new Animation("fadeIn", 0, 1.0, 2.0));
+    
+    vfxProgram = new ShaderProgram("rkt/etc/shaders/dashVertex.glsl", "rkt/etc/shaders/dashFragment.glsl", "rkt/etc/shaders/dashUniforms.json");
+    
+    baseTex = Texture::loadTGA("rkt/etc/textures/dash.tga");
+    maskTex = Texture::loadTGA("rkt/etc/textures/dash_mask.tga");
+    FX1FlowTex = Texture::loadTGA("rkt/etc/textures/flow_tunnel.tga");
+    FX1Tex = Texture::loadTGA("rkt/etc/textures/splash.tga");
     
     _r->createFramebuffer(frameBuffer, screenTexture, WIDTH, HEIGHT);
 }

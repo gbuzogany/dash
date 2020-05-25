@@ -1,31 +1,27 @@
-//
-//  DashIcons.cpp
-//  dash
-//
-//  Created by Gustavo Buzogany Eboli on 23/05/2020.
-//  Copyright © 2020 gbuzogany.com. All rights reserved.
-//
-
 #include <stdio.h>
 #include <string>
 #include <iostream>
 
-#include "DashIcons.hpp"
+#include "SpriteMap.hpp"
 
-DashIcons* DashIcons::instance = 0;
+SpriteMap* SpriteMap::instance = 0;
 
-DashIcons* DashIcons::getInstance() {
+SpriteMap* SpriteMap::getInstance() {
     if (instance == 0) {
-        instance = new DashIcons();
+        instance = new SpriteMap();
     }
     return instance;
 }
 
-DashIcons::DashIcons() {
+SpriteMap::SpriteMap() {
     
 }
 
-void DashIcons::loadIcons(std::string jsonPath) {
+SpriteMap::~SpriteMap() {
+    
+}
+
+void SpriteMap::loadIcons(std::string jsonPath) {
     
     FILE *config = fopen(jsonPath.c_str(), "r");
     Document document;
@@ -48,7 +44,7 @@ void DashIcons::loadIcons(std::string jsonPath) {
     }
 }
 
-void DashIcons::parseTexture(const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> obj) {
+void SpriteMap::parseTexture(const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> obj) {
     for (Value::ConstMemberIterator itr = obj.MemberBegin(); itr != obj.MemberEnd(); ++itr) {
         std::string name(itr->name.GetString());
         
@@ -64,7 +60,7 @@ void DashIcons::parseTexture(const GenericObject<true, GenericValue<UTF8<>, Memo
     }
 }
 
-void DashIcons::parseIcons(const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> obj) {
+void SpriteMap::parseIcons(const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> obj) {
     for (Value::ConstMemberIterator itr = obj.MemberBegin(); itr != obj.MemberEnd(); ++itr) {
         std::string name(itr->name.GetString());
         
@@ -95,7 +91,7 @@ void DashIcons::parseIcons(const GenericObject<true, GenericValue<UTF8<>, Memory
     }
 }
 
-void DashIcons::renderIcon(Renderer *r, std::string name, int x, int y, float scale, glm::vec3 color) {
+void SpriteMap::renderIcon(Renderer *r, std::string name, int x, int y, float scale, glm::vec3 color) {
     r->useProgram(*r->defaultTextProgram);
     
     if (iconMap.find(name) == iconMap.end()) {

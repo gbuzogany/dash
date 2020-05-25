@@ -10,6 +10,7 @@
 #define Icon_hpp
 
 #include <stdio.h>
+#include <iostream>
 #include <string>
 
 class Icon {
@@ -19,6 +20,7 @@ public:
     std::string name;
     
     Icon(std::string name, int x, int y, int width, int height);
+    ~Icon();
 };
 
 #endif /* Icon_hpp */

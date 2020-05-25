@@ -28,7 +28,7 @@
 		66383FE7247AEAFB00A79018 /* logo.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE6247AEAEF00A79018 /* logo.tga */; };
 		6642E57E24794CD700B7FF5C /* icons.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E57D24794CD200B7FF5C /* icons.tga */; };
 		6642E58124794F2400B7FF5C /* icons.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58024794F1A00B7FF5C /* icons.json */; };
-		6642E5852479519800B7FF5C /* DashIcons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5832479519800B7FF5C /* DashIcons.cpp */; };
+		6642E5852479519800B7FF5C /* SpriteMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5832479519800B7FF5C /* SpriteMap.cpp */; };
 		6642E5882479543300B7FF5C /* Icon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5862479543300B7FF5C /* Icon.cpp */; };
 		6642E58E24796F3400B7FF5C /* HBlurVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */; };
 		6642E58F24796F3400B7FF5C /* VBlurVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */; };
@@ -162,8 +162,8 @@
 		6642E57D24794CD200B7FF5C /* icons.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.tga; sourceTree = "<group>"; };
 		6642E57F24794EBF00B7FF5C /* rapidjson */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rapidjson; sourceTree = "<group>"; };
 		6642E58024794F1A00B7FF5C /* icons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
-		6642E5832479519800B7FF5C /* DashIcons.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DashIcons.cpp; sourceTree = "<group>"; };
-		6642E5842479519800B7FF5C /* DashIcons.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DashIcons.hpp; sourceTree = "<group>"; };
+		6642E5832479519800B7FF5C /* SpriteMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteMap.cpp; sourceTree = "<group>"; };
+		6642E5842479519800B7FF5C /* SpriteMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteMap.hpp; sourceTree = "<group>"; };
 		6642E5862479543300B7FF5C /* Icon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Icon.cpp; sourceTree = "<group>"; };
 		6642E5872479543300B7FF5C /* Icon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Icon.hpp; sourceTree = "<group>"; };
 		6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = HBlurVertexShader.glsl; sourceTree = "<group>"; };
@@ -322,8 +322,8 @@
 		6642E5822479518300B7FF5C /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				6642E5842479519800B7FF5C /* DashIcons.hpp */,
-				6642E5832479519800B7FF5C /* DashIcons.cpp */,
+				6642E5842479519800B7FF5C /* SpriteMap.hpp */,
+				6642E5832479519800B7FF5C /* SpriteMap.cpp */,
 				6642E5872479543300B7FF5C /* Icon.hpp */,
 				6642E5862479543300B7FF5C /* Icon.cpp */,
 			);
@@ -500,7 +500,7 @@
 				6663160E247553AD00665646 /* rkt.grpc.pb.cc in Sources */,
 				665A5298245DA2C500AC6765 /* Animation.cpp in Sources */,
 				661879E124740C3200BB39FF /* glad.c in Sources */,
-				6642E5852479519800B7FF5C /* DashIcons.cpp in Sources */,
+				6642E5852479519800B7FF5C /* SpriteMap.cpp in Sources */,
 				66383FD5247AA7F300A79018 /* ShaderProgram.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
