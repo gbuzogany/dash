@@ -12,8 +12,8 @@ Splash::Splash(Renderer *renderer, RocketteServiceImpl *service) : Scene(rendere
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     animationQueue.push(new Animation("fadeIn", 0, 1.0, 0.5));
-    animationQueue.push(new Animation("delay", 0, 1.0, 1.0));
-    animationQueue.push(new Animation("dissolve", 0, 1.0, 3.0));
+    animationQueue.push(new Animation("delay", 0, 1.0, 0.5));
+    animationQueue.push(new Animation("dissolve", 0, 1.0, 2.0));
     animationQueue.push(new Animation("fadeOut", 1.0, 0.0, 0.5));
     
     dissolveProgram = new RawShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl");
@@ -118,7 +118,10 @@ void Splash::render() {
     
     setupDissolve(splashLogo);
     
-    _r->renderRect(WIDTH/2 - 450 + 20, HEIGHT/2 - 450, 900, 900, true);
+    float width = 500;
+    float height = 500;
+    
+    _r->renderRect(WIDTH/2.0f - width/2.0f, HEIGHT/2.0f - height/2.0f, width, height, true);
 }
 
 void Splash::renderFixed() {
