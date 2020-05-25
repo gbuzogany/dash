@@ -108,7 +108,7 @@ void SpriteMap::renderIcon(Renderer *r, std::string name, int x, int y, float sc
     r->bindTexture(iconsTexture);
     
     GLfloat xpos = x;
-    GLfloat ypos = 480.0 - y - (icon->height) * scale;
+    GLfloat ypos = HEIGHT - y - (icon->height) * scale;
     
     GLfloat iconPx = icon->x / texWidth;
     GLfloat iconPy = (icon->y) / texHeight;

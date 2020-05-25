@@ -8,6 +8,9 @@
 		"type": "t",
 		"value": null
 	},
+    "gaugeValue": {
+        "value": 0
+    },
 	"FX1": {
 		"type" : "group",
 		"FX1Texture": {

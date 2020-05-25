@@ -13,8 +13,6 @@ uniform float time;
 
 const float PI = 3.1415926535897932384626433832795;
 
-uniform float gaugeValue;
-
 uniform vec4 FX1Color;
 uniform float FX1Intensity;
 uniform float FX1Invert;
@@ -84,6 +82,10 @@ uniform sampler2D FX4Texture;
 
 uniform float globalAlpha;
 
+vec2 constantBiasScale(vec2 uv, float bias, float scale) {
+	return (uv - vec2(bias)) * scale;
+}
+
 vec4 u_xlat0;
 vec4 u_xlat10_0;
 vec3 u_xlat1;
@@ -100,14 +102,6 @@ float u_xlat16_12;
 bool u_xlatb12;
 
 float maxAlpha = 0.0;
-
-float map(float value, float inMin, float inMax, float outMin, float outMax) {
-    return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
-}
-
-vec2 map(vec2 value, vec2 inMin, vec2 inMax, vec2 outMin, vec2 outMax) {
-    return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
-}
 
 void main(){
 	u_xlat10_0 = texture2D(FX1FlowTexture, vs_TEXCOORD2.xy);
@@ -192,24 +186,4 @@ void main(){
 
 	gl_FragColor.xyz = u_xlat0.xyz;
     gl_FragColor.w = min(maxAlpha, globalAlpha);
-    
-    float gaugeH = map(gaugeValue, 0.6, 1.0, 0.3, 0.85);
-    gaugeH = gaugeH < 0.3 ? 0.3 : gaugeH;
-    
-    gl_FragColor.xyz = vs_TEXCOORD0.x > gaugeH ? gl_FragColor.xyz * (1.0 - maskPixel.r) : gl_FragColor.xyz;
-    
-    float gaugeV = map(gaugeValue, 0.0, 0.3, 0.0, 0.5);
-    gaugeV = gaugeV > 0.5 ? 0.5 : gaugeV;
-    
-    gl_FragColor.xyz = 1.0 - vs_TEXCOORD0.y > gaugeV && vs_TEXCOORD0.y > 0.5 ? gl_FragColor.xyz * (1.0 - maskPixel.r) : gl_FragColor.xyz;
-    
-    float gaugeC = map(gaugeValue, 0.3, 0.6, 0.0, 0.25);
-    gaugeV = gaugeV > 0.25 ? 0.25 : gaugeV;
-    vec2 aux1 = map(vs_TEXCOORD0.xy, vec2(0.0, 1.0), vec2(1.0, 0.0), vec2(-1.0, -1.0), vec2(2.4, 1.0));
-    float angle = atan(aux1.y, aux1.x);
-    angle = map(angle, -PI, PI, 1.0, 0.0);
-    angle = angle - gaugeC;
-    angle = ceil(1.0 - 1.0 - angle);
-    
-    gl_FragColor.xyz = vs_TEXCOORD0.x < 0.3 && vs_TEXCOORD0.y < 0.5 ? gl_FragColor.xyz * (1.0 - maskPixel.r) + gl_FragColor.xyz * angle * maskPixel.r : gl_FragColor.xyz;
 }

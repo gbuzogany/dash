@@ -16,12 +16,12 @@ Splash::Splash(Renderer *renderer, RocketteServiceImpl *service) : Scene(rendere
     animationQueue.push(new Animation("dissolve", 0, 1.0, 2.0));
     animationQueue.push(new Animation("fadeOut", 1.0, 0.0, 0.5));
     
-    baseTex = Texture::loadTGA("rkt/etc/textures/dash.tga");
+    baseTex = Texture::loadTGA("rkt/etc/textures/blank.tga");
     maskTex = Texture::loadTGA("rkt/etc/textures/splash_mask.tga");
     FX1FlowTex = Texture::loadTGA("rkt/etc/textures/flow_tunnel.tga");
     FX1Tex = Texture::loadTGA("rkt/etc/textures/splash.tga");
     
-    splashFire = new ShaderProgram("rkt/etc/shaders/dashVertex.glsl", "rkt/etc/shaders/dashFragment.glsl", "rkt/etc/shaders/splashUniforms.json");
+    splashFire = new ShaderProgram("rkt/etc/shaders/vfxVertex.glsl", "rkt/etc/shaders/vfxFragment.glsl", "rkt/etc/shaders/splashUniforms.json");
     dissolveProgram = new ShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl", "rkt/etc/shaders/dissolveUniforms.json");
     
     glm::mat4 projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
@@ -42,6 +42,11 @@ Splash::~Splash() {
     Texture::destroyTexture(splashLogo);
     Texture::destroyTexture(dissolveRampTextureId);
     Texture::destroyTexture(dissolveNoiseTextureId);
+    
+    Texture::destroyTexture(baseTex);
+    Texture::destroyTexture(maskTex);
+    Texture::destroyTexture(FX1FlowTex);
+    Texture::destroyTexture(FX1Tex);
     
     delete dissolveProgram;
 }

@@ -227,7 +227,7 @@ float Renderer::renderText(FontWrapper &font, std::string text, GLfloat x, GLflo
         px -= kerning;
         
         GLfloat xpos = px + ((float)ch.bearing.x) * scale;
-        GLfloat ypos = HEIGHT - y - (ch.size.y - ch.bearing.y) * scale;
+        GLfloat ypos = HEIGHT - y - ch.bearing.y - (ch.size.y - ch.bearing.y) * scale;
         
         GLfloat w = ch.size.x * scale;
         GLfloat h = ch.size.y * scale;

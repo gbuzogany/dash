@@ -15,8 +15,8 @@
 		66369DAF2302EACF00975025 /* RawShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DAD2302EACF00975025 /* RawShaderProgram.cpp */; };
 		66369DBD2302F31000975025 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66369DBB2302F31000975025 /* Texture.cpp */; };
 		66383FD5247AA7F300A79018 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66383FD3247AA7F300A79018 /* ShaderProgram.cpp */; };
-		66383FD8247AD8A400A79018 /* dashFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD1247A9C7D00A79018 /* dashFragment.glsl */; };
-		66383FD9247AD8A400A79018 /* dashVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD2247A9C7D00A79018 /* dashVertex.glsl */; };
+		66383FD8247AD8A400A79018 /* vfxFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD1247A9C7D00A79018 /* vfxFragment.glsl */; };
+		66383FD9247AD8A400A79018 /* vfxVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD2247A9C7D00A79018 /* vfxVertex.glsl */; };
 		66383FDA247AD8A400A79018 /* dashUniforms.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD6247AD5E200A79018 /* dashUniforms.json */; };
 		66383FDB247ADA5300A79018 /* splash.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FD7247AD75B00A79018 /* splash.tga */; };
 		66383FDC247ADA5300A79018 /* dash_mask.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FCF247A9C6800A79018 /* dash_mask.tga */; };
@@ -54,6 +54,10 @@
 		6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5283245D78C000AC6765 /* dissolve-ramp.tga */; };
 		6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5287245D7C2200AC6765 /* noise.tga */; };
 		668D87C1247BC09200CD36F3 /* dissolveUniforms.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C0247BBE7600CD36F3 /* dissolveUniforms.json */; };
+		668D87C4247BEC9600CD36F3 /* dashFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C2247BEC7900CD36F3 /* dashFragment.glsl */; };
+		668D87C5247BEC9600CD36F3 /* dashVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C3247BEC7900CD36F3 /* dashVertex.glsl */; };
+		668D87C7247BFAA400CD36F3 /* Roboto-Thin.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C6247BFA9B00CD36F3 /* Roboto-Thin.ttf */; };
+		668D87C9247C195800CD36F3 /* blank.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C8247C195000CD36F3 /* blank.tga */; };
 		66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B17153246D76EF00A037C8 /* libSDL2.dylib */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
@@ -81,10 +85,12 @@
 			dstPath = rkt/etc/shaders;
 			dstSubfolderSpec = 16;
 			files = (
+				668D87C4247BEC9600CD36F3 /* dashFragment.glsl in CopyFiles */,
+				668D87C5247BEC9600CD36F3 /* dashVertex.glsl in CopyFiles */,
 				668D87C1247BC09200CD36F3 /* dissolveUniforms.json in CopyFiles */,
 				66383FE5247AE9D100A79018 /* splashUniforms.json in CopyFiles */,
-				66383FD8247AD8A400A79018 /* dashFragment.glsl in CopyFiles */,
-				66383FD9247AD8A400A79018 /* dashVertex.glsl in CopyFiles */,
+				66383FD8247AD8A400A79018 /* vfxFragment.glsl in CopyFiles */,
+				66383FD9247AD8A400A79018 /* vfxVertex.glsl in CopyFiles */,
 				66383FDA247AD8A400A79018 /* dashUniforms.json in CopyFiles */,
 				6642E58E24796F3400B7FF5C /* HBlurVertexShader.glsl in CopyFiles */,
 				6642E58F24796F3400B7FF5C /* VBlurVertexShader.glsl in CopyFiles */,
@@ -104,6 +110,7 @@
 			dstPath = rkt/etc/textures;
 			dstSubfolderSpec = 16;
 			files = (
+				668D87C9247C195800CD36F3 /* blank.tga in CopyFiles */,
 				66383FE7247AEAFB00A79018 /* logo.tga in CopyFiles */,
 				66383FE2247AE67E00A79018 /* flow_tunnel.tga in CopyFiles */,
 				66383FE3247AE67E00A79018 /* splash_mask.tga in CopyFiles */,
@@ -125,6 +132,7 @@
 			dstPath = rkt/etc/fonts;
 			dstSubfolderSpec = 16;
 			files = (
+				668D87C7247BFAA400CD36F3 /* Roboto-Thin.ttf in CopyFiles */,
 				6663162C2476CA7700665646 /* Roboto-Regular.ttf in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,8 +156,8 @@
 		66369DBC2302F31000975025 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 		66383FCF247A9C6800A79018 /* dash_mask.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = dash_mask.tga; sourceTree = "<group>"; };
 		66383FD0247A9C6D00A79018 /* flowmap_test.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = flowmap_test.tga; sourceTree = "<group>"; };
-		66383FD1247A9C7D00A79018 /* dashFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashFragment.glsl; sourceTree = "<group>"; };
-		66383FD2247A9C7D00A79018 /* dashVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashVertex.glsl; sourceTree = "<group>"; };
+		66383FD1247A9C7D00A79018 /* vfxFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vfxFragment.glsl; sourceTree = "<group>"; };
+		66383FD2247A9C7D00A79018 /* vfxVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vfxVertex.glsl; sourceTree = "<group>"; };
 		66383FD3247AA7F300A79018 /* ShaderProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
 		66383FD4247AA7F300A79018 /* ShaderProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
 		66383FD6247AD5E200A79018 /* dashUniforms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dashUniforms.json; sourceTree = "<group>"; };
@@ -199,6 +207,10 @@
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
 		668D87C0247BBE7600CD36F3 /* dissolveUniforms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dissolveUniforms.json; sourceTree = "<group>"; };
+		668D87C2247BEC7900CD36F3 /* dashFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashFragment.glsl; sourceTree = "<group>"; };
+		668D87C3247BEC7900CD36F3 /* dashVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashVertex.glsl; sourceTree = "<group>"; };
+		668D87C6247BFA9B00CD36F3 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		668D87C8247C195000CD36F3 /* blank.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = blank.tga; sourceTree = "<group>"; };
 		66B17153246D76EF00A037C8 /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../usr/local/lib/libSDL2.dylib; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
@@ -362,6 +374,7 @@
 		6674FA282463358000E4B6CC /* shaders */ = {
 			isa = PBXGroup;
 			children = (
+				66383FE4247AE9B700A79018 /* splashUniforms.json */,
 				666316132476C73E00665646 /* DissolveFragment.glsl */,
 				666316142476C73E00665646 /* DissolveVertex.glsl */,
 				668D87C0247BBE7600CD36F3 /* dissolveUniforms.json */,
@@ -372,10 +385,11 @@
 				6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */,
 				6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */,
 				6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */,
-				66383FD1247A9C7D00A79018 /* dashFragment.glsl */,
-				66383FD2247A9C7D00A79018 /* dashVertex.glsl */,
-				66383FE4247AE9B700A79018 /* splashUniforms.json */,
+				66383FD1247A9C7D00A79018 /* vfxFragment.glsl */,
+				66383FD2247A9C7D00A79018 /* vfxVertex.glsl */,
 				66383FD6247AD5E200A79018 /* dashUniforms.json */,
+				668D87C2247BEC7900CD36F3 /* dashFragment.glsl */,
+				668D87C3247BEC7900CD36F3 /* dashVertex.glsl */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -383,6 +397,7 @@
 		6674FA292463358900E4B6CC /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				668D87C8247C195000CD36F3 /* blank.tga */,
 				66383FE1247AE67700A79018 /* flow_tunnel.tga */,
 				66383FE0247AE67200A79018 /* splash_mask.tga */,
 				66383FDE247AE5B300A79018 /* dash.tga */,
@@ -410,6 +425,7 @@
 		6674FA582464547400E4B6CC /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				668D87C6247BFA9B00CD36F3 /* Roboto-Thin.ttf */,
 				6663161E2476CA6C00665646 /* Roboto-Regular.ttf */,
 			);
 			path = fonts;

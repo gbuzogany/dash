@@ -29,11 +29,14 @@ class MainScene : Scene {
     SpriteMap *dashIcons;
     ShaderProgram *vfxProgram;
     
-    FontWrapper *roboto, *robotoSmall;
+    FontWrapper *roboto;
+    FontWrapper *robotoThin;
+    FontWrapper *robotoSmall;
+    FontWrapper *robotoMedium;
+    FontWrapper *robotoLarge;
     
     void createFramebuffer();
-    void drawCounter(FontWrapper &font, GLfloat x, GLfloat y, GLfloat radius, GLfloat longTickLength, GLfloat shortTickLength, GLfloat startAngle, GLfloat endAngle, GLfloat maxValue, GLfloat beginCritical, GLint ticksBetweenInts);
-    void drawNeedle(float value, float maxValue, GLint x, GLint y, GLfloat tipRadius, GLfloat bottomRadius, GLfloat startAngle, GLfloat endAngle);
+
 public:
     MainScene(Renderer *r, RocketteServiceImpl *service);
     ~MainScene();
