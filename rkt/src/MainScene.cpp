@@ -32,7 +32,7 @@ MainScene::MainScene(Renderer *renderer, RocketteServiceImpl *service) : Scene(r
     robotoThin = new FontWrapper("Roboto-Thin", 40, usedChars);
     robotoSmall = new FontWrapper("Roboto-Regular", 20, usedChars);
     robotoMedium = new FontWrapper("Roboto-Regular", 130, basicChars);
-    robotoLarge = new FontWrapper("Roboto-Regular", 200, basicChars);
+    robotoLarge = new FontWrapper("Roboto-Regular", 250, basicChars);
     
     dashIcons = new SpriteMap("rkt/etc/textures/sprites.json");
     
@@ -120,8 +120,8 @@ void MainScene::render() {
     _r->setGlobalAlpha();
     _r->renderRect(0, 0, WIDTH, HEIGHT, true);
     
-    _r->renderText(*robotoMedium, gearString, 695, 35, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    _r->renderText(*robotoLarge, speedString, 450, 230, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+    _r->renderText(*robotoMedium, gearString, 695, 25, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    _r->renderText(*robotoLarge, speedString, 550, 210, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
     float pos = _r->renderText(*roboto, rpmString, 710, 430, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
     _r->renderText(*robotoThin, "RPM", pos, 435, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
