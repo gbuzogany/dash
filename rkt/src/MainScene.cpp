@@ -34,7 +34,7 @@ MainScene::MainScene(Renderer *renderer, RocketteServiceImpl *service) : Scene(r
     robotoMedium = new FontWrapper("Roboto-Regular", 130, basicChars);
     robotoLarge = new FontWrapper("Roboto-Regular", 200, basicChars);
     
-    dashIcons = new SpriteMap("rkt/etc/textures/icons.json");
+    dashIcons = new SpriteMap("rkt/etc/textures/sprites.json");
     
     baseTex = Texture::loadTGA("rkt/etc/textures/dash.tga");
     maskTex = Texture::loadTGA("rkt/etc/textures/dash_mask.tga");

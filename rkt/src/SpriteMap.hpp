@@ -2,7 +2,7 @@
 #define SpriteMap_hpp
 
 #include "Renderer.hpp"
-#include "Icon.hpp"
+#include "Sprite.hpp"
 #include "Definitions.h"
 #include <map>
 #include "rapidjson/reader.h"
@@ -18,11 +18,11 @@ class SpriteMap {
     GLuint iconsTexture;
     GLfloat texWidth, texHeight;
     
-    std::map<std::string, Icon*> iconMap;
+    std::map<std::string, Sprite*> spriteMap;
 
     void parseIcons(const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> obj);
     void parseTexture(const GenericObject<true, GenericValue<UTF8<>, MemoryPoolAllocator<>>> obj);
-    void loadIcons(std::string jsonPath);
+    void loadSprites(std::string jsonPath);
 public:
     SpriteMap(std::string jsonPath);
     ~SpriteMap();

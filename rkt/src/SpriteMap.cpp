@@ -5,16 +5,16 @@
 #include "SpriteMap.hpp"
 
 SpriteMap::SpriteMap(std::string jsonPath) {
-    loadIcons(jsonPath);
+    loadSprites(jsonPath);
 }
 
 SpriteMap::~SpriteMap() {
-    for (auto it = iconMap.begin(); it != iconMap.end(); ++it) {
+    for (auto it = spriteMap.begin(); it != spriteMap.end(); ++it) {
         delete it->second;
     }
 }
 
-void SpriteMap::loadIcons(std::string jsonPath) {
+void SpriteMap::loadSprites(std::string jsonPath) {
     
     FILE *config = fopen(jsonPath.c_str(), "r");
     Document document;
@@ -30,7 +30,7 @@ void SpriteMap::loadIcons(std::string jsonPath) {
             if (name.compare("texture") == 0) {
                 parseTexture(itr->value.GetObject());
             }
-            if (name.compare("icons") == 0) {
+            if (name.compare("sprites") == 0) {
                 parseIcons(itr->value.GetObject());
             }
         }
@@ -79,20 +79,20 @@ void SpriteMap::parseIcons(const GenericObject<true, GenericValue<UTF8<>, Memory
                 height = pitr->value.GetInt();
             }
         }
-        Icon *icon = new Icon(name, x, y, width, height);
-        iconMap[name] = icon;
+        Sprite *sprite = new Sprite(name, x, y, width, height);
+        spriteMap[name] = sprite;
     }
 }
 
 void SpriteMap::renderIcon(Renderer *r, std::string name, int x, int y, float scale, glm::vec3 color) {
     r->useProgram(*r->defaultTextProgram);
     
-    if (iconMap.find(name) == iconMap.end()) {
+    if (spriteMap.find(name) == spriteMap.end()) {
         std::cout << "Icon " << name << " not found." << std::endl;
         return;
     }
     
-    Icon *icon = iconMap[name];
+    Sprite *icon = spriteMap[name];
     
     GLuint u_textureId = r->defaultTextProgram->getUniformLocation("tex");
     GLuint u_projectionID = r->defaultTextProgram->getUniformLocation("projection");

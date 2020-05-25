@@ -4,7 +4,7 @@
         "width" : 1024,
         "height" : 1024
     },
-    "icons" : {
+    "sprites" : {
         "maintenance" : {
             "x" : 4,
             "y" : 4,

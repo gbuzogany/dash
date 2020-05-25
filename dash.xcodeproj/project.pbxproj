@@ -27,9 +27,9 @@
 		66383FE5247AE9D100A79018 /* splashUniforms.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE4247AE9B700A79018 /* splashUniforms.json */; };
 		66383FE7247AEAFB00A79018 /* logo.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66383FE6247AEAEF00A79018 /* logo.tga */; };
 		6642E57E24794CD700B7FF5C /* icons.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E57D24794CD200B7FF5C /* icons.tga */; };
-		6642E58124794F2400B7FF5C /* icons.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58024794F1A00B7FF5C /* icons.json */; };
+		6642E58124794F2400B7FF5C /* sprites.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58024794F1A00B7FF5C /* sprites.json */; };
 		6642E5852479519800B7FF5C /* SpriteMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5832479519800B7FF5C /* SpriteMap.cpp */; };
-		6642E5882479543300B7FF5C /* Icon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5862479543300B7FF5C /* Icon.cpp */; };
+		6642E5882479543300B7FF5C /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6642E5862479543300B7FF5C /* Sprite.cpp */; };
 		6642E58E24796F3400B7FF5C /* HBlurVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */; };
 		6642E58F24796F3400B7FF5C /* VBlurVertexShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */; };
 		6642E59024796F3400B7FF5C /* BlurFragmentShader.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */; };
@@ -122,7 +122,7 @@
 				6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */,
 				6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */,
 				6642E57E24794CD700B7FF5C /* icons.tga in CopyFiles */,
-				6642E58124794F2400B7FF5C /* icons.json in CopyFiles */,
+				6642E58124794F2400B7FF5C /* sprites.json in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,11 +169,11 @@
 		66383FE6247AEAEF00A79018 /* logo.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.tga; sourceTree = "<group>"; };
 		6642E57D24794CD200B7FF5C /* icons.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.tga; sourceTree = "<group>"; };
 		6642E57F24794EBF00B7FF5C /* rapidjson */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rapidjson; sourceTree = "<group>"; };
-		6642E58024794F1A00B7FF5C /* icons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
+		6642E58024794F1A00B7FF5C /* sprites.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sprites.json; sourceTree = "<group>"; };
 		6642E5832479519800B7FF5C /* SpriteMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteMap.cpp; sourceTree = "<group>"; };
 		6642E5842479519800B7FF5C /* SpriteMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteMap.hpp; sourceTree = "<group>"; };
-		6642E5862479543300B7FF5C /* Icon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Icon.cpp; sourceTree = "<group>"; };
-		6642E5872479543300B7FF5C /* Icon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Icon.hpp; sourceTree = "<group>"; };
+		6642E5862479543300B7FF5C /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		6642E5872479543300B7FF5C /* Sprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sprite.hpp; sourceTree = "<group>"; };
 		6642E58B24796CA200B7FF5C /* HBlurVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = HBlurVertexShader.glsl; sourceTree = "<group>"; };
 		6642E58C24796CC000B7FF5C /* VBlurVertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VBlurVertexShader.glsl; sourceTree = "<group>"; };
 		6642E58D24796CDB00B7FF5C /* BlurFragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = BlurFragmentShader.glsl; sourceTree = "<group>"; };
@@ -336,8 +336,8 @@
 			children = (
 				6642E5842479519800B7FF5C /* SpriteMap.hpp */,
 				6642E5832479519800B7FF5C /* SpriteMap.cpp */,
-				6642E5872479543300B7FF5C /* Icon.hpp */,
-				6642E5862479543300B7FF5C /* Icon.cpp */,
+				6642E5872479543300B7FF5C /* Sprite.hpp */,
+				6642E5862479543300B7FF5C /* Sprite.cpp */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -408,7 +408,7 @@
 				665A5283245D78C000AC6765 /* dissolve-ramp.tga */,
 				665A5287245D7C2200AC6765 /* noise.tga */,
 				666316302476CF4300665646 /* rocket.tga */,
-				6642E58024794F1A00B7FF5C /* icons.json */,
+				6642E58024794F1A00B7FF5C /* sprites.json */,
 				66383FE6247AEAEF00A79018 /* logo.tga */,
 			);
 			path = textures;
@@ -503,7 +503,7 @@
 			files = (
 				6659848123044A47002D326C /* FontWrapper.cpp in Sources */,
 				66369DBD2302F31000975025 /* Texture.cpp in Sources */,
-				6642E5882479543300B7FF5C /* Icon.cpp in Sources */,
+				6642E5882479543300B7FF5C /* Sprite.cpp in Sources */,
 				66369DAF2302EACF00975025 /* RawShaderProgram.cpp in Sources */,
 				66369DA52302E7E200975025 /* Renderer.cpp in Sources */,
 				6663160D247553AD00665646 /* rkt.pb.cc in Sources */,
