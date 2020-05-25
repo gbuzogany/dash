@@ -4,17 +4,8 @@
 
 #include "SpriteMap.hpp"
 
-SpriteMap* SpriteMap::instance = 0;
-
-SpriteMap* SpriteMap::getInstance() {
-    if (instance == 0) {
-        instance = new SpriteMap();
-    }
-    return instance;
-}
-
-SpriteMap::SpriteMap() {
-    
+SpriteMap::SpriteMap(std::string jsonPath) {
+    loadIcons(jsonPath);
 }
 
 SpriteMap::~SpriteMap() {
