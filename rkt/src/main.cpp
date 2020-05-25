@@ -51,6 +51,7 @@ int main(int argc, char* argv[])
             }
             r.endFrame();
         }
+        delete currentScene;
         sceneQueue.pop();
     }
     SDL_Quit();

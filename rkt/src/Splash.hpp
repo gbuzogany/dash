@@ -8,6 +8,7 @@
 #include "Scene.hpp"
 #include "Animation.hpp"
 #include "ShaderProgram.hpp"
+#include "SpriteMap.hpp"
 
 class Splash : Scene {
     GLuint dissolveRampTextureId;

@@ -13,5 +13,5 @@ Icon::Icon(std::string name, int x, int y, int width, int height) : name(name), 
 }
 
 Icon::~Icon() {
-    std::cout << "Removed icon." << std::endl;
+
 }

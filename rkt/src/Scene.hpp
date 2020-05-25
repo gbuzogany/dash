@@ -12,6 +12,7 @@ protected:
     
 public:
     Scene(Renderer *renderer, RocketteServiceImpl *service);
+    virtual ~Scene();
     virtual void render() = 0;
     virtual void renderFixed() = 0;
     virtual bool update(float delta) = 0;

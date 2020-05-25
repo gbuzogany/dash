@@ -9,7 +9,9 @@ SpriteMap::SpriteMap(std::string jsonPath) {
 }
 
 SpriteMap::~SpriteMap() {
-    
+    for (auto it = iconMap.begin(); it != iconMap.end(); ++it) {
+        delete it->second;
+    }
 }
 
 void SpriteMap::loadIcons(std::string jsonPath) {

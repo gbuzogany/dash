@@ -23,8 +23,7 @@ MainScene::MainScene(Renderer *renderer, RocketteServiceImpl *service) : Scene(r
         '0','1','2','3','4','5','6','7','8','9','@',(FT_ULong)176,' ','.','%','/', '!'
     };
     
-    dashIcons = SpriteMap::getInstance();
-    dashIcons->loadIcons("rkt/etc/textures/icons.json");
+    dashIcons = new SpriteMap("rkt/etc/textures/icons.json");
 
     roboto = new FontWrapper("Roboto-Regular", 50, usedChars);
     robotoSmall = new FontWrapper("Roboto-Regular", 20, usedChars);
