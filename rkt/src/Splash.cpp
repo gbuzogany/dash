@@ -16,14 +16,13 @@ Splash::Splash(Renderer *renderer, RocketteServiceImpl *service) : Scene(rendere
     animationQueue.push(new Animation("dissolve", 0, 1.0, 2.0));
     animationQueue.push(new Animation("fadeOut", 1.0, 0.0, 0.5));
     
-    dissolveProgram = new RawShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl");
-    
-    splashFire = new ShaderProgram("rkt/etc/shaders/dashVertex.glsl", "rkt/etc/shaders/dashFragment.glsl", "rkt/etc/shaders/splashUniforms.json");
-    
     baseTex = Texture::loadTGA("rkt/etc/textures/dash.tga");
     maskTex = Texture::loadTGA("rkt/etc/textures/splash_mask.tga");
     FX1FlowTex = Texture::loadTGA("rkt/etc/textures/flow_tunnel.tga");
     FX1Tex = Texture::loadTGA("rkt/etc/textures/splash.tga");
+    
+    splashFire = new ShaderProgram("rkt/etc/shaders/dashVertex.glsl", "rkt/etc/shaders/dashFragment.glsl", "rkt/etc/shaders/splashUniforms.json");
+    dissolveProgram = new ShaderProgram("rkt/etc/shaders/DissolveVertex.glsl", "rkt/etc/shaders/DissolveFragment.glsl", "rkt/etc/shaders/dissolveUniforms.json");
     
     glm::mat4 projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
     splashFire->setMat4Uniform("projection", projection);
@@ -31,8 +30,12 @@ Splash::Splash(Renderer *renderer, RocketteServiceImpl *service) : Scene(rendere
     splashFire->setTextureUniform("maskTex", maskTex);
     splashFire->setTextureUniform("FX1Texture", FX1Tex);
     splashFire->setTextureUniform("FX1FlowTexture", FX1FlowTex);
-    
     splashFire->setVec4Uniform("FX1Color", glm::vec4(1.0, 0.407, 0.0, 1.0));
+    
+    dissolveProgram->setMat4Uniform("projection", projection);
+    dissolveProgram->setTextureUniform("baseTexture", splashLogo);
+    dissolveProgram->setTextureUniform("noiseTexture", dissolveNoiseTextureId);
+    dissolveProgram->setTextureUniform("rampTexture", dissolveRampTextureId);
 }
 
 Splash::~Splash() {
@@ -80,34 +83,6 @@ bool Splash::update(float delta) {
     return true;
 }
 
-void Splash::setupDissolve(GLuint textureId) {
-    _r->useProgram(*dissolveProgram);
-    _r->setProgramGlobalAlpha(*dissolveProgram);
-    
-    GLuint u_baseTexture = dissolveProgram->getUniformLocation("baseTexture");
-    GLuint u_noiseTexture = dissolveProgram->getUniformLocation("noiseTexture");
-    GLuint u_rampTexture = dissolveProgram->getUniformLocation("rampTexture");
-    GLuint u_projection = dissolveProgram->getUniformLocation("projection");
-    GLuint u_dissolve = dissolveProgram->getUniformLocation("dissolve");
-    
-    glm::mat4 projection = glm::ortho(0.0f, WIDTH, 0.0f, HEIGHT);
-    glUniformMatrix4fv(u_projection, 1, GL_FALSE, &projection[0][0]);
-    
-    glUniform1i(u_baseTexture, 0);
-    glActiveTexture(GL_TEXTURE0);
-    _r->bindTexture(textureId);
-    
-    glUniform1i(u_noiseTexture, 1);
-    glActiveTexture(GL_TEXTURE1);
-    _r->bindTexture(dissolveNoiseTextureId);
-    
-    glUniform1i(u_rampTexture, 2);
-    glActiveTexture(GL_TEXTURE2);
-    _r->bindTexture(dissolveRampTextureId);
-    
-    glUniform1f(u_dissolve, dissolve);
-}
-
 void Splash::render() {
     _r->clear();
     
@@ -116,7 +91,9 @@ void Splash::render() {
     _r->setGlobalAlpha();
     _r->renderRect(0, 0, WIDTH, HEIGHT, true);
     
-    setupDissolve(splashLogo);
+    dissolveProgram->setFloatUniform("dissolve", dissolve);
+    dissolveProgram->use(_r);
+    _r->setGlobalAlpha();
     
     float width = 500;
     float height = 500;

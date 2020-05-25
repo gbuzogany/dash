@@ -53,6 +53,7 @@
 		6674FA4C246452D600E4B6CC /* TextVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6659847923044886002D326C /* TextVertex.glsl */; };
 		6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5283245D78C000AC6765 /* dissolve-ramp.tga */; };
 		6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665A5287245D7C2200AC6765 /* noise.tga */; };
+		668D87C1247BC09200CD36F3 /* dissolveUniforms.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C0247BBE7600CD36F3 /* dissolveUniforms.json */; };
 		66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B17153246D76EF00A037C8 /* libSDL2.dylib */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
@@ -80,6 +81,7 @@
 			dstPath = rkt/etc/shaders;
 			dstSubfolderSpec = 16;
 			files = (
+				668D87C1247BC09200CD36F3 /* dissolveUniforms.json in CopyFiles */,
 				66383FE5247AE9D100A79018 /* splashUniforms.json in CopyFiles */,
 				66383FD8247AD8A400A79018 /* dashFragment.glsl in CopyFiles */,
 				66383FD9247AD8A400A79018 /* dashVertex.glsl in CopyFiles */,
@@ -196,6 +198,7 @@
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
+		668D87C0247BBE7600CD36F3 /* dissolveUniforms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dissolveUniforms.json; sourceTree = "<group>"; };
 		66B17153246D76EF00A037C8 /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../usr/local/lib/libSDL2.dylib; sourceTree = "<group>"; };
 		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
 		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
@@ -361,6 +364,7 @@
 			children = (
 				666316132476C73E00665646 /* DissolveFragment.glsl */,
 				666316142476C73E00665646 /* DissolveVertex.glsl */,
+				668D87C0247BBE7600CD36F3 /* dissolveUniforms.json */,
 				6663160F2476C5E100665646 /* TextureVertexShader.glsl */,
 				66369DB32302EE8600975025 /* TextureFragmentShader.glsl */,
 				6659847A23044894002D326C /* TextFragment.glsl */,

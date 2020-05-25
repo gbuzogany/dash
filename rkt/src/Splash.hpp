@@ -20,14 +20,11 @@ class Splash : Scene {
     GLuint FX1FlowTex;
     
     ShaderProgram *splashFire;
+    ShaderProgram *dissolveProgram;
 
     float dissolve = 0;
-    
-    RawShaderProgram *dissolveProgram;
 
     std::queue<Animation*> animationQueue;
-    
-    void setupDissolve(GLuint textureId);
     
     ~Splash();
 public:
