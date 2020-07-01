@@ -15,31 +15,32 @@
 #endif
 
 MainScene::MainScene(Renderer *renderer, RocketteServiceImpl *service) : Scene(renderer, service) {
+    FontWrapper::loadFontFace(_r, "4b03", "rkt/etc/fonts/04B03.TTF");
     FontWrapper::loadFontFace(_r, "Roboto-Regular", "rkt/etc/fonts/Roboto-Regular.ttf");
-    FontWrapper::loadFontFace(_r, "Roboto-Thin", "rkt/etc/fonts/Roboto-Thin.ttf");
     
     std::vector<FT_ULong> usedChars = {
         'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
         'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-        '0','1','2','3','4','5','6','7','8','9','@',(FT_ULong)176,' ','.','%','/', '!'
+        '0','1','2','3','4','5','6','7','8','9','@',(FT_ULong)176,' ','.','%','/','!','+',':'
     };
     
     std::vector<FT_ULong> basicChars = {
-        '0','1','2','3','4','5','6','7','8','9','-'
+        '0','1','2','3','4','5','6','7','8','9','-','.'
     };
-
-    roboto = new FontWrapper("Roboto-Regular", 50, usedChars);
-    robotoThin = new FontWrapper("Roboto-Thin", 40, usedChars);
-    robotoSmall = new FontWrapper("Roboto-Regular", 20, usedChars);
-    robotoMedium = new FontWrapper("Roboto-Regular", 130, basicChars);
-    robotoLarge = new FontWrapper("Roboto-Regular", 250, basicChars);
     
+    x4b03 = new FontWrapper("4b03", 16, usedChars);
+    robotoSmall = new FontWrapper("Roboto-Regular", 50, usedChars);
+    robotoSpeed = new FontWrapper("Roboto-Regular", 150, usedChars);
+    robotoMedium = new FontWrapper("Roboto-Regular", 180, basicChars);
+
     dashIcons = new SpriteMap("rkt/etc/textures/sprites.json");
     
     baseTex = Texture::loadTGA("rkt/etc/textures/dash.tga");
     maskTex = Texture::loadTGA("rkt/etc/textures/dash_mask.tga");
     FX1FlowTex = Texture::loadTGA("rkt/etc/textures/flow_tunnel.tga");
     FX1Tex = Texture::loadTGA("rkt/etc/textures/splash.tga");
+    
+    background = Texture::loadTGA("rkt/etc/textures/dash-proto.tga");
     
     vfxProgram = new ShaderProgram("rkt/etc/shaders/dashVertex.glsl", "rkt/etc/shaders/dashFragment.glsl", "rkt/etc/shaders/dashUniforms.json");
     
@@ -57,7 +58,6 @@ MainScene::MainScene(Renderer *renderer, RocketteServiceImpl *service) : Scene(r
 }
 
 MainScene::~MainScene() {
-    delete roboto;
     delete robotoSmall;
 }
 
@@ -98,10 +98,12 @@ void MainScene::render() {
     
     float tps = 0;
     float rpm = 0;
-    std::string gearString = "6";
-    std::string speedString = "0";
+    std::string gearString = "3";
+    std::string speedString = "123";
     std::string rpmString = "0";
     std::string tempString = "100";
+    std::string mapString = "0";
+    std::string battString = "12.3";
     
     _service->getFloatValue("tps", tps);
     _service->getFloatValue("rpm", rpm);
@@ -110,8 +112,11 @@ void MainScene::render() {
     _service->getFloatValueAsString("speed", speedString);
     _service->getFloatValueAsString("temp", tempString);
     
-    tempString.append("\xb0");
-    tempString.append("C");
+//    battString.append("V");
+//    tempString.append("\xb0");
+//    tempString.append("C");
+//
+    _r->renderTexture(background, 0, 0, 800, 480, true);
     
     vfxProgram->use(_r);
     vfxProgram->setFloatUniform("gaugeValue", rpm / 11000.0f);
@@ -119,14 +124,31 @@ void MainScene::render() {
 
     _r->setGlobalAlpha();
     _r->renderRect(0, 0, WIDTH, HEIGHT, true);
+
+    int steps = 11;
+    float increment = 790.0f / steps;
+    for (int i=0; i<=steps; i++) {
+        _r->renderText(*x4b03, std::to_string(i), 5 + increment * i, 79, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
+    }
     
-    _r->renderText(*robotoMedium, gearString, 695, 25, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-    _r->renderText(*robotoLarge, speedString, 550, 210, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
-    float pos = _r->renderText(*roboto, rpmString, 710, 430, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
-    _r->renderText(*robotoThin, "RPM", pos, 435, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    _r->renderText(*robotoMedium, gearString, 405, 60, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER, CENTER);
+    _r->renderText(*robotoSpeed, speedString, 400, 340, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
+//    _r->renderText(*robotoSmall, rpmString, 400, 25, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
+//    _r->renderText(*robotoThin, "RPM", pos, 435, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     
-    dashIcons->renderIcon(_r, "coolant-temp", 610, 370, 0.5, glm::vec3(1.0, 1.0, 1.0));
-    _r->renderText(*roboto, tempString, 795, 380, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+//    dashIcons->renderIcon(_r, "coolant-temp", 610, 370, 0.5f, glm::vec3(1.0, 1.0, 1.0));
+    _r->renderText(*robotoSmall, battString, 77, 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
+    _r->renderText(*robotoSmall, mapString, 230, 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
+    
+    _r->renderText(*robotoSmall, tempString, 77, 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
+    _r->renderText(*robotoSmall, tempString, 230, 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), CENTER);
+    
+    if (fmod(_r->getTotalTime(), 1.0f) < 0.5f) {
+        _r->renderText(*robotoSmall, "00:00:00", 780, 122, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+    }
+    
+    _r->renderText(*robotoSmall, "+00:00", 780, 185, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
+    _r->renderText(*robotoSmall, "00:00:00", 780, 250, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f), RIGHT);
 
     std::stringstream sfps;
     sfps << std::fixed << std::setprecision(0) << _r->getFrameRate();

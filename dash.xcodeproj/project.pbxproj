@@ -44,7 +44,6 @@
 		666316152476C74100665646 /* DissolveFragment.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666316132476C73E00665646 /* DissolveFragment.glsl */; };
 		666316162476C74300665646 /* DissolveVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666316142476C73E00665646 /* DissolveVertex.glsl */; };
 		6663162C2476CA7700665646 /* Roboto-Regular.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6663161E2476CA6C00665646 /* Roboto-Regular.ttf */; };
-		666316312476CF5000665646 /* rocket.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666316302476CF4300665646 /* rocket.tga */; };
 		6671FCB323786B13005BA4E4 /* libgrpc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB223786B13005BA4E4 /* libgrpc.dylib */; };
 		6671FCB523786B2A005BA4E4 /* libgrpc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */; };
 		6671FCB723786B49005BA4E4 /* libprotobuf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6671FCB623786B49005BA4E4 /* libprotobuf.dylib */; };
@@ -58,12 +57,15 @@
 		668D87C5247BEC9600CD36F3 /* dashVertex.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C3247BEC7900CD36F3 /* dashVertex.glsl */; };
 		668D87C7247BFAA400CD36F3 /* Roboto-Thin.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C6247BFA9B00CD36F3 /* Roboto-Thin.ttf */; };
 		668D87C9247C195800CD36F3 /* blank.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87C8247C195000CD36F3 /* blank.tga */; };
+		668D87DE247C2CB700CD36F3 /* logo-honda.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 668D87DC247C2CAC00CD36F3 /* logo-honda.tga */; };
 		66B17154246D76EF00A037C8 /* libSDL2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B17153246D76EF00A037C8 /* libSDL2.dylib */; };
 		66B80579230AB16B001FC4A7 /* libEGL.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057A230AB17D001FC4A7 /* libGLESv2.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057B230AC010001FC4A7 /* libEGL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80573230AB035001FC4A7 /* libEGL.dylib */; };
 		66B8057C230AC014001FC4A7 /* libGLESv2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B80575230AB110001FC4A7 /* libGLESv2.dylib */; };
 		66B8057E230AC04A001FC4A7 /* libfreetype.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6659847B23044960002D326C /* libfreetype.dylib */; };
+		66D9F51A24ACEB0A00A50441 /* dash-proto.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66D9F51924ACEABC00A50441 /* dash-proto.tga */; };
+		66D9F51C24ACF53000A50441 /* 04B03.TTF in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66D9F51B24ACF51000A50441 /* 04B03.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,6 +112,7 @@
 			dstPath = rkt/etc/textures;
 			dstSubfolderSpec = 16;
 			files = (
+				66D9F51A24ACEB0A00A50441 /* dash-proto.tga in CopyFiles */,
 				668D87C9247C195800CD36F3 /* blank.tga in CopyFiles */,
 				66383FE7247AEAFB00A79018 /* logo.tga in CopyFiles */,
 				66383FE2247AE67E00A79018 /* flow_tunnel.tga in CopyFiles */,
@@ -118,7 +121,7 @@
 				66383FDB247ADA5300A79018 /* splash.tga in CopyFiles */,
 				66383FDC247ADA5300A79018 /* dash_mask.tga in CopyFiles */,
 				66383FDD247ADA5300A79018 /* flowmap_test.tga in CopyFiles */,
-				666316312476CF5000665646 /* rocket.tga in CopyFiles */,
+				668D87DE247C2CB700CD36F3 /* logo-honda.tga in CopyFiles */,
 				6674FA4F2464532B00E4B6CC /* dissolve-ramp.tga in CopyFiles */,
 				6674FA502464532B00E4B6CC /* noise.tga in CopyFiles */,
 				6642E57E24794CD700B7FF5C /* icons.tga in CopyFiles */,
@@ -132,6 +135,7 @@
 			dstPath = rkt/etc/fonts;
 			dstSubfolderSpec = 16;
 			files = (
+				66D9F51C24ACF53000A50441 /* 04B03.TTF in CopyFiles */,
 				668D87C7247BFAA400CD36F3 /* Roboto-Thin.ttf in CopyFiles */,
 				6663162C2476CA7700665646 /* Roboto-Regular.ttf in CopyFiles */,
 			);
@@ -202,7 +206,6 @@
 		666316132476C73E00665646 /* DissolveFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveFragment.glsl; sourceTree = "<group>"; };
 		666316142476C73E00665646 /* DissolveVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = DissolveVertex.glsl; sourceTree = "<group>"; };
 		6663161E2476CA6C00665646 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		666316302476CF4300665646 /* rocket.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocket.tga; sourceTree = "<group>"; };
 		6671FCB223786B13005BA4E4 /* libgrpc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgrpc.dylib; path = ../../../../../usr/local/lib/libgrpc.dylib; sourceTree = "<group>"; };
 		6671FCB423786B2A005BA4E4 /* libgrpc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgrpc++.dylib"; path = "../../../../../usr/local/lib/libgrpc++.dylib"; sourceTree = "<group>"; };
 		6671FCB623786B49005BA4E4 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = ../../../../../usr/local/lib/libprotobuf.dylib; sourceTree = "<group>"; };
@@ -211,9 +214,12 @@
 		668D87C3247BEC7900CD36F3 /* dashVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = dashVertex.glsl; sourceTree = "<group>"; };
 		668D87C6247BFA9B00CD36F3 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		668D87C8247C195000CD36F3 /* blank.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = blank.tga; sourceTree = "<group>"; };
+		668D87DC247C2CAC00CD36F3 /* logo-honda.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = "logo-honda.tga"; sourceTree = "<group>"; };
 		66B17153246D76EF00A037C8 /* libSDL2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL2.dylib; path = ../../../../../usr/local/lib/libSDL2.dylib; sourceTree = "<group>"; };
-		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
-		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
+		66B80573230AB035001FC4A7 /* libEGL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.dylib; path = ../../../angle/out/Release/libEGL.dylib; sourceTree = "<group>"; };
+		66B80575230AB110001FC4A7 /* libGLESv2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLESv2.dylib; path = ../../../angle/out/Release/libGLESv2.dylib; sourceTree = "<group>"; };
+		66D9F51924ACEABC00A50441 /* dash-proto.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = "dash-proto.tga"; sourceTree = "<group>"; };
+		66D9F51B24ACF51000A50441 /* 04B03.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = 04B03.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +403,7 @@
 		6674FA292463358900E4B6CC /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				66D9F51924ACEABC00A50441 /* dash-proto.tga */,
 				668D87C8247C195000CD36F3 /* blank.tga */,
 				66383FE1247AE67700A79018 /* flow_tunnel.tga */,
 				66383FE0247AE67200A79018 /* splash_mask.tga */,
@@ -407,8 +414,8 @@
 				6642E57D24794CD200B7FF5C /* icons.tga */,
 				665A5283245D78C000AC6765 /* dissolve-ramp.tga */,
 				665A5287245D7C2200AC6765 /* noise.tga */,
-				666316302476CF4300665646 /* rocket.tga */,
 				6642E58024794F1A00B7FF5C /* sprites.json */,
+				668D87DC247C2CAC00CD36F3 /* logo-honda.tga */,
 				66383FE6247AEAEF00A79018 /* logo.tga */,
 			);
 			path = textures;
@@ -425,6 +432,7 @@
 		6674FA582464547400E4B6CC /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				66D9F51B24ACF51000A50441 /* 04B03.TTF */,
 				668D87C6247BFA9B00CD36F3 /* Roboto-Thin.ttf */,
 				6663161E2476CA6C00665646 /* Roboto-Regular.ttf */,
 			);
@@ -646,7 +654,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/usr/local/include/freetype2,
-					"\"$(SRCROOT)/../../angle/include\"",
+					"\"$(SRCROOT)/../../../angle/include\"",
 					"\"$(SRCROOT)/\"",
 					"\"$(SRCROOT)/../../../Downloads/glatter-master/include\"",
 					/usr/local/include/SDL2,
@@ -656,7 +664,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/lib,
-					"\"$(SRCROOT)/../../angle/out/Release\"",
+					"\"$(SRCROOT)/../../../angle/out/Release\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -675,7 +683,7 @@
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					/usr/local/include/freetype2,
-					"\"$(SRCROOT)/../../angle/include\"",
+					"\"$(SRCROOT)/../../../angle/include\"",
 					"\"$(SRCROOT)/\"",
 					"\"$(SRCROOT)/../../../Downloads/glatter-master/include\"",
 					/usr/local/include/SDL2,
@@ -685,7 +693,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/lib,
-					"\"$(SRCROOT)/../../angle/out/Release\"",
+					"\"$(SRCROOT)/../../../angle/out/Release\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

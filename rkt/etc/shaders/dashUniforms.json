@@ -81,10 +81,10 @@
 			"value": 0
 		},
 		"FX1FlowMapXOffset": {
-			"value": 0.37
+			"value": 1.08
 		},
 		"FX1FlowMapYOffset": {
-			"value": 0.19
+			"value": 0.59
 		},
 		"FX1FlowMapScrollXSpeed": {
 			"value": 10.0
@@ -93,10 +93,10 @@
 			"value": 0.0
 		},
 		"FX1FlowMapScaleXSpeed": {
-			"value": 0.38
+			"value": 0.43
 		},
 		"FX1FlowMapScaleYSpeed": {
-			"value": 0.67
+			"value": 1.00
 		},
 		"FX1ScaleX": {
 			"value": 1

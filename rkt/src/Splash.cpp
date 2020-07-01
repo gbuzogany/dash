@@ -66,7 +66,7 @@ bool Splash::update(float delta) {
     if (!animationQueue.empty()) {
         Animation *current = animationQueue.front();
         float value = current->animate(delta);
-        
+
         if (current->getId() == "fadeIn") {
             _r->setGlobalAlpha(value);
         }
@@ -100,8 +100,8 @@ void Splash::render() {
     dissolveProgram->use(_r);
     _r->setGlobalAlpha();
     
-    float width = 500;
-    float height = 500;
+    float width = 600;
+    float height = 600;
     
     _r->renderRect(WIDTH/2.0f - width/2.0f, HEIGHT/2.0f - height/2.0f, width, height, true);
 }

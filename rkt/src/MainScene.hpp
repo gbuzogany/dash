@@ -23,17 +23,17 @@ class MainScene : Scene {
     GLuint maskTex;
     GLuint FX1Tex;
     GLuint FX1FlowTex;
+    GLuint background;
     
     std::queue<Animation*> animationQueue;
     
     SpriteMap *dashIcons;
     ShaderProgram *vfxProgram;
     
-    FontWrapper *roboto;
-    FontWrapper *robotoThin;
+    FontWrapper *x4b03;
     FontWrapper *robotoSmall;
     FontWrapper *robotoMedium;
-    FontWrapper *robotoLarge;
+    FontWrapper *robotoSpeed;
     
     void createFramebuffer();
 

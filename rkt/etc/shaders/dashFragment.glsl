@@ -193,23 +193,5 @@ void main(){
 	gl_FragColor.xyz = u_xlat0.xyz;
     gl_FragColor.w = min(maxAlpha, globalAlpha);
     
-    float gaugeH = map(gaugeValue, 0.6, 1.0, 0.3, 0.85);
-    gaugeH = gaugeH < 0.3 ? 0.3 : gaugeH;
-    
-    gl_FragColor.xyz = vs_TEXCOORD0.x > gaugeH ? gl_FragColor.xyz * (1.0 - maskPixel.r) : gl_FragColor.xyz;
-    
-    float gaugeV = map(gaugeValue, 0.0, 0.3, 0.0, 0.5);
-    gaugeV = gaugeV > 0.5 ? 0.5 : gaugeV;
-    
-    gl_FragColor.xyz = 1.0 - vs_TEXCOORD0.y > gaugeV && vs_TEXCOORD0.y > 0.5 ? gl_FragColor.xyz * (1.0 - maskPixel.r) : gl_FragColor.xyz;
-    
-    float gaugeC = map(gaugeValue, 0.3, 0.6, 0.0, 0.25);
-    gaugeV = gaugeV > 0.25 ? 0.25 : gaugeV;
-    vec2 aux1 = map(vs_TEXCOORD0.xy, vec2(0.0, 1.0), vec2(1.0, 0.0), vec2(-1.0, -1.0), vec2(2.4, 1.0));
-    float angle = atan(aux1.y, aux1.x);
-    angle = map(angle, -PI, PI, 1.0, 0.0);
-    angle = angle - gaugeC;
-    angle = ceil(1.0 - 1.0 - angle);
-    
-    gl_FragColor.xyz = vs_TEXCOORD0.x < 0.3 && vs_TEXCOORD0.y < 0.5 ? gl_FragColor.xyz * (1.0 - maskPixel.r) + gl_FragColor.xyz * angle * maskPixel.r : gl_FragColor.xyz;
+    gl_FragColor.xyz = vs_TEXCOORD0.x > gaugeValue ? gl_FragColor.xyz * (1.0 - maskPixel.r) : gl_FragColor.xyz;
 }
